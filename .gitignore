@@ -1,7 +1,8 @@
 # will remove
 assets/css
 assets/js
-src/
+src/sass
+src/js
 screenshot.png
 LICENSE
 
