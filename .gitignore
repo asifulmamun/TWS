@@ -1,0 +1,18 @@
+# will remove
+assets/css
+assets/js
+src/
+screenshot.png
+LICENSE
+
+# important
+src/node_modules
+
+node_modules
+package-lock.json
+package.json
+composer.json
+
+# temp - if require
+js/*
+sass/*
