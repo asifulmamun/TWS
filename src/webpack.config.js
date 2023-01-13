@@ -1,23 +1,25 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries"); // fix js come output with css
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries'); // fix js come output with css
 
 
 module.exports = {
     watch: true,
+    devtool: "source-map",
     mode: 'development',
     // mode: 'production',
 
+
     entry: {
         // js
-        'js/app' : './js/app.js', // for entire site
-        'js/woo' : './js/woo.js', // for woo commerce
+        'js/app': ['./js/app.js'],
+        'js/woo': ['./js/woo.js'],
 
-        // sass
-        'css/app' : './sass/app.scss', // for entire site
-        'css/woo' : './sass/woo.scss' // for woo commerce
+        // css
+        'css/app': ['./sass/app.scss'],
+        'css/woo': ['./sass/woo.scss'],
     },
-    
+
 
     output: {
         filename: '[name].js',
@@ -26,8 +28,7 @@ module.exports = {
 
 
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -41,20 +42,32 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    "css-loader", // convert css to js string css
-                    "sass-loader" // convert sass to css
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        }
+                    },
                 ]
             },
         ],
     },
 
     plugins: [
-        new FixStyleOnlyEntriesPlugin(),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
+            filename: '[name].css',
+            chunkFilename: '[id].css'
         }),
+        new FixStyleOnlyEntriesPlugin(), // for remove js file extra after transpile css from scss
 
     ]
 }
