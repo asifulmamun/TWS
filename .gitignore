@@ -1,19 +1,11 @@
 # will remove
 assets/css
 assets/js
-# src/sass
-# src/js
 screenshot.png
 LICENSE
 
 # important
 src/node_modules
 
-node_modules
-package-lock.json
-package.json
-composer.json
-
 # temp - if require
 js/*
-sass/*
