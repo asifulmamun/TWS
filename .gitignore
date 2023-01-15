@@ -1,11 +1,2 @@
-# will remove
-assets/css
-assets/js
-screenshot.png
-LICENSE
-
-# important
-src/node_modules
-
 # temp - if require
 js/*

@@ -46,3 +46,8 @@
 				?>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->
+
+
+		<div class=" text-center">
+			hello
+		</div>

@@ -1,0 +1,25 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// Components
+@import "settings/colors";
+@import "components/pagination";
+@import "components/products";
+
+body{
+    background-color: blue;
+
+    a{
+        color: red;
+    }
+}
+
+
+a{
+    font-weight: 500;
+}
+
+a{
+    color: rgb(206, 93, 93);
+}
