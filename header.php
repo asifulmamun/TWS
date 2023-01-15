@@ -11,21 +11,48 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
+
+	<div class="grid grid-cols-12">
+		<div class="col-span-3">
+			<?php
+				// the_custom_logo();
+				if (is_front_page() && is_home()) :
+			?>
+				<h1>
+					<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+				</h1>
+			<?php
+				else:
+			?>
+				<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+			<?php
+				endif;
+			?>
+		</div>
+
+		<div class="col-span-4">
+				four
+		</div>
+
+		<div class="col-span-3">
+				three
+		</div>
+
+		<div class="col-span-2">
+				two
+		</div>
+	</div>
+
+
+
+
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'tws-master-pro'); ?></a>
-		<header id="masthead" class="site-header">
+		<!-- <header id="masthead" class="site-header">
 			<div class="site-branding">
 				<?php
 				the_custom_logo();
-				if (is_front_page() && is_home()) :
-				?>
-					<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-				<?php
-				else :
-				?>
-					<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-				<?php
-				endif;
+				
 				$tws_master_pro_description = get_bloginfo('description', 'display');
 				if ($tws_master_pro_description || is_customize_preview()) :
 				?>
@@ -44,10 +71,5 @@
 					)
 				);
 				?>
-			</nav><!-- #site-navigation -->
-		</header><!-- #masthead -->
-
-
-		<div class=" text-center">
-			hello
-		</div>
+			</nav>
+		</header> -->

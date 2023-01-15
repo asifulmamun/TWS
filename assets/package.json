@@ -2,7 +2,7 @@
 	"name": "tws-master-pro",
 	"version": "1.0.0",
 	"description": "This is wordpress theme, It is for Tawakkulshop.com but, anyone can use it by owner permission with purchase or owner gift. It was build in 2022.",
-	"main": "main.js",
+	"main": "app.js",
 	"scripts": {
 		"build": "cross-env NODE_ENV=production webpack --mode production --progress",
 		"dev": "cross-env NODE_ENV=development webpack --watch --mode development --progress",

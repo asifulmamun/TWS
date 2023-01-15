@@ -1,3 +1,3 @@
-import '../sass/main.scss';
+import '../sass/app.scss';
 
 import './components/menu';
