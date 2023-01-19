@@ -1,15 +1,15 @@
+// Header part start
 header{
     overflow: hidden;
     background: $color__secondary;
     align-items: center;
 
-    
-    // all of svg in header same color
+    // All of svg in header same color
     svg{
         fill: $color__txt_secondary;
     }
 
-    // site branding or site
+    // Site branding or site
     .tws__site_branding{
 
         
@@ -18,12 +18,11 @@ header{
             border-color: $color__txt_secondary;
         }
 
-        // title of site
+        // Title of site
         h1.tws__site_title{
             
             a{
                 padding-left: 0.35rem;
-                
                 color: $color__txt_primary;
                 font-size: 1.2rem;
                 font-weight: 800;
@@ -32,21 +31,23 @@ header{
         } 
     }
 
-
+    // Search Box
     .tws__search_box{
         
         overflow: hidden;
 
-        // logo
+        // Logo
         .tws__search_box_logo{
         
             transition: .5s;
             
+            // Logo image style
             img{
                 max-width: 3.9rem;
             }
         }
 
+        // Search form
         input[type=search]{
             outline: none;
             padding-left: 5.5rem;
@@ -65,17 +66,60 @@ header{
         }
     }
 
-
+    // Right side bar
     .tws__right_bar{
         justify-items: end;
 
+
+        // Quick Menu
+        ul#quick-menu{
+            
+            display: flex;
+
+            li{
+                border-right: .15rem solid $color__txt_primary;
+                padding-right: 10px;
+                padding-left: 10px;
+
+                &:first-child{
+                    padding-left: inherit;
+                }
+
+                &:last-child{
+                    border-right: inherit;
+                    padding-right: inherit;
+                }
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.2rem;
+                    color: $color__txt_primary;
+                    
+
+                    svg{
+                        fill: $color__txt_primary;
+                    }
+                
+                }
+            }
+        }
+
+        // Right side Single Menu
         .tws__single_menu{
-            // position: absolute;
-            // top: 0;
-            // right: 0;
-            background: red;
-            // height: 100%;
+            background: $color__bg_optional;
+            
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row-reverse;
+                color: $color__txt_optional;
+
+                svg{
+                    fill: $color__txt_optional;
+                }
+            }
         }
     }
-
-}
+} // Header part end
