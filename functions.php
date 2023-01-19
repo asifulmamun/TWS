@@ -53,6 +53,13 @@ function tws_master_pro_setup() {
 		)
 	);
 
+	// Quick Menu
+	register_nav_menus(
+		array(
+			'quick-menu' => esc_html__( 'Quick Menu', 'tws-master-pro' ),
+		)
+	);
+
 	/*
 		* Switch default core markup for search form, comment form, and comments
 		* to output valid HTML5.

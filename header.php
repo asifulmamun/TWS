@@ -16,8 +16,9 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
+	<!-- Header -->
 	<header class="relative grid grid-cols-10 py-1">
-
+		<!-- Left Bar start -->
 		<div class="col-span-2 flex tws__site_branding">
 			<button class="border p-1 ml-2">
 				<svg class="h-5 w-5" viewBox="0 0 20 20">
@@ -37,7 +38,8 @@
 				<?php endif;?>
 			</h1>
 		</div>
-
+		<!-- Left Bar end -->
+		<!-- Middle Bar start -->
 		<div class="col-span-4">
 			<div class="relative rounded-md tws__search_box">
 				<div class="absolute inset-y-0 left-2 flex items-center tws__search_box_logo">
@@ -57,24 +59,25 @@
 				</button>
 			</div>
 		</div>
-
-		<div class="col-span-4 grid grid-cols-5 tws__right_bar">
+		<!-- Middle Bar end -->
+		<!-- Right bar start -->
+		<div class="col-span-4 grid grid-cols-6 tws__right_bar">
 			<div class="col-span-4 flex">
-				<a class="flex" href="tel:+8801600103032">
-					<svg width="28" height="26" viewBox="0 0 28 26" fill="none"><path d="M26.8964 1.70173L21.3846 0.529855C20.7857 0.402902 20.171 0.690988 19.9272 1.20857L17.3833 6.67732C17.1607 7.15583 17.3091 7.71736 17.749 8.0445L20.9606 10.4664C19.0527 14.2115 15.7192 17.3267 11.5694 19.1187L8.94076 16.1597C8.58037 15.7545 7.9762 15.6177 7.45682 15.8228L1.52108 18.1666C0.954008 18.3961 0.641322 18.9625 0.779116 19.5142L2.05106 24.5924C2.18355 25.1197 2.69233 25.5006 3.29121 25.5006C16.8639 25.5006 27.8821 15.3687 27.8821 2.84431C27.8821 2.29743 27.474 1.8238 26.8964 1.70173Z"/></svg>&nbsp;&nbsp;<span>+880&nbsp;1600&nbsp;10&nbsp;30&nbsp;32</span>
-				</a>&nbsp;|&nbsp;<a href="/help">হেল্প?</a>
+				<?php wp_nav_menu(array('theme_location' => 'quick-menu', 'menu_id' => 'quick-menu')); // Quick menu print ?>
 			</div>
-			<div class="col-span-1 absolute inset-y-0 right-0 flex items-center tws__single_menu">
+			<div class="col-span-2 absolute inset-y-0 right-0 flex items-center px-3.5 tws__single_menu">
 				<?php if(is_user_logged_in()):?>
-					<a href="/dashboard">Cart</a>
+					<a href="/dashboard">কার্ট</a>
 				<?php else: ?>
-					<a href="/dashboard">Login</a>
+					<a href="/dashboard"><svg width="29" height="33" viewBox="0 0 29 33" fill="none"><path d="M14.3824 12.5C17.5387 12.5 20.0967 9.81406 20.0967 6.5C20.0967 3.18594 17.5387 0.5 14.3824 0.5C11.2262 0.5 8.66816 3.18594 8.66816 6.5C8.66816 9.81406 11.2262 12.5 14.3824 12.5ZM18.3824 14H17.6369C16.6458 14.4781 15.5432 14.75 14.3824 14.75C13.2217 14.75 12.1235 14.4781 11.128 14H10.3824C7.06995 14 4.38245 16.8219 4.38245 20.3V22.25C4.38245 23.4922 5.34227 24.5 6.5253 24.5H22.2396C23.4226 24.5 24.3824 23.4922 24.3824 22.25V20.3C24.3824 16.8219 21.6949 14 18.3824 14Z"/></svg>&nbsp;<span>লগইন</span></a>
 				<?php endif; ?>
 			</div>
 		</div>
+		<!-- Right bar end -->
 	</header>
+	<!-- Header -->
 
-
+	
 
 
 	<div id="page" class="site">
@@ -95,12 +98,12 @@
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="true"><?php esc_html_e('Primary Menu', 'tws-master-pro'); ?></button>
 			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
+			// wp_nav_menu(
+			// 	array(
+			// 		'theme_location' => 'menu-1',
+			// 		'menu_id'        => 'primary-menu',
+			// 	)
+			// );
 			?>
 		</nav>
 		</header> -->
