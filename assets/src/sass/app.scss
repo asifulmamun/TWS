@@ -1,9 +1,17 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+// @import "tailwindcss/base";
+// @import "tailwindcss/components";
+// @import "tailwindcss/utilities";
+
+// Abrstract
+@import "./abstract/variables";
+@import "./abstract/colors";
+
+// Global
+@import "./components/header";
+@import "./components/footer";
 
 // Components
-@import "settings/colors";
-@import "components/pagination";
-@import "components/products";
+// @import "components/pagination";
+// @import "components/products";
 
+// 
