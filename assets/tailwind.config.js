@@ -3,7 +3,7 @@ module.exports = {
     // Paths to your templates...
     "../**.php",
     "../**/**.php",
-    "./src/js/**.js"
+    // "./src/js/**.js"
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {

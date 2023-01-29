@@ -13,7 +13,8 @@ $isAndroid = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "android
 $isIPhone = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "iphone")); 
 $isIPad = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "ipad")); 
 $isIOS = $isIPhone || $isIPad; 
- 
+
+
 if($isMob){ 
     if($isTab){ 
         echo 'Using Tablet Device...'; 
@@ -26,12 +27,12 @@ if($isMob){
     echo 'Using Desktop...'; 
 } 
 
-if($isIOS){ 
-    echo 'iOS'; 
-}elseif($isAndroid){ 
-    echo 'ANDROID'; 
-}elseif($isWin){ 
-    echo 'WINDOWS'; 
-}
+    if($isIOS){ 
+        echo 'iOS'; 
+    }elseif($isAndroid){ 
+        echo 'ANDROID'; 
+    }elseif($isWin){ 
+        echo 'WINDOWS'; 
+    }
 
 ?>

@@ -71,7 +71,7 @@ const rules = [
         publicPath: 'production' === process.env.NODE_ENV ? '../' : '../../'
       }
     }
-  }
+  },
 ]
 
 /**

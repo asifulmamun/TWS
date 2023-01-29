@@ -1,13 +1,18 @@
-// @import "tailwindcss/base";
-// @import "tailwindcss/components";
-// @import "tailwindcss/utilities";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 // Abrstract
 @import "./abstract/variables";
 @import "./abstract/colors";
+@import "./abstract/fonts";
+@import "./abstract/mixins";
 
-// Global
+// Global of conent
+@import "./abstract/global";
+
 @import "./components/header";
+@import "./components/page_with_aside";
 @import "./components/footer";
 
 // Components
