@@ -71,7 +71,7 @@
 	<?php echo tws__css_js('css'); ?>
 
 	<!-- remove after developed -->
-	<script src="/tailwindcss.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/assets/src/js/tailwindcss.js"></script>
 	
 	<?php wp_head(); ?>
 </head>
