@@ -1,6 +1,6 @@
 <header class="fixed top-0 left-0 right-0 z-50 grid grid-cols-10 py-.5">
     <div class="col-span-2 flex tws__site_branding">
-        <button class="border p-1 ml-2">
+        <button id="toggle_primary_menu" class="border p-1 ml-2">
             <svg class="h-5 w-5" viewBox="0 0 20 20">
                 <title>Menu</title>
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
