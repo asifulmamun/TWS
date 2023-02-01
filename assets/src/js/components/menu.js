@@ -30,18 +30,24 @@ function getCookie(cname) {
 // Sidebar Nav expendable
 const main_menu_ul = document.getElementById('primary_menu'); // primary menu id select
 for (var i = 1; i <= main_menu_ul.childElementCount; i++) {
-    if (main_menu_ul.getElementsByClassName(`tws__nav_li_${i}`).length == 1) {
-        tws__open_submenu(`tws__nav_li_${i}`);
 
-        if(getCookie(`tws__nav_li_${i}`) != "" ){
-            main_menu_ul.getElementsByClassName(`tws__nav_li_${i}`)[0].getElementsByClassName('sub-menu')[0].style.display = 'block';
-        }else{
-            main_menu_ul.getElementsByClassName(`tws__nav_li_${i}`)[0].getElementsByClassName('sub-menu')[0].style.display = 'none';
-        }
+    // Check if the selector exist
+    if (main_menu_ul.getElementsByClassName(`tws__nav_li_${i}`).length == 1) {
+
+        tws__loop_all_nav_li(`tws__nav_li_${i}`);
+
     }
 }
 // After click menu class action to here - opening sub menu
-function tws__open_submenu(tws__nav_class_name) {
+function tws__loop_all_nav_li(tws__nav_class_name) {
+
+    // Default - after refresh check, if has any cookies menu will open otherwise close
+    if(getCookie(tws__nav_class_name) != "" ){
+        main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].getElementsByClassName('sub-menu')[0].style.display = 'block';
+    }else{
+        main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].getElementsByClassName('sub-menu')[0].style.display = 'none';
+    }
+
     main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].addEventListener('click', function tws_aleart() {
         if(getCookie(tws__nav_class_name) != ""){
             setCookie(tws__nav_class_name, tws__nav_class_name, 0);
