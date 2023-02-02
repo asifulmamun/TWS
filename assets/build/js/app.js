@@ -111,6 +111,21 @@ function tws__loop_all_nav_li(tws__nav_class_name, menu_numb) {
   } // oepn sub-menu
 } // Looping with li
 
+// Toggle
+var toggle_primary_menu = document.getElementById('toggle_primary_menu');
+var aside = document.getElementById('aside');
+var tws__page_with_aside = document.getElementById('tws__page_with_aside');
+toggle_primary_menu.addEventListener('click', function (event) {
+  // aside/page action by toggle
+  if (aside.style.left == '-300px') {
+    aside.style.left = '0';
+    tws__page_with_aside.style.marginLeft = '220px';
+  } else {
+    aside.style.left = '-300px';
+    tws__page_with_aside.style.marginLeft = '0px';
+  }
+});
+
 /***/ }),
 
 /***/ "./src/sass/app.scss":
