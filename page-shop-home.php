@@ -64,6 +64,11 @@
 			<li>lkfdjlfj</li>
 			<li>lkfdjlfj</li>
 		</ul>
+		<div class="grid grid-cols-4 fixed bottom-0 left-0 z-10 border-t tws__quick_access_menu">
+			<nav class="col-span-4 flex">
+				<?php wp_nav_menu(array('theme_location' => 'quick-access-menu', 'menu_id' => 'quick-access-menu')); // Quick menu print ?>
+			</nav>
+		</div>
     </aside>
     <main id="main" class="w-full">
 

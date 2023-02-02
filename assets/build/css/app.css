@@ -127,6 +127,7 @@ header .tws__right_bar .tws__single_menu a svg {
 
 #tws__page_with_aside aside {
   width: 220px;
+  padding-bottom: 2.25rem;
   height: calc(100% - 55px);
   background-color: #fafafa;
   /* width */
@@ -152,7 +153,7 @@ header .tws__right_bar .tws__single_menu a svg {
 }
 
 #tws__page_with_aside aside nav#site-navigation {
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 
 #tws__page_with_aside aside nav#site-navigation ul#primary_menu li a {
@@ -162,6 +163,41 @@ header .tws__right_bar .tws__single_menu a svg {
 #tws__page_with_aside aside nav#site-navigation ul#primary_menu li ul {
   padding-left: .5rem;
   display: none;
+}
+
+#tws__page_with_aside aside .tws__quick_access_menu {
+  max-width: calc(220px - 4px);
+  max-height: 2rem;
+  overflow: hidden;
+}
+
+#tws__page_with_aside aside .tws__quick_access_menu ul#quick-access-menu {
+  display: flex;
+}
+
+#tws__page_with_aside aside .tws__quick_access_menu ul#quick-access-menu li {
+  border-right: 0.15rem solid #333;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#tws__page_with_aside aside .tws__quick_access_menu ul#quick-access-menu li:first-child {
+  padding-left: inherit;
+}
+
+#tws__page_with_aside aside .tws__quick_access_menu ul#quick-access-menu li:last-child {
+  border-right: inherit;
+  padding-right: inherit;
+}
+
+#tws__page_with_aside aside .tws__quick_access_menu ul#quick-access-menu li a {
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+#tws__page_with_aside aside .tws__quick_access_menu ul#quick-access-menu li a svg {
+  fill: #333;
 }
 
 

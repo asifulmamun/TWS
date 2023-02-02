@@ -1,60 +1,58 @@
-// set cookies
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-// get cookies
-function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-
-// toogle menu
-
-
-
-
 // Sidebar Nav expendable
 const main_menu_ul = document.getElementById('primary_menu'); // primary menu id select
-for (var i = 1; i <= main_menu_ul.childElementCount; i++) {
 
+// General loop for run menu
+for (var i = 1; i <= main_menu_ul.childElementCount; i++) {
     // Check if the selector exist
     if (main_menu_ul.getElementsByClassName(`tws__nav_li_${i}`).length == 1) {
-
-        tws__loop_all_nav_li(`tws__nav_li_${i}`);
-
+        tws__loop_all_nav_li(`tws__nav_li_${i}`, i);
     }
 }
-// After click menu class action to here - opening sub menu
-function tws__loop_all_nav_li(tws__nav_class_name) {
 
-    // Default - after refresh check, if has any cookies menu will open otherwise close
-    if(getCookie(tws__nav_class_name) != "" ){
-        main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].getElementsByClassName('sub-menu')[0].style.display = 'block';
-    }else{
-        main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].getElementsByClassName('sub-menu')[0].style.display = 'none';
+// Nav close exclud without selected
+function close_all_sub_menu(exclude){
+    for (let i = 1; i <= main_menu_ul.childElementCount; i++) {
+        if(i===exclude){continue;}// exclude selected from loop
+        // Check if the selector exist
+        if (main_menu_ul.getElementsByClassName(`tws__nav_li_${i}`).length == 1) {
+            document.getElementById(`tws__nav_li_${i}_sub`).style.display = 'none';
+            document.getElementById(`tws__nav_li_${i}_icon`).setAttribute('style', '-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg);');
+        }
     }
-
-    main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].addEventListener('click', function tws_aleart() {
-        if(getCookie(tws__nav_class_name) != ""){
-            setCookie(tws__nav_class_name, tws__nav_class_name, 0);
-            main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].getElementsByClassName('sub-menu')[0].style.display = 'none';
-        }else{
-            setCookie(tws__nav_class_name, tws__nav_class_name, 1);
-            main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].getElementsByClassName('sub-menu')[0].style.display = 'block';
-        }    
-    });
 }
+
+// Looping with li
+function tws__loop_all_nav_li(tws__nav_class_name, menu_numb) {
+
+    // Create Child Node for icon
+    let i = document.createElement('i');
+    i.setAttribute('id', `${tws__nav_class_name}_icon`);
+    main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].appendChild(i);
+    main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].classList.add('relative');
+    document.getElementById(`${tws__nav_class_name}_icon`).innerHTML = `›`;
+    // Create an ID in sub-menu
+    main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].getElementsByClassName('sub-menu')[0].setAttribute('id', `${tws__nav_class_name}_sub`);
+    // Create child as style element
+    let style = document.createElement('style');
+    let styleCss = `#${tws__nav_class_name}_icon{position:absolute;top:0;right:.5rem;font-style:normal;cursor:pointer;}`;
+    style.innerHTML = styleCss;
+    main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].appendChild(style);
+
+
+    // After click the li - open the sub-menu
+    if(main_menu_ul.getElementsByClassName(tws__nav_class_name).length == 1){
+        main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].addEventListener('click', open_sub_menu); 
+    }
+    
+    // oepn sub-menu
+    function open_sub_menu() {
+        
+        // All submenu close without selected
+        close_all_sub_menu(menu_numb);
+
+        if(main_menu_ul.getElementsByClassName(tws__nav_class_name).length == 1){
+            document.getElementById(`${tws__nav_class_name}_sub`).style.display = 'block';
+            document.getElementById(`${tws__nav_class_name}_icon`).setAttribute('style', '-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);');
+        }
+    }
+} // Looping with li

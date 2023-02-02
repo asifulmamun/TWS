@@ -4,10 +4,10 @@
 
     aside{
 
-        width: 220px;
+        width: $aside_width;
+        padding-bottom: 2.25rem;
         height: calc(100% - 55px);
         background-color: $color__bg_secondary;
-
 
         /* width */
         &::-webkit-scrollbar {
@@ -28,11 +28,11 @@
         &::-webkit-scrollbar-thumb:hover {
             background: blue; 
         }
-        
 
+        // aside primary nav
         nav#site-navigation{
 
-            font-size: .75rem;
+            font-size: $aside_nav_font_size;
 
 
             ul#primary_menu{
@@ -54,6 +54,46 @@
                             // display: block;
                         }
                         
+                    }
+                }
+            }
+        }
+
+        // Quick access nav
+        .tws__quick_access_menu{
+            max-width: calc(#{$aside_width} - 4px);
+            max-height: 2rem;
+            overflow: hidden;
+
+            // Quick Menu
+            ul#quick-access-menu{
+                display: flex;
+    
+                li{
+                    border-right: .15rem solid $color__txt_primary;
+                    padding-right: 10px;
+                    padding-left: 10px;
+    
+                    &:first-child{
+                        padding-left: inherit;
+                    }
+    
+                    &:last-child{
+                        border-right: inherit;
+                        padding-right: inherit;
+                    }
+    
+                    a{
+                        display: flex;
+                        align-items: center;
+                        // font-size: ;
+                        color: $color__txt_primary;
+                        
+    
+                        svg{
+                            fill: $color__txt_primary;
+                        }
+                    
                     }
                 }
             }
