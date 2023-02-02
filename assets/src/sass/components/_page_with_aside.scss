@@ -61,8 +61,10 @@
 
         // Quick access nav
         .tws__quick_access_menu{
+            width: 100%;
             max-width: calc(#{$aside_width} - 4px);
             max-height: 2rem;
+            background: $color__secondary;
             overflow: hidden;
 
             // Quick Menu

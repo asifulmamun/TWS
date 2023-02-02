@@ -166,8 +166,10 @@ header .tws__right_bar .tws__single_menu a svg {
 }
 
 #tws__page_with_aside aside .tws__quick_access_menu {
+  width: 100%;
   max-width: calc(220px - 4px);
   max-height: 2rem;
+  background: #ffbd88;
   overflow: hidden;
 }
 
