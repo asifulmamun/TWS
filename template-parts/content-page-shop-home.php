@@ -1,51 +1,19 @@
-<?php
-/**
- * Template part for displaying page content in page.php
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package TWS_Master_Pro
- */
-
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-	<?php tws_master_pro_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-		the_content();
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'tws-master-pro' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'tws-master-pro' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				),
-				'<span class="edit-link">',
-				'</span>'
+<ul class="products grid grid-cols-5 gap-5 border-3">
+	<?php
+		$args = array(
+			'post_type' => 'product',
+			'posts_per_page' => 12
 			);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+		$loop = new WP_Query( $args );
+		if ( $loop->have_posts() ) {
+			while ( $loop->have_posts() ) : $loop->the_post();
+
+				wc_get_template_part( 'content', 'product' );
+				
+			endwhile;
+		} else {
+			echo __( 'No products found' );
+		}
+		wp_reset_postdata();
+	?>
+</ul>

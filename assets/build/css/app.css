@@ -5,6 +5,14 @@ body {
   font-size: 0.8rem;
 }
 
+aside {
+  transition: .3s;
+}
+
+main {
+  transition: .5s;
+}
+
 header {
   height: 55px;
   overflow: hidden;
