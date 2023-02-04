@@ -1,1 +1,253 @@
-!function(){var n={278:function(){function a(t,e,n){var o=new Date,n=(o.setTime(o.getTime()+24*n*60*60*1e3),"expires="+o.toUTCString());document.cookie=t+"="+e+";"+n+";path=/"}for(var r=document.getElementById("primary_menu"),t=1;t<=r.childElementCount;t++)1==r.getElementsByClassName("tws__nav_li_".concat(t)).length&&!function(t,e){var n=document.createElement("i"),n=(n.setAttribute("id","".concat(t,"_icon")),r.getElementsByClassName(t)[0].appendChild(n),r.getElementsByClassName(t)[0].classList.add("relative"),document.getElementById("".concat(t,"_icon")).innerHTML="›",r.getElementsByClassName(t)[0].getElementsByClassName("sub-menu")[0].setAttribute("id","".concat(t,"_sub")),document.createElement("style")),o="#".concat(t,"_icon{position:absolute;top:0;right:.5rem;font-style:normal;cursor:pointer;}");n.innerHTML=o,r.getElementsByClassName(t)[0].appendChild(n),""!=function(t){for(var e=t+"=",n=document.cookie.split(";"),o=0;o<n.length;o++){for(var a=n[o];" "==a.charAt(0);)a=a.substring(1);if(0==a.indexOf(e))return a.substring(e.length,a.length)}return""}("".concat(t,"_sub"))?(document.getElementById("".concat(t,"_sub")).style.display="block",document.getElementById("".concat(t,"_icon")).setAttribute("style","-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);")):document.getElementById("".concat(t,"_sub")).style.display="none";1==r.getElementsByClassName(t).length&&r.getElementsByClassName(t)[0].addEventListener("click",function(){(function(t){for(var e=1;e<=r.childElementCount;e++)e!==t&&1==r.getElementsByClassName("tws__nav_li_".concat(e)).length&&(a("tws__nav_li_".concat(e,"_sub"),"none",0),document.getElementById("tws__nav_li_".concat(e,"_sub")).style.display="none",document.getElementById("tws__nav_li_".concat(e,"_icon")).setAttribute("style","-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg);"))})(e),1==r.getElementsByClassName(t).length&&(a("".concat(t,"_sub"),"block",1),document.getElementById("".concat(t,"_sub")).style.display="block",document.getElementById("".concat(t,"_icon")).setAttribute("style","-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);"))})}("tws__nav_li_".concat(t),t)},472:function(){var t=document.getElementById("toggle_primary_menu"),e=document.getElementById("aside"),n=document.getElementById("tws__page_with_aside");e.style.left="0",n.style.marginLeft="220px",t.addEventListener("click",function(t){"-300px"==e.style.left?(e.style.left="0",n.style.marginLeft="220px"):(e.style.left="-300px",n.style.marginLeft="0px")})}},o={};function a(t){var e=o[t];return void 0!==e||(e=o[t]={exports:{}},n[t](e,e.exports,a)),e.exports}a.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return a.d(e,{a:e}),e},a.d=function(t,e){for(var n in e)a.o(e,n)&&!a.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:e[n]})},a.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)};!function(){"use strict";a(472),a(278)}()}();
+/******/ (function() { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/js/abstract/global.js":
+/*!***********************************!*\
+  !*** ./src/js/abstract/global.js ***!
+  \***********************************/
+/***/ (function() {
+
+/* 
+    Cookies
+ */
+
+/***/ }),
+
+/***/ "./src/js/components/aside.js":
+/*!************************************!*\
+  !*** ./src/js/components/aside.js ***!
+  \************************************/
+/***/ (function() {
+
+// set cookies
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+// get cookies
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for (var _i = 0; _i < ca.length; _i++) {
+    var c = ca[_i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+// Sidebar Nav expendable
+var main_menu_ul = document.getElementById('primary_menu'); // primary menu id select
+
+// General loop for run menu
+for (var i = 1; i <= main_menu_ul.childElementCount; i++) {
+  // Check if the selector exist
+  if (main_menu_ul.getElementsByClassName("tws__nav_li_".concat(i)).length == 1) {
+    tws__loop_all_nav_li("tws__nav_li_".concat(i), i);
+  }
+} // General loop for run menu
+
+// Nav close exclud without selected
+function close_all_sub_menu(exclude) {
+  for (var _i2 = 1; _i2 <= main_menu_ul.childElementCount; _i2++) {
+    if (_i2 === exclude) {
+      continue;
+    } // exclude selected from loop
+    // Check if the selector exist
+    if (main_menu_ul.getElementsByClassName("tws__nav_li_".concat(_i2)).length == 1) {
+      // all sub-menu close by default after refresh
+      setCookie("tws__nav_li_".concat(_i2, "_sub"), 'none', 0);
+      document.getElementById("tws__nav_li_".concat(_i2, "_sub")).style.display = 'none';
+      document.getElementById("tws__nav_li_".concat(_i2, "_icon")).setAttribute('style', '-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg);');
+    } // condition
+  } // for loop
+} // Nav close exclud without selected
+
+// Looping with li
+function tws__loop_all_nav_li(tws__nav_class_name, menu_numb) {
+  // Create Child Node for icon
+  var i = document.createElement('i');
+  i.setAttribute('id', "".concat(tws__nav_class_name, "_icon"));
+  main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].appendChild(i);
+  main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].classList.add('relative');
+  document.getElementById("".concat(tws__nav_class_name, "_icon")).innerHTML = "\u203A";
+  // Create an ID in sub-menu
+  main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].getElementsByClassName('sub-menu')[0].setAttribute('id', "".concat(tws__nav_class_name, "_sub"));
+  // Create child as style element
+  var style = document.createElement('style');
+  var styleCss = "#".concat(tws__nav_class_name, "_icon{position:absolute;top:0;right:.5rem;font-style:normal;cursor:pointer;}");
+  style.innerHTML = styleCss;
+  main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].appendChild(style);
+
+  // by default sub menu open or close with cookie
+  if (getCookie("".concat(tws__nav_class_name, "_sub")) != "") {
+    document.getElementById("".concat(tws__nav_class_name, "_sub")).style.display = 'block';
+    document.getElementById("".concat(tws__nav_class_name, "_icon")).setAttribute('style', '-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);');
+  } else {
+    document.getElementById("".concat(tws__nav_class_name, "_sub")).style.display = 'none';
+  } // by default sub menu open or close with cookie
+
+  // After click the li - open the sub-menu
+  if (main_menu_ul.getElementsByClassName(tws__nav_class_name).length == 1) {
+    main_menu_ul.getElementsByClassName(tws__nav_class_name)[0].addEventListener('click', open_sub_menu);
+  } // After click the li - open the sub-menu
+
+  // oepn sub-menu
+  function open_sub_menu() {
+    // All submenu close without selected
+    close_all_sub_menu(menu_numb);
+    if (main_menu_ul.getElementsByClassName(tws__nav_class_name).length == 1) {
+      // sub-menu open by default after refresh
+      setCookie("".concat(tws__nav_class_name, "_sub"), 'block', 1);
+      document.getElementById("".concat(tws__nav_class_name, "_sub")).style.display = 'block';
+      document.getElementById("".concat(tws__nav_class_name, "_icon")).setAttribute('style', '-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);');
+    }
+  } // oepn sub-menu
+} // Looping with li
+
+/***/ }),
+
+/***/ "./src/js/components/toggle.js":
+/*!*************************************!*\
+  !*** ./src/js/components/toggle.js ***!
+  \*************************************/
+/***/ (function() {
+
+// Toggle
+var toggle_primary_menu = document.getElementById('toggle_primary_menu');
+var aside = document.getElementById('aside');
+var tws__page_with_aside = document.getElementById('tws__page_with_aside');
+
+// default
+aside.style.left = '0';
+tws__page_with_aside.style.marginLeft = '220px';
+
+// aftr click
+toggle_primary_menu.addEventListener('click', function (event) {
+  // aside/page action by toggle
+  if (aside.style.left == '-300px') {
+    aside.style.left = '0';
+    tws__page_with_aside.style.marginLeft = '220px';
+  } else {
+    aside.style.left = '-300px';
+    tws__page_with_aside.style.marginLeft = '0px';
+  }
+});
+
+/***/ }),
+
+/***/ "./src/sass/page-shop-home.php.scss":
+/*!******************************************!*\
+  !*** ./src/sass/page-shop-home.php.scss ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+!function() {
+"use strict";
+/*!**************************************!*\
+  !*** ./src/js/page-shop-home.php.js ***!
+  \**************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _sass_page_shop_home_php_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/page-shop-home.php.scss */ "./src/sass/page-shop-home.php.scss");
+/* harmony import */ var _abstract_global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./abstract/global */ "./src/js/abstract/global.js");
+/* harmony import */ var _abstract_global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_abstract_global__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_toggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/toggle */ "./src/js/components/toggle.js");
+/* harmony import */ var _components_toggle__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_toggle__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_aside__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/aside */ "./src/js/components/aside.js");
+/* harmony import */ var _components_aside__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_aside__WEBPACK_IMPORTED_MODULE_3__);
+// sass
+
+
+// global js
+
+
+// components
+
+
+}();
+/******/ })()
+;
+//# sourceMappingURL=page-shop-home.php.js.map

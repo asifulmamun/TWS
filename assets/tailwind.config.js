@@ -17,8 +17,8 @@ if(1 == page){
       './../template-parts/desktop/global/aside.php',
       
       './../page-shop-home.php',
-        './../template-parts/desktop/content-page-shop-home.php',
-      
+        './../woocommerce/loop/loop-start.php',
+
       './../footer.php',
     );
 

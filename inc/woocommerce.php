@@ -42,24 +42,24 @@ add_action( 'after_setup_theme', 'tws_master_pro_woocommerce_setup' );
  *
  * @return void
  */
-// function tws_master_pro_woocommerce_scripts() {
-// 	wp_enqueue_style( 'tws-master-pro-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), _S_VERSION );
+function tws_master_pro_woocommerce_scripts() {
+	wp_enqueue_style( 'tws-master-pro-woocommerce-style', get_template_directory_uri() . '/assets/build/css/woo.css', array(), _S_VERSION );
 
-// 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
-// 	$inline_font = '@font-face {
-// 			font-family: "star";
-// 			src: url("' . $font_path . 'star.eot");
-// 			src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
-// 				url("' . $font_path . 'star.woff") format("woff"),
-// 				url("' . $font_path . 'star.ttf") format("truetype"),
-// 				url("' . $font_path . 'star.svg#star") format("svg");
-// 			font-weight: normal;
-// 			font-style: normal;
-// 		}';
+	$font_path   = WC()->plugin_url() . '/assets/fonts/';
+	$inline_font = '@font-face {
+			font-family: "star";
+			src: url("' . $font_path . 'star.eot");
+			src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
+				url("' . $font_path . 'star.woff") format("woff"),
+				url("' . $font_path . 'star.ttf") format("truetype"),
+				url("' . $font_path . 'star.svg#star") format("svg");
+			font-weight: normal;
+			font-style: normal;
+		}';
 
-// 	wp_add_inline_style( 'tws-master-pro-woocommerce-style', $inline_font );
-// }
-// add_action( 'wp_enqueue_scripts', 'tws_master_pro_woocommerce_scripts' );
+	wp_add_inline_style( 'tws-master-pro-woocommerce-style', $inline_font );
+}
+add_action( 'wp_enqueue_scripts', 'tws_master_pro_woocommerce_scripts' );
 
 /**
  * Disable the default WooCommerce stylesheet.
@@ -105,40 +105,40 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 /**
  * Remove default WooCommerce wrapper.
  */
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+// remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+// remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
-if ( ! function_exists( 'tws_master_pro_woocommerce_wrapper_before' ) ) {
-	/**
-	 * Before Content.
-	 *
-	 * Wraps all WooCommerce content in wrappers which match the theme markup.
-	 *
-	 * @return void
-	 */
-	function tws_master_pro_woocommerce_wrapper_before() {
-		?>
-			<main id="primary" class="site-main">
-		<?php
-	}
-}
-add_action( 'woocommerce_before_main_content', 'tws_master_pro_woocommerce_wrapper_before' );
+// if ( ! function_exists( 'tws_master_pro_woocommerce_wrapper_before' ) ) {
+// 	/**
+// 	 * Before Content.
+// 	 *
+// 	 * Wraps all WooCommerce content in wrappers which match the theme markup.
+// 	 *
+// 	 * @return void
+// 	 */
+// 	function tws_master_pro_woocommerce_wrapper_before() {
+?>
+<!-- // 			<main id="primary" class="site-main"> -->
+<?php
+// 	}
+// }
+// add_action( 'woocommerce_before_main_content', 'tws_master_pro_woocommerce_wrapper_before' );
 
-if ( ! function_exists( 'tws_master_pro_woocommerce_wrapper_after' ) ) {
-	/**
-	 * After Content.
-	 *
-	 * Closes the wrapping divs.
-	 *
-	 * @return void
-	 */
-	function tws_master_pro_woocommerce_wrapper_after() {
-		?>
-			</main><!-- #main -->
-		<?php
-	}
-}
-add_action( 'woocommerce_after_main_content', 'tws_master_pro_woocommerce_wrapper_after' );
+// if ( ! function_exists( 'tws_master_pro_woocommerce_wrapper_after' ) ) {
+// 	/**
+// 	 * After Content.
+// 	 *
+// 	 * Closes the wrapping divs.
+// 	 *
+// 	 * @return void
+// 	 */
+// 	function tws_master_pro_woocommerce_wrapper_after() {
+?>
+<!-- // 			</main>#main -->
+<?php
+// 	}
+// }
+// add_action( 'woocommerce_after_main_content', 'tws_master_pro_woocommerce_wrapper_after' );
 
 /**
  * Sample implementation of the WooCommerce Mini Cart.
@@ -224,4 +224,25 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
 		</ul>
 		<?php
 	}
+}
+
+
+
+
+
+
+
+
+/**
+ * Override loop template and show quantities next to add to cart buttons
+ */
+add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
+function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
+	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
+		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
+		$html .= woocommerce_quantity_input( array(), $product, false );
+		$html .= '<button type="submit" class="button alt">' . esc_html( $product->add_to_cart_text() ) . '</button>';
+		$html .= '</form>';
+	}
+	return $html;
 }

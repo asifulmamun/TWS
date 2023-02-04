@@ -1,6 +1,6 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+// @import "tailwindcss/base";
+// @import "tailwindcss/components";
+// @import "tailwindcss/utilities";
 
 // Abrstract
 @import "./abstract/variables";
@@ -16,7 +16,7 @@
 @import "./components/footer";
 
 // Components
-// @import "components/pagination";
+@import "components/pagination";
 // @import "components/products";
 
 
@@ -26,5 +26,9 @@
 
     main{
         padding: 1.25rem 1.25rem;
+
+        .columns-4{
+            all: unset !important;
+        }
     }
 }

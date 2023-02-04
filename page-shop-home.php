@@ -7,7 +7,7 @@
  */
 
 	// Header file
-	if ( get_page_template_slug() == 'page-shop-home.php' ) : get_header();endif;
+	get_header();
 ?>
 
 

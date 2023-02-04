@@ -1,15 +1,15 @@
-// .pagination {
-// 	.page-numbers {
-// 		display: block;
-// 		padding: .5rem .75rem;
-// 		margin: 0 1px;
-// 		line-height: 1.25;
+nav.woocommerce-pagination{
+    ul{
+        display: flex;
+        flex-direction: row;
 
-// 		&.current,
-// 		&:hover {
-// 			color: $white;
-// 			background-color: $gray-dark-secondary;
-// 			border-color: $gray-dark-secondary;
-// 		}
-// 	}
-// }
+        li{
+
+            a{
+                border: .0625rem solid;
+                padding: .1875rem .3125rem;
+                margin: 0 .1875rem;
+            }
+        }
+    }
+}

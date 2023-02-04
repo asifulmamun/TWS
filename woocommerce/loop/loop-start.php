@@ -18,5 +18,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+echo '<ul class="products gap-3">';
+
 ?>
-<ul class="products grid grid-cols-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?> gap-3 border-3">
