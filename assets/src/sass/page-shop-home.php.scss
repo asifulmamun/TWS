@@ -1,6 +1,6 @@
-// @import "tailwindcss/base";
-// @import "tailwindcss/components";
-// @import "tailwindcss/utilities";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 // Abrstract
 @import "./abstract/variables";
@@ -12,9 +12,19 @@
 @import "./abstract/global";
 
 @import "./components/header";
-@import "./components/page_with_aside";
+@import "./components/aside";
 @import "./components/footer";
 
 // Components
 // @import "components/pagination";
 // @import "components/products";
+
+
+#tws__page_with_aside{
+    padding-top: 55px;
+    padding-bottom: 55px;
+
+    main{
+        padding: 1.25rem 1.25rem;
+    }
+}
