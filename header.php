@@ -39,24 +39,24 @@
 			// echo 'WINDOWS';
 			if($css_js == 'css'){
 				// wp_enqueue_style( 'app', get_stylesheet_directory_uri(). '/assets/build/css/app.css',  array(), null, 'all' );
-				return '<link rel="stylesheet" id="app-css" href="' . get_stylesheet_directory_uri() . '/assets/build/css/app.css" type="text/css" media="all">';
+				return '<link rel="stylesheet" id="app-css" href="' . get_stylesheet_directory_uri() . '/assets/build/css/' . get_page_template_slug() . '.css" type="text/css" media="all">';
 
 			
 			}elseif($css_js == 'js'){
 				// wp_enqueue_script( 'app', get_template_directory_uri() . '/assets/build/js/app.js', array(), null, true);
-				return '<script type="text/javascript" src="' . get_template_directory_uri() .'/assets/build/js/app.js" id="app-js"></script>';
+				return '<script type="text/javascript" src="' . get_template_directory_uri() .'/assets/build/js/' . get_page_template_slug() . '.js" id="app-js"></script>';
 
 			}
 		} else {
 			// echo 'Others Desktop...';
 			if($css_js == 'css'){
 				// wp_enqueue_style( 'app', get_stylesheet_directory_uri(). '/assets/build/css/app.css',  array(), null, 'all' );
-				return '<link rel="stylesheet" id="app-css" href="' . get_stylesheet_directory_uri() . '/assets/build/css/app.css" type="text/css" media="all">';
+				return '<link rel="stylesheet" id="app-css" href="' . get_stylesheet_directory_uri() . '/assets/build/css/' . get_page_template_slug() . '.css" type="text/css" media="all">';
 
 			
 			}elseif($css_js == 'js'){
 				// wp_enqueue_script( 'app', get_template_directory_uri() . '/assets/build/js/app.js', array(), null, true);
-				return '<script type="text/javascript" src="' . get_template_directory_uri() .'/assets/build/js/app.js" id="app-js"></script>';
+				return '<script type="text/javascript" src="' . get_template_directory_uri() .'/assets/build/js/' . get_page_template_slug() . '.js" id="app-js"></script>';
 
 			}
 		}
@@ -71,7 +71,7 @@
 	<?php echo tws__css_js('css'); ?>
 
 	<!-- remove after developed -->
-	<script src="<?php echo get_template_directory_uri(); ?>/assets/src/js/tailwindcss.js"></script>
+	<!-- <script src="<?php //echo get_template_directory_uri(); ?>/assets/src/js/tailwindcss.js"></script> -->
 	
 	<?php wp_head(); ?>
 </head>
@@ -97,9 +97,9 @@
 		}
 	} elseif ($isWin) {
 		// echo 'WINDOWS';
-		get_template_part( 'template-parts/header/content', 'header-desktop' );
+		get_template_part( 'template-parts/desktop/global/header', 'nav' );
 	} else {
 		// echo 'Others Desktop...';
-		get_template_part( 'template-parts/header/content', 'header-desktop' );
+		get_template_part( 'template-parts/desktop/global/header', 'nav' );
 	}
 ?>
