@@ -9,23 +9,20 @@
 @import "./abstract/mixins";
 
 // Global of conent
-@import "./abstract/global";
-
+@import "./components/global";
 @import "./components/header";
 @import "./components/aside";
 @import "./components/footer";
 
-// Components
-@import "components/pagination";
-// @import "components/products";
+
 
 
 #tws__page_with_aside{
-    padding-top: 55px;
-    padding-bottom: 55px;
+    padding-top: $pxrem * 55;
+    padding-bottom: $pxrem * 55;
 
     main{
-        padding: 1.25rem 1.25rem;
+        padding: $pxrem*20 $pxrem*20;
 
         .columns-4{
             all: unset !important;

@@ -28,21 +28,17 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 
 
-		<div class="fp_container">
-			<?php do_action('woocommerce_before_shop_loop_item'); /* init - dependencies working link of products */ ?>
-
+		<div class="grid justify-items-center relative tws__product_wrapper">
+			<?php // do_action('woocommerce_before_shop_loop_item'); /* init - dependencies working link of products */ ?>
 			<?php woocommerce_show_product_loop_sale_flash(); /* Onsale */ ?>
-
-			<div class="fp_thumb">
+			<div class="grid items-center justify-items-center tws__product_img_wrap">
 				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', TRUE); /* thumbnail */ ?>">
-				<?php woocommerce_template_loop_add_to_cart(); /* Add To Cart */ ?>
 			</div>
+			<?php woocommerce_template_loop_add_to_cart(); /* Add To Cart */ ?>
 
 			<div class="details">
 				<?php //woocommerce_template_loop_product_title(); /* Title */ ?>
-				
-				<h2><a href="<?php echo get_the_permalink(get_the_ID()); ?>"><?php echo get_the_title(get_the_ID()); ?></a></h2>
-
+				<h1><a href="<?php echo get_the_permalink(get_the_ID()); ?>"><?php echo get_the_title(get_the_ID()); ?></a></h1>
 				<?php do_action('woocommerce_after_shop_loop_item_title'); /* Price */ ?>
 			</div>
 		</div>

@@ -142,10 +142,10 @@ toggle_primary_menu.addEventListener('click', function (event) {
 
 /***/ }),
 
-/***/ "./src/sass/page-shop-home.php.scss":
-/*!******************************************!*\
-  !*** ./src/sass/page-shop-home.php.scss ***!
-  \******************************************/
+/***/ "./src/sass/app.scss":
+/*!***************************!*\
+  !*** ./src/sass/app.scss ***!
+  \***************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -227,11 +227,11 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 !function() {
 "use strict";
-/*!**************************************!*\
-  !*** ./src/js/page-shop-home.php.js ***!
-  \**************************************/
+/*!***********************!*\
+  !*** ./src/js/app.js ***!
+  \***********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _sass_page_shop_home_php_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/page-shop-home.php.scss */ "./src/sass/page-shop-home.php.scss");
+/* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/app.scss */ "./src/sass/app.scss");
 /* harmony import */ var _abstract_global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./abstract/global */ "./src/js/abstract/global.js");
 /* harmony import */ var _abstract_global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_abstract_global__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_toggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/toggle */ "./src/js/components/toggle.js");
@@ -250,4 +250,4 @@ __webpack_require__.r(__webpack_exports__);
 }();
 /******/ })()
 ;
-//# sourceMappingURL=page-shop-home.php.js.map
+//# sourceMappingURL=app.js.map

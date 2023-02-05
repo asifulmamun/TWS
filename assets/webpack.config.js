@@ -16,7 +16,7 @@ const IMG_DIR = path.resolve(__dirname, 'src/img')
 const BUILD_DIR = path.resolve(__dirname, 'build')
 
 const entry = {
-    'page-shop-home.php': JS_DIR + '/page-shop-home.php.js',
+    app: JS_DIR + '/app.js',
     woo: JS_DIR + '/woo.js'
 }
 
@@ -26,9 +26,9 @@ const output = {
 }
 
 const plugins = (argv) => [
-    // new CleanWebpackPlugin({
-    //     cleanStaleWebpackAssets: ('production' === argv.mode)
-    // }),
+    new CleanWebpackPlugin({
+        cleanStaleWebpackAssets: ('production' === argv.mode)
+    }),
 
     new MiniCssExtractPlugin({
         filename: 'css/[name].css'

@@ -18,5 +18,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+echo '</ul>'; // product loop end ul
+
+
 ?>
-</ul>

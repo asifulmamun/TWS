@@ -1,6 +1,10 @@
+$pxrem: 0.0625rem; // [$pxrem * 2] = [2px] | Convert rem to px
+$rempx: 16px; // [$rempx * 2] = [32px] | convert px to rem
+
 // Fonts size
-$size__txt_body: .875rem;
+$size__txt_body: $pxrem * 14;
+$font_wight_bold: 800;
 
 // aside
-$aside_width: 220px;
-$aside_nav_font_size: .8125rem;
+$aside_width: $pxrem * 220;
+$aside_nav_font_size: $pxrem * 13;

@@ -118,7 +118,6 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 // 	 */
 // 	function tws_master_pro_woocommerce_wrapper_before() {
 ?>
-<!-- // 			<main id="primary" class="site-main"> -->
 <?php
 // 	}
 // }
@@ -134,7 +133,6 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 // 	 */
 // 	function tws_master_pro_woocommerce_wrapper_after() {
 ?>
-<!-- // 			</main>#main -->
 <?php
 // 	}
 // }

@@ -1,6 +1,6 @@
 // Header part start
 header{
-    height: 55px;
+    height: $pxrem * 55;
     overflow: hidden;
     background: $color__secondary;
     align-items: center;
@@ -23,10 +23,10 @@ header{
         h1.tws__site_title{
             
             a{
-                padding-left: 0.35rem;
+                padding-left: $pxrem * 6;
                 color: $color__txt_primary;
-                font-size: 1.2rem;
-                font-weight: 800;
+                font-size: $pxrem * 20;
+                font-weight: $font_wight_bold;
                 text-transform: uppercase;
             }
         } 
@@ -44,14 +44,14 @@ header{
             
             // Logo image style
             img{
-                max-width: 3.9rem;
+                max-width: $pxrem * 62.4;
             }
         }
 
         // Search form
         input[type=search]{
             outline: none;
-            padding-left: 5.5rem;
+            padding-left: $pxrem * 88;
             transition: 0.5s;
         }
 
@@ -63,11 +63,11 @@ header{
         &:hover, &:focus, &:focus-within{
             
             .tws__search_box_logo{
-                left: -5rem;
+                left: -($pxrem * 300);
             }
             
             input[type=search]{
-                padding-left: 1rem;
+                padding-left: $pxrem * 16;
             }
 
         }
@@ -84,9 +84,9 @@ header{
             display: flex;
 
             li{
-                border-right: .15rem solid $color__txt_primary;
-                padding-right: 10px;
-                padding-left: 10px;
+                border-right: $pxrem*3 solid $color__txt_primary;
+                padding-right: $pxrem * 10;
+                padding-left: $pxrem * 10;
 
                 &:first-child{
                     padding-left: inherit;
@@ -100,7 +100,7 @@ header{
                 a{
                     display: flex;
                     align-items: center;
-                    font-size: .9rem;
+                    font-size: $pxrem * 14;
                     color: $color__txt_primary;
                     
 

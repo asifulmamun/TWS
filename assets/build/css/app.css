@@ -1,6 +1,6 @@
-/*!*********************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/page-shop-home.php.scss ***!
-  \*********************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/app.scss ***!
+  \******************************************************************************************************************************************************/
 body {
   font-size: 0.875rem;
 }
@@ -14,7 +14,7 @@ main {
 }
 
 header {
-  height: 55px;
+  height: 3.4375rem;
   overflow: hidden;
   background: #ffbd88;
   align-items: center;
@@ -29,9 +29,9 @@ header .tws__site_branding button {
 }
 
 header .tws__site_branding h1.tws__site_title a {
-  padding-left: 0.35rem;
+  padding-left: 0.375rem;
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -63,11 +63,11 @@ header .tws__search_box ::placeholder {
 }
 
 header .tws__search_box:hover .tws__search_box_logo, header .tws__search_box:focus .tws__search_box_logo, header .tws__search_box[focus-within] .tws__search_box_logo {
-  left: -5rem;
+  left: -18.75rem;
 }
 
 header .tws__search_box:hover .tws__search_box_logo, header .tws__search_box:focus .tws__search_box_logo, header .tws__search_box:focus-within .tws__search_box_logo {
-  left: -5rem;
+  left: -18.75rem;
 }
 
 header .tws__search_box:hover input[type=search], header .tws__search_box:focus input[type=search], header .tws__search_box[focus-within] input[type=search] {
@@ -87,9 +87,9 @@ header .tws__right_bar ul#quick-menu {
 }
 
 header .tws__right_bar ul#quick-menu li {
-  border-right: 0.15rem solid #333;
-  padding-right: 10px;
-  padding-left: 10px;
+  border-right: 0.1875rem solid #333;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem;
 }
 
 header .tws__right_bar ul#quick-menu li:first-child {
@@ -104,7 +104,7 @@ header .tws__right_bar ul#quick-menu li:last-child {
 header .tws__right_bar ul#quick-menu li a {
   display: flex;
   align-items: center;
-  font-size: .9rem;
+  font-size: 0.875rem;
   color: #333;
 }
 
@@ -129,9 +129,9 @@ header .tws__right_bar .tws__single_menu a svg {
 }
 
 aside {
-  width: 220px;
+  width: 13.75rem;
   padding-bottom: 2.25rem;
-  height: calc(100% - 55px);
+  height: calc(100% - 3.4375rem);
   background-color: #fafafa;
   /* width */
   /* Track */
@@ -140,7 +140,7 @@ aside {
 }
 
 aside::-webkit-scrollbar {
-  width: 4px;
+  width: 0.25rem;
 }
 
 aside::-webkit-scrollbar-track {
@@ -164,13 +164,13 @@ aside nav#site-navigation ul#primary_menu li a {
 }
 
 aside nav#site-navigation ul#primary_menu li ul {
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   display: none;
 }
 
 aside .tws__quick_access_menu {
   width: 100%;
-  max-width: calc(220px - 4px);
+  max-width: calc(13.75rem - 0.25rem);
   max-height: 2rem;
   background: #ffbd88;
   overflow: hidden;
@@ -181,9 +181,9 @@ aside .tws__quick_access_menu ul#quick-access-menu {
 }
 
 aside .tws__quick_access_menu ul#quick-access-menu li {
-  border-right: 0.15rem solid #333;
-  padding-right: 10px;
-  padding-left: 10px;
+  border-right: 0.1875rem solid #333;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem;
 }
 
 aside .tws__quick_access_menu ul#quick-access-menu li:first-child {
@@ -205,20 +205,9 @@ aside .tws__quick_access_menu ul#quick-access-menu li a svg {
   fill: #333;
 }
 
-nav.woocommerce-pagination ul {
-  display: flex;
-  flex-direction: row;
-}
-
-nav.woocommerce-pagination ul li a {
-  border: .0625rem solid;
-  padding: .1875rem .3125rem;
-  margin: 0 .1875rem;
-}
-
 #tws__page_with_aside {
-  padding-top: 55px;
-  padding-bottom: 55px;
+  padding-top: 3.4375rem;
+  padding-bottom: 3.4375rem;
 }
 
 #tws__page_with_aside main {
@@ -230,4 +219,4 @@ nav.woocommerce-pagination ul li a {
 }
 
 
-/*# sourceMappingURL=page-shop-home.php.css.map*/
+/*# sourceMappingURL=app.css.map*/

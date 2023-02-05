@@ -2,12 +2,12 @@ aside{
 
     width: $aside_width;
     padding-bottom: 2.25rem;
-    height: calc(100% - 55px);
+    height: calc(100% - #{$pxrem * 55});
     background-color: $color__bg_secondary;
 
     /* width */
     &::-webkit-scrollbar {
-        width: 4px;
+        width: $pxrem * 4;
     }
 
     /* Track */
@@ -40,7 +40,7 @@ aside{
 
                 // sub menu-1
                 ul{
-                    padding-left: .5rem;
+                    padding-left: $pxrem * 8;
                     display: none;
 
                 }
@@ -58,8 +58,8 @@ aside{
     // Quick access nav
     .tws__quick_access_menu{
         width: 100%;
-        max-width: calc(#{$aside_width} - 4px);
-        max-height: 2rem;
+        max-width: calc(#{$aside_width} - #{$pxrem * 4});
+        max-height: $pxrem * 32;
         background: $color__secondary;
         overflow: hidden;
 
@@ -68,9 +68,9 @@ aside{
             display: flex;
 
             li{
-                border-right: .15rem solid $color__txt_primary;
-                padding-right: 10px;
-                padding-left: 10px;
+                border-right: $pxrem*3 solid $color__txt_primary;
+                padding-right: $pxrem*10;
+                padding-left: $pxrem*10;
 
                 &:first-child{
                     padding-left: inherit;
@@ -84,7 +84,6 @@ aside{
                 a{
                     display: flex;
                     align-items: center;
-                    // font-size: ;
                     color: $color__txt_primary;
                     
 

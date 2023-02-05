@@ -1,5 +1,5 @@
 // sass
-import '../sass/page-shop-home.php.scss';
+import '../sass/app.scss';
 
 // global js
 import './abstract/global'
