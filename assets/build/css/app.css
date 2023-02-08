@@ -9,10 +9,6 @@ aside {
   transition: .3s;
 }
 
-main {
-  transition: .5s;
-}
-
 header {
   height: 3.4375rem;
   overflow: hidden;

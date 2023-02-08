@@ -138,93 +138,6 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 // }
 // add_action( 'woocommerce_after_main_content', 'tws_master_pro_woocommerce_wrapper_after' );
 
-/**
- * Sample implementation of the WooCommerce Mini Cart.
- *
- * You can add the WooCommerce Mini Cart to header.php like so ...
- *
-	<?php
-		if ( function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
-			tws_master_pro_woocommerce_header_cart();
-		}
-	?>
- */
-
-if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
-	/**
-	 * Cart Fragments.
-	 *
-	 * Ensure cart contents update when products are added to the cart via AJAX.
-	 *
-	 * @param array $fragments Fragments to refresh via AJAX.
-	 * @return array Fragments to refresh via AJAX.
-	 */
-	function tws_master_pro_woocommerce_cart_link_fragment( $fragments ) {
-		ob_start();
-		tws_master_pro_woocommerce_cart_link();
-		$fragments['a.cart-contents'] = ob_get_clean();
-
-		return $fragments;
-	}
-}
-add_filter( 'woocommerce_add_to_cart_fragments', 'tws_master_pro_woocommerce_cart_link_fragment' );
-
-if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
-	/**
-	 * Cart Link.
-	 *
-	 * Displayed a link to the cart including the number of items present and the cart total.
-	 *
-	 * @return void
-	 */
-	function tws_master_pro_woocommerce_cart_link() {
-		?>
-		<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'tws-master-pro' ); ?>">
-			<?php
-			$item_count_text = sprintf(
-				/* translators: number of items in the mini cart. */
-				_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ),
-				WC()->cart->get_cart_contents_count()
-			);
-			?>
-			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
-		</a>
-		<?php
-	}
-}
-
-if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
-	/**
-	 * Display Header Cart.
-	 *
-	 * @return void
-	 */
-	function tws_master_pro_woocommerce_header_cart() {
-		if ( is_cart() ) {
-			$class = 'current-menu-item';
-		} else {
-			$class = '';
-		}
-		?>
-		<ul id="site-header-cart" class="site-header-cart">
-			<li class="<?php echo esc_attr( $class ); ?>">
-				<?php tws_master_pro_woocommerce_cart_link(); ?>
-			</li>
-			<li>
-				<?php
-				$instance = array(
-					'title' => '',
-				);
-
-				the_widget( 'WC_Widget_Cart', $instance );
-				?>
-			</li>
-		</ul>
-		<?php
-	}
-}
-
-
 
 
 
@@ -234,13 +147,25 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
 /**
  * Override loop template and show quantities next to add to cart buttons
  */
-add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
-function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
-	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
-		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
-		$html .= woocommerce_quantity_input( array(), $product, false );
-		$html .= '<button type="submit" class="button alt">' . esc_html( $product->add_to_cart_text() ) . '</button>';
-		$html .= '</form>';
-	}
-	return $html;
-}
+// add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
+// function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
+// 	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
+// 		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
+// 		$html .= woocommerce_quantity_input( array(), $product, false );
+// 		$html .= '<button type="submit" class="button alt">' . esc_html( $product->add_to_cart_text() ) . '</button>';
+// 		$html .= '</form>';
+// 	}
+// 	return $html;
+// }
+
+
+
+/**
+ * Ajax for Add to Cart Button
+ */
+
+// Remove old button which submiting form:
+// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+
+// Add ajax-link from archive page to single product page:
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_loop_add_to_cart', 30 );

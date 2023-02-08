@@ -1,0 +1,7 @@
+.tws__mini_cart{
+
+    width: 500px;
+    padding-bottom: 2.25rem;
+    height: calc(100% - #{$pxrem * 55});
+    background-color: $color__bg_secondary;
+}
