@@ -1,21 +1,6 @@
 <?php
-/**
- * WooCommerce Compatibility File
- *
- * @link https://woocommerce.com/
- *
- * @package TWS_Master_Pro
- */
 
-/**
- * WooCommerce setup function.
- *
- * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
- * @link https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)
- * @link https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes
- *
- * @return void
- */
+// WooCommerce setup function.
 function tws_master_pro_woocommerce_setup() {
 	add_theme_support(
 		'woocommerce',
@@ -37,46 +22,33 @@ function tws_master_pro_woocommerce_setup() {
 }
 add_action( 'after_setup_theme', 'tws_master_pro_woocommerce_setup' );
 
-/**
- * WooCommerce specific scripts & stylesheets.
- *
- * @return void
- */
-function tws_master_pro_woocommerce_scripts() {
-	wp_enqueue_style( 'tws-master-pro-woocommerce-style', get_template_directory_uri() . '/assets/build/css/woo.css', array(), _S_VERSION );
+// WooCommerce specific scripts & stylesheets.
+// function tws_master_pro_woocommerce_scripts() {
+//     // wp_localize_script( 'cart-qty-ajax-js', 'cart_qty_ajax', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+//     // wp_enqueue_script( 'cart-qty-ajax-js' );
+// 	// wp_enqueue_style( 'tws-master-pro-woocommerce-style', get_template_directory_uri() . '/assets/build/css/woo.css', array(), _S_VERSION );
+//     // wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
+// 	// $font_path   = WC()->plugin_url() . '/assets/fonts/';
+// 	// $inline_font = '@font-face {
+// 	// 		font-family: "star";
+// 	// 		src: url("' . $font_path . 'star.eot");
+// 	// 		src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
+// 	// 			url("' . $font_path . 'star.woff") format("woff"),
+// 	// 			url("' . $font_path . 'star.ttf") format("truetype"),
+// 	// 			url("' . $font_path . 'star.svg#star") format("svg");
+// 	// 		font-weight: normal;
+// 	// 		font-style: normal;
+// 	// 	}';
 
-	$font_path   = WC()->plugin_url() . '/assets/fonts/';
-	$inline_font = '@font-face {
-			font-family: "star";
-			src: url("' . $font_path . 'star.eot");
-			src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
-				url("' . $font_path . 'star.woff") format("woff"),
-				url("' . $font_path . 'star.ttf") format("truetype"),
-				url("' . $font_path . 'star.svg#star") format("svg");
-			font-weight: normal;
-			font-style: normal;
-		}';
+// 	// wp_add_inline_style( 'tws-master-pro-woocommerce-style', $inline_font );
+// }
+// add_action( 'wp_enqueue_scripts', 'tws_master_pro_woocommerce_scripts' );
 
-	wp_add_inline_style( 'tws-master-pro-woocommerce-style', $inline_font );
-}
-add_action( 'wp_enqueue_scripts', 'tws_master_pro_woocommerce_scripts' );
-
-/**
- * Disable the default WooCommerce stylesheet.
- *
- * Removing the default WooCommerce stylesheet and enqueing your own will
- * protect you during WooCommerce core updates.
- *
- * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
- */
+// Disable the default WooCommerce stylesheet.
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
-/**
- * Add 'woocommerce-active' class to the body tag.
- *
- * @param  array $classes CSS classes applied to the body tag.
- * @return array $classes modified to include 'woocommerce-active' class.
- */
+
+// Add 'woocommerce-active' class to the body tag.
 function tws_master_pro_woocommerce_active_body_class( $classes ) {
 	$classes[] = 'woocommerce-active';
 
@@ -84,12 +56,8 @@ function tws_master_pro_woocommerce_active_body_class( $classes ) {
 }
 add_filter( 'body_class', 'tws_master_pro_woocommerce_active_body_class' );
 
-/**
- * Related Products Args.
- *
- * @param array $args related products args.
- * @return array $args related products args.
- */
+
+// Related Products Args.
 function tws_master_pro_woocommerce_related_products_args( $args ) {
 	$defaults = array(
 		'posts_per_page' => 3,
@@ -108,64 +76,242 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 // remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
-// if ( ! function_exists( 'tws_master_pro_woocommerce_wrapper_before' ) ) {
-// 	/**
-// 	 * Before Content.
-// 	 *
-// 	 * Wraps all WooCommerce content in wrappers which match the theme markup.
-// 	 *
-// 	 * @return void
-// 	 */
-// 	function tws_master_pro_woocommerce_wrapper_before() {
-?>
-<?php
-// 	}
+
+
+// mini cart - Cart Fragments.
+if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
+	function tws_master_pro_woocommerce_cart_link_fragment( $fragments ) {
+		
+		if(isset($_REQUEST['ckey'])){
+			$c_key = isset($_REQUEST['ckey']) ? sanitize_text_field($_REQUEST['ckey']) : null;
+			$qty = isset($_REQUEST['qty']) ? sanitize_text_field($_REQUEST['qty']) : null;
+			WC()->cart->set_quantity($c_key, $qty, true);
+			WC()->cart->set_session();
+
+		
+			ob_start();
+			tws_master_pro_woocommerce_cart_link();
+			$fragments['a.cart-contents'] = ob_get_clean();
+			return $fragments;
+
+		} else{
+			ob_start();
+			tws_master_pro_woocommerce_cart_link();
+			$fragments['a.cart-contents'] = ob_get_clean();
+			return $fragments;
+		}
+
+
+		
+		
+	}
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'tws_master_pro_woocommerce_cart_link_fragment' );
+// add_action('wp_ajax_add_to_cart_fragments', 'tws_master_pro_woocommerce_cart_link_fragment');
+add_action('wp_ajax_nopriv_tws_master_pro_woocommerce_cart_link_fragment', 'tws_master_pro_woocommerce_cart_link_fragment');
+
+
+// Cart Link.
+if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
+	function tws_master_pro_woocommerce_cart_link() {
+		?>
+		<a class="cart-contents">
+			<?php
+			$item_count_text = sprintf(
+				_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ),
+				WC()->cart->get_cart_contents_count()
+			);
+			?>
+			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
+		</a>
+		<?php
+	}
+}
+
+// Cart Content and Widget
+if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
+	function tws_master_pro_woocommerce_header_cart() {
+		// Only cart amount
+		tws_master_pro_woocommerce_cart_link();
+		
+		// Mini cart widget
+		the_widget('WC_Widget_Cart', array('title' => '',));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+// function change_item_qty($fragments) {
+
+//     // if ($this->checkNonce == 'false') {
+//     //     return false;
+//     // }
+
+//     $c_key = isset($_REQUEST['ckey']) ? sanitize_text_field($_REQUEST['ckey']) : null;
+//     $qty = isset($_REQUEST['qty']) ? sanitize_text_field($_REQUEST['qty']) : null;
+//     WC()->cart->set_quantity($c_key, $qty, true);
+//     WC()->cart->set_session();
+//     die();
 // }
-// add_action( 'woocommerce_before_main_content', 'tws_master_pro_woocommerce_wrapper_before' );
 
-// if ( ! function_exists( 'tws_master_pro_woocommerce_wrapper_after' ) ) {
-// 	/**
-// 	 * After Content.
-// 	 *
-// 	 * Closes the wrapping divs.
-// 	 *
-// 	 * @return void
-// 	 */
-// 	function tws_master_pro_woocommerce_wrapper_after() {
-?>
-<?php
-// 	}
-// }
-// add_action( 'woocommerce_after_main_content', 'tws_master_pro_woocommerce_wrapper_after' );
+
+// add_action('wp_ajax_change_item_qty', 'change_item_qty');
+// add_action('wp_ajax_nopriv_change_item_qty', 'change_item_qty');
 
 
 
-
-
-
-
-/**
- * Override loop template and show quantities next to add to cart buttons
- */
-// add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
-// function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
-// 	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
-// 		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
-// 		$html .= woocommerce_quantity_input( array(), $product, false );
-// 		$html .= '<button type="submit" class="button alt">' . esc_html( $product->add_to_cart_text() ) . '</button>';
-// 		$html .= '</form>';
-// 	}
-// 	return $html;
-// }
 
 
 
 /**
  * Ajax for Add to Cart Button
  */
+// if (!class_exists('MAJC_Frontend')) {
 
-// Remove old button which submiting form:
-// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+//     class MAJC_Frontend {
 
-// Add ajax-link from archive page to single product page:
-// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_loop_add_to_cart', 30 );
+//         function __construct() {
+
+//             // add_action('wp_footer', array($this, 'majc_menu'));
+
+
+//             // Change The Quantiy of the Woocommerce Product
+//             // add_action('wp_ajax_change_item_qty', array($this, 'change_item_qty'));
+//             // add_action('wp_ajax_nopriv_change_item_qty', array($this, 'change_item_qty'));
+
+//             // add_action('wp_ajax_add_coupon_code', array($this, 'addCouponCode'));
+//             // add_action('wp_ajax_nopriv_add_coupon_code', array($this, 'addCouponCode'));
+
+//             // add_action('wp_ajax_remove_coupon_code', array($this, 'remove_coupon_code'));
+//             // add_action('wp_ajax_nopriv_remove_coupon_code', array($this, 'remove_coupon_code'));
+
+//             // add_action('woocommerce_add_to_cart_redirect', array($this, 'prevent_add_to_cart_on_redirect'));
+//         }
+
+
+//         // function prevent_add_to_cart_on_redirect($url = false) {
+
+//         //     // If another plugin beats us to the punch, let them have their way with the URL
+//         //     if (!empty($url)) {
+//         //         return $url;
+//         //     }
+
+//         //     // Redirect back to the original page, without the 'add-to-cart' parameter.
+//         //     // We add the `get_bloginfo` part so it saves a redirect on https:// sites.
+//         //     return add_query_arg(array(), remove_query_arg('add-to-cart'));
+//         //     // return get_bloginfo('wpurl').add_query_arg(array(), remove_query_arg('add-to-cart'));
+//         // }
+
+//         function change_item_qty() {
+
+//             // if ($this->checkNonce == 'false') {
+//             //     return false;
+//             // }
+
+//             $c_key = isset($_REQUEST['ckey']) ? sanitize_text_field($_REQUEST['ckey']) : null;
+//             $qty = isset($_REQUEST['qty']) ? sanitize_text_field($_REQUEST['qty']) : null;
+//             WC()->cart->set_quantity($c_key, $qty, true);
+//             WC()->cart->set_session();
+//             die();
+//         }
+
+//         // public function remove_coupon_code() {
+
+//         //     if ($this->checkNonce == 'false') {
+//         //         return false;
+//         //     }
+
+//         //     $couponCode = isset($_POST['couponCode']) ? sanitize_text_field($_POST['couponCode']) : null;
+
+//         //     if (WC()->cart->remove_coupon($couponCode)) {
+//         //         esc_html_e('Coupon Removed Successfully.', 'mini-ajax-cart');
+//         //     }
+
+//         //     WC()->cart->calculate_totals();
+//         //     WC()->cart->maybe_set_cart_cookies();
+//         //     WC()->cart->set_session();
+
+//         //     die();
+//         // }
+
+//         // public function addCouponResponse($response) {
+//         //     header('Content-Type: application/json');
+//         //     echo json_encode($response);
+
+//         //     WC()->cart->calculate_totals();
+//         //     WC()->cart->maybe_set_cart_cookies();
+//         //     WC()->cart->set_session();
+//         // }
+
+//         // public function addCouponCode() {
+
+//         //     if ($this->checkNonce == 'false') {
+//         //         return false;
+//         //     }
+
+//         //     $code = isset($_POST['couponCode']) ? sanitize_text_field($_POST['couponCode']) : null;
+//         //     $code = strtolower($code);
+
+//         //     /* Check if coupon code is empty */
+//         //     if (empty($code) || !isset($code)) {
+
+//         //         $response = array(
+//         //             'result' => 'empty',
+//         //             'msg' => esc_html__('Coupon Code Field is Empty!', 'mini-ajax-cart')
+//         //         );
+
+//         //         $this->addCouponResponse($response);
+
+//         //         exit();
+//         //     }
+
+//         //     /* Create an instance of WC_Coupon with our code */
+//         //     $coupon = new WC_Coupon($code);
+//         //     $applied_coupons = WC()->cart->get_applied_coupons();
+
+//         //     if (in_array($code, $applied_coupons)) {
+
+//         //         $response = array(
+//         //             'result' => 'already applied',
+//         //             'msg' => esc_html__('Coupon Code Already Applied.', 'mini-ajax-cart')
+//         //         );
+
+//         //         $this->addCouponResponse($response);
+//         //     } else if (!$coupon->is_valid()) {
+
+//         //         $response = array(
+//         //             'result' => 'not valid',
+//         //             'msg' => esc_html__('Invalid code entered. Please try again.', 'mini-ajax-cart')
+//         //         );
+
+//         //         $this->addCouponResponse($response);
+//         //     } else {
+
+//         //         WC()->cart->apply_coupon($code);
+
+//         //         $response = array(
+//         //             'result' => 'success',
+//         //             'msg' => esc_html__('Coupon Applied Successfully.', 'mini-ajax-cart')
+//         //         );
+
+//         //         $this->addCouponResponse($response);
+
+//         //         wc_clear_notices();
+//         //     }
+//         //     die();
+//         // }
+
+
+
+//     }
+
+//     new MAJC_Frontend();
+// }
+

@@ -29,6 +29,6 @@
 
 
 <?php wp_footer(); ?>
-<?php echo tws__css_js('js'); ?>
+<?php echo tws__css_js('js', null); ?>
 </body>
 </html>

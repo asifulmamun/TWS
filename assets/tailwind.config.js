@@ -18,6 +18,7 @@ if(1 == page){
       
       './../page-shop-home.php',
         './../woocommerce/loop/loop-start.php',
+        './../woocommerce/desktop/content-product.php',
 
       './../footer.php',
     );

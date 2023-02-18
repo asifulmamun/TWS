@@ -62,6 +62,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_woo_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/woo.scss */ "./src/sass/woo.scss");
 
+console.log('this is woo.js');
 }();
 /******/ })()
 ;

@@ -33,9 +33,92 @@
     </div>
 </header>
 
-<!-- Mini Cart -->
-<div class="tws__mini_cart fixed right-0 bottom-0 overflow-x-hidden overflow-y-scroll" style="z-index:999;">
-    <?php 
+
+<section class="tws__mini_cart fixed right-0 bottom-0 overflow-x-hidden overflow-y-scroll flex flex-col">
+    <?php
+
     
-    woocommerce_mini_cart(); ?>
-</div>
+        // custom mini cart from inc/woocommerce.php
+        if ( function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
+            tws_master_pro_woocommerce_header_cart();
+            // woocommerce_mini_cart(); // default mini cart
+        } else{
+            woocommerce_mini_cart();
+        }
+    ?>
+
+<ul>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+        <li>DJ</li>
+    </ul>
+</section>

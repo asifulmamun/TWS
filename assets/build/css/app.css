@@ -151,15 +151,15 @@ aside::-webkit-scrollbar-thumb:hover {
   background: blue;
 }
 
-aside nav#site-navigation {
+aside nav#primary_menu {
   font-size: 0.8125rem;
 }
 
-aside nav#site-navigation ul#primary_menu li a {
+aside nav#primary_menu ul li a {
   color: #343131;
 }
 
-aside nav#site-navigation ul#primary_menu li ul {
+aside nav#primary_menu ul li ul {
   padding-left: 0.5rem;
   display: none;
 }

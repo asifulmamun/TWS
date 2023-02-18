@@ -1,7 +1,73 @@
 .tws__mini_cart{
 
-    width: 500px;
-    padding-bottom: 2.25rem;
+
+    
+    width: $pxrem * 320;
     height: calc(100% - #{$pxrem * 55});
+    z-index: 10;
+    padding-bottom: $pxrem*35;
     background-color: $color__bg_secondary;
+
+
+    // mini cart parent wrapper
+    div.widget_shopping_cart{
+        
+        // mini cart wrapper
+        div.widget_shopping_cart_content{
+            
+            // mini cart product content
+            ul.product_list_widget{
+                
+                li.woocommerce-mini-cart-item{
+                    // li
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: $pxrem*5 $pxrem*20;
+                    
+                    div.tws__mini_cart_update{
+                        display: grid;
+                        justify-items: center;
+                    }
+                    
+                    // wrapper
+                    div.tws__mini_cart_img_wrapper{
+                        max-height: $pxrem * 50;
+                        overflow: hidden;
+        
+                        a{
+        
+                            img{
+                                width: auto;
+                                height: $pxrem * 45;
+                                margin-right: $pxrem*10;
+                            }
+                
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+
+                    
+                }
+            }
+
+
+            // bottom button
+            .tws__final{
+                position: fixed;
+                bottom: 0;
+                background-color: $color__secondary;
+
+                a{
+                    padding: 0 $pxrem*5;
+                }
+            }
+        }
+    }
+
+
+
+
+
 }

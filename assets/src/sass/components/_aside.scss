@@ -4,6 +4,7 @@ aside{
     padding-bottom: 2.25rem;
     height: calc(100% - #{$pxrem * 55});
     background-color: $color__bg_secondary;
+    
 
     /* width */
     &::-webkit-scrollbar {
@@ -26,12 +27,12 @@ aside{
     }
 
     // aside primary nav
-    nav#site-navigation{
+    nav#primary_menu{
 
         font-size: $aside_nav_font_size;
 
 
-        ul#primary_menu{
+        ul{
             li{
 
                 a{
