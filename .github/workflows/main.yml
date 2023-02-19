@@ -1,25 +1,18 @@
-name: Upload to cPanel via FTP
-
-on: [push]
+on: push
 
 jobs:
-  uploader:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
-  
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Upload to cPanel via FTP
-      env:
-        HOST: ${{ secrets.FTP_HOST }}
-        USER: ${{ secrets.FTP_USERNAME }}
-        PASSWORD: ${{ secrets.FTP_PASSWORD }}
-      run: |
-        ftp -i -n <<END_SCRIPT
-        open $HOST
-        user $USER $PASSWORD
-        cd /tws
-        bin
-        put *
-        bye
-        END_SCRIPT
+
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamiKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: ${{ secrets.FTP_HOST }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        ftp-path: /tws
