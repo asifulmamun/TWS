@@ -18,7 +18,7 @@ jobs:
         ftp -i -n <<END_SCRIPT
         open $HOST
         user $USER $PASSWORD
-        cd /home/twshop/public_html/wp-content/themes/tws
+        cd /tws
         bin
         put *
         bye
