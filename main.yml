@@ -1,0 +1,25 @@
+name: Upload to cPanel via FTP
+
+on: [push]
+
+jobs:
+  uploader:
+    runs-on: ubuntu-latest
+  
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Upload to cPanel via FTP
+      env:
+        HOST: ftp.tawakkulshop.com
+        USER: ${{ secrets.FTP_USERNAME }}
+        PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      run: |
+        ftp -i -n <<END_SCRIPT
+        open $HOST
+        user $USER $PASSWORD
+        cd /
+        bin
+        put *
+        bye
+        END_SCRIPT
