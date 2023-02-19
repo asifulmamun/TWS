@@ -1,4 +1,4 @@
-"use strict";
+
 // All elements under ul - select all li>data-pdoduct_id then with product_id action another function
 const tws__mini_cart_ul = document.getElementById('tws__mini_cart_ul');
 // var ids_tws__mini_cart_li = []; // initialize an array
@@ -49,5 +49,5 @@ function save_to_db(ckey, qty, product_id) {
 		}
       }
     };
-    xhr.send("action=tws_master_pro_woocommerce_cart_link_fragment&ckey=" + ckey + "&qty=" + qty);
+    xhr.send("action=change_item_qty&ckey=" + ckey + "&qty=" + qty);
 }
