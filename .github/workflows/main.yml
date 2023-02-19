@@ -11,14 +11,14 @@ jobs:
     
     - name: Upload to cPanel via FTP
       env:
-        HOST: ftp.tawakkulshop.com
+        HOST: ${{ secrets.FTP_HOST }}
         USER: ${{ secrets.FTP_USERNAME }}
         PASSWORD: ${{ secrets.FTP_PASSWORD }}
       run: |
         ftp -i -n <<END_SCRIPT
         open $HOST
         user $USER $PASSWORD
-        cd /
+        cd /home/twshop/public_html/wp-content/themes/tws
         bin
         put *
         bye
