@@ -1,9 +1,8 @@
-
 // All elements under ul - select all li>data-pdoduct_id then with product_id action another function
 const tws__mini_cart_ul = document.getElementById('tws__mini_cart_ul');
 // var ids_tws__mini_cart_li = []; // initialize an array
 // check mini cart ul is eixist or not, if exist then collect all li data-pdoduct_id then with product_id action another function
-if(tws__mini_cart_ul) {
+if (tws__mini_cart_ul) {
 	for (let i = 0; i < tws__mini_cart_ul.childNodes.length; i++) {
 		let currentChild = tws__mini_cart_ul.childNodes[i];
 		if (currentChild.id && currentChild.nodeName === 'LI') {
@@ -12,7 +11,7 @@ if(tws__mini_cart_ul) {
 			// with peoduct_id action another function
 			document.getElementById(`tws__mini_decrement_${currentChild.getAttribute('data-product_id')}`).addEventListener('click', function (e) {
 				// console.log(`tws__mini_decrement_${currentChild.getAttribute('data-product_id')}`);
-			
+
 				// action with product_id
 				decrement_quantity(`${currentChild.getAttribute('data-product_id')}`);
 			});
@@ -36,18 +35,18 @@ function decrement_quantity(product_id) {
 // New Quantity	Set
 function save_to_db(ckey, qty, product_id) {
 	var action_cart_url = '/wp-admin/admin-ajax.php';
-    // var inputQuantityElement = document.getElementById("input-quantity-" + cart_id);
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", action_cart_url, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-	if (xhr.readyState === 4 && xhr.status === 200) {
-        // console.log(this.response);
-		if (this.response == 0) {
-			// after decrement qty = 2, then it will be increment qty = 1 for fregment refresh
-			document.getElementById(`tws__mini_increment_${product_id}`).click();
+	// var inputQuantityElement = document.getElementById("input-quantity-" + cart_id);
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", action_cart_url, true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			// console.log(this.response);
+			if (this.response == 0) {
+				// after decrement qty = 2, then it will be increment qty = 1 for fregment refresh
+				document.getElementById(`tws__mini_increment_${product_id}`).click();
+			}
 		}
-      }
-    };
-    xhr.send("action=change_item_qty&ckey=" + ckey + "&qty=" + qty);
+	};
+	xhr.send("action=change_item_qty&ckey=" + ckey + "&qty=" + qty);
 }
