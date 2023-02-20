@@ -1,17 +1,9 @@
-on: push
-name: 🚀 Deploy website on push
-jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
-      with:
-        server: ${{ secrets.ftp_server }}
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
-        server-dir: /wp-content/themes/tws/
+uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.0
+with:
+  ftp_host: ${{ secrets.ftp_server }}
+  ftp_username: ${{ secrets.ftp_username }}
+  ftp_password: ${{ secrets.ftp_password }}
+  local_source_dir: "."
+  dist_target_dir: "wp-content/themes/tws"
+  delete: "true"
+  exclude: "'^logs/' '^README.md'"
