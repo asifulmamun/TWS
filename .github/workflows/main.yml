@@ -3,14 +3,12 @@ actions:
   type: "FTP"
   input_type: "SCM_REPOSITORY"
   local_path: "/"
-  remote_path: "Home/www"
+  remote_path: ""
   use_temporary_files: true
-  login: "${{ secrets.ftp_username }}"
-  password: "${{ secrets.ftp_password }}"
-  host: "${{ secrets.ftp_server }}"
+  login: ${{ secrets.ftp_username }}
+  password: ${{ secrets.ftp_password }}
+  host: ${{ secrets.ftp_server }}
   port: "21"
   deployment_excludes:
-  - "/assets"
-  - "file.txt"
   deployment_includes:
   - "./index.php"
