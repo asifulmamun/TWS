@@ -11,10 +11,10 @@ jobs:
       - name: Upload from public_html via FTP
         uses: airvzxf/ftp-deployment-action@latest
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: "."
+          server: ${{ secrets.ftp_server }}
+          user: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          local_dir: ""
           remote_dir: "/wp-content/themes/tws/"
           delete: "true"
           max_retries: "7"
