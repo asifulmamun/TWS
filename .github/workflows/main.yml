@@ -3,7 +3,7 @@ actions:
   type: "FTP"
   input_type: "SCM_REPOSITORY"
   local_path: "/"
-  remote_path: ""
+  remote_path: "."
   use_temporary_files: true
   login: ${{ secrets.ftp_username }}
   password: ${{ secrets.ftp_password }}
