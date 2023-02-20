@@ -1,14 +1,29 @@
-- name: FTP Deployer
-  uses: sand4rt/ftp-deployer@v1.7
-  with:
-    sftp: false # optional
-    host: ${{ secrets.ftp_server }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
-    port: 21 # optional, default is: 21
-    username: ${{ secrets.ftp_username }} # FTP username
-    password: ${{ secrets.ftp_password }} # FTP password
-    remote_folder: /wp-content/themes/tws/ # optional, remote path of your FTP server
-    local_folder: dist # optional, local path, default is: dist
-    cleanup: false # optional, remove existing files inside FTP remote folder
-    include: '[]' # optional, e.g. '['dist']'
-    exclude: '[]' # optional, e.g. '['node_modules/**', '.git/**', '*.env']'
-    passive: true # optional
+name: CI -> Deploy to My website
+on:
+  push:
+    branches: [ main, Development ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Here is the deployment action
+      - name: Upload from public_html via FTP
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: "./"
+          remote_dir: "/wp-content/themes/tws/"
+          delete: "true"
+          max_retries: "7"
+          no_symlinks: "false"
+          ftp_ssl_allow: "true"
+          ftp_use_feat: "true"
+          ftp_nop_interval: "9"
+          net_max_retries: "0"
+          net_persist_retries: "11"
+          net_timeout: "13s"
+          dns_max_retries: "17"
+          dns_fatal_timeout: "never"
