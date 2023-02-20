@@ -14,7 +14,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: "./"
+          local_dir: "."
           remote_dir: "/wp-content/themes/tws/"
           delete: "true"
           max_retries: "7"
