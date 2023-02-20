@@ -1,31 +1,16 @@
-on: 
-  push:
-    branches: [main]
-
-name: 🚀 Deploy on push - Python
-
+name: Deploy via ftp
+on: push
 jobs:
-  Deploy:
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python3.9
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.9'
-        architecture: 'x64'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install pyftpsync==4.0.0a3
-    - name: FTP Deploy
-      uses: lujiaying/FTP-Deploy-Action-Py3.9@v1.0
+    - uses: actions/checkout@v2
+
+    - name: FTP Deploy Locaweb
+      uses: locaweb/ftp-deploy@1.0.0
       with:
         host: ${{ secrets.ftp_server }}
         user: ${{ secrets.ftp_username }}
-        passwd: ${{ secrets.ftp_password }}
-        port: 21
-        local_dir: ./
-        remote_dir: wp-content/themes/tws/
-        exclude: .git,.github,.DS_Store,README*,LICENSE
-        dry_run: False
+        password: ${{ secrets.ftp_password }}
+        localDir: "."
