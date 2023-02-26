@@ -3,8 +3,8 @@ var __webpack_exports__ = {};
 /*!*****************************!*\
   !*** ./src/js/mini_cart.js ***!
   \*****************************/
-var ajaxUrl = frontend_ajax_object.ajaxurl;
-var wpNonce = frontend_ajax_object.ajaxnonce;
+var ajaxUrl = frontend_ajax_object.ajaxurl; // get admin-ajax.php url
+var wpNonce = frontend_ajax_object.ajaxnonce; // get admin-ajax.php nonce - for unique ajax requests
 
 // All elements under ul - select all li>data-pdoduct_id then with product_id action another function
 var tws__mini_cart_ul = document.getElementById('tws__mini_cart_ul');

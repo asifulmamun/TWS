@@ -1,5 +1,5 @@
-const ajaxUrl = frontend_ajax_object.ajaxurl;
-const wpNonce = frontend_ajax_object.ajaxnonce;
+const ajaxUrl = frontend_ajax_object.ajaxurl; // get admin-ajax.php url
+const wpNonce = frontend_ajax_object.ajaxnonce; // get admin-ajax.php nonce - for unique ajax requests
 
 // All elements under ul - select all li>data-pdoduct_id then with product_id action another function
 const tws__mini_cart_ul = document.getElementById('tws__mini_cart_ul');
