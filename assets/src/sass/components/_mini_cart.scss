@@ -1,10 +1,10 @@
 .tws__mini_cart{
 
-
+    $mini_cart_container: $pxrem * 320;
     
-    width: $pxrem * 320;
+    width: $mini_cart_container;
     height: calc(100% - #{$pxrem * 55});
-    z-index: 10;
+    // z-index: 10;
     padding-bottom: $pxrem*35;
     background-color: $color__bg_secondary;
 
@@ -20,14 +20,14 @@
                 
                 li.woocommerce-mini-cart-item{
                     // li
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: $pxrem*5 $pxrem*20;
+                    // display: flex;
+                    // justify-content: space-between;
+                    // align-items: center;
+                    // padding: $pxrem*5 $pxrem*20;
                     
                     div.tws__mini_cart_update{
-                        display: grid;
-                        justify-items: center;
+                        // display: grid;
+                        // justify-items: center;
                     }
                     
                     // wrapper
@@ -40,11 +40,12 @@
                             img{
                                 width: auto;
                                 height: $pxrem * 45;
-                                margin-right: $pxrem*10;
+                                // margin-right: $pxrem*10;
+                                // display: block;
                             }
                 
-                            display: flex;
-                            align-items: center;
+                            // display: flex;
+                            // align-items: center;
                         }
                     }
 
@@ -55,13 +56,31 @@
 
             // bottom button
             .tws__final{
-                position: fixed;
-                bottom: 0;
-                background-color: $color__secondary;
+                // position: fixed;
+                // bottom: 0;
+                // width: 100%;
+                width: $mini_cart_container;
+                background-color: $color__bg_secondary;
 
-                a{
-                    padding: 0 $pxrem*5;
+                .tws__mini_cart_calculation{
+                    // cart button while calculate
+                    background-color: $color__secondary;
+                    
+                    a{
+                        // padding: 0 $pxrem*5;
+                    }
+
+                    // checkout btn and amount
+                    .tws__mini_cart_checkout_wrap{
+                        
+                        a{
+
+                        }
+                    }
+
                 }
+                
+
             }
         }
     }

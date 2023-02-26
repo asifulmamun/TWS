@@ -22,115 +22,156 @@ defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_mini_cart');
 
-
 ?>
 
 <?php if (!WC()->cart->is_empty()) : ?>
-
+	<div class="tws__mini_cart_only_counts"><?php $item_count_text = sprintf(_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ), WC()->cart->get_cart_contents_count()); echo esc_html( $item_count_text ); ?></div>
+	<div class="tws__shipping_charge">
+		<span><?php echo 'Shipping charge: ' . WC()->cart->shipping_total; ?></span>
+	</div>
 	<ul id="tws__mini_cart_ul" class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
 		<?php
-		do_action('woocommerce_before_mini_cart_contents');
+			do_action('woocommerce_before_mini_cart_contents');
+			
+			foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+				$_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+				$product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
+				if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key)) {
+					$product_name      		= apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
+					$thumbnail         		= apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+					$product_regular_price 	= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->regular_price, $cart_item, $cart_item_key);
+					$product_price     		= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->price, $cart_item, $cart_item_key);
+					$tws__product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+					$product_weight     	= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->weight, $cart_item, $cart_item_key);
+					$product_permalink 		= apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
+					?>
+					<li id="tws__mini_cart_li_<?php echo $product_id;?>" data-product_id="<?php echo $product_id;?>" class="grid grid-cols-10 woocommerce-mini-cart-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
+						<div class="tws__mini_cart_update col-span-1 grid justify-items-center">
+							<a id="tws__mini_increment_<?php echo $product_id;?>" href="?add-to-cart=<?php echo $product_id;?>" data-quantity="1" class="add_to_cart_button ajax_add_to_cart" data-product_id="<?php echo $product_id;?>" rel="nofollow" style="-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);-ms-transform:rotate(-90deg);-o-transform:rotate(-90deg);transform:rotate(-90deg);">›</a>
+							<span id="tws__mini_cart_quantity_<?php echo $product_id;?>"><?php echo $cart_item['quantity']; ?></span>
+							<button id="tws__mini_decrement_<?php echo $product_id;?>" data-cart_item_key="<?php echo $cart_item_key; ?>" style="-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);">›</button>
+						</div>
 
-		foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-			$_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
-			$product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
-
-			if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key)) {
-				$product_name      		= apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
-				$thumbnail         		= apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
-				$product_regular_price 	= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->regular_price, $cart_item, $cart_item_key);
-				$product_price     		= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->price, $cart_item, $cart_item_key);
-				$tws__product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
-				$product_weight     	= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->weight, $cart_item, $cart_item_key);
-				$product_permalink 		= apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
-		?>
-
-
-				<li id="tws__mini_cart_li_<?php echo $product_id;?>" data-product_id="<?php echo $product_id;?>" class="woocommerce-mini-cart-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
-					<div class="tws__mini_cart_update">
-						<a id="tws__mini_increment_<?php echo $product_id;?>" href="?add-to-cart=<?php echo $product_id;?>" data-quantity="1" class="add_to_cart_button ajax_add_to_cart" data-product_id="<?php echo $product_id;?>" rel="nofollow" style="-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);-ms-transform:rotate(-90deg);-o-transform:rotate(-90deg);transform:rotate(-90deg);">›</a>
-						<span id="tws__mini_cart_quantity_<?php echo $product_id;?>"><?php echo $cart_item['quantity']; ?></span>
-						<button id="tws__mini_decrement_<?php echo $product_id;?>" data-cart_item_key="<?php echo $cart_item_key; ?>" style="-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);">›</button>
-					</div>
-
-					<div class="tws__mini_cart_img_wrapper">
-						<?php if (empty($product_permalink)) : ?>
-							<?php echo $thumbnail . wp_kses_post($product_name); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-							?>
-						<?php else : ?>
-							<a target="_blank" href="<?php echo esc_url($product_permalink); ?>">
-								<?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+						<div class="tws__mini_cart_img_wrapper col-span-2 grid content-center justify-center">
+							<?php if (empty($product_permalink)) : ?>
+								<?php echo $thumbnail . wp_kses_post($product_name); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 								?>
-							</a>
-						<?php endif; ?>
-					</div>
+							<?php else : ?>
+								<a class="" target="_blank" href="<?php echo esc_url($product_permalink); ?>">
+									<?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+									?>
+								</a>
+							<?php endif; ?>
+						</div>
 
-					<div class="details">
-						<?php
+						<div class="details col-span-4">
+							<?php
+							
+								// Product Name
+								echo wp_kses_post($product_name);
+							
+								// Product Price
+								echo '<br/><span>' . $tws__product_price . '</span>';
+								if(!empty($product_weight)):
+									echo '&nbsp;/&nbsp;' . $product_weight . ' ' . get_option('woocommerce_weight_unit');
+								endif;
+								?>
+						</div>
 						
-							// Product Name
-							echo wp_kses_post($product_name);
-						
-							// Product Price
-							echo '<br/><span>' . $tws__product_price . '</span>';
-							if(!empty($product_weight)):
-								echo '&nbsp;/&nbsp;' . $product_weight . ' ' . get_option('woocommerce_weight_unit');
-							endif;
+						<div class="tws__mini_cart_amount col-span-2">
+							<?php
+								// Product Price
+								echo '<span id="tws__mini_cart_price_' . $product_id .'">' . $product_price*$cart_item['quantity'] . '</span>';
+
+								// if has sale price then show the regular price as deleted
+								if($product_price != $product_regular_price):
+									echo '<br/><span id="tws__mini_cart_regular_price_' . $product_id .'"><del>' . $product_regular_price*$cart_item['quantity'] . '</del></span>';
+								endif;
 							?>
-					</div>
-					
-					<div class="tws__mini_cart_amount">
-						<?php
-							// Product Price
-							echo '<span id="tws__mini_cart_price_' . $product_id .'">' . $product_price*$cart_item['quantity'] . '</span>';
-
-							// if has sale price then show the regular price as deleted
-							if($product_price != $product_regular_price):
-								echo '<br/><span id="tws__mini_cart_regular_price_' . $product_id .'"><del>' . $product_regular_price*$cart_item['quantity'] . '</del></span>';
-							endif;
-						?>
-					</div>
-
+						</div>
+						
+						<div class="tws__mini_cart_remove col-span-1">
+							<?php
+								// Remove Button
+								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									'woocommerce_cart_item_remove_link',
+									sprintf(
+										'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
+										esc_url(wc_get_cart_remove_url($cart_item_key)),
+										esc_attr__('Remove this item', 'woocommerce'),
+										esc_attr($product_id),
+										esc_attr($cart_item_key),
+										esc_attr($_product->get_sku())
+									),
+									$cart_item_key
+								);
+								?>
+						</div>
+					</li>
 					<?php
-						// Remove Button
-						echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							'woocommerce_cart_item_remove_link',
-							sprintf(
-								'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
-								esc_url(wc_get_cart_remove_url($cart_item_key)),
-								esc_attr__('Remove this item', 'woocommerce'),
-								esc_attr($product_id),
-								esc_attr($cart_item_key),
-								esc_attr($_product->get_sku())
-							),
-							$cart_item_key
-						);
-						?>
+				} // if
+			} // foreach product li
 
-				</li>
-		<?php
-			}
-		}
-
-		do_action('woocommerce_mini_cart_contents');
+			do_action('woocommerce_mini_cart_contents');
 		?>
 	</ul>
 
-	<div class="tws__final">
-		<span class="woocommerce-mini-cart__total total">
-			<?php
-				/**
-				 * Hook: woocommerce_widget_shopping_cart_total.
-				 *
-				 * @hooked woocommerce_widget_shopping_cart_subtotal - 10
-				 */
-				do_action('woocommerce_widget_shopping_cart_total');
+
+
+	<!-- Coupons -->
+	<div id="tws__coupon_code_wrap">
+
+		<div id="tws__coupon_code_response" style="display:none;"></div>
+
+		<div id="tws__coupon_form_form_wrap">
+			<input type="text" id="tws__coupon_input" placeholder="Coupon Code">
+			<button type="button" id="tws__coupon_submit">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
+		</div>
+
+		<?php
+			$applied_coupons = WC()->cart->get_applied_coupons();
+
+			if (!empty($applied_coupons)) {
 				?>
-		</span>
-		<?php do_action('woocommerce_widget_shopping_cart_before_buttons'); ?>
-		<span class="woocommerce-mini-cart__buttons buttons"><?php do_action('woocommerce_widget_shopping_cart_buttons'); // view cart and checkout button 
-																?></span>
-		<?php do_action('woocommerce_widget_shopping_cart_after_buttons'); ?>
+				<ul id="tws__coupon_list_ul">
+					<?php foreach ($applied_coupons as $cpns) { ?>    
+						<li id="tws__coupon_list_li_<?php echo esc_attr($cpns); ?>" data-cpcode="<?php echo esc_attr($cpns); ?>">
+							<?php echo esc_html($cpns); ?><button type="button" id="tws__coupon_remove_<?php echo esc_attr($cpns); ?>">Remove</button>
+						</li>
+					<?php } ?>    
+				</ul>
+				<?php
+			} else {
+				// echo '<ul class="majc-applied-cpns" style="display: none;"><li></li></ul>';
+			}
+		?>
+	</div>
+
+
+	
+
+	<div class="tws__final fixed bottom-0 w-full pb-10">
+		<div class="tws__mini_cart_calculation">
+			<?php $get_totals = WC()->cart->get_totals();
+				// $cart_total = $get_totals['subtotal'];
+				// $cart_discount = $get_totals['discount_total'];
+				// $final_subtotal = $cart_total - $cart_discount;
+				?>
+			<span class="tws__mini_cart_subtotal"><?php do_action('woocommerce_widget_shopping_cart_total'); // subtotal ?></span>
+			
+			<label class="tws__mini_cart_discount_amount_lbl"><?php echo esc_html__('Discount:', 'mini-ajax-cart'); ?></label>
+			<span class="tws__mini_cart_discount_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['discount_total'], 2); ?></span>
+			<a href="<?php echo wc_get_cart_url(); ?>">Cart</a>
+			
+			<div class="tws__mini_cart_checkout_wrap grid grid-cols-10">
+				<a class="col-span-6" href="<?php echo wc_get_checkout_url(); ?>">Checkout</a>
+				<div class="col-span-4">
+					<label class="tws__mini_cart_total_amount_lbl"><?php echo esc_html__('Total:', 'mini-ajax-cart'); ?></label>
+					<span class="tws__mini_cart_total_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['total'], 2); ?></span>
+				</div>
+			</div>
+		</div>
+		<?php //do_action('woocommerce_widget_shopping_cart_before_buttons'); //echo '<span class="woocommerce-mini-cart__buttons buttons">'; do_action('woocommerce_widget_shopping_cart_buttons'); echo '</span>'; //do_action('woocommerce_widget_shopping_cart_after_buttons'); ?>
 	</div>
 
 
@@ -139,6 +180,7 @@ do_action('woocommerce_before_mini_cart');
 	<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e('No products in the cart.', 'woocommerce'); ?></p>
 
 <?php endif; ?>
+
 
 
 <?php
@@ -151,92 +193,149 @@ do_action('woocommerce_before_mini_cart');
 // 	$getProductDetail = wc_get_product($itemVal['product_id']);
 
 // 	echo '<pre>';
-// 		var_dump($itemVal['data']->weight);
+// 		var_dump($itemVal['data']);
 
 // 	echo '</pre>';
 
 // }
 
+// echo '<pre>';
+// var_dump(WC()->cart);
+// echo '</pre>';
 
 ?>
 
-
-
-
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <?php
 
+
+
+
 // including js
-echo '<script>var action_cart_url = "' . admin_url('admin-ajax.php') . '";</script>'; // return the http://tws.test/wp-admin/admin-ajax.php url for the minicart action js in this link with ajax
+echo '<script>';
+
+	// echo 'var wpNonce = "' . wp_create_nonce('majc-frontend-ajax-nonce') . '";';
+	// echo 'var ajaxUrl = "' . admin_url('admin-ajax.php') . '";'; // return the http://tws.test/wp-admin/admin-ajax.php url for the minicart action js in this link with ajax
+
+	echo 'var frontend_ajax_object = {';
+		echo 'ajaxurl: "'. admin_url('admin-ajax.php'). '",
+		ajaxnonce: "'. wp_create_nonce('tws-ajax-nonce'). '"';
+
+	echo '};';
+echo '</script>';
 get_template_part( 'template-parts/device_detector', '' ); // devuce detectors
 echo tws__css_js('custom_js',   get_template_directory_uri() . '/assets/build/js/mini_cart.js" id="mini_cart-js');
 
 ?>
+
+
+<!-- <script src="http://tws.test/jquery.js"></script> -->
+
+
 <script>
 
+// var ajaxUrl = frontend_ajax_object.ajaxurl;
+// var wpNonce = frontend_ajax_object.ajaxnonce;
 
-// Get the values from your form
-// var ckey = 'f29c21d4897f78948b91f03172341b7b';
-// var qty = 0;
+// // Apply Discount Coupons
+// $('body').find('.majc-coupon-submit').on('click', function (e) {
+// 	e.preventDefault();
+// 	var couponCode = jQuery("#majc-coupon-code").val();
+// 	var $button = $(this);
+// 	$button.addClass('majc-button-loading');
+// 	$.ajax({
+// 		url: ajaxUrl,
+// 		type: 'POST',
+// 		data: {
+// 			action: "add_coupon_code",
+// 			couponCode: couponCode,
+// 			wp_nonce: wpNonce
+// 		},
+// 		success: function (response) {
+// 			$(".majc-cpn-resp").html(response.msg);
+// 			if (response.result == 'not valid' || response.result == 'already applied') {
+// 				$(".majc-cpn-resp").css({'background-color': '#e2401c', 'color': '#fff'});
+// 			} else {
+// 				$(".majc-cpn-resp").css({'background-color': '#0f834d', 'color': '#fff'});
+// 			}
+// 			$(".majc-cpn-resp").fadeIn().delay(2000).fadeOut();
+// 			$(document.body).trigger('wc_fragment_refresh');
+// 			$button.removeClass('majc-button-loading');
+// 		}
+// 	});
+// });
+
+
+
+// // Remove Applied Discount Coupons
+// $('body').on('click', '.majc-remove-cpn', function () {
+
+// 	var couponCode = $(this).parent('li').attr('cpcode');
+
+// 	$.ajax({
+// 		url: ajaxUrl,
+// 		type: 'POST',
+// 		data: {
+// 			action: "remove_coupon_code",
+// 			couponCode: couponCode,
+// 			wp_nonce: wpNonce
+// 		},
+// 		success: function (response) {
+// 			$(".majc-cpn-resp").html(response);
+// 			$(".majc-cpn-resp").css({'background-color': '#0f834d', 'color': '#fff'});
+// 			$(".majc-cpn-resp").fadeIn().delay(2000).fadeOut();
+// 			$(document.body).trigger('wc_fragment_refresh');
+// 		}
+// 	});
+
+// });
+
+
+// document.querySelector('body').addEventListener('click', function (e) {
+//   if (e.target.className === 'majc-coupon-submit') {
+// 	e.preventDefault();
+
+// 	var couponCode = document.getElementById('majc-coupon-code').value;
+// 	e.target.classList.add('majc-button-loading');
 	
+// 	var request = new XMLHttpRequest();
 
+// 	request.open('POST', ajaxUrl, true);
+// 	request.setRequestHeader('Content-type','application/x-www-form-urlencoded; charset=utf-8');
+	
+// 	request.onload = function() {
+// 	  if (request.status >= 200 && request.status < 400) {
+// 		// Success!
+// 		var data = JSON.parse(request.responseText);
 
+// 		var responseElement = document.querySelector('.majc-cpn-resp');
+// 		responseElement.innerHTML = data.msg;
 
-// $('#refresh').on('click', function() {
-//     var ckey = 'f29c21d4897f78948b91f03172341b7b';
-//     var qty = 10;
-//     //ajax request
-//     $.post(
-//         '<?php //echo admin_url('admin-ajax.php'); ?>',
-//         {
-//             action: 'tws_master_pro_woocommerce_cart_link_fragment',
-//             ckey: ckey,
-//             qty: qty
-//         }, 
-//         function(response) {
-//             // process response
-//             console.log('Response:',response); 
-//         }
-//     );
-// });
+// 		if (data.result === 'not valid' || data.result === 'already applied') {
+// 		  responseElement.style.backgroundColor = '#e2401c';
+// 		  responseElement.style.color = '#fff';
+// 		} else {
+// 		  responseElement.style.backgroundColor = '#0f834d'; 
+// 		  responseElement.style.color = '#fff'; 
+// 		}
+// 		responseElement.style.display = 'block';
+// 		setTimeout(function () { responseElement.style.display = 'none' }, 2000);
 
+// 		// Refresh cart UI
+// 		document.body.dispatchEvent(new Event('wc_fragment_refresh'));
 
-
-
-
-// document.getElementById('refresh').addEventListener('click', function (e) {
-    
-// // Make a JavaScript Object
-// let dataObj = {
-// 	"action": "change_item_qty",
-//     "ckey": 'f29c21d4897f78948b91f03172341b7b',
-//     "qty": 10
-// };
-
-
-// // Make a JavaScript Request object
-// let request = new XMLHttpRequest();
-// request.open("POST", "/wp-admin/admin-ajax.php", true);
-// // Prepare the Request
-// request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-// // Send the Request
-// request.send(dataObj);
-
-
-// });
-
-
-
-// function decrement_quantity(cart_id) {
-//     // var inputQuantityElement = document.getElementById("input-quantity-" + cart_id);
-//     // if (inputQuantityElement.value > 1) {
-//     //   var newQuantity = parseInt(inputQuantityElement.value) - 1;
-//     //   save_to_db(cart_id, newQuantity);
-//     // }
-
-// 	alert(cart_id);
+// 		e.target.classList.remove('majc-button-loading');        
+// 	  } else {
+// 		// We reached our target server, but it returned an error
+// 	  }
+// 	};
+	
+// 	request.onerror = function() {
+// 	  // There was a connection error of some sort
+// 	};
+	
+// 	request.send('action=add_coupon_code&couponCode=' + couponCode + '&wp_nonce=' + wpNonce);
 //   }
-
-
-
+// });
 
 </script>

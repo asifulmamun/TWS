@@ -20,6 +20,8 @@ if(1 == page){
         './../woocommerce/loop/loop-start.php',
         './../woocommerce/desktop/content-product.php',
 
+        './../woocommerce/cart/mini-cart.php',
+
       './../footer.php',
     );
 

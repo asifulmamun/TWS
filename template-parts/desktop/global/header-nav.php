@@ -1,4 +1,4 @@
-<header class="fixed top-0 left-0 right-0 z-50 grid grid-cols-10 py-.5">
+<header class="fixed top-0 left-0 right-0 z-50 grid grid-cols-10 py-0.5">
     <div class="col-span-2 flex tws__site_branding">
         <button id="toggle_primary_menu" class="border p-1 ml-2">
             <svg class="h-5 w-5" viewBox="0 0 20 20">
@@ -34,7 +34,7 @@
 </header>
 
 
-<section class="tws__mini_cart fixed right-0 bottom-0 overflow-x-hidden overflow-y-scroll flex flex-col">
+<section class="tws__mini_cart fixed bottom-0 right-0 z-10 overflow-x-hidden overflow-y-scroll flex flex-col">
     <?php
         // custom mini cart from inc/woocommerce.php
         if ( function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
