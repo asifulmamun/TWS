@@ -17,6 +17,10 @@ nav.woocommerce-pagination ul li a {
   margin: 0 0.1875rem;
 }
 
+.tws__products_ul .added_to_cart.wc-forward {
+  display: none !important;
+}
+
 .tws__products_ul li {
   max-height: 28.125rem;
   margin-top: 1.5625rem;
@@ -35,6 +39,23 @@ nav.woocommerce-pagination ul li a {
   overflow: hidden;
   border: 1px solid;
   cursor: pointer;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__add_to_cart_hover_wrapper {
+  display: none;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__add_to_cart_hover_wrapper {
+  display: inherit;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap a.tws__product_hover_add_to_cart {
+  display: none;
+  background-color: rgba(0,0,0,0.54902);
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover a.tws__product_hover_add_to_cart {
+  display: grid;
 }
 
 .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap img {

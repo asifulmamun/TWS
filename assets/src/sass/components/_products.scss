@@ -1,4 +1,10 @@
 .tws__products_ul{
+
+
+    // hide view cart button after click add to cart button or increment
+    .added_to_cart.wc-forward{display:none !important;}
+
+
     
     li{
         max-height: $pxrem * 450;
@@ -19,6 +25,25 @@
                 overflow: hidden;
                 border: 1px solid;
                 cursor: pointer;
+
+                .tws__add_to_cart_hover_wrapper{
+                    display: none;
+
+                }
+
+                &:hover .tws__add_to_cart_hover_wrapper{
+                    display: inherit;
+                }
+
+                a.tws__product_hover_add_to_cart{
+                    // color: transparent;
+                    display: none;
+                    background-color: $color__bg_hover_overlay;
+                }
+
+                &:hover a.tws__product_hover_add_to_cart{
+                    display: grid;
+                }
 
                 img{
                     max-width: $pxrem * 190;

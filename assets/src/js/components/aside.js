@@ -204,5 +204,4 @@ if (primary_menu) {
         } // for loop
     } // close_all_sub_menu
 
-
 } // end if primary_menu exists or not check
