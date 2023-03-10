@@ -19,6 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-echo '<ul class="products grid grid-cols-5 gap-3 tws__products_ul">';
+echo '<ul id="tws__products_ul" class="products grid grid-cols-5 gap-3 tws__products_ul">';
 
 ?>

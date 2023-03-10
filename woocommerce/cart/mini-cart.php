@@ -45,7 +45,7 @@ do_action('woocommerce_before_mini_cart');
 					$product_weight     	= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->weight, $cart_item, $cart_item_key);
 					$product_permalink 		= apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
 					?>
-					<li id="tws__mini_cart_li_<?php echo $product_id;?>" data-product_id="<?php echo $product_id;?>" class="grid grid-cols-10 woocommerce-mini-cart-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
+					<li id="tws__mini_cart_li_<?php echo $product_id;?>" data-product_id="<?php echo $product_id;?>" class="grid grid-cols-10 items-center justify-items-center woocommerce-mini-cart-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
 						<div class="tws__mini_cart_update col-span-1 grid justify-items-center">
 							<a id="tws__mini_increment_<?php echo $product_id;?>" href="?add-to-cart=<?php echo $product_id;?>" data-quantity="1" class="add_to_cart_button ajax_add_to_cart" data-product_id="<?php echo $product_id;?>" rel="nofollow" style="-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);-ms-transform:rotate(-90deg);-o-transform:rotate(-90deg);transform:rotate(-90deg);">›</a>
 							<span id="tws__mini_cart_quantity_<?php echo $product_id;?>"><?php echo $cart_item['quantity']; ?></span>
@@ -96,9 +96,10 @@ do_action('woocommerce_before_mini_cart');
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									'woocommerce_cart_item_remove_link',
 									sprintf(
-										'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
+										'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" id="tws__mini_cart_remove_%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
 										esc_url(wc_get_cart_remove_url($cart_item_key)),
 										esc_attr__('Remove this item', 'woocommerce'),
+										esc_attr($product_id),
 										esc_attr($product_id),
 										esc_attr($cart_item_key),
 										esc_attr($_product->get_sku())
@@ -159,8 +160,20 @@ do_action('woocommerce_before_mini_cart');
 				?>
 			<span class="tws__mini_cart_subtotal"><?php do_action('woocommerce_widget_shopping_cart_total'); // subtotal ?></span>
 			
-			<label class="tws__mini_cart_discount_amount_lbl"><?php echo esc_html__('Discount:', 'mini-ajax-cart'); ?></label>
-			<span class="tws__mini_cart_discount_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['discount_total'], 2); ?></span>
+			<?php if ($get_totals['discount_total'] > 0): // if discount exisst then print ?>
+				<label class="tws__mini_cart_discount_amount_lbl"><?php echo esc_html__('Discount:', 'mini-ajax-cart'); ?></label>
+				<span class="tws__mini_cart_discount_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['discount_total'], 2); ?></span>
+			<?php endif;?>
+
+			<?php if ($get_totals['shipping_total'] > 0): // if shipping charge exisst then print ?>
+				<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
+				<span class="tws__mini_cart_shipping_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['shipping_total'], 2); ?></span>
+			<?php else:?>
+				<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
+				<span class="tws__mini_cart_shipping_amount">Free</span>
+			<?php endif;?>
+
+
 			<a href="<?php echo wc_get_cart_url(); ?>">Cart</a>
 			
 			<div class="tws__mini_cart_checkout_wrap grid grid-cols-10">
@@ -186,8 +199,6 @@ do_action('woocommerce_before_mini_cart');
 <?php
 // $items = WC()->cart->get_cart();
 // foreach ($items as $itemKey => $itemVal) {
-
-
 // 	$product = wc_get_product($itemVal['data']->get_id());
 // 	$product_id = apply_filters('woocommerce_cart_item_product_id', $itemVal['product_id'], $itemVal, $itemKey);
 // 	$getProductDetail = wc_get_product($itemVal['product_id']);
@@ -200,16 +211,13 @@ do_action('woocommerce_before_mini_cart');
 // }
 
 // echo '<pre>';
-// var_dump(WC()->cart);
+// var_dump(WC()->cart->get_totals());
 // echo '</pre>';
 
 ?>
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <?php
-
-
-
 
 // including js
 echo '<script>';
@@ -230,112 +238,6 @@ echo tws__css_js('custom_js',   get_template_directory_uri() . '/assets/build/js
 
 
 <!-- <script src="http://tws.test/jquery.js"></script> -->
+<!-- <script>
 
-
-<script>
-
-// var ajaxUrl = frontend_ajax_object.ajaxurl;
-// var wpNonce = frontend_ajax_object.ajaxnonce;
-
-// // Apply Discount Coupons
-// $('body').find('.majc-coupon-submit').on('click', function (e) {
-// 	e.preventDefault();
-// 	var couponCode = jQuery("#majc-coupon-code").val();
-// 	var $button = $(this);
-// 	$button.addClass('majc-button-loading');
-// 	$.ajax({
-// 		url: ajaxUrl,
-// 		type: 'POST',
-// 		data: {
-// 			action: "add_coupon_code",
-// 			couponCode: couponCode,
-// 			wp_nonce: wpNonce
-// 		},
-// 		success: function (response) {
-// 			$(".majc-cpn-resp").html(response.msg);
-// 			if (response.result == 'not valid' || response.result == 'already applied') {
-// 				$(".majc-cpn-resp").css({'background-color': '#e2401c', 'color': '#fff'});
-// 			} else {
-// 				$(".majc-cpn-resp").css({'background-color': '#0f834d', 'color': '#fff'});
-// 			}
-// 			$(".majc-cpn-resp").fadeIn().delay(2000).fadeOut();
-// 			$(document.body).trigger('wc_fragment_refresh');
-// 			$button.removeClass('majc-button-loading');
-// 		}
-// 	});
-// });
-
-
-
-// // Remove Applied Discount Coupons
-// $('body').on('click', '.majc-remove-cpn', function () {
-
-// 	var couponCode = $(this).parent('li').attr('cpcode');
-
-// 	$.ajax({
-// 		url: ajaxUrl,
-// 		type: 'POST',
-// 		data: {
-// 			action: "remove_coupon_code",
-// 			couponCode: couponCode,
-// 			wp_nonce: wpNonce
-// 		},
-// 		success: function (response) {
-// 			$(".majc-cpn-resp").html(response);
-// 			$(".majc-cpn-resp").css({'background-color': '#0f834d', 'color': '#fff'});
-// 			$(".majc-cpn-resp").fadeIn().delay(2000).fadeOut();
-// 			$(document.body).trigger('wc_fragment_refresh');
-// 		}
-// 	});
-
-// });
-
-
-// document.querySelector('body').addEventListener('click', function (e) {
-//   if (e.target.className === 'majc-coupon-submit') {
-// 	e.preventDefault();
-
-// 	var couponCode = document.getElementById('majc-coupon-code').value;
-// 	e.target.classList.add('majc-button-loading');
-	
-// 	var request = new XMLHttpRequest();
-
-// 	request.open('POST', ajaxUrl, true);
-// 	request.setRequestHeader('Content-type','application/x-www-form-urlencoded; charset=utf-8');
-	
-// 	request.onload = function() {
-// 	  if (request.status >= 200 && request.status < 400) {
-// 		// Success!
-// 		var data = JSON.parse(request.responseText);
-
-// 		var responseElement = document.querySelector('.majc-cpn-resp');
-// 		responseElement.innerHTML = data.msg;
-
-// 		if (data.result === 'not valid' || data.result === 'already applied') {
-// 		  responseElement.style.backgroundColor = '#e2401c';
-// 		  responseElement.style.color = '#fff';
-// 		} else {
-// 		  responseElement.style.backgroundColor = '#0f834d'; 
-// 		  responseElement.style.color = '#fff'; 
-// 		}
-// 		responseElement.style.display = 'block';
-// 		setTimeout(function () { responseElement.style.display = 'none' }, 2000);
-
-// 		// Refresh cart UI
-// 		document.body.dispatchEvent(new Event('wc_fragment_refresh'));
-
-// 		e.target.classList.remove('majc-button-loading');        
-// 	  } else {
-// 		// We reached our target server, but it returned an error
-// 	  }
-// 	};
-	
-// 	request.onerror = function() {
-// 	  // There was a connection error of some sort
-// 	};
-	
-// 	request.send('action=add_coupon_code&couponCode=' + couponCode + '&wp_nonce=' + wpNonce);
-//   }
-// });
-
-</script>
+</script> -->

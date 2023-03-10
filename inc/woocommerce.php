@@ -22,27 +22,27 @@ function tws_master_pro_woocommerce_setup() {
 }
 add_action( 'after_setup_theme', 'tws_master_pro_woocommerce_setup' );
 
-// WooCommerce specific scripts & stylesheets.
-function tws_master_pro_woocommerce_scripts() {
-//     // wp_localize_script( 'cart-qty-ajax-js', 'cart_qty_ajax', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-//     // wp_enqueue_script( 'cart-qty-ajax-js' );
-// 	// wp_enqueue_style( 'tws-master-pro-woocommerce-style', get_template_directory_uri() . '/assets/build/css/woo.css', array(), _S_VERSION );
-//     // wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
-// 	// $font_path   = WC()->plugin_url() . '/assets/fonts/';
-// 	// $inline_font = '@font-face {
-// 	// 		font-family: "star";
-// 	// 		src: url("' . $font_path . 'star.eot");
-// 	// 		src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
-// 	// 			url("' . $font_path . 'star.woff") format("woff"),
-// 	// 			url("' . $font_path . 'star.ttf") format("truetype"),
-// 	// 			url("' . $font_path . 'star.svg#star") format("svg");
-// 	// 		font-weight: normal;
-// 	// 		font-style: normal;
-// 	// 	}';
+// // WooCommerce specific scripts & stylesheets.
+// function tws_master_pro_woocommerce_scripts() {
+//     //     // wp_localize_script( 'cart-qty-ajax-js', 'cart_qty_ajax', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+//     //     // wp_enqueue_script( 'cart-qty-ajax-js' );
+//     // 	// wp_enqueue_style( 'tws-master-pro-woocommerce-style', get_template_directory_uri() . '/assets/build/css/woo.css', array(), _S_VERSION );
+//     //     // wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
+//     // 	// $font_path   = WC()->plugin_url() . '/assets/fonts/';
+//     // 	// $inline_font = '@font-face {
+//     // 	// 		font-family: "star";
+//     // 	// 		src: url("' . $font_path . 'star.eot");
+//     // 	// 		src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
+//     // 	// 			url("' . $font_path . 'star.woff") format("woff"),
+//     // 	// 			url("' . $font_path . 'star.ttf") format("truetype"),
+//     // 	// 			url("' . $font_path . 'star.svg#star") format("svg");
+//     // 	// 		font-weight: normal;
+//     // 	// 		font-style: normal;
+//     // 	// 	}';
 
-// 	// wp_add_inline_style( 'tws-master-pro-woocommerce-style', $inline_font );
-}
-add_action( 'wp_enqueue_scripts', 'tws_master_pro_woocommerce_scripts' );
+//     // 	// wp_add_inline_style( 'tws-master-pro-woocommerce-style', $inline_font );
+// }
+// add_action( 'wp_enqueue_scripts', 'tws_master_pro_woocommerce_scripts' );
 
 // Disable the default WooCommerce stylesheet.
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
@@ -79,17 +79,10 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 // mini cart - Cart Fragments.
 if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
 	function tws_master_pro_woocommerce_cart_link_fragment( $fragments ) {
-		
-	
 			ob_start();
 			tws_master_pro_woocommerce_cart_link();
 			$fragments['div.cart-contents'] = ob_get_clean();
 			return $fragments;
-
-
-
-		
-		
 	}
 }
 add_filter( 'woocommerce_add_to_cart_fragments', 'tws_master_pro_woocommerce_cart_link_fragment' );
@@ -100,11 +93,11 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
 		?>
 		<div class="cart-contents">
 			<?php
-			$item_count_text = sprintf(
-				_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ),
-				WC()->cart->get_cart_contents_count()
-			);
-			?>
+                $item_count_text = sprintf(
+                    _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ),
+                    WC()->cart->get_cart_contents_count()
+                );
+                ?>
 			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
 		</div>
 		<?php
@@ -121,9 +114,6 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
 		the_widget('WC_Widget_Cart', array('title' => '',));
 	}
 }
-
-
-
 
 
 
@@ -149,8 +139,6 @@ if (!class_exists('Tws__mini_custom_action')) {
             // add_action('woocommerce_add_to_cart_redirect', array($this, 'prevent_add_to_cart_on_redirect'));
 		} // _construct() method
 
-
-       
 		private function checkNonce() {
 			if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'tws-ajax-nonce')) {
 				return 'true';
@@ -160,11 +148,9 @@ if (!class_exists('Tws__mini_custom_action')) {
 		}
 
         function change_item_qty() {
-
             if ($this->checkNonce == 'false') {
                 return false;
             }
-
             $c_key = isset($_REQUEST['ckey']) ? sanitize_text_field($_REQUEST['ckey']) : null;
             $qty = isset($_REQUEST['qty']) ? sanitize_text_field($_REQUEST['qty']) : null;
             WC()->cart->set_quantity($c_key, $qty, true);
@@ -172,7 +158,6 @@ if (!class_exists('Tws__mini_custom_action')) {
             die();
         }
 
-        // clear all notice from wc
         function wc_clear_notices() {
 
             WC()->session->set('wc_notices', array() ); 
@@ -207,9 +192,6 @@ if (!class_exists('Tws__mini_custom_action')) {
             WC()->cart->maybe_set_cart_cookies();
             WC()->cart->set_session();
         } // addCouponResponse
-
-
-
 
         public function add_coupon_code() {
 
@@ -269,8 +251,26 @@ if (!class_exists('Tws__mini_custom_action')) {
             die();
         } // add_coupon_code
 
-
     } // class Tws__mini_custom_action
     new Tws__mini_custom_action();
 } // check exist - class Tws_mini_cart
+
+
+
+
+/**
+ * Override loop template and show quantities next to add to cart buttons
+ */
+// add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
+// function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
+// 	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
+// 		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
+// 		$html .= woocommerce_quantity_input( array(), $product, false );
+// 		$html .= '<button type="submit" class="button alt">' . esc_html( $product->add_to_cart_text() ) . '</button>';
+// 		$html .= '</form>'; 
+// 	}
+// 	return $html;
+// }
+
+// button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart
 

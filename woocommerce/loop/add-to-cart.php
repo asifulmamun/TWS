@@ -34,3 +34,10 @@ echo apply_filters(
 	$product,
 	$args
 );
+
+
+// echo '<div id="tws__add_to_cart_wrapper_' . $product->get_id() . '">
+// <a id="tws__cart_loop_increment_' . $product->get_id() . '" href="?add-to-cart=' . $product->get_id() . '" data-quantity="1" class="add_to_cart_button ajax_add_to_cart border py-1 px-2" data-product_id="' . $product->get_id() . '" rel="nofollow">+</a>
+// <div id="tws__cart_loop_counter_'. $product->get_id() .'">1</div>
+// <button id="tws__cart_loop_decrement_'. $product->get_id() .'" class="border py-1 px-2">-</button>
+// </div>';
