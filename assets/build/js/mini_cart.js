@@ -162,7 +162,11 @@ if (tws__products_ul) {
           document.getElementById("tws__add_to_cart_hover_wrapper_".concat(currentChild.dataset.product_id)).classList.remove('tws__add_to_cart_hover_wrapper');
           document.getElementById("tws__add_to_cart_hover_wrapper_".concat(currentChild.dataset.product_id)).classList.add('hidden');
         });
+
+        // Hover add to cart quantity change
         document.getElementById("tws__cart_hover_loop_counter_".concat(currentChild.dataset.product_id)).innerText = document.getElementById("tws__mini_cart_quantity_".concat(currentChild.dataset.product_id)).innerText;
+
+        // Hover add to cart show
         document.getElementById("tws__add_to_cart_hover_add_".concat(currentChild.dataset.product_id)).addEventListener('mouseenter', function (e) {
           if (document.getElementById("tws__cart_loop_counter_".concat(currentChild.dataset.product_id)).innerText > 0) {
             document.getElementById("tws__add_to_cart_hover_wrapper_".concat(currentChild.dataset.product_id)).classList.remove('hidden');
@@ -174,6 +178,10 @@ if (tws__products_ul) {
         if (document.getElementById("tws__cart_loop_counter_".concat(currentChild.dataset.product_id)).innerText > 0) {
           // hide the add to cart button from - hover of product loop
           document.getElementById("tws__add_to_cart_hover_txt_".concat(currentChild.dataset.product_id)).style.display = 'none';
+
+          // Hover add to cart show
+          document.getElementById("tws__add_to_cart_hover_wrapper_".concat(currentChild.dataset.product_id)).classList.remove('hidden');
+          document.getElementById("tws__add_to_cart_hover_wrapper_".concat(currentChild.dataset.product_id)).classList.add('tws__add_to_cart_hover_wrapper');
         } // If any product qty - hover add to cart text will be hide also another function will be show
 
         // Hover in prouduct - Decrement button in Loop Proudct

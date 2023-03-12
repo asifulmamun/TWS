@@ -36,6 +36,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', TRUE); /* thumbnail */ ?>">
 			<?php else: // Ajax add to cart - if it it has no variable ?>
+				<a href="<?php echo get_permalink(); ?>" data-quantity="1" class="tws__product_hover_add_to_cart absolute z-10 top-0 left-0 h-full w-full grid items-center justify-items-center" data-product_id="<?php echo get_the_ID();?>" rel="nofollow">Select options</a>
+
 				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', TRUE); /* thumbnail */ ?>">
 			<?php endif; // end of if - check is product has variable or not ?>
 			

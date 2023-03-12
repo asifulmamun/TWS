@@ -10,7 +10,7 @@
  */
 
 ?>
-<span class="fixed bottom-0 right-20 z-20">
+<span class="fixed bottom-0 right-20 z-50">
 	<div class="tws__chat relative grid content-center h-10 hover:h-11 rounded-t-lg">
 		<a class="px-8 text-lg" href="#">Live Chat</a>
 

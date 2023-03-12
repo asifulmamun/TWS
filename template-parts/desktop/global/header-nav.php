@@ -34,7 +34,7 @@
 </header>
 
 
-<section class="tws__mini_cart fixed bottom-0 right-0 z-50 overflow-x-hidden overflow-y-scroll flex flex-col">
+<section class="tws__mini_cart fixed bottom-0 right-0 z-40 overflow-x-hidden overflow-y-scroll flex flex-col">
     <?php
         // custom mini cart from inc/woocommerce.php
         if ( function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
