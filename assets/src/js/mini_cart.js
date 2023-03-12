@@ -115,6 +115,7 @@ if (tws__products_ul) {
 				// If change value in mini cart item, then it will same value in product loop
 				document.getElementById(`tws__cart_loop_add_to_cart_${currentChild.dataset.product_id}`).style.display = 'none';
 				document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText = document.getElementById(`tws__mini_cart_quantity_${currentChild.dataset.product_id}`).innerText;
+				document.getElementById(`tws__product_loop_hover_amount_${currentChild.dataset.product_id}`).innerText = document.getElementById(`tws__mini_cart_price_${currentChild.dataset.product_id}`).innerText;
 				document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).style.display = 'inline-block';
 				document.getElementById(`tws__cart_loop_increment_${currentChild.dataset.product_id}`).style.display = 'inline-block';
 				document.getElementById(`tws__cart_loop_btn_before_qty_${currentChild.dataset.product_id}`).style.display = 'inline-block';
@@ -147,6 +148,7 @@ if (tws__products_ul) {
 					document.getElementById(`tws__cart_loop_add_to_cart_${currentChild.dataset.product_id}`).style.display = 'inline-block';
 					document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText = '';
 					document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).style.display = 'none';
+					document.getElementById(`tws__product_loop_hover_amount_${currentChild.dataset.product_id}`).innerText = '';
 					document.getElementById(`tws__cart_loop_btn_before_qty_${currentChild.dataset.product_id}`).style.display = 'none';
 					document.getElementById(`tws__cart_loop_increment_${currentChild.dataset.product_id}`).style.display = 'none';
 					document.getElementById(`tws__cart_loop_decrement_${currentChild.dataset.product_id}`).style.display = 'none';

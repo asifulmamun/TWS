@@ -26,12 +26,14 @@
                 border: 1px solid;
                 cursor: pointer;
 
-                .tws__add_to_cart_hover_wrapper{
+                .tws__add_to_cart_hover_wrapper, .tws__product_loop_details_btn, .tws__product_loop_hover_amount{
                     display: none;
 
                 }
 
-                &:hover .tws__add_to_cart_hover_wrapper{
+                &:hover .tws__add_to_cart_hover_wrapper,
+                &:hover .tws__product_loop_details_btn,
+                &:hover .tws__product_loop_hover_amount{
                     display: inherit;
                 }
 

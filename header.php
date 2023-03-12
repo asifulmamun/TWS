@@ -11,7 +11,7 @@
 	<?php echo tws__css_js('css', null); ?>
 
 	<!-- remove after developed -->
-	<script src="<?php echo get_template_directory_uri(); ?>/assets/src/js/tailwindcss.js"></script>
+	<!-- <script src="<?php //echo get_template_directory_uri(); ?>/assets/src/js/tailwindcss.js"></script> -->
 	
 	<?php wp_head(); ?>
 </head>
