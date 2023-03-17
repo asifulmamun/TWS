@@ -33,6 +33,7 @@
     </div>
 </header>
 
+<?php get_sidebar(); // sidebar ?>
 
 <section class="tws__mini_cart fixed bottom-0 right-0 z-40 overflow-x-hidden overflow-y-scroll flex flex-col">
     <?php

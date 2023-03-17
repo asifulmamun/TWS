@@ -22,31 +22,42 @@ function tws_master_pro_woocommerce_setup() {
 }
 add_action( 'after_setup_theme', 'tws_master_pro_woocommerce_setup' );
 
+
+
+
+
 // WooCommerce specific scripts & stylesheets.
 function tws_master_pro_woocommerce_scripts() {
     wp_enqueue_style( 'woo', get_template_directory_uri() . '/assets/build/css/woo.css', array(), _S_VERSION );
     wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
     
     // wp_localize_script( 'cart-qty-ajax-js', 'cart_qty_ajax', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-    // wp_enqueue_script( 'cart-qty-ajax-js' );
-    // $font_path   = WC()->plugin_url() . '/assets/fonts/';
-    // $inline_font = '@font-face {
-    // 		font-family: "star";
-    // 		src: url("' . $font_path . 'star.eot");
-    // 		src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
-    // 			url("' . $font_path . 'star.woff") format("woff"),
-    // 			url("' . $font_path . 'star.ttf") format("truetype"),
-    // 			url("' . $font_path . 'star.svg#star") format("svg");
-    // 		font-weight: normal;
-    // 		font-style: normal;
-    // 	}';
+        // wp_enqueue_script( 'cart-qty-ajax-js' );
+        // $font_path   = WC()->plugin_url() . '/assets/fonts/';
+        // $inline_font = '@font-face {
+        // 		font-family: "star";
+        // 		src: url("' . $font_path . 'star.eot");
+        // 		src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
+        // 			url("' . $font_path . 'star.woff") format("woff"),
+        // 			url("' . $font_path . 'star.ttf") format("truetype"),
+        // 			url("' . $font_path . 'star.svg#star") format("svg");
+        // 		font-weight: normal;
+        // 		font-style: normal;
+        // 	}';
 
-    // wp_add_inline_style( 'tws-master-pro-woocommerce-style', $inline_font );
+        // wp_add_inline_style( 'tws-master-pro-woocommerce-style', $inline_font );
 }
 add_action( 'wp_enqueue_scripts', 'tws_master_pro_woocommerce_scripts' );
 
+
+
+
+
 // Disable the default WooCommerce stylesheet.
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+
+
 
 
 // Add 'woocommerce-active' class to the body tag.
@@ -56,6 +67,9 @@ function tws_master_pro_woocommerce_active_body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'tws_master_pro_woocommerce_active_body_class' );
+
+
+
 
 
 // Related Products Args.
@@ -71,11 +85,19 @@ function tws_master_pro_woocommerce_related_products_args( $args ) {
 }
 add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocommerce_related_products_args' );
 
+
+
+
+
 /**
  * Remove default WooCommerce wrapper.
  */
 // remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+
+
+
+
 
 // mini cart - Cart Fragments.
 if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
@@ -87,7 +109,6 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
 	}
 }
 add_filter( 'woocommerce_add_to_cart_fragments', 'tws_master_pro_woocommerce_cart_link_fragment' );
-
 // Cart Link.
 if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
 	function tws_master_pro_woocommerce_cart_link() {
@@ -104,7 +125,6 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
 		<?php
 	}
 }
-
 // Cart Content and Widget
 if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
 	function tws_master_pro_woocommerce_header_cart() {
@@ -118,13 +138,14 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
 
 
 
+
+
 // mini cart widget - custom actions
 if (!class_exists('Tws__mini_custom_action')) {
     class Tws__mini_custom_action {
+
         function __construct() {
-
             // add_action('wp_footer', array($this, 'majc_menu'));
-
             // add_action('wp_enqueue_scripts', array($this, 'majc_register_frontend_assets'));
 
             // Change The Quantiy of the Woocommerce Product
@@ -140,6 +161,7 @@ if (!class_exists('Tws__mini_custom_action')) {
             // add_action('woocommerce_add_to_cart_redirect', array($this, 'prevent_add_to_cart_on_redirect'));
 		} // _construct() method
 
+
 		private function checkNonce() {
 			if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'tws-ajax-nonce')) {
 				return 'true';
@@ -147,6 +169,7 @@ if (!class_exists('Tws__mini_custom_action')) {
 				return 'false';
 			}
 		}
+
 
         function change_item_qty() {
             if ($this->checkNonce == 'false') {
@@ -159,15 +182,15 @@ if (!class_exists('Tws__mini_custom_action')) {
             die();
         }
 
-        function wc_clear_notices() {
 
+        function wc_clear_notices() {
             WC()->session->set('wc_notices', array() ); 
             // WC()->session->set('wc_notices', null); 
 
         } // wc_clear_notices
 
-        public function remove_coupon_code() {
 
+        public function remove_coupon_code() {
             if ($this->checkNonce == 'false') {
                 return false;
             }
@@ -185,6 +208,7 @@ if (!class_exists('Tws__mini_custom_action')) {
             die();
         } // remove_coupon_code
 
+
         public function addCouponResponse($response) {
             header('Content-Type: application/json');
             echo json_encode($response);
@@ -194,8 +218,8 @@ if (!class_exists('Tws__mini_custom_action')) {
             WC()->cart->set_session();
         } // addCouponResponse
 
-        public function add_coupon_code() {
 
+        public function add_coupon_code() {
             if ($this->checkNonce == 'false') {
                 return false;
             }
@@ -256,22 +280,4 @@ if (!class_exists('Tws__mini_custom_action')) {
     new Tws__mini_custom_action();
 } // check exist - class Tws_mini_cart
 
-
-
-
-/**
- * Override loop template and show quantities next to add to cart buttons
- */
-// add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
-// function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
-// 	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
-// 		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
-// 		$html .= woocommerce_quantity_input( array(), $product, false );
-// 		$html .= '<button type="submit" class="button alt">' . esc_html( $product->add_to_cart_text() ) . '</button>';
-// 		$html .= '</form>'; 
-// 	}
-// 	return $html;
-// }
-
-// button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart
 
