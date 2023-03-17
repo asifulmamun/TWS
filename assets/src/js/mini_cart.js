@@ -218,8 +218,8 @@ if (tws__products_ul) {
 				}else{
 					// Reload the current page from the server if response problem
 					// window.location.reload(true);
-					window.location.reload();
-					// document.body.dispatchEvent(new Event('wc_fragment_refresh'));
+					// window.location.reload();
+					document.body.dispatchEvent(new Event('wc_fragment_refresh'));
 					// console.log(xhr.status)
 					
 				} // end of if

@@ -10,6 +10,8 @@
  */
 
 ?>
+
+<?php if(!wp_is_mobile()): ?>
 <span class="fixed bottom-0 right-20 z-50">
 	<div class="tws__chat relative grid content-center h-10 hover:h-11 rounded-t-lg">
 		<a class="px-8 text-lg" href="#">Live Chat</a>
@@ -21,6 +23,7 @@
 		<span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
 	</span>
 </span>
+<?php endif; ?>
 
 	<!-- <footer id="colophon" class="site-footer">
 		<div class="site-info">
@@ -40,6 +43,5 @@
 
 
 <?php wp_footer(); ?>
-<?php echo tws__css_js('js', null); ?>
 </body>
 </html>
