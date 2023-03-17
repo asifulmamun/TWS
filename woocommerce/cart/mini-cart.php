@@ -218,7 +218,6 @@ do_action('woocommerce_before_mini_cart');
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <?php
-
 // including js
 echo '<script>';
 
@@ -228,16 +227,8 @@ echo '<script>';
 	echo 'var frontend_ajax_object = {';
 		echo 'ajaxurl: "'. admin_url('admin-ajax.php'). '",
 		ajaxnonce: "'. wp_create_nonce('tws-ajax-nonce'). '"';
-
 	echo '};';
-echo '</script>';
-get_template_part( 'template-parts/device_detector', '' ); // devuce detectors
-echo tws__css_js('custom_js',   get_template_directory_uri() . '/assets/build/js/mini_cart.js" id="mini_cart-js');
+	echo '</script>';
 
+echo '<script src="' . get_template_directory_uri() . '/assets/build/js/mini_cart.js" id="mini_cart-js"></script>' ;
 ?>
-
-
-<!-- <script src="http://tws.test/jquery.js"></script> -->
-<!-- <script>
-
-</script> -->
