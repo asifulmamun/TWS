@@ -28,9 +28,10 @@ add_action( 'after_setup_theme', 'tws_master_pro_woocommerce_setup' );
 
 // WooCommerce specific scripts & stylesheets.
 function tws_master_pro_woocommerce_scripts() {
-    wp_enqueue_style( 'woo', get_template_directory_uri() . '/assets/build/css/woo.css', array(), _S_VERSION );
-    wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
-    
+    if(! wp_is_mobile()):
+        wp_enqueue_style( 'woo', get_template_directory_uri() . '/assets/build/css/woo.css', array(), _S_VERSION );
+        wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
+    endif;
     // wp_localize_script( 'cart-qty-ajax-js', 'cart_qty_ajax', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
         // wp_enqueue_script( 'cart-qty-ajax-js' );
         // $font_path   = WC()->plugin_url() . '/assets/fonts/';

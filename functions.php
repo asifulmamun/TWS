@@ -153,13 +153,14 @@ add_action( 'after_setup_theme', 'tws_master_pro_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function tws_master_pro_scripts() {
-	
-	// css
-	wp_enqueue_style( 'app', get_stylesheet_directory_uri(). '/assets/build/css/app.css',  array(), null, 'all' );
+	if(! wp_is_mobile()):
+		// css
+		wp_enqueue_style( 'app', get_stylesheet_directory_uri(). '/assets/build/css/app.css',  array(), null, 'all' );
 
-	// js
-	wp_enqueue_script( 'tailwind', get_template_directory_uri() . '/assets/src/js/tailwindcss.js', array(), null, true);
-	wp_enqueue_script( 'app', get_template_directory_uri() . '/assets/build/js/app.js', array(), null, true);
+		// js
+		wp_enqueue_script( 'tailwind', get_template_directory_uri() . '/assets/src/js/tailwindcss.js', array(), null, true);
+		wp_enqueue_script( 'app', get_template_directory_uri() . '/assets/build/js/app.js', array(), null, true);
+	endif;
 
 	// comments
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
