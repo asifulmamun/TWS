@@ -20,8 +20,6 @@ if (tws__mini_cart_ul) {
 			});
 		};
 	};
-}
-// console.log(ids_tws__mini_cart_li); // the array of ids
 
 // Clicking on decrement button
 function decrement_quantity(product_id) {
@@ -33,7 +31,7 @@ function decrement_quantity(product_id) {
 		var newQuantity = parseInt(tws__quantity) - 2;
 		save_to_db(tws__product_key, newQuantity, product_id);
 	}
-}
+} // end decrement_quantity
 
 // New Quantity	Set
 function save_to_db(ckey, qty, product_id) {
@@ -51,54 +49,86 @@ function save_to_db(ckey, qty, product_id) {
 		}
 	};
 	xhr.send('action=change_item_qty&ckey=' + ckey + '&qty=' + qty + '&wp_nonce=' + wpNonce);
-}
+} // end new quantity set
 
-// Coupon code action
-function coupon_code(action, coupon_code) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", ajaxUrl, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-			// console.log(this.response);
-			// freagment refresh
-			document.body.dispatchEvent(new Event('wc_fragment_refresh'));
-            if (this.response == 0) {
-                // console.log(this.response);
+
+}; // end of if tws__mini_cart_ul
+// console.log(ids_tws__mini_cart_li); // the array of ids
+
+
+
+
+
+
+const tws__coupon_code_wrap = document.getElementById('tws__coupon_code_wrap');
+if(tws__coupon_code_wrap) {
+
+
+	const tws__has_coupon_code = document.getElementById('tws__has_coupon_code');
+	if(tws__has_coupon_code) {
+		tws__has_coupon_code.addEventListener('click', function(e) {
+			tws__coupon_code_wrap.style.display = 'block';
+		});
+	}; // end of if tws__has_coupon_code
+
+	const tws__coupon_wrap_close = document.getElementById('tws__coupon_wrap_close');
+	if(tws__coupon_wrap_close) {
+		tws__coupon_wrap_close.addEventListener('click', function(e) {
+			tws__coupon_code_wrap.style.display = 'none';
+		});
+	}; // end of if tws__coupon_wrap_close
+
+
+	// Coupon code action
+	function coupon_code(action, coupon_code) {
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", ajaxUrl, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				// console.log(this.response);
 				// freagment refresh
 				document.body.dispatchEvent(new Event('wc_fragment_refresh'));
-            }
-        }
-    };
-    xhr.send('action=' + action + '&coupon_code=' + coupon_code + '&wp_nonce=' + wpNonce);
-}
-
-// click the coupon submit button
-if(document.getElementById('tws__coupon_submit')){
-	document.getElementById('tws__coupon_submit').addEventListener('click', function(e) { 
-		
-		coupon_code('add_coupon_code', document.getElementById('tws__coupon_input').value);
-
-	});
-}; // end of if
-
-// Remove button for coupon code
-const tws__coupon_list_ul = document.getElementById('tws__coupon_list_ul');
-if (tws__coupon_list_ul) {
-	for (let i = 0; i < tws__coupon_list_ul.childNodes.length; i++) {
-		let currentChildcpn = tws__coupon_list_ul.childNodes[i];
-		if (currentChildcpn.id && currentChildcpn.nodeName === 'LI') {
-			// ids_tws__mini_cart_li.push(currentChild.getAttribute('data-product_id')); // add the id to the array
-
-			// with coupon code
-			document.getElementById(`tws__coupon_remove_${currentChildcpn.dataset.cpcode}`).addEventListener('click', function (e) {
-			
-				// action with remove coupon code
-				coupon_code('remove_coupon_code', currentChildcpn.dataset.cpcode);
-			});
+				if (this.response == 0) {
+					// console.log(this.response);
+					// freagment refresh
+					document.body.dispatchEvent(new Event('wc_fragment_refresh'));
+				}
+			}
 		};
+		xhr.send('action=' + action + '&coupon_code=' + coupon_code + '&wp_nonce=' + wpNonce);
 	};
-}; // end of if
+
+	// click the coupon submit button
+	if(document.getElementById('tws__coupon_submit')){
+		document.getElementById('tws__coupon_submit').addEventListener('click', function(e) { 
+			
+			coupon_code('add_coupon_code', document.getElementById('tws__coupon_input').value);
+
+		});
+	}; // end of if
+
+	// Remove button for coupon code
+	const tws__coupon_list_ul = document.getElementById('tws__coupon_list_ul');
+	if (tws__coupon_list_ul) {
+		for (let i = 0; i < tws__coupon_list_ul.childNodes.length; i++) {
+			let currentChildcpn = tws__coupon_list_ul.childNodes[i];
+			if (currentChildcpn.id && currentChildcpn.nodeName === 'LI') {
+				// ids_tws__mini_cart_li.push(currentChild.getAttribute('data-product_id')); // add the id to the array
+
+				// with coupon code
+				document.getElementById(`tws__coupon_remove_${currentChildcpn.dataset.cpcode}`).addEventListener('click', function (e) {
+				
+					// action with remove coupon code
+					coupon_code('remove_coupon_code', currentChildcpn.dataset.cpcode);
+				});
+			};
+		};
+	}; // end of if
+}; // end of if tws__coupon_code_wrap
+
+
+
 
 
 

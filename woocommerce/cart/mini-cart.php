@@ -119,39 +119,41 @@ do_action('woocommerce_before_mini_cart');
 
 
 
-	<!-- Coupons -->
-	<div id="tws__coupon_code_wrap">
-
-		<div id="tws__coupon_code_response" style="display:none;"></div>
-
-		<div id="tws__coupon_form_form_wrap">
-			<input type="text" id="tws__coupon_input" placeholder="Coupon Code">
-			<button type="button" id="tws__coupon_submit">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
-		</div>
-
-		<?php
-			$applied_coupons = WC()->cart->get_applied_coupons();
-
-			if (!empty($applied_coupons)) {
-				?>
-				<ul id="tws__coupon_list_ul">
-					<?php foreach ($applied_coupons as $cpns) { ?>    
-						<li id="tws__coupon_list_li_<?php echo esc_attr($cpns); ?>" data-cpcode="<?php echo esc_attr($cpns); ?>">
-							<?php echo esc_html($cpns); ?><button type="button" id="tws__coupon_remove_<?php echo esc_attr($cpns); ?>">Remove</button>
-						</li>
-					<?php } ?>    
-				</ul>
-				<?php
-			} else {
-				// echo '<ul class="majc-applied-cpns" style="display: none;"><li></li></ul>';
-			}
-		?>
-	</div>
 
 
 	
 
 	<div class="tws__final fixed bottom-0 w-full pb-10">
+
+		<!-- Coupons -->
+		<div id="tws__coupon_code_response" style="display:none;"></div>
+		<button id="tws__has_coupon_code" class="">Have a coupon?</button>
+		<div id="tws__coupon_code_wrap" class="relative" style="display:;">
+			
+			<div id="tws__coupon_form_form_wrap" class="py-3">
+				<input type="text" id="tws__coupon_input" placeholder="Coupon Code" />
+				<button type="button" id="tws__coupon_submit" class="px-2 border">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
+				<button id="tws__coupon_wrap_close" class="px-2 border">x</button>
+			</div>
+			<?php
+				$applied_coupons = WC()->cart->get_applied_coupons();
+
+				if (!empty($applied_coupons)) {
+					?>
+					<ul id="tws__coupon_list_ul">
+						<?php foreach ($applied_coupons as $cpns) { ?>    
+							<li id="tws__coupon_list_li_<?php echo esc_attr($cpns); ?>" data-cpcode="<?php echo esc_attr($cpns); ?>">
+								<?php echo esc_html($cpns); ?><button type="button" id="tws__coupon_remove_<?php echo esc_attr($cpns); ?>">Remove</button>
+							</li>
+						<?php } ?>    
+					</ul>
+					<?php
+				} else {
+					// echo '<ul class="majc-applied-cpns" style="display: none;"><li></li></ul>';
+				}
+			?>
+		</div>
+
 		<div class="tws__mini_cart_calculation">
 			<?php $get_totals = WC()->cart->get_totals();
 				// $cart_total = $get_totals['subtotal'];

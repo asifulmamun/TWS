@@ -30,89 +30,112 @@ if (tws__mini_cart_ul) {
     _loop();
   }
   ;
+
+  // Clicking on decrement button
+  function decrement_quantity(product_id) {
+    var tws__quantity = parseInt(document.getElementById("tws__mini_cart_quantity_".concat(product_id)).innerText);
+    var tws__product_key = document.getElementById("tws__mini_decrement_".concat(product_id)).dataset.cart_item_key;
+
+    // calculate new quantity, it will be decremented 2 and if success to save it to db then again increment it 1, again increment it 1 because for fragment refresh automatically increment it 1
+    if (tws__quantity > 1) {
+      var newQuantity = parseInt(tws__quantity) - 2;
+      save_to_db(tws__product_key, newQuantity, product_id);
+    }
+  } // end decrement_quantity
+
+  // New Quantity	Set
+  function save_to_db(ckey, qty, product_id) {
+    // var inputQuantityElement = document.getElementById("input-quantity-" + cart_id);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", ajaxUrl, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // console.log(this.response);
+        if (this.response == 0) {
+          // after decrement qty = 2, then it will be increment qty = 1 for fregment refresh
+          document.getElementById("tws__mini_increment_".concat(product_id)).click();
+        }
+      }
+    };
+    xhr.send('action=change_item_qty&ckey=' + ckey + '&qty=' + qty + '&wp_nonce=' + wpNonce);
+  } // end new quantity set
 }
+
+; // end of if tws__mini_cart_ul
 // console.log(ids_tws__mini_cart_li); // the array of ids
 
-// Clicking on decrement button
-function decrement_quantity(product_id) {
-  var tws__quantity = parseInt(document.getElementById("tws__mini_cart_quantity_".concat(product_id)).innerText);
-  var tws__product_key = document.getElementById("tws__mini_decrement_".concat(product_id)).dataset.cart_item_key;
-
-  // calculate new quantity, it will be decremented 2 and if success to save it to db then again increment it 1, again increment it 1 because for fragment refresh automatically increment it 1
-  if (tws__quantity > 1) {
-    var newQuantity = parseInt(tws__quantity) - 2;
-    save_to_db(tws__product_key, newQuantity, product_id);
+var tws__coupon_code_wrap = document.getElementById('tws__coupon_code_wrap');
+if (tws__coupon_code_wrap) {
+  var tws__has_coupon_code = document.getElementById('tws__has_coupon_code');
+  if (tws__has_coupon_code) {
+    tws__has_coupon_code.addEventListener('click', function (e) {
+      tws__coupon_code_wrap.style.display = 'block';
+    });
   }
-}
+  ; // end of if tws__has_coupon_code
 
-// New Quantity	Set
-function save_to_db(ckey, qty, product_id) {
-  // var inputQuantityElement = document.getElementById("input-quantity-" + cart_id);
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", ajaxUrl, true);
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      // console.log(this.response);
-      if (this.response == 0) {
-        // after decrement qty = 2, then it will be increment qty = 1 for fregment refresh
-        document.getElementById("tws__mini_increment_".concat(product_id)).click();
-      }
-    }
-  };
-  xhr.send('action=change_item_qty&ckey=' + ckey + '&qty=' + qty + '&wp_nonce=' + wpNonce);
-}
+  var tws__coupon_wrap_close = document.getElementById('tws__coupon_wrap_close');
+  if (tws__coupon_wrap_close) {
+    tws__coupon_wrap_close.addEventListener('click', function (e) {
+      tws__coupon_code_wrap.style.display = 'none';
+    });
+  }
+  ; // end of if tws__coupon_wrap_close
 
-// Coupon code action
-function coupon_code(action, coupon_code) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", ajaxUrl, true);
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      // console.log(this.response);
-      // freagment refresh
-      document.body.dispatchEvent(new Event('wc_fragment_refresh'));
-      if (this.response == 0) {
+  // Coupon code action
+  function coupon_code(action, coupon_code) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", ajaxUrl, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
         // console.log(this.response);
         // freagment refresh
         document.body.dispatchEvent(new Event('wc_fragment_refresh'));
+        if (this.response == 0) {
+          // console.log(this.response);
+          // freagment refresh
+          document.body.dispatchEvent(new Event('wc_fragment_refresh'));
+        }
       }
-    }
-  };
-  xhr.send('action=' + action + '&coupon_code=' + coupon_code + '&wp_nonce=' + wpNonce);
-}
-
-// click the coupon submit button
-if (document.getElementById('tws__coupon_submit')) {
-  document.getElementById('tws__coupon_submit').addEventListener('click', function (e) {
-    coupon_code('add_coupon_code', document.getElementById('tws__coupon_input').value);
-  });
-}
-; // end of if
-
-// Remove button for coupon code
-var tws__coupon_list_ul = document.getElementById('tws__coupon_list_ul');
-if (tws__coupon_list_ul) {
-  var _loop2 = function _loop2() {
-    var currentChildcpn = tws__coupon_list_ul.childNodes[_i];
-    if (currentChildcpn.id && currentChildcpn.nodeName === 'LI') {
-      // ids_tws__mini_cart_li.push(currentChild.getAttribute('data-product_id')); // add the id to the array
-
-      // with coupon code
-      document.getElementById("tws__coupon_remove_".concat(currentChildcpn.dataset.cpcode)).addEventListener('click', function (e) {
-        // action with remove coupon code
-        coupon_code('remove_coupon_code', currentChildcpn.dataset.cpcode);
-      });
-    }
-    ;
-  };
-  for (var _i = 0; _i < tws__coupon_list_ul.childNodes.length; _i++) {
-    _loop2();
+    };
+    xhr.send('action=' + action + '&coupon_code=' + coupon_code + '&wp_nonce=' + wpNonce);
   }
   ;
+
+  // click the coupon submit button
+  if (document.getElementById('tws__coupon_submit')) {
+    document.getElementById('tws__coupon_submit').addEventListener('click', function (e) {
+      coupon_code('add_coupon_code', document.getElementById('tws__coupon_input').value);
+    });
+  }
+  ; // end of if
+
+  // Remove button for coupon code
+  var tws__coupon_list_ul = document.getElementById('tws__coupon_list_ul');
+  if (tws__coupon_list_ul) {
+    var _loop2 = function _loop2() {
+      var currentChildcpn = tws__coupon_list_ul.childNodes[_i];
+      if (currentChildcpn.id && currentChildcpn.nodeName === 'LI') {
+        // ids_tws__mini_cart_li.push(currentChild.getAttribute('data-product_id')); // add the id to the array
+
+        // with coupon code
+        document.getElementById("tws__coupon_remove_".concat(currentChildcpn.dataset.cpcode)).addEventListener('click', function (e) {
+          // action with remove coupon code
+          coupon_code('remove_coupon_code', currentChildcpn.dataset.cpcode);
+        });
+      }
+      ;
+    };
+    for (var _i = 0; _i < tws__coupon_list_ul.childNodes.length; _i++) {
+      _loop2();
+    }
+    ;
+  }
+  ; // end of if
 }
-; // end of if
+; // end of if tws__coupon_code_wrap
 
 // In products loop ajax and products details change
 var tws__products_ul = document.getElementById('tws__products_ul');
