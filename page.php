@@ -14,7 +14,7 @@
 
 get_header();
 ?>
-
+<div id="tws__page_with_aside">
 	<main id="primary" class="site-main">
 
 		<?php
@@ -32,7 +32,7 @@ get_header();
 		?>
 
 	</main><!-- #main -->
-
+</div>
 <?php
 // get_sidebar();
 get_footer();
