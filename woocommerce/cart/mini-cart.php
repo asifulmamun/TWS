@@ -121,19 +121,18 @@ do_action('woocommerce_before_mini_cart');
 
 
 
-	
 
 	<div class="tws__final fixed bottom-0 w-full pb-10">
 
 		<!-- Coupons -->
-		<div id="tws__coupon_code_response" style="display:none;"></div>
-		<button id="tws__has_coupon_code" class="">Have a coupon?</button>
-		<div id="tws__coupon_code_wrap" class="relative" style="display:;">
+		<div id="tws__coupon_code_response" style="display:block;"></div>
+		<button id="tws__has_coupon_code" class="w-full py-1"><i id="tws__has_coupon_code_icon"></i>&nbsp;Have a coupon?</button>
+		<div id="tws__coupon_code_wrap" class="relative" style="display:none;">
 			
-			<div id="tws__coupon_form_form_wrap" class="py-3">
-				<input type="text" id="tws__coupon_input" placeholder="Coupon Code" />
-				<button type="button" id="tws__coupon_submit" class="px-2 border">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
-				<button id="tws__coupon_wrap_close" class="px-2 border">x</button>
+			<div id="tws__coupon_form_form_wrap" class="py-3 text-center">
+				<input type="text" id="tws__coupon_input" class="px-2 py-1 rounded" placeholder="Coupon Code" />
+				<button type="button" id="tws__coupon_submit" class="px-2 py-1 border">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
+				<button id="tws__coupon_wrap_close" class="px-2 py-1 border">x</button>
 			</div>
 			<?php
 				$applied_coupons = WC()->cart->get_applied_coupons();

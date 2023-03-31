@@ -58,16 +58,8 @@ header .tws__search_box ::placeholder {
   color: #343131;
 }
 
-header .tws__search_box:hover .tws__search_box_logo, header .tws__search_box:focus .tws__search_box_logo, header .tws__search_box[focus-within] .tws__search_box_logo {
-  left: -18.75rem;
-}
-
 header .tws__search_box:hover .tws__search_box_logo, header .tws__search_box:focus .tws__search_box_logo, header .tws__search_box:focus-within .tws__search_box_logo {
   left: -18.75rem;
-}
-
-header .tws__search_box:hover input[type=search], header .tws__search_box:focus input[type=search], header .tws__search_box[focus-within] input[type=search] {
-  padding-left: 1rem;
 }
 
 header .tws__search_box:hover input[type=search], header .tws__search_box:focus input[type=search], header .tws__search_box:focus-within input[type=search] {

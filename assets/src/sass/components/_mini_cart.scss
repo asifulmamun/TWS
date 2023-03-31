@@ -64,9 +64,15 @@
 
 
                 // Coupon
-                // #tws__coupon_code_wrap{
-                //     display: none;
-                // }
+                #tws__has_coupon_code, #tws__has_coupon_code_wrap{
+                    background-color: $color__bg_gray;
+                    border-color: $color__bg_gray_border;
+
+                    svg{
+                        width: 12px;
+                        display: inline;
+                    }
+                }
 
 
                 .tws__mini_cart_calculation{

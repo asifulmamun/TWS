@@ -45,15 +45,13 @@ nav.woocommerce-pagination ul li a {
   display: none;
 }
 
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__add_to_cart_hover_wrapper,
-    .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__product_loop_details_btn,
-    .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__product_loop_hover_amount {
+.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__add_to_cart_hover_wrapper, .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__product_loop_details_btn, .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__product_loop_hover_amount {
   display: inherit;
 }
 
 .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap a.tws__product_hover_add_to_cart {
   display: none;
-  background-color: rgba(0,0,0,0.54902);
+  background-color: #0000008c;
 }
 
 .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover a.tws__product_hover_add_to_cart {
@@ -89,6 +87,16 @@ nav.woocommerce-pagination ul li a {
 .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final {
   width: 20rem;
   background-color: #fafafa;
+}
+
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code, .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code_wrap {
+  background-color: #f7f7f7;
+  border-color: #ededed;
+}
+
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code svg, .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code_wrap svg {
+  width: 12px;
+  display: inline;
 }
 
 .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_calculation {

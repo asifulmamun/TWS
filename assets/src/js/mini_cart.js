@@ -21,36 +21,35 @@ if (tws__mini_cart_ul) {
 		};
 	};
 
-// Clicking on decrement button
-function decrement_quantity(product_id) {
-	var tws__quantity = parseInt(document.getElementById(`tws__mini_cart_quantity_${product_id}`).innerText);
-	var tws__product_key = document.getElementById(`tws__mini_decrement_${product_id}`).dataset.cart_item_key;
+	// Clicking on decrement button
+	function decrement_quantity(product_id) {
+		var tws__quantity = parseInt(document.getElementById(`tws__mini_cart_quantity_${product_id}`).innerText);
+		var tws__product_key = document.getElementById(`tws__mini_decrement_${product_id}`).dataset.cart_item_key;
 
-	// calculate new quantity, it will be decremented 2 and if success to save it to db then again increment it 1, again increment it 1 because for fragment refresh automatically increment it 1
-	if (tws__quantity > 1) {
-		var newQuantity = parseInt(tws__quantity) - 2;
-		save_to_db(tws__product_key, newQuantity, product_id);
-	}
-} // end decrement_quantity
-
-// New Quantity	Set
-function save_to_db(ckey, qty, product_id) {
-	// var inputQuantityElement = document.getElementById("input-quantity-" + cart_id);
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", ajaxUrl, true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState === 4 && xhr.status === 200) {
-			// console.log(this.response);
-			if (this.response == 0) {
-				// after decrement qty = 2, then it will be increment qty = 1 for fregment refresh
-				document.getElementById(`tws__mini_increment_${product_id}`).click();
-			}
+		// calculate new quantity, it will be decremented 2 and if success to save it to db then again increment it 1, again increment it 1 because for fragment refresh automatically increment it 1
+		if (tws__quantity > 1) {
+			var newQuantity = parseInt(tws__quantity) - 2;
+			save_to_db(tws__product_key, newQuantity, product_id);
 		}
-	};
-	xhr.send('action=change_item_qty&ckey=' + ckey + '&qty=' + qty + '&wp_nonce=' + wpNonce);
-} // end new quantity set
+	} // end decrement_quantity
 
+	// New Quantity	Set
+	function save_to_db(ckey, qty, product_id) {
+		// var inputQuantityElement = document.getElementById("input-quantity-" + cart_id);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", ajaxUrl, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				// console.log(this.response);
+				if (this.response == 0) {
+					// after decrement qty = 2, then it will be increment qty = 1 for fregment refresh
+					document.getElementById(`tws__mini_increment_${product_id}`).click();
+				}
+			}
+		};
+		xhr.send('action=change_item_qty&ckey=' + ckey + '&qty=' + qty + '&wp_nonce=' + wpNonce);
+	} // end new quantity set
 
 }; // end of if tws__mini_cart_ul
 // console.log(ids_tws__mini_cart_li); // the array of ids
@@ -62,12 +61,27 @@ function save_to_db(ckey, qty, product_id) {
 
 const tws__coupon_code_wrap = document.getElementById('tws__coupon_code_wrap');
 if(tws__coupon_code_wrap) {
-
-
 	const tws__has_coupon_code = document.getElementById('tws__has_coupon_code');
+	
+	// icon set on tws coupon code
+	document.getElementById('tws__has_coupon_code_icon').innerHTML = '<svg id="tws__has_coupon_code_icon_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M246.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L224 109.3 361.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160zm160 352l-160-160c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L224 301.3 361.4 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3z"/></svg><style>.rotate180{-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg);}</style>';
+
 	if(tws__has_coupon_code) {
 		tws__has_coupon_code.addEventListener('click', function(e) {
-			tws__coupon_code_wrap.style.display = 'block';
+			
+			// if class not exsist add class for rotate, otherwise remove class
+			var tws__has_coupon_code_icon_svg = document.getElementById('tws__has_coupon_code_icon_svg');
+			if(!tws__has_coupon_code_icon_svg.classList.contains('rotate180')){
+				// trigger up the icon
+				tws__has_coupon_code_icon_svg.classList.add('rotate180');
+				tws__coupon_code_wrap.style.display = 'block';
+				
+			}else{
+
+				// trigger down the icon
+				tws__has_coupon_code_icon_svg.classList.remove('rotate180');
+				tws__coupon_code_wrap.style.display = 'none';
+			}
 		});
 	}; // end of if tws__has_coupon_code
 
@@ -75,6 +89,9 @@ if(tws__coupon_code_wrap) {
 	if(tws__coupon_wrap_close) {
 		tws__coupon_wrap_close.addEventListener('click', function(e) {
 			tws__coupon_code_wrap.style.display = 'none';
+
+			// The icon will rotate and close the wrapper
+			document.getElementById('tws__has_coupon_code_icon_svg').classList.remove('rotate180');
 		});
 	}; // end of if tws__coupon_wrap_close
 
@@ -126,7 +143,6 @@ if(tws__coupon_code_wrap) {
 		};
 	}; // end of if
 }; // end of if tws__coupon_code_wrap
-
 
 
 
@@ -258,6 +274,12 @@ if (tws__products_ul) {
 		};
 
 	}; // is esist or not tws__mini_cart_ul
-}
+};
+
+
+
+
+
+
 
 
