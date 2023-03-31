@@ -191,6 +191,18 @@ if (!class_exists('Tws__mini_custom_action')) {
         } // wc_clear_notices
 
 
+
+        // Coupon code response
+        public function addCouponResponse($response) {
+            header('Content-Type: application/json');
+            echo json_encode($response);
+
+            WC()->cart->calculate_totals();
+            WC()->cart->maybe_set_cart_cookies();
+            WC()->cart->set_session();
+        } // addCouponResponse
+
+
         public function remove_coupon_code() {
             if ($this->checkNonce == 'false') {
                 return false;
@@ -199,7 +211,13 @@ if (!class_exists('Tws__mini_custom_action')) {
             $couponCode = isset($_POST['coupon_code']) ? sanitize_text_field($_POST['coupon_code']) : null;
 
             if (WC()->cart->remove_coupon($couponCode)) {
-                esc_html_e('Coupon Removed Successfully.', 'mini-ajax-cart');
+                // esc_html_e('Coupon Removed Successfully.', 'mini-ajax-cart');
+
+                $response = array(
+                    'result' => 'removed',
+                    'msg' => esc_html__('Coupon Removed Successfully.', 'mini-ajax-cart')
+                );
+                $this->addCouponResponse($response);
             }
 
             WC()->cart->calculate_totals();
@@ -210,14 +228,6 @@ if (!class_exists('Tws__mini_custom_action')) {
         } // remove_coupon_code
 
 
-        public function addCouponResponse($response) {
-            header('Content-Type: application/json');
-            echo json_encode($response);
-
-            WC()->cart->calculate_totals();
-            WC()->cart->maybe_set_cart_cookies();
-            WC()->cart->set_session();
-        } // addCouponResponse
 
 
         public function add_coupon_code() {

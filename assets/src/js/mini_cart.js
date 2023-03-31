@@ -103,14 +103,28 @@ if(tws__coupon_code_wrap) {
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState === 4 && xhr.status === 200) {
+				
 				// console.log(this.response);
+				console.log(JSON.parse(this.response).msg);
+	
+
+				
+				// coupon code response are showing to in this element
+				let tws__coupon_code_response = document.getElementById('tws__coupon_code_response');
+				if(tws__coupon_code_response){
+					tws__coupon_code_response.innerText = JSON.parse(this.response).msg;
+				};
+
 				// freagment refresh
 				document.body.dispatchEvent(new Event('wc_fragment_refresh'));
+
 				if (this.response == 0) {
 					// console.log(this.response);
 					// freagment refresh
 					document.body.dispatchEvent(new Event('wc_fragment_refresh'));
+					return true; // it's not necessary - but, use for for cross origin request
 				}
+				return true; // it's not necessary - but, use for for cross origin request
 			}
 		};
 		xhr.send('action=' + action + '&coupon_code=' + coupon_code + '&wp_nonce=' + wpNonce);
