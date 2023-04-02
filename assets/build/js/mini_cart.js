@@ -107,12 +107,21 @@ if (tws__coupon_code_wrap) {
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         // console.log(this.response);
-        console.log(JSON.parse(this.response).msg);
+        // console.log(JSON.parse(this.response).msg);
 
         // coupon code response are showing to in this element
         var tws__coupon_code_response = document.getElementById('tws__coupon_code_response');
         if (tws__coupon_code_response) {
           tws__coupon_code_response.innerText = JSON.parse(this.response).msg;
+
+          // push_notify const declare in global.js file
+          push_notify.innerText = JSON.parse(this.response).msg;
+          push_notify.classList.remove('hidden');
+
+          // again hide the notification after selected sec
+          setTimeout(function () {
+            push_notify.classList.add('hidden');
+          }, 4000);
         }
         ;
 

@@ -6,7 +6,7 @@
     height: calc(100% - #{$pxrem * 55});
     // z-index: 10;
     padding-bottom: $pxrem*35;
-    background-color: $color__bg_secondary;
+    background-color: $color__bg_primary;
 
 
     // mini cart parent wrapper
@@ -24,6 +24,8 @@
                     // justify-content: space-between;
                     // align-items: center;
                     // padding: $pxrem*5 $pxrem*20;
+
+                    
                     
                     div.tws__mini_cart_update{
                         // display: grid;
@@ -64,7 +66,7 @@
 
 
                 // Coupon
-                #tws__has_coupon_code, #tws__has_coupon_code_wrap{
+                #tws__has_coupon_code{
                     background-color: $color__bg_gray;
                     border-color: $color__bg_gray_border;
 
@@ -73,6 +75,16 @@
                         display: inline;
                     }
                 }
+
+                #tws__coupon_list_ul{
+                    li{
+                        button{
+                            background-color: $color__bg_optional;
+                            color: $color__txt_optional;
+                        }
+                    }
+                }
+
 
 
                 .tws__mini_cart_calculation{

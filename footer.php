@@ -41,7 +41,7 @@
 		</div>
 	</footer> -->
 
-
+	<div id="push_notify" class="fixed left-1/2 transform -translate-x-1/2 bottom-0 z-20 px-3 py-2 hidden">Notification</div>
 <?php wp_footer(); ?>
 </body>
 </html>

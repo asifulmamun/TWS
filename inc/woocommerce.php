@@ -191,7 +191,6 @@ if (!class_exists('Tws__mini_custom_action')) {
         } // wc_clear_notices
 
 
-
         // Coupon code response
         public function addCouponResponse($response) {
             header('Content-Type: application/json');
@@ -226,8 +225,6 @@ if (!class_exists('Tws__mini_custom_action')) {
 
             die();
         } // remove_coupon_code
-
-
 
 
         public function add_coupon_code() {

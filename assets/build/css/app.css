@@ -197,6 +197,11 @@ aside#aside .tws__quick_access_menu ul#quick-access-menu li a svg {
   background: #f22127;
 }
 
+#push_notify {
+  background-color: #f22127;
+  color: #fff;
+}
+
 #tws__page_with_aside {
   padding-top: 3.4375rem;
   padding-bottom: 3.4375rem;

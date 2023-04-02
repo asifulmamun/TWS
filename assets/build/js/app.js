@@ -11,6 +11,13 @@
     Cookies
  */
 
+// push notification - footer
+var push_notify = document.getElementById('push_notify');
+push_notify.addEventListener('click', function (event) {
+  // push notification will hide itself if click event
+  this.classList.add('hidden');
+}); // click push notification
+
 /***/ }),
 
 /***/ "./src/js/components/aside.js":

@@ -45,7 +45,7 @@ do_action('woocommerce_before_mini_cart');
 					$product_weight     	= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->weight, $cart_item, $cart_item_key);
 					$product_permalink 		= apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
 					?>
-					<li id="tws__mini_cart_li_<?php echo $product_id;?>" data-product_id="<?php echo $product_id;?>" class="grid grid-cols-10 items-center justify-items-center woocommerce-mini-cart-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
+					<li id="tws__mini_cart_li_<?php echo $product_id;?>" data-product_id="<?php echo $product_id;?>" class="grid grid-cols-10 items-center justify-items-center py-3 border-b woocommerce-mini-cart-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
 						<div class="tws__mini_cart_update col-span-1 grid justify-items-center">
 							<a id="tws__mini_increment_<?php echo $product_id;?>" href="?add-to-cart=<?php echo $product_id;?>" data-quantity="1" class="add_to_cart_button ajax_add_to_cart" data-product_id="<?php echo $product_id;?>" rel="nofollow" style="-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);-ms-transform:rotate(-90deg);-o-transform:rotate(-90deg);transform:rotate(-90deg);">›</a>
 							<span id="tws__mini_cart_quantity_<?php echo $product_id;?>"><?php echo $cart_item['quantity']; ?></span>
@@ -127,24 +127,26 @@ do_action('woocommerce_before_mini_cart');
 		<!-- Coupons -->
 		<div id="tws__coupon_code_response" style="display:block;"></div>
 		<button id="tws__has_coupon_code" class="w-full py-1"><i id="tws__has_coupon_code_icon"></i>&nbsp;Have a coupon?</button>
+		
 		<div id="tws__coupon_code_wrap" class="relative" style="display:none;">
 			
-			<div id="tws__coupon_form_form_wrap" class="py-3 text-center">
-				<input type="text" id="tws__coupon_input" class="px-2 py-1 rounded" placeholder="Coupon Code" />
+			<div id="tws__coupon_form_wrap" class="py-3 text-center">
+				<input type="text" id="tws__coupon_input" class="px-2 py-1 rounded focus:outline-none" placeholder="Coupon Code" />
 				<button type="button" id="tws__coupon_submit" class="px-2 py-1 border">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
 				<button id="tws__coupon_wrap_close" class="px-2 py-1 border">x</button>
 			</div>
+			
 			<?php
 				$applied_coupons = WC()->cart->get_applied_coupons();
 
 				if (!empty($applied_coupons)) {
 					?>
-					<ul id="tws__coupon_list_ul">
+					<ul class="px-1 py-1.5" id="tws__coupon_list_ul">
 						<?php foreach ($applied_coupons as $cpns) { ?>    
-							<li id="tws__coupon_list_li_<?php echo esc_attr($cpns); ?>" data-cpcode="<?php echo esc_attr($cpns); ?>">
-								<?php echo esc_html($cpns); ?><button type="button" id="tws__coupon_remove_<?php echo esc_attr($cpns); ?>">Remove</button>
+							<li class="relative group inline-block px-2 py-1" id="tws__coupon_list_li_<?php echo esc_attr($cpns); ?>" data-cpcode="<?php echo esc_attr($cpns); ?>">
+								<?php echo esc_html($cpns); ?><button type="button" class="absolute bottom-3.5 right-px mx-0.5 px-1 py-px text-sm border outline-none group-hover:inline-block hidden" id="tws__coupon_remove_<?php echo esc_attr($cpns); ?>">x</button>
 							</li>
-						<?php } ?>    
+						<?php } ?>
 					</ul>
 					<?php
 				} else {

@@ -71,7 +71,7 @@ nav.woocommerce-pagination ul li a {
   width: 20rem;
   height: calc(100% - 3.4375rem);
   padding-bottom: 2.1875rem;
-  background-color: #fafafa;
+  background-color: #fff;
 }
 
 .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget li.woocommerce-mini-cart-item div.tws__mini_cart_img_wrapper {
@@ -89,14 +89,19 @@ nav.woocommerce-pagination ul li a {
   background-color: #fafafa;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code, .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code_wrap {
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code {
   background-color: #f7f7f7;
   border-color: #ededed;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code svg, .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code_wrap svg {
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code svg {
   width: 12px;
   display: inline;
+}
+
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__coupon_list_ul li button {
+  background-color: #f22127;
+  color: #fff;
 }
 
 .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_calculation {
