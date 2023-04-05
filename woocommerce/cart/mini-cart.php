@@ -27,7 +27,7 @@ do_action('woocommerce_before_mini_cart');
 <?php if (!WC()->cart->is_empty()) : ?>
 	<div class="tws__mini_cart_only_counts"><?php $item_count_text = sprintf(_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ), WC()->cart->get_cart_contents_count()); echo esc_html( $item_count_text ); ?></div>
 	<div class="tws__shipping_charge">
-		<span><?php echo 'Shipping charge: ' . WC()->cart->shipping_total; ?></span>
+		<span><?php echo 'Shipping charge: ' . WC()->cart->shipping_total . get_woocommerce_currency_symbol(); ?></span>
 	</div>
 	<ul id="tws__mini_cart_ul" class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
 		<?php
@@ -126,14 +126,14 @@ do_action('woocommerce_before_mini_cart');
 
 		<!-- Coupons -->
 		<div id="tws__coupon_code_response" style="display:block;"></div>
-		<button id="tws__has_coupon_code" class="w-full py-1"><i id="tws__has_coupon_code_icon"></i>&nbsp;Have a coupon?</button>
+		<button id="tws__has_coupon_code" class="py-1"><i id="tws__has_coupon_code_icon"></i>&nbsp;Have a coupon?</button>
 		
-		<div id="tws__coupon_code_wrap" class="relative" style="display:none;">
+		<div id="tws__coupon_code_wrap" class="relative transition-all ease-in-out delay-150 duration-300" style="display:none;">
 			
 			<div id="tws__coupon_form_wrap" class="py-3 text-center">
 				<input type="text" id="tws__coupon_input" class="px-2 py-1 rounded focus:outline-none" placeholder="Coupon Code" />
-				<button type="button" id="tws__coupon_submit" class="px-2 py-1 border">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
-				<button id="tws__coupon_wrap_close" class="px-2 py-1 border">x</button>
+				<button type="button" id="tws__coupon_submit" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
+				<button id="tws__coupon_wrap_close" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">x</button>
 			</div>
 			
 			<?php
@@ -161,29 +161,35 @@ do_action('woocommerce_before_mini_cart');
 				// $cart_discount = $get_totals['discount_total'];
 				// $final_subtotal = $cart_total - $cart_discount;
 				?>
-			<span class="tws__mini_cart_subtotal"><?php do_action('woocommerce_widget_shopping_cart_total'); // subtotal ?></span>
 			
-			<?php if ($get_totals['discount_total'] > 0): // if discount exisst then print ?>
-				<label class="tws__mini_cart_discount_amount_lbl"><?php echo esc_html__('Discount:', 'mini-ajax-cart'); ?></label>
-				<span class="tws__mini_cart_discount_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['discount_total'], 2); ?></span>
-			<?php endif;?>
-
-			<?php if ($get_totals['shipping_total'] > 0): // if shipping charge exisst then print ?>
-				<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
-				<span class="tws__mini_cart_shipping_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['shipping_total'], 2); ?></span>
-			<?php else:?>
-				<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
-				<span class="tws__mini_cart_shipping_amount">Free</span>
-			<?php endif;?>
-
-
-			<a href="<?php echo wc_get_cart_url(); ?>">Cart</a>
+			<div class="tws__mini_calculated group grid grid-cols-10 px-3 pb-px text-xs">
+				<div class="col-span-5 text-center">
+					<span class="tws__mini_cart_subtotal"><?php do_action('woocommerce_widget_shopping_cart_total'); // subtotal ?></span>
+				
+					<br><a class="tws__trans_hover_btn w-full text-center inline-block group-hover:text-white transition-all ease-in-out delay-150 duration-300 group-hover:text-sm group-hover:py-2 group-hover:bg-red-500" href="<?php echo wc_get_cart_url(); ?>">Cart</a>	
+				</div>
+				<div class="col-span-5 text-center">
+					<?php if ($get_totals['shipping_total'] > 0): // if shipping charge exisst then print ?>
+						<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
+						<span class="tws__mini_cart_shipping_amount"><?php echo number_format($get_totals['shipping_total'], 2) . get_woocommerce_currency_symbol(); ?></span>
+					<?php else:?>
+						<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
+						<span class="tws__mini_cart_shipping_amount">Free</span>
+					<?php endif;?>
+					<br>
+					<?php if ($get_totals['discount_total'] > 0): // if discount exisst then print ?>
+						<label class="tws__mini_cart_discount_amount_lbl"><?php echo esc_html__('Discount: (-)', 'mini-ajax-cart'); ?></label>
+						<span class="tws__mini_cart_discount_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['discount_total'], 2); ?></span>
+					<?php endif;?>
+				</div>
+			</div>
 			
-			<div class="tws__mini_cart_checkout_wrap grid grid-cols-10">
-				<a class="col-span-6" href="<?php echo wc_get_checkout_url(); ?>">Checkout</a>
-				<div class="col-span-4">
+			<div class="tws__mini_cart_checkout_wrap grid grid-cols-10 px-3 pb-2">
+				<a class="col-span-5 py-2 text-center font-bold transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_checkout_url(); ?>">Checkout</a>
+				
+				<div class="tws__mini_cart_total_amount col-span-5 py-2 text-center">
 					<label class="tws__mini_cart_total_amount_lbl"><?php echo esc_html__('Total:', 'mini-ajax-cart'); ?></label>
-					<span class="tws__mini_cart_total_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['total'], 2); ?></span>
+					<span class="tws__mini_cart_total_amount"><?php echo number_format($get_totals['total'], 2) . get_woocommerce_currency_symbol(); ?></span>
 				</div>
 			</div>
 		</div>

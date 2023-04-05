@@ -67,12 +67,36 @@
 
                 // Coupon
                 #tws__has_coupon_code{
+                    width: ($mini_cart_container)-2;
+                    margin: 0 1rem;
                     background-color: $color__bg_gray;
-                    border-color: $color__bg_gray_border;
+                    border: $pxrem*1 solid $color__optional;
 
                     svg{
                         width: 12px;
                         display: inline;
+                    }
+                }
+
+                input#tws__coupon_input{
+                    background: $color__bg_gray;
+                    color: $color__optional;
+                }
+
+                button#tws__coupon_submit{
+                    background: $color__secondary;
+
+                    &:hover{
+                        font-weight: bold;
+                    }
+                }
+
+                button#tws__coupon_wrap_close{
+                    background: $color__bg_btn_secondary;
+                    color: $color__txt_btn_primary;
+
+                    &:hover{
+                        background: $color__bg_btn_primary;
                     }
                 }
 
@@ -89,17 +113,32 @@
 
                 .tws__mini_cart_calculation{
                     // cart button while calculate
-                    background-color: $color__secondary;
+                    // background-color: $color__secondary;
                     
                     a{
                         // padding: 0 $pxrem*5;
+                    }
+
+                    .tws__mini_calculated{
+                        
                     }
 
                     // checkout btn and amount
                     .tws__mini_cart_checkout_wrap{
                         
                         a{
+                            background-color: $color__bg_btn_secondary;
+                            color: $color__txt_btn_primary;
 
+                            &:hover{
+                                background-color: $color__secondary;
+                                color: $color__txt_primary;
+                            }
+                        }
+
+                        .tws__mini_cart_total_amount{
+                            background-color: $color__bg_btn_primary;
+                            color: $color__txt_btn_primary;
                         }
                     }
 

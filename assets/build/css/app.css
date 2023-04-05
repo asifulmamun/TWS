@@ -9,6 +9,11 @@ aside {
   transition: .3s;
 }
 
+.tws__trans_hover_btn:hover {
+  background-color: #ffbd88 !important;
+  color: #333 !important;
+}
+
 header {
   height: 3.4375rem;
   overflow: hidden;
@@ -194,7 +199,7 @@ aside#aside .tws__quick_access_menu ul#quick-access-menu li a svg {
 }
 
 .tws__chat {
-  background: #f22127;
+  background: #ffbd88;
 }
 
 #push_notify {

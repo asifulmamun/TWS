@@ -9,3 +9,14 @@ aside{
 // main{
 //     transition: .5s;
 // }
+
+.tws__trans_hover_btn{
+
+    // background-color: $color__bg_btn_secondary;
+    // color: $color__txt_btn_primary;
+
+    &:hover{
+        background-color: $color__secondary !important;
+        color: $color__txt_primary !important;
+    }
+}
