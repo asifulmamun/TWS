@@ -1,6 +1,10 @@
 // sass
 import '../sass/app.scss';
 
+
+// library
+import './lib/_odometer';
+
 // global js
 import './abstract/global'
 

@@ -3,6 +3,10 @@ var __webpack_exports__ = {};
 /*!*****************************!*\
   !*** ./src/js/mini_cart.js ***!
   \*****************************/
+// Library files trigger
+setTimeout(function () {
+  odometer.innerHTML = document.getElementById('odometerUpload').innerText;
+}, 100);
 var ajaxUrl = frontend_ajax_object.ajaxurl; // get admin-ajax.php url
 var wpNonce = frontend_ajax_object.ajaxnonce; // get admin-ajax.php nonce - for unique ajax requests
 
@@ -299,30 +303,6 @@ if (tws__products_ul) {
   ; // is esist or not tws__mini_cart_ul
 }
 ;
-
-// // Mini cart action by float
-// const tws__mini_cart_float = document.getElementById('tws__mini_cart_float');
-// if(tws__mini_cart_float){
-// 	tws__mini_cart_float.addEventListener('click', function(e){
-// 	e.stopPropagation();
-// 		const tws__mini_cart = document.getElementById('tws__mini_cart');
-// 		if(tws__mini_cart){
-
-// 			console.log(tws__mini_cart.classList.contains('tws__mini_cart_float_action'));
-
-// 			if(tws__mini_cart.classList.contains('tws__mini_cart_float_action') == true){
-
-// 				tws__mini_cart.classList.remove('tws__mini_cart_float_action');
-
-// 			}else if(tws__mini_cart.classList.contains('tws__mini_cart_float_action') == false){
-
-// 				tws__mini_cart.classList.add('tws__mini_cart_float_action');
-
-// 			}; // action change
-// 		}; // is esist or not tws__mini_cart
-
-// 	}); // is esist or not tws__mini_cart_flot then action
-// }; // if exist tws__mini_cart_float
 /******/ })()
 ;
 //# sourceMappingURL=mini_cart.js.map

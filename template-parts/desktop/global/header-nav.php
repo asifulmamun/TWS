@@ -34,9 +34,8 @@
 <?php get_sidebar(); // sidebar ?>
 
 <div id="tws__mini_cart_float" class="fixed right-0 top-1/2 transform -translate-y-1/2 z-30 cursor-pointer">
-    <!-- <div id="odometer" class="odometer">10</div> -->
-    <br>
     <?php tws_master_pro_woocommerce_cart_link(); // cart-contents ?>
+    <span id="odometer" class="odometer"></span><span><?php echo get_woocommerce_currency_symbol(); ?></span>
 </div>
 
 <section id="tws__mini_cart" class="tws__mini_cart fixed bottom-0 z-20 overflow-x-hidden overflow-y-scroll flex flex-col">
