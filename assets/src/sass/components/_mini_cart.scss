@@ -1,7 +1,12 @@
+// .tws__mini_cart_float_action{
+//     right: -($pxrem * 420) !important;
+// }
+
 .tws__mini_cart{
 
     $mini_cart_container: $pxrem * 320;
     
+    // right: 0;
     width: $mini_cart_container;
     height: calc(100% - #{$pxrem * 55});
     // z-index: 10;

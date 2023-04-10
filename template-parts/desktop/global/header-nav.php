@@ -33,7 +33,13 @@
 
 <?php get_sidebar(); // sidebar ?>
 
-<section class="tws__mini_cart fixed bottom-0 right-0 z-40 overflow-x-hidden overflow-y-scroll flex flex-col">
+<div id="tws__mini_cart_float" class="fixed right-0 top-1/2 transform -translate-y-1/2 z-30 cursor-pointer">
+    <!-- <div id="odometer" class="odometer">10</div> -->
+    <br>
+    <?php tws_master_pro_woocommerce_cart_link(); // cart-contents ?>
+</div>
+
+<section id="tws__mini_cart" class="tws__mini_cart fixed bottom-0 z-20 overflow-x-hidden overflow-y-scroll flex flex-col">
     <?php
         // custom mini cart from inc/woocommerce.php
         if ( function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {

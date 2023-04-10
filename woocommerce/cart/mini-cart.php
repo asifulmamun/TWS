@@ -166,7 +166,7 @@ do_action('woocommerce_before_mini_cart');
 				<div class="col-span-5 text-center">
 					<span class="tws__mini_cart_subtotal"><?php do_action('woocommerce_widget_shopping_cart_total'); // subtotal ?></span>
 				
-					<br><a class="tws__trans_hover_btn w-full text-center inline-block group-hover:text-white transition-all ease-in-out delay-150 duration-300 group-hover:text-sm group-hover:py-2 group-hover:bg-red-500" href="<?php echo wc_get_cart_url(); ?>">Cart</a>	
+					<br><a class="tws__trans_hover_btn group-hover:py-2 w-full text-center inline-block transition-all ease-in-out delay-150 duration-300 group-hover:bg-red-500 group-hover:text-sm group-hover:text-white" href="<?php echo wc_get_cart_url(); ?>">Cart</a>	
 				</div>
 				<div class="col-span-5 text-center">
 					<?php if ($get_totals['shipping_total'] > 0): // if shipping charge exisst then print ?>
@@ -189,7 +189,7 @@ do_action('woocommerce_before_mini_cart');
 				
 				<div class="tws__mini_cart_total_amount col-span-5 py-2 text-center">
 					<label class="tws__mini_cart_total_amount_lbl"><?php echo esc_html__('Total:', 'mini-ajax-cart'); ?></label>
-					<span class="tws__mini_cart_total_amount"><?php echo number_format($get_totals['total'], 2) . get_woocommerce_currency_symbol(); ?></span>
+					<span class="tws__mini_cart_total_amount_digit"><?php echo number_format($get_totals['total'], 2) . get_woocommerce_currency_symbol(); ?></span>
 				</div>
 			</div>
 		</div>

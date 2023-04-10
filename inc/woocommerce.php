@@ -105,7 +105,7 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
 	function tws_master_pro_woocommerce_cart_link_fragment( $fragments ) {
 			ob_start();
 			tws_master_pro_woocommerce_cart_link();
-			$fragments['div.cart-contents'] = ob_get_clean();
+			$fragments['div.tws__mini_cart_float'] = ob_get_clean();
 			return $fragments;
 	}
 }
@@ -114,14 +114,16 @@ add_filter( 'woocommerce_add_to_cart_fragments', 'tws_master_pro_woocommerce_car
 if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
 	function tws_master_pro_woocommerce_cart_link() {
 		?>
-		<div class="cart-contents">
+		<div class="tws__mini_cart_float">
 			<?php
                 $item_count_text = sprintf(
                     _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ),
                     WC()->cart->get_cart_contents_count()
                 );
                 ?>
-			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
+			<span id="tws__mini_cart_float_count"><?php echo esc_html( $item_count_text ); ?></span>
+            <!-- <br><span id="odometer" class="odometer">10</span> -->
+            <br><span id="odometerUpload" class="odometerUpload"><?php echo wp_kses_data( WC()->cart->get_subtotal() ); ?></span>
 		</div>
 		<?php
 	}
@@ -130,7 +132,7 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
 if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
 	function tws_master_pro_woocommerce_header_cart() {
 		// Only cart amount
-		tws_master_pro_woocommerce_cart_link();
+		// tws_master_pro_woocommerce_cart_link();
 		
 		// Mini cart widget
 		the_widget('WC_Widget_Cart', array('title' => '',));

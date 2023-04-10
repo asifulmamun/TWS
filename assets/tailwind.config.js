@@ -37,7 +37,11 @@ module.exports = {
     }
   },
   variants: {
-    extend: {},
+    extend: {
+      height: ['hover', 'focus'],
+      padding: ['hover', 'focus', 'group-hover'],
+
+    },
   },
   plugins: [],
 }
