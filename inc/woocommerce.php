@@ -105,7 +105,7 @@ if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
 	function tws_master_pro_woocommerce_cart_link_fragment( $fragments ) {
 			ob_start();
 			tws_master_pro_woocommerce_cart_link();
-			$fragments['div.tws__mini_cart_float'] = ob_get_clean();
+			$fragments['span.tws__mini_cart_float'] = ob_get_clean();
 			return $fragments;
 	}
 }
