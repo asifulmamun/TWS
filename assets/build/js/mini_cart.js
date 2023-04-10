@@ -6,10 +6,24 @@ var __webpack_exports__ = {};
 // Library files trigger
 setTimeout(function () {
   // Odometer the amount
-  odometer.innerText = document.getElementById('odometerUpload').innerText;
+  var odometerData = document.getElementById('odometerUpload'); // data get from min cart
+  var odometerDataCounts = document.getElementById('tws__mini_cart_only_countsUpload');
+  if (odometerData) {
+    // odometer in float mini cart init
+    odometer.innerText = odometerData.innerText;
 
-  // Quantity of minicart
-  document.getElementById('tws__mini_cart_float_qty').innerText = document.getElementById('tws__mini_cart_only_countsUpload').innerText;
+    // subtotal under mini cart below the all of list
+    document.getElementById('tws__mini_li_subtotal').innerText = odometerData.innerText;
+
+    // Quantity of minicart
+    document.getElementById('tws__mini_cart_float_qty').innerText = odometerDataCounts.innerText;
+  } else {
+    // odometer in float mini cart init
+    odometer.innerText = 0;
+
+    // Quantity of minicart
+    document.getElementById('tws__mini_cart_float_qty').innerText = '0 ITEM';
+  }
 }, 100);
 var ajaxUrl = frontend_ajax_object.ajaxurl; // get admin-ajax.php url
 var wpNonce = frontend_ajax_object.ajaxnonce; // get admin-ajax.php nonce - for unique ajax requests

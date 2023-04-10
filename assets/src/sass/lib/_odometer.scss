@@ -7,7 +7,7 @@
   position: relative;
 }
 .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
-  *display: inline;
+  // *display: inline;
 }
 .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit {
   display: -moz-inline-box;

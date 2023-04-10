@@ -27,7 +27,7 @@ do_action('woocommerce_before_mini_cart');
 <?php if (!WC()->cart->is_empty()) : ?>
 	<div id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ), WC()->cart->get_cart_contents_count()); echo esc_html( $item_count_text ); ?></div>
 	<div class="tws__shipping_charge">
-		<span><?php echo 'Shipping charge: ' . WC()->cart->shipping_total . get_woocommerce_currency_symbol(); ?></span>
+		<span><?php echo 'Shipping charge: ' . get_woocommerce_currency_symbol() . WC()->cart->shipping_total; ?></span>
 	</div>
 	<ul id="tws__mini_cart_ul" class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
 		<?php
@@ -115,6 +115,13 @@ do_action('woocommerce_before_mini_cart');
 
 			do_action('woocommerce_mini_cart_contents');
 		?>
+	</ul>
+	<ul>
+		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
+			<div class="col-span-7"></div>
+			<div class="col-span-2"><span id="tws__mini_li_subtotal"></span></div>
+			<div class="col-span-1"><span id="tws__mini_li_subtotal_currency_icon">BDT</span></div>
+		</li>
 	</ul>
 
 

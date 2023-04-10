@@ -2,11 +2,30 @@
 setTimeout(function () {
 	
 	// Odometer the amount
-	odometer.innerText = document.getElementById('odometerUpload').innerText;
+	const odometerData = document.getElementById('odometerUpload'); // data get from min cart
+	const odometerDataCounts = document.getElementById('tws__mini_cart_only_countsUpload');
+	if(odometerData){
+		// odometer in float mini cart init
+		odometer.innerText = odometerData.innerText;
+
+		// subtotal under mini cart below the all of list
+		document.getElementById('tws__mini_li_subtotal').innerText = odometerData.innerText;
+	
+
+		// Quantity of minicart
+		document.getElementById('tws__mini_cart_float_qty').innerText = odometerDataCounts.innerText;
+	} else{
+		// odometer in float mini cart init
+		odometer.innerText = 0;
+	
+
+		// Quantity of minicart
+		document.getElementById('tws__mini_cart_float_qty').innerText = '0 ITEM';
+	}
 	
 	
-	// Quantity of minicart
-	document.getElementById('tws__mini_cart_float_qty').innerText = document.getElementById('tws__mini_cart_only_countsUpload').innerText;
+
+	
 
 }, 100)
 
