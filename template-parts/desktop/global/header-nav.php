@@ -34,11 +34,12 @@
 <?php get_sidebar(); // sidebar ?>
 
 <div id="tws__mini_cart_float" class="fixed right-0 top-1/2 transform -translate-y-1/2 z-30 cursor-pointer">
-    <?php tws_master_pro_woocommerce_cart_link(); // cart-contents ?>
-    <span id="odometer" class="odometer"></span><span><?php echo get_woocommerce_currency_symbol(); ?></span>
+    <?php //tws_master_pro_woocommerce_cart_link(); // cart-contents ?>
+    <span id="tws__mini_cart_float_qty"></span>
+    <span id="odometer" class="odometer"></span>
 </div>
 
-<section id="tws__mini_cart" class="tws__mini_cart fixed bottom-0 z-20 overflow-x-hidden overflow-y-scroll flex flex-col">
+<section id="tws__mini_cart" class="tws__mini_cart fixed bottom-0 z-20 overflow-x-hidden overflow-y-scroll flex flex-col transition-all ease-in-out delay-150 duration-300">
     <?php
         // custom mini cart from inc/woocommerce.php
         if ( function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {

@@ -25,7 +25,7 @@ do_action('woocommerce_before_mini_cart');
 ?>
 
 <?php if (!WC()->cart->is_empty()) : ?>
-	<div class="tws__mini_cart_only_counts"><?php $item_count_text = sprintf(_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ), WC()->cart->get_cart_contents_count()); echo esc_html( $item_count_text ); ?></div>
+	<div id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ), WC()->cart->get_cart_contents_count()); echo esc_html( $item_count_text ); ?></div>
 	<div class="tws__shipping_charge">
 		<span><?php echo 'Shipping charge: ' . WC()->cart->shipping_total . get_woocommerce_currency_symbol(); ?></span>
 	</div>
@@ -163,11 +163,13 @@ do_action('woocommerce_before_mini_cart');
 				?>
 			
 			<div class="tws__mini_calculated group grid grid-cols-10 px-3 pb-px text-xs">
-				<div class="col-span-5 text-center">
-					<span class="tws__mini_cart_subtotal"><?php do_action('woocommerce_widget_shopping_cart_total'); // subtotal ?></span>
 				
+				<div class="col-span-5 text-center">
+					<label><?php echo esc_html__('Subtotal:', 'mini-ajax-cart'); ?></label>
+					<?php echo '<span id="odometerUpload">' . $get_totals['subtotal'] . '</span>' . get_woocommerce_currency_symbol(); ?>
 					<br><a class="tws__trans_hover_btn group-hover:py-2 w-full text-center inline-block transition-all ease-in-out delay-150 duration-300 group-hover:bg-red-500 group-hover:text-sm group-hover:text-white" href="<?php echo wc_get_cart_url(); ?>">Cart</a>	
 				</div>
+
 				<div class="col-span-5 text-center">
 					<?php if ($get_totals['shipping_total'] > 0): // if shipping charge exisst then print ?>
 						<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>

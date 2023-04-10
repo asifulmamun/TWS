@@ -100,27 +100,6 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 
 
 
-// mini cart - Cart Fragments.
-if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
-	function tws_master_pro_woocommerce_cart_link_fragment( $fragments ) {
-			ob_start();
-			tws_master_pro_woocommerce_cart_link();
-			$fragments['span.tws__mini_cart_float'] = ob_get_clean();
-			return $fragments;
-	}
-}
-add_filter( 'woocommerce_add_to_cart_fragments', 'tws_master_pro_woocommerce_cart_link_fragment' );
-// Cart Link.
-if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
-	function tws_master_pro_woocommerce_cart_link() {
-		?>
-		<span class="tws__mini_cart_float">
-			<?php $item_count_text = sprintf(_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ), WC()->cart->get_cart_contents_count()); ?>
-			<span id="tws__mini_cart_float_count"><?php echo esc_html( $item_count_text ); ?></span><span id="odometerUpload" class="hidden"><?php echo wp_kses_data( WC()->cart->get_subtotal() ); ?></span>
-		</span>
-		<?php
-	}
-}
 // Cart Content and Widget
 if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
 	function tws_master_pro_woocommerce_header_cart() {

@@ -1,6 +1,13 @@
 // Library files trigger
 setTimeout(function () {
-	odometer.innerHTML = document.getElementById('odometerUpload').innerText;
+	
+	// Odometer the amount
+	odometer.innerText = document.getElementById('odometerUpload').innerText;
+	
+	
+	// Quantity of minicart
+	document.getElementById('tws__mini_cart_float_qty').innerText = document.getElementById('tws__mini_cart_only_countsUpload').innerText;
+
 }, 100)
 
 

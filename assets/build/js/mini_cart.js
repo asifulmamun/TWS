@@ -5,7 +5,11 @@ var __webpack_exports__ = {};
   \*****************************/
 // Library files trigger
 setTimeout(function () {
-  odometer.innerHTML = document.getElementById('odometerUpload').innerText;
+  // Odometer the amount
+  odometer.innerText = document.getElementById('odometerUpload').innerText;
+
+  // Quantity of minicart
+  document.getElementById('tws__mini_cart_float_qty').innerText = document.getElementById('tws__mini_cart_only_countsUpload').innerText;
 }, 100);
 var ajaxUrl = frontend_ajax_object.ajaxurl; // get admin-ajax.php url
 var wpNonce = frontend_ajax_object.ajaxnonce; // get admin-ajax.php nonce - for unique ajax requests
