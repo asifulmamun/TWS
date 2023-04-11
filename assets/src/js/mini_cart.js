@@ -19,11 +19,9 @@ setTimeout(function () {
 
 
 		// footer of mini cart
-		document.getElementById('tws__mini_cart_calculate_subtotal').innerText = currencySymbol.innerText + subTotal.innerText; // subtotal with symbol
-		document.getElementById('tws__mini_cart_calculate_shipping').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
-		if(discountUpload){
-			document.getElementById('tws__mini_cart_calculate_discount').innerText = 'Discount: ' + currencySymbol.innerText + discountUpload.innerText; // shipping charge with symbol
-		}
+		document.getElementById('tws__mini_cart_calculate_subtotal').innerText = 'Subtotal ' + currencySymbol.innerText + subTotal.innerText; // subtotal with symbol
+		document.getElementById('tws__mini_cart_calculate_shipping').innerText = 'Shipping ' + currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+		if(discountUpload){document.getElementById('tws__mini_cart_calculate_discount').innerText = 'Discount (-) ' + currencySymbol.innerText + discountUpload.innerText;} // Discount
 	
 	} else{
 

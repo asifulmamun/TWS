@@ -21,11 +21,11 @@ setTimeout(function () {
     document.getElementById('tws__mini_cart_header_shipping_charge').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
 
     // footer of mini cart
-    document.getElementById('tws__mini_cart_calculate_subtotal').innerText = currencySymbol.innerText + subTotal.innerText; // subtotal with symbol
-    document.getElementById('tws__mini_cart_calculate_shipping').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+    document.getElementById('tws__mini_cart_calculate_subtotal').innerText = 'Subtotal ' + currencySymbol.innerText + subTotal.innerText; // subtotal with symbol
+    document.getElementById('tws__mini_cart_calculate_shipping').innerText = 'Shipping ' + currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
     if (discountUpload) {
-      document.getElementById('tws__mini_cart_calculate_discount').innerText = 'Discount: ' + currencySymbol.innerText + discountUpload.innerText; // shipping charge with symbol
-    }
+      document.getElementById('tws__mini_cart_calculate_discount').innerText = 'Discount (-) ' + currencySymbol.innerText + discountUpload.innerText;
+    } // Discount
   } else {
     // odometer in float mini cart init
     odometer.innerText = 0;

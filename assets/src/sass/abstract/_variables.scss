@@ -4,7 +4,9 @@ $rempx: 16px; // [$rempx * 2] = [32px] | convert px to rem
 // Fonts size
 $size__txt_body: $pxrem * 14;
 $font_wight_bold: 800;
+$text__xxs: $pxrem * 9;
 
 // aside
 $aside_width: $pxrem * 220;
 $aside_nav_font_size: $pxrem * 13;
+

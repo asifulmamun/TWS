@@ -26,9 +26,12 @@ $cart = WC()->cart;
 ?>
 
 <?php if (!$cart->is_empty()) : ?>
-	<div id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', count($cart->get_cart()), 'tws-master-pro' ), count($cart->get_cart())); echo esc_html( $item_count_text ); ?></div>
-	<div class="tws__shipping_charge">
-		Shipping Charge:&nbsp;<span id="tws__mini_cart_header_shipping_charge"></span>
+	<div>
+		<div id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', count($cart->get_cart()), 'tws-master-pro' ), count($cart->get_cart())); echo esc_html( $item_count_text ); ?></div>
+		<div class="tws__shipping_charge grid grid-cols-10">
+			<div class="col-span-7">Shipping Charge <span id="tws__mini_cart_header_shipping_charge"></span></div>
+			<button class="col-span-3" id="tws__mini_cart_top_close_btn" type="button">Close</button>
+		</div>
 	</div>
 	<ul id="tws__mini_cart_ul" class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
 		<?php
@@ -116,31 +119,30 @@ $cart = WC()->cart;
 
 			do_action('woocommerce_mini_cart_contents');
 		?>
-	</ul>
-	<ul>
+
 		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
 			<label class="col-span-7"><?php echo esc_html__('Subtotal:', 'mini-ajax-cart'); ?></label>
-			<span class="col-span-2" id="odometerUpload"><?php echo number_format($cart->subtotal, 2); ?></span>
+			<span class="col-span-2" id="odometerUpload"><?php echo number_format($cart->subtotal, 0); ?></span>
 			<span class="col-span-1" id="tws__mini_li_subtotal_currency_icon"><?php echo get_woocommerce_currency_symbol(); ?></span>
 		</li>
 
 		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
 			<label class="col-span-7"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
-			<span class="col-span-2" id="shippingUpload"><?php echo ($cart->get_totals()['shipping_total'] > 0) ? number_format($cart->shipping_total, 2) : '<i class="text-red-500">Free</i>'; ?></span>
+			<span class="col-span-2" id="shippingUpload"><?php echo ($cart->get_totals()['shipping_total'] > 0) ? number_format($cart->shipping_total, 0) : '<i class="text-red-500">Free</i>'; ?></span>
 			<span class="col-span-1"><?php echo get_woocommerce_currency_symbol(); ?></span>
 		</li>
 
 		<?php if ($cart->get_totals()['discount_total'] > 0): // if discount exisst then print ?>
 		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
-			<label class="col-span-7"><?php echo esc_html__('Discount:', 'mini-ajax-cart'); ?></label>
-			<span class="col-span-2 text-red-600" id="discountUpload"><?php echo '(-) ' . number_format($cart->get_totals()['discount_total'], 2); ?></span>
+			<label class="col-span-7"><?php echo esc_html__('Discount: (-)', 'mini-ajax-cart'); ?></label>
+			<span class="col-span-2 text-red-600" id="discountUpload"><?php echo number_format($cart->get_totals()['discount_total'], 0); ?></span>
 			<span class="col-span-1"><?php echo get_woocommerce_currency_symbol(); ?></span>
 		</li>
 		<?php endif;?>
 
 		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b font-bold">
 			<label class="col-span-7"><?php echo esc_html__('Total:', 'mini-ajax-cart'); ?></label>
-			<span class="col-span-2"><?php echo number_format($cart->total, 2); ?></span>
+			<span class="col-span-2"><?php echo number_format($cart->total, 0); ?></span>
 			<span class="col-span-1"><?php echo get_woocommerce_currency_symbol(); ?></span>
 		</li>
 		
@@ -152,13 +154,10 @@ $cart = WC()->cart;
 
 
 	<div class="tws__final fixed bottom-0 w-full pb-10">
-
 		<!-- Coupons -->
 		<div id="tws__coupon_code_response" style="display:block;"></div>
 		<button id="tws__has_coupon_code" class="py-1"><i id="tws__has_coupon_code_icon"></i>&nbsp;Have a coupon?</button>
-		
 		<div id="tws__coupon_code_wrap" class="relative transition-all ease-in-out delay-150 duration-300" style="display:none;">
-			
 			<div id="tws__coupon_form_wrap" class="py-3 text-center">
 				<input type="text" id="tws__coupon_input" class="px-2 py-1 rounded focus:outline-none" placeholder="Coupon Code" />
 				<button type="button" id="tws__coupon_submit" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
@@ -168,44 +167,31 @@ $cart = WC()->cart;
 			<?php
 				$applied_coupons = $cart->get_applied_coupons();
 
-				if (!empty($applied_coupons)) {
+				if (!empty($applied_coupons)):
 					?>
 					<ul class="px-1 py-1.5" id="tws__coupon_list_ul">
-						<?php foreach ($applied_coupons as $cpns) { ?>    
+						<?php foreach ($applied_coupons as $cpns): ?>    
 							<li class="group relative inline-block px-2 py-1" id="tws__coupon_list_li_<?php echo esc_attr($cpns); ?>" data-cpcode="<?php echo esc_attr($cpns); ?>">
 								<?php echo esc_html($cpns); ?><button type="button" class="absolute bottom-3.5 right-px mx-0.5 px-1 py-px text-sm border outline-none group-hover:inline-block hidden" id="tws__coupon_remove_<?php echo esc_attr($cpns); ?>">x</button>
 							</li>
-						<?php } ?>
+						<?php endforeach; ?>
 					</ul>
 					<?php
-				} else {
-					// echo '<ul class="majc-applied-cpns" style="display: none;"><li></li></ul>';
-				}
+				endif;
 			?>
 		</div>
 
-		<div class="tws__mini_cart_calculation">			
-			<div class="tws__mini_calculated group grid grid-cols-10 px-3 pb-px text-xs">
-				<div class="col-span-5 text-center">
-					<label><?php echo esc_html__('Subtotal:', 'mini-ajax-cart'); ?></label>
-					<span id="tws__mini_cart_calculate_subtotal"></span>
-					<br><a class="tws__trans_hover_btn group-hover:py-2 w-full text-center inline-block transition-all ease-in-out delay-150 duration-300 group-hover:bg-red-500 group-hover:text-sm group-hover:text-white" href="<?php echo wc_get_cart_url(); ?>">Cart</a>	
-				</div>
-
-				<div class="col-span-5 text-center">
-					<span id="tws__mini_cart_calculate_shipping"></span>
-					<br><span id="tws__mini_cart_calculate_discount"></span>
-
-				</div>
+		<div class="tws__mini_cart_calculation group">			
+			<div class="tws__mini_calculated tws__text_xxs opacity-50 group-hover:py-2 group-hover:text-xs group-hover:opacity-80 px-3 pb-px text-center transition-all ease-in-out delay-150 duration-300">
+				<span id="tws__mini_cart_calculate_subtotal"></span>&nbsp;|&nbsp;
+				<span id="tws__mini_cart_calculate_shipping"></span>&nbsp;|&nbsp;
+				<span id="tws__mini_cart_calculate_discount"></span><br>
+				<a class="tws__trans_hover_btn text-center hidden opacity-50 group-hover:opacity-100 group-hover:inline-block group-hover:mt-2 group-hover:px-6 group-hover:py-2 group-hover:bg-red-500 group-hover:text-sm group-hover:text-white transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_cart_url(); ?>">Cart</a>
 			</div>
 			
-			<div class="tws__mini_cart_checkout_wrap grid grid-cols-10 px-3 pb-2">
+			<div class="tws__mini_cart_checkout_wrap relative grid grid-cols-10 px-3 pb-2">
 				<a class="col-span-5 py-2 text-center font-bold transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_checkout_url(); ?>">Checkout</a>
-				
-				<div class="tws__mini_cart_total_amount col-span-5 py-2 text-center">
-					<label class="tws__mini_cart_total_amount_lbl"><?php echo esc_html__('Total:', 'mini-ajax-cart'); ?></label>
-					<span class="tws__mini_cart_total_amount_digit"><?php echo get_woocommerce_currency_symbol() . number_format($cart->total, 2); ?></span>
-				</div>
+				<span class="tws__mini_cart_total_amount col-span-5 py-2 text-center"><?php echo 'Total ' . get_woocommerce_currency_symbol() . number_format($cart->total, 2); ?></span>
 			</div>
 		</div>
 		<?php //do_action('woocommerce_widget_shopping_cart_before_buttons'); //echo '<span class="woocommerce-mini-cart__buttons buttons">'; do_action('woocommerce_widget_shopping_cart_buttons'); echo '</span>'; //do_action('woocommerce_widget_shopping_cart_after_buttons'); ?>
@@ -242,17 +228,13 @@ $cart = WC()->cart;
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <?php
-// including js
-echo '<script>';
+	// including js
+	echo '<script>';
+		echo 'var frontend_ajax_object = {';
+			echo 'ajaxurl: "'. admin_url('admin-ajax.php'). '",
+			ajaxnonce: "'. wp_create_nonce('tws-ajax-nonce'). '"';
+		echo '};';
+		echo '</script>';
 
-	// echo 'var wpNonce = "' . wp_create_nonce('majc-frontend-ajax-nonce') . '";';
-	// echo 'var ajaxUrl = "' . admin_url('admin-ajax.php') . '";'; // return the http://tws.test/wp-admin/admin-ajax.php url for the minicart action js in this link with ajax
-
-	echo 'var frontend_ajax_object = {';
-		echo 'ajaxurl: "'. admin_url('admin-ajax.php'). '",
-		ajaxnonce: "'. wp_create_nonce('tws-ajax-nonce'). '"';
-	echo '};';
-	echo '</script>';
-
-echo '<script src="' . get_template_directory_uri() . '/assets/build/js/mini_cart.js" id="mini_cart-js"></script>' ;
+	echo '<script src="' . get_template_directory_uri() . '/assets/build/js/mini_cart.js" id="mini_cart-js"></script>' ;
 ?>

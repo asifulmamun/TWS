@@ -2,9 +2,9 @@ body{
     font-size: $size__txt_body;
 }
 
-aside{
-    transition: .3s;
-}
+// aside{
+//     transition: .3s;
+// }
 
 // main{
 //     transition: .5s;
@@ -19,4 +19,9 @@ aside{
         background-color: $color__secondary !important;
         color: $color__txt_primary !important;
     }
+}
+
+
+.tws__text_xxs{
+    font-size: $text__xxs;;
 }

@@ -38,9 +38,12 @@ module.exports = {
   },
   variants: {
     extend: {
-      height: ['hover', 'focus', 'group-hover', 'group-focus'],
-      padding: ['hover', 'focus', 'group-hover', 'group-focus'],
-      display: ['hover', 'focus', 'group-hover', 'group-focus'],
+      height: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      padding: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      margin: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      fontSize: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      display: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      opacity: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
 
     },
   },
