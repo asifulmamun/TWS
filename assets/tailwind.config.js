@@ -38,8 +38,9 @@ module.exports = {
   },
   variants: {
     extend: {
-      height: ['hover', 'focus'],
-      padding: ['hover', 'focus', 'group-hover'],
+      height: ['hover', 'focus', 'group-hover', 'group-focus'],
+      padding: ['hover', 'focus', 'group-hover', 'group-focus'],
+      display: ['hover', 'focus', 'group-hover', 'group-focus'],
 
     },
   },

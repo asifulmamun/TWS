@@ -172,7 +172,7 @@ $cart = WC()->cart;
 					?>
 					<ul class="px-1 py-1.5" id="tws__coupon_list_ul">
 						<?php foreach ($applied_coupons as $cpns) { ?>    
-							<li class="relative group inline-block px-2 py-1" id="tws__coupon_list_li_<?php echo esc_attr($cpns); ?>" data-cpcode="<?php echo esc_attr($cpns); ?>">
+							<li class="group relative inline-block px-2 py-1" id="tws__coupon_list_li_<?php echo esc_attr($cpns); ?>" data-cpcode="<?php echo esc_attr($cpns); ?>">
 								<?php echo esc_html($cpns); ?><button type="button" class="absolute bottom-3.5 right-px mx-0.5 px-1 py-px text-sm border outline-none group-hover:inline-block hidden" id="tws__coupon_remove_<?php echo esc_attr($cpns); ?>">x</button>
 							</li>
 						<?php } ?>
