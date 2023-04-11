@@ -8,8 +8,6 @@ setTimeout(function () {
 		// odometer in float mini cart init
 		odometer.innerText = odometerData.innerText;
 
-		// subtotal under mini cart below the all of list
-		document.getElementById('tws__mini_li_subtotal').innerText = odometerData.innerText;
 	
 
 		// Quantity of minicart
@@ -27,7 +25,7 @@ setTimeout(function () {
 
 	
 
-}, 100)
+}, 100);
 
 
 

@@ -22,27 +22,28 @@ defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_mini_cart');
 
+$cart = WC()->cart;
 ?>
 
-<?php if (!WC()->cart->is_empty()) : ?>
-	<div id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'tws-master-pro' ), WC()->cart->get_cart_contents_count()); echo esc_html( $item_count_text ); ?></div>
+<?php if (!$cart->is_empty()) : ?>
+	<div id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', count($cart->get_cart()), 'tws-master-pro' ), count($cart->get_cart())); echo esc_html( $item_count_text ); ?></div>
 	<div class="tws__shipping_charge">
-		<span><?php echo 'Shipping charge: ' . get_woocommerce_currency_symbol() . WC()->cart->shipping_total; ?></span>
+		<span><?php echo 'Shipping charge: ' . get_woocommerce_currency_symbol() . $cart->shipping_total; ?></span>
 	</div>
 	<ul id="tws__mini_cart_ul" class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
 		<?php
 			do_action('woocommerce_before_mini_cart_contents');
 			
-			foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+			foreach ($cart->get_cart() as $cart_item_key => $cart_item) {
 				$_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
 				$product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
 				if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key)) {
 					$product_name      		= apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
 					$thumbnail         		= apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
-					$product_regular_price 	= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->regular_price, $cart_item, $cart_item_key);
-					$product_price     		= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->price, $cart_item, $cart_item_key);
-					$tws__product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
-					$product_weight     	= apply_filters('woocommerce_cart_item_price', WC()->cart->get_cart()[$cart_item_key]['data']->weight, $cart_item, $cart_item_key);
+					$product_regular_price 	= apply_filters('woocommerce_cart_item_price', $cart->get_cart()[$cart_item_key]['data']->regular_price, $cart_item, $cart_item_key);
+					$product_price     		= apply_filters('woocommerce_cart_item_price', $cart->get_cart()[$cart_item_key]['data']->price, $cart_item, $cart_item_key);
+					$tws__product_price     = apply_filters( 'woocommerce_cart_item_price', $cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+					$product_weight     	= apply_filters('woocommerce_cart_item_price', $cart->get_cart()[$cart_item_key]['data']->weight, $cart_item, $cart_item_key);
 					$product_permalink 		= apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
 					?>
 					<li id="tws__mini_cart_li_<?php echo $product_id;?>" data-product_id="<?php echo $product_id;?>" class="grid grid-cols-10 items-center justify-items-center py-3 border-b woocommerce-mini-cart-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
@@ -119,8 +120,8 @@ do_action('woocommerce_before_mini_cart');
 	<ul>
 		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
 			<div class="col-span-7"></div>
-			<div class="col-span-2"><span id="tws__mini_li_subtotal"></span></div>
-			<div class="col-span-1"><span id="tws__mini_li_subtotal_currency_icon">BDT</span></div>
+			<span class="col-span-2" id="odometerUpload"><?php echo $cart->subtotal; ?></span>
+			<span class="col-span-1" id="tws__mini_li_subtotal_currency_icon">BDT</span>
 		</li>
 	</ul>
 
@@ -144,7 +145,7 @@ do_action('woocommerce_before_mini_cart');
 			</div>
 			
 			<?php
-				$applied_coupons = WC()->cart->get_applied_coupons();
+				$applied_coupons = $cart->get_applied_coupons();
 
 				if (!empty($applied_coupons)) {
 					?>
@@ -162,33 +163,26 @@ do_action('woocommerce_before_mini_cart');
 			?>
 		</div>
 
-		<div class="tws__mini_cart_calculation">
-			<?php $get_totals = WC()->cart->get_totals();
-				// $cart_total = $get_totals['subtotal'];
-				// $cart_discount = $get_totals['discount_total'];
-				// $final_subtotal = $cart_total - $cart_discount;
-				?>
-			
+		<div class="tws__mini_cart_calculation">			
 			<div class="tws__mini_calculated group grid grid-cols-10 px-3 pb-px text-xs">
-				
 				<div class="col-span-5 text-center">
 					<label><?php echo esc_html__('Subtotal:', 'mini-ajax-cart'); ?></label>
-					<?php echo '<span id="odometerUpload">' . $get_totals['subtotal'] . '</span>' . get_woocommerce_currency_symbol(); ?>
+					<?php echo get_woocommerce_currency_symbol() . number_format($cart->subtotal, 2); ?>
 					<br><a class="tws__trans_hover_btn group-hover:py-2 w-full text-center inline-block transition-all ease-in-out delay-150 duration-300 group-hover:bg-red-500 group-hover:text-sm group-hover:text-white" href="<?php echo wc_get_cart_url(); ?>">Cart</a>	
 				</div>
 
 				<div class="col-span-5 text-center">
-					<?php if ($get_totals['shipping_total'] > 0): // if shipping charge exisst then print ?>
+					<?php if ($cart->get_totals()['shipping_total'] > 0): // if shipping charge exisst then print ?>
 						<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
-						<span class="tws__mini_cart_shipping_amount"><?php echo number_format($get_totals['shipping_total'], 2) . get_woocommerce_currency_symbol(); ?></span>
+						<span class="tws__mini_cart_shipping_amount"><?php echo get_woocommerce_currency_symbol() . number_format($cart->shipping_total, 2); ?></span>
 					<?php else:?>
 						<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
 						<span class="tws__mini_cart_shipping_amount">Free</span>
 					<?php endif;?>
 					<br>
-					<?php if ($get_totals['discount_total'] > 0): // if discount exisst then print ?>
+					<?php if ($cart->get_totals()['discount_total'] > 0): // if discount exisst then print ?>
 						<label class="tws__mini_cart_discount_amount_lbl"><?php echo esc_html__('Discount: (-)', 'mini-ajax-cart'); ?></label>
-						<span class="tws__mini_cart_discount_amount"><?php echo get_woocommerce_currency_symbol() . number_format($get_totals['discount_total'], 2); ?></span>
+						<span class="tws__mini_cart_discount_amount"><?php echo get_woocommerce_currency_symbol() . number_format($cart->get_totals()['discount_total'], 2); ?></span>
 					<?php endif;?>
 				</div>
 			</div>
@@ -198,7 +192,7 @@ do_action('woocommerce_before_mini_cart');
 				
 				<div class="tws__mini_cart_total_amount col-span-5 py-2 text-center">
 					<label class="tws__mini_cart_total_amount_lbl"><?php echo esc_html__('Total:', 'mini-ajax-cart'); ?></label>
-					<span class="tws__mini_cart_total_amount_digit"><?php echo number_format($get_totals['total'], 2) . get_woocommerce_currency_symbol(); ?></span>
+					<span class="tws__mini_cart_total_amount_digit"><?php echo get_woocommerce_currency_symbol() . number_format($cart->total, 2); ?></span>
 				</div>
 			</div>
 		</div>
@@ -215,7 +209,7 @@ do_action('woocommerce_before_mini_cart');
 
 
 <?php
-// $items = WC()->cart->get_cart();
+// $items = $cart->get_cart();
 // foreach ($items as $itemKey => $itemVal) {
 // 	$product = wc_get_product($itemVal['data']->get_id());
 // 	$product_id = apply_filters('woocommerce_cart_item_product_id', $itemVal['product_id'], $itemVal, $itemKey);
@@ -229,7 +223,7 @@ do_action('woocommerce_before_mini_cart');
 // }
 
 // echo '<pre>';
-// var_dump(WC()->cart->get_totals());
+// var_dump($cart->get_totals());
 // echo '</pre>';
 
 ?>
