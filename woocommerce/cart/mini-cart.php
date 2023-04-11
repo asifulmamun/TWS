@@ -28,7 +28,7 @@ $cart = WC()->cart;
 <?php if (!$cart->is_empty()) : ?>
 	<div id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', count($cart->get_cart()), 'tws-master-pro' ), count($cart->get_cart())); echo esc_html( $item_count_text ); ?></div>
 	<div class="tws__shipping_charge">
-		<span><?php echo 'Shipping charge: ' . get_woocommerce_currency_symbol() . $cart->shipping_total; ?></span>
+		Shipping Charge:&nbsp;<span id="tws__mini_cart_header_shipping_charge"></span>
 	</div>
 	<ul id="tws__mini_cart_ul" class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
 		<?php
@@ -119,10 +119,31 @@ $cart = WC()->cart;
 	</ul>
 	<ul>
 		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
-			<div class="col-span-7"></div>
-			<span class="col-span-2" id="odometerUpload"><?php echo $cart->subtotal; ?></span>
-			<span class="col-span-1" id="tws__mini_li_subtotal_currency_icon">BDT</span>
+			<label class="col-span-7"><?php echo esc_html__('Subtotal:', 'mini-ajax-cart'); ?></label>
+			<span class="col-span-2" id="odometerUpload"><?php echo number_format($cart->subtotal, 2); ?></span>
+			<span class="col-span-1" id="tws__mini_li_subtotal_currency_icon"><?php echo get_woocommerce_currency_symbol(); ?></span>
 		</li>
+
+		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
+			<label class="col-span-7"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
+			<span class="col-span-2" id="shippingUpload"><?php echo ($cart->get_totals()['shipping_total'] > 0) ? number_format($cart->shipping_total, 2) : '<i class="text-red-500">Free</i>'; ?></span>
+			<span class="col-span-1"><?php echo get_woocommerce_currency_symbol(); ?></span>
+		</li>
+
+		<?php if ($cart->get_totals()['discount_total'] > 0): // if discount exisst then print ?>
+		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
+			<label class="col-span-7"><?php echo esc_html__('Discount:', 'mini-ajax-cart'); ?></label>
+			<span class="col-span-2 text-red-600" id="discountUpload"><?php echo '(-) ' . number_format($cart->get_totals()['discount_total'], 2); ?></span>
+			<span class="col-span-1"><?php echo get_woocommerce_currency_symbol(); ?></span>
+		</li>
+		<?php endif;?>
+
+		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b font-bold">
+			<label class="col-span-7"><?php echo esc_html__('Total:', 'mini-ajax-cart'); ?></label>
+			<span class="col-span-2"><?php echo number_format($cart->total, 2); ?></span>
+			<span class="col-span-1"><?php echo get_woocommerce_currency_symbol(); ?></span>
+		</li>
+		
 	</ul>
 
 
@@ -167,23 +188,14 @@ $cart = WC()->cart;
 			<div class="tws__mini_calculated group grid grid-cols-10 px-3 pb-px text-xs">
 				<div class="col-span-5 text-center">
 					<label><?php echo esc_html__('Subtotal:', 'mini-ajax-cart'); ?></label>
-					<?php echo get_woocommerce_currency_symbol() . number_format($cart->subtotal, 2); ?>
+					<span id="tws__mini_cart_calculate_subtotal"></span>
 					<br><a class="tws__trans_hover_btn group-hover:py-2 w-full text-center inline-block transition-all ease-in-out delay-150 duration-300 group-hover:bg-red-500 group-hover:text-sm group-hover:text-white" href="<?php echo wc_get_cart_url(); ?>">Cart</a>	
 				</div>
 
 				<div class="col-span-5 text-center">
-					<?php if ($cart->get_totals()['shipping_total'] > 0): // if shipping charge exisst then print ?>
-						<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
-						<span class="tws__mini_cart_shipping_amount"><?php echo get_woocommerce_currency_symbol() . number_format($cart->shipping_total, 2); ?></span>
-					<?php else:?>
-						<label class="tws__mini_cart_shipping_lbl"><?php echo esc_html__('Shipping:', 'mini-ajax-cart'); ?></label>
-						<span class="tws__mini_cart_shipping_amount">Free</span>
-					<?php endif;?>
-					<br>
-					<?php if ($cart->get_totals()['discount_total'] > 0): // if discount exisst then print ?>
-						<label class="tws__mini_cart_discount_amount_lbl"><?php echo esc_html__('Discount: (-)', 'mini-ajax-cart'); ?></label>
-						<span class="tws__mini_cart_discount_amount"><?php echo get_woocommerce_currency_symbol() . number_format($cart->get_totals()['discount_total'], 2); ?></span>
-					<?php endif;?>
+					<span id="tws__mini_cart_calculate_shipping"></span>
+					<br><span id="tws__mini_cart_calculate_discount"></span>
+
 				</div>
 			</div>
 			

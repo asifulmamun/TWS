@@ -6,14 +6,26 @@ var __webpack_exports__ = {};
 // Library files trigger
 setTimeout(function () {
   // Odometer the amount
-  var odometerData = document.getElementById('odometerUpload'); // data get from min cart
-  var odometerDataCounts = document.getElementById('tws__mini_cart_only_countsUpload');
-  if (odometerData) {
-    // odometer in float mini cart init
-    odometer.innerText = odometerData.innerText;
+  var subTotal = document.getElementById('odometerUpload'); // subtotal
+  var currencySymbol = document.getElementById('tws__mini_li_subtotal_currency_icon'); // currency symbol
+  var productsQty = document.getElementById('tws__mini_cart_only_countsUpload'); // counts of products
+  var shippingCharge = document.getElementById('shippingUpload'); // shipping charge
+  var discountUpload = document.getElementById('discountUpload'); // Discount mini cart
 
-    // Quantity of minicart
-    document.getElementById('tws__mini_cart_float_qty').innerText = odometerDataCounts.innerText;
+  if (subTotal) {
+    // float menu - mini cart - odometer
+    odometer.innerText = subTotal.innerText; // subtotal
+    document.getElementById('tws__mini_cart_float_qty').innerText = productsQty.innerText; // qty
+
+    // Header of mini cart
+    document.getElementById('tws__mini_cart_header_shipping_charge').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+
+    // footer of mini cart
+    document.getElementById('tws__mini_cart_calculate_subtotal').innerText = currencySymbol.innerText + subTotal.innerText; // subtotal with symbol
+    document.getElementById('tws__mini_cart_calculate_shipping').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+    if (discountUpload) {
+      document.getElementById('tws__mini_cart_calculate_discount').innerText = 'Discount: ' + currencySymbol.innerText + discountUpload.innerText; // shipping charge with symbol
+    }
   } else {
     // odometer in float mini cart init
     odometer.innerText = 0;

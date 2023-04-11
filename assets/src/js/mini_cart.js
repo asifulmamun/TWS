@@ -2,21 +2,34 @@
 setTimeout(function () {
 	
 	// Odometer the amount
-	const odometerData = document.getElementById('odometerUpload'); // data get from min cart
-	const odometerDataCounts = document.getElementById('tws__mini_cart_only_countsUpload');
-	if(odometerData){
-		// odometer in float mini cart init
-		odometer.innerText = odometerData.innerText;
-
+	const subTotal = document.getElementById('odometerUpload'); // subtotal
+	const currencySymbol = document.getElementById('tws__mini_li_subtotal_currency_icon'); // currency symbol
+	const productsQty = document.getElementById('tws__mini_cart_only_countsUpload'); // counts of products
+	const shippingCharge = document.getElementById('shippingUpload'); // shipping charge
+	const discountUpload = document.getElementById('discountUpload'); // Discount mini cart
 	
+	if(subTotal){
+		// float menu - mini cart - odometer
+		odometer.innerText = subTotal.innerText; // subtotal
+		document.getElementById('tws__mini_cart_float_qty').innerText = productsQty.innerText; // qty
+		
 
-		// Quantity of minicart
-		document.getElementById('tws__mini_cart_float_qty').innerText = odometerDataCounts.innerText;
+		// Header of mini cart
+		document.getElementById('tws__mini_cart_header_shipping_charge').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+
+
+		// footer of mini cart
+		document.getElementById('tws__mini_cart_calculate_subtotal').innerText = currencySymbol.innerText + subTotal.innerText; // subtotal with symbol
+		document.getElementById('tws__mini_cart_calculate_shipping').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+		if(discountUpload){
+			document.getElementById('tws__mini_cart_calculate_discount').innerText = 'Discount: ' + currencySymbol.innerText + discountUpload.innerText; // shipping charge with symbol
+		}
+	
 	} else{
+
 		// odometer in float mini cart init
 		odometer.innerText = 0;
 	
-
 		// Quantity of minicart
 		document.getElementById('tws__mini_cart_float_qty').innerText = '0 ITEM';
 	}
