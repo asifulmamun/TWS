@@ -36,10 +36,10 @@ $cart = WC()->cart;
 		<?php
 			do_action('woocommerce_before_mini_cart_contents');
 			
-			foreach ($cart->get_cart() as $cart_item_key => $cart_item) {
+			foreach ($cart->get_cart() as $cart_item_key => $cart_item):
 				$_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
 				$product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
-				if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key)) {
+				if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key)):
 					$product_name      		= apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
 					$thumbnail         		= apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
 					$product_regular_price 	= apply_filters('woocommerce_cart_item_price', $cart->get_cart()[$cart_item_key]['data']->regular_price, $cart_item, $cart_item_key);
@@ -57,12 +57,10 @@ $cart = WC()->cart;
 
 						<div class="tws__mini_cart_img_wrapper col-span-2 grid content-center justify-center">
 							<?php if (empty($product_permalink)) : ?>
-								<?php echo $thumbnail . wp_kses_post($product_name); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-								?>
+								<?php echo $thumbnail . wp_kses_post($product_name); ?>
 							<?php else : ?>
 								<a class="" target="_blank" href="<?php echo esc_url($product_permalink); ?>">
-									<?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-									?>
+									<?php echo $thumbnail; ?>
 								</a>
 							<?php endif; ?>
 						</div>
@@ -113,10 +111,9 @@ $cart = WC()->cart;
 						</div>
 					</li>
 					<?php
-				} // if
-			} // foreach product li
-
-			do_action('woocommerce_mini_cart_contents');
+				endif; // if
+			endforeach; // foreach product li
+			// do_action('woocommerce_mini_cart_contents');
 		?>
 		<li class="grid grid-cols-10 items-center justify-items-center py-3 border-b">
 			<label class="col-span-7"><?php echo esc_html__('Subtotal:', 'mini-ajax-cart'); ?></label>
@@ -148,18 +145,15 @@ $cart = WC()->cart;
 
 
 <div class="tws__final group fixed bottom-0 w-full pb-10">
+
 	<div id="tws__coupon_code_response" style="display:block;"></div>
 	<button id="tws__has_coupon_code" class="py-1 w-full mx-auto outline-none transition-all ease-in-out delay-150 duration-300"><i id="tws__has_coupon_code_icon"></i>&nbsp;Have a coupon?</button>
-	<div id="tws__coupon_code_wrap" class="relative transition-all ease-in-out delay-150 duration-300" style="display:none;">
-		<div id="tws__coupon_form_wrap" class="py-3 text-center">
-			<input type="text" id="tws__coupon_input" class="px-2 py-1 rounded focus:outline-none" placeholder="Coupon Code" />
-			<button type="button" id="tws__coupon_submit" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
-			<button id="tws__coupon_wrap_close" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">x</button>
-		</div>
-		
+	<div id="tws__coupon_code_wrap" class="relative py-3 text-center transition-all ease-in-out delay-150 duration-300" style="display:none;">
+		<input type="text" id="tws__coupon_input" class="px-2 py-1 rounded focus:outline-none" placeholder="Coupon Code" />
+		<button type="button" id="tws__coupon_submit" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
+		<button id="tws__coupon_wrap_close" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">x</button>
 		<?php
 			$applied_coupons = $cart->get_applied_coupons();
-
 			if (!empty($applied_coupons)):
 				?>
 				<ul class="px-1 py-1.5" id="tws__coupon_list_ul">
@@ -171,15 +165,15 @@ $cart = WC()->cart;
 				</ul>
 				<?php
 			endif;
-		?>
+			?>
 	</div>
-
-	<div class="tws__mini_calculated tws__text_xxs group-hover:text-xs opacity-50 group-hover:opacity-80 group-hover:py-2 px-px text-center transition-all ease-in-out delay-150 duration-300">
+		
+	<div class="tws__mini_calculated tws__text_xxs group-hover:text-xs opacity-50 group-hover:opacity-100 px-px text-center transition-all ease-in-out delay-150 duration-300">
 		<span id="tws__mini_cart_calculate_subtotal"></span>
 		<span id="tws__mini_cart_calculate_shipping"></span>
 		<span id="tws__mini_cart_calculate_discount"></span>
+		<a class="tws__trans_hover_btn text-center hidden group-hover:block w-min my-2 mx-auto py-2 px-6 bg-red-500 text-white transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_cart_url(); ?>">Cart</a>
 	</div>
-	<a class="tws__trans_hover_btn text-center hidden group-hover:block opacity-50 group-hover:opacity-100 w-min my-2 mx-auto py-2 px-6 bg-red-500 text-white transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_cart_url(); ?>">Cart</a>
 	
 	<div class="tws__mini_cart_checkout_wrap relative grid grid-cols-10 px-3 pb-2">
 		<a class="col-span-5 py-2 text-center font-bold transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_checkout_url(); ?>">Checkout</a>
