@@ -26,12 +26,10 @@ $cart = WC()->cart;
 ?>
 
 <?php if (!$cart->is_empty()) : ?>
-	<div>
-		<div id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', count($cart->get_cart()), 'tws-master-pro' ), count($cart->get_cart())); echo esc_html( $item_count_text ); ?></div>
-		<div class="tws__shipping_charge grid grid-cols-10">
-			<div class="col-span-7">Shipping Charge <span id="tws__mini_cart_header_shipping_charge"></span></div>
-			<button class="col-span-3" id="tws__mini_cart_top_close_btn" type="button">Close</button>
-		</div>
+	<div class="tws__shipping_charge grid grid-cols-10">
+		<div class="col-span-10"  id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', count($cart->get_cart()), 'tws-master-pro' ), count($cart->get_cart())); echo esc_html( $item_count_text ); ?></div>
+		<span class="col-span-7" id="tws__mini_cart_header_shipping_charge"></span>
+		<button class="col-span-3" id="tws__mini_cart_top_close_btn" type="button">Close</button>
 	</div>
 	
 	<ul id="tws__mini_cart_ul" class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">

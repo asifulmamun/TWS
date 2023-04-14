@@ -15,7 +15,7 @@ setTimeout(function () {
 		
 
 		// Header of mini cart
-		document.getElementById('tws__mini_cart_header_shipping_charge').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+		document.getElementById('tws__mini_cart_header_shipping_charge').innerText = 'Shipping Charge ' + currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
 
 
 		// footer of mini cart

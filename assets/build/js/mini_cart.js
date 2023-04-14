@@ -18,7 +18,7 @@ setTimeout(function () {
     document.getElementById('tws__mini_cart_float_qty').innerText = productsQty.innerText; // qty
 
     // Header of mini cart
-    document.getElementById('tws__mini_cart_header_shipping_charge').innerText = currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+    document.getElementById('tws__mini_cart_header_shipping_charge').innerText = 'Shipping Charge ' + currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
 
     // footer of mini cart
     document.getElementById('tws__mini_cart_calculate_subtotal').innerText = 'Subtotal ' + currencySymbol.innerText + subTotal.innerText; // subtotal with symbol
