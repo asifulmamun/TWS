@@ -157,7 +157,7 @@ function tws_master_pro_scripts() {
 		// css
 		wp_enqueue_style( 'app', get_stylesheet_directory_uri(). '/assets/build/css/app.css',  array(), null, 'all' );
 		
-		wp_enqueue_style( 'tailwindcss2', 'https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.1/tailwind.min.css',  array(), null, 'all' );
+		// wp_enqueue_style( 'tailwindcss2', 'https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.1/tailwind.min.css',  array(), null, 'all' );
 		// wp_enqueue_style( 'tailbase', 'https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.1/base.min.css',  array(), null, 'all' );
 		// wp_enqueue_style( 'tailcomponent', 'https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.1/components.min.css',  array(), null, 'all' );
 		// wp_enqueue_style( 'taildark', 'https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.1/tailwind-dark.min.css',  array(), null, 'all' );

@@ -29,26 +29,21 @@ if(tws__page_with_aside){
 
 
 // Mini cart action by float
-const tws__mini_cart_float = document.getElementById('tws__mini_cart_float');
-const tws__mini_cart = document.getElementById('tws__mini_cart');
+const tws__mini_cart_float = document.getElementById('tws__mini_cart_float'); // float - odometer button
+var tws__mini_cart = document.getElementById('tws__mini_cart'); // mini cart section
 
-if(tws__mini_cart_float){
-    if(tws__mini_cart){
+if(tws__mini_cart){
+    if(tws__mini_cart_float){
             
-        
         // default
         tws__mini_cart.style.right = '-420px';
 
-
         // after click the float
         tws__mini_cart_float.addEventListener('click', (event) => {
-
-            if(tws__mini_cart.style.right == '0px'){
-                tws__mini_cart.style.right = '-420px';
-            }else{
-                tws__mini_cart.style.right = '0px';
-            };
-
+            tws__mini_cart.style.right = '0px';
         }); // end of event of float mini cart action
-    }; // if tws__mini_cart is exist
-}; // if exist tws__mini_cart_float
+    }; // if exist tws__mini_cart_float
+}; // if tws__mini_cart is exist
+
+
+

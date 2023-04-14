@@ -33,7 +33,7 @@
 
 <?php get_sidebar(); // sidebar ?>
 
-<div id="tws__mini_cart_float" class="fixed right-0 top-1/2 transform -translate-y-1/2 z-30 cursor-pointer">
+<div id="tws__mini_cart_float" class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer">
     <?php //tws_master_pro_woocommerce_cart_link(); // cart-contents ?>
     <span id="tws__mini_cart_float_qty"></span><br>
     TK <span id="odometer" class="odometer"></span>

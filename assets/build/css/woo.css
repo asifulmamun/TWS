@@ -76,12 +76,12 @@ nav.woocommerce-pagination ul li a {
   background-color: #fff;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget li.woocommerce-mini-cart-item div.tws__mini_cart_img_wrapper {
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget div.tws__mini_cart_img_wrapper {
   max-height: 3.125rem;
   overflow: hidden;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget li.woocommerce-mini-cart-item div.tws__mini_cart_img_wrapper a img {
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget div.tws__mini_cart_img_wrapper a img {
   width: auto;
   height: 2.8125rem;
 }
@@ -92,10 +92,11 @@ nav.woocommerce-pagination ul li a {
 }
 
 .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code {
-  width: 18rem;
-  margin: 0 1rem;
   background-color: #f7f7f7;
-  border: 0.0625rem solid #f22127;
+}
+
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code:hover {
+  background: #ffbd88;
 }
 
 .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code svg {
@@ -112,10 +113,6 @@ nav.woocommerce-pagination ul li a {
   background: #ffbd88;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final button#tws__coupon_submit:hover {
-  font-weight: bold;
-}
-
 .tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final button#tws__coupon_wrap_close {
   background: #ec454a;
   color: #fff;
@@ -130,17 +127,17 @@ nav.woocommerce-pagination ul li a {
   color: #fff;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_calculation .tws__mini_cart_checkout_wrap a {
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_checkout_wrap a {
   background-color: #ec454a;
   color: #fff;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_calculation .tws__mini_cart_checkout_wrap a:hover {
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_checkout_wrap a:hover {
   background-color: #ffbd88;
   color: #333;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_calculation .tws__mini_cart_checkout_wrap .tws__mini_cart_total_amount {
+.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_checkout_wrap .tws__mini_cart_total_amount {
   background-color: #f22127;
   color: #fff;
 }

@@ -22,9 +22,9 @@ setTimeout(function () {
 
     // footer of mini cart
     document.getElementById('tws__mini_cart_calculate_subtotal').innerText = 'Subtotal ' + currencySymbol.innerText + subTotal.innerText; // subtotal with symbol
-    document.getElementById('tws__mini_cart_calculate_shipping').innerText = 'Shipping ' + currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
+    document.getElementById('tws__mini_cart_calculate_shipping').innerText = '| Shipping ' + currencySymbol.innerText + shippingCharge.innerText; // shipping charge with symbol
     if (discountUpload) {
-      document.getElementById('tws__mini_cart_calculate_discount').innerText = 'Discount (-) ' + currencySymbol.innerText + discountUpload.innerText;
+      document.getElementById('tws__mini_cart_calculate_discount').innerText = '| Discount (-) ' + currencySymbol.innerText + discountUpload.innerText;
     } // Discount
   } else {
     // odometer in float mini cart init
@@ -330,6 +330,20 @@ if (tws__products_ul) {
   ; // is esist or not tws__mini_cart_ul
 }
 ;
+
+// mini cart close by close button whhich are located in mini cart header
+var tws__mini_cart_top_close_btn = document.getElementById('tws__mini_cart_top_close_btn'); // mini cart section
+var tws__mini_cart = document.getElementById('tws__mini_cart'); // mini cart section
+
+if (tws__mini_cart) {
+  if (tws__mini_cart_top_close_btn) {
+    tws__mini_cart_top_close_btn.addEventListener('click', function (event) {
+      tws__mini_cart.style.right = '-420px';
+    }); // action
+  }
+  ; // if the close button is exist
+}
+; // if mini cart section is exist
 /******/ })()
 ;
 //# sourceMappingURL=mini_cart.js.map
