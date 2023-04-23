@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<div id="tws__page_with_aside">
+<div id="tws__page_with_aside" class="transition-all ease-in-out delay-150 duration-300">
 <?php
 
 	if(!wp_is_mobile()):

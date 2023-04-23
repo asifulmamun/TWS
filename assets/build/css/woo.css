@@ -69,75 +69,94 @@ nav.woocommerce-pagination ul li a {
   transition: .3s;
 }
 
-.tws__mini_cart {
+#tws__mini_cart {
   width: 20rem;
   height: calc(100% - 3.4375rem);
   padding-bottom: 2.1875rem;
   background-color: #fff;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget div.tws__mini_cart_img_wrapper {
+#tws__mini_cart #tws__mini_cart_left_close_btn {
+  left: -1.5625rem;
+  background-color: rgba(0,0,0,0.54902);
+  color: #fff;
+}
+
+#tws__mini_cart #tws__mini_cart_left_close_btn:hover {
+  background-color: #333;
+}
+
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_header #tws__mini_cart_header_shipping_charge {
+  background-color: #1f86ba;
+  color: #fff;
+}
+
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget {
+  padding-bottom: 100%;
+}
+
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget div.tws__mini_cart_img_wrapper {
   max-height: 3.125rem;
   overflow: hidden;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget div.tws__mini_cart_img_wrapper a img {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content ul.product_list_widget div.tws__mini_cart_img_wrapper a img {
   width: auto;
   height: 2.8125rem;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer {
   width: 20rem;
   background-color: #fafafa;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer #tws__has_coupon_code {
   background-color: #f7f7f7;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code:hover {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer #tws__has_coupon_code:hover {
   background: #ffbd88;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__has_coupon_code svg {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer #tws__has_coupon_code svg {
   width: 12px;
   display: inline;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final input#tws__coupon_input {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer input#tws__coupon_input {
   background: #f7f7f7;
   color: #f22127;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final button#tws__coupon_submit {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer button#tws__coupon_submit {
   background: #ffbd88;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final button#tws__coupon_wrap_close {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer button#tws__coupon_wrap_close {
   background: #ec454a;
   color: #fff;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final button#tws__coupon_wrap_close:hover {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer button#tws__coupon_wrap_close:hover {
   background: #f22127;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final #tws__coupon_list_ul li button {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer #tws__coupon_list_ul li button {
   background-color: #f22127;
   color: #fff;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_checkout_wrap a {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer .tws__mini_cart_checkout_wrap a {
   background-color: #ec454a;
   color: #fff;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_checkout_wrap a:hover {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer .tws__mini_cart_checkout_wrap a:hover {
   background-color: #ffbd88;
   color: #333;
 }
 
-.tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content .tws__final .tws__mini_cart_checkout_wrap .tws__mini_cart_total_amount {
+#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer .tws__mini_cart_checkout_wrap .tws__mini_cart_total_amount {
   background-color: #f22127;
   color: #fff;
 }

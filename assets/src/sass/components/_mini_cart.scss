@@ -2,7 +2,7 @@
 //     right: -($pxrem * 420) !important;
 // }
 
-.tws__mini_cart{
+#tws__mini_cart{
 
     $mini_cart_container: $pxrem * 320;
     width: $mini_cart_container;
@@ -12,32 +12,68 @@
     background-color: $color__bg_primary;
 
 
+    #tws__mini_cart_left_close_btn{
+        left: -($pxrem * 25);
+        background-color: $color__bg_hover_overlay;
+        color: $color__txt_btn_primary;
+
+        &:hover{
+            background-color: $color__bg_btn_third;
+        }
+    }
+
+
+
     // mini cart parent wrapper
     div.widget_shopping_cart{
         
         // mini cart wrapper
         div.widget_shopping_cart_content{
             
+
+            // Header
+            #tws__mini_cart_header{
+
+
+                #tws__mini_cart_top_close_btn{
+                    
+                }
+
+
+                #tws__mini_cart_only_countsUpload{
+                    
+                }
+
+                #tws__mini_cart_header_shipping_charge{
+                    background-color: $color__primary;
+                    color: $color__txt_optional;
+                }
+
+            }
+
             // mini cart product content
             ul.product_list_widget{
-            
-                    // wrapper
-                    div.tws__mini_cart_img_wrapper{
-                        max-height: $pxrem * 50;
-                        overflow: hidden;
+
+                padding-bottom: 100%;
+
         
-                        a{
-                            img{
-                                width: auto;
-                                height: $pxrem * 45;
-                            }
+                // wrapper
+                div.tws__mini_cart_img_wrapper{
+                    max-height: $pxrem * 50;
+                    overflow: hidden;
+
+                    a{
+                        img{
+                            width: auto;
+                            height: $pxrem * 45;
                         }
                     }
+                }
             }
 
 
-            // bottom
-            .tws__final{
+            // footer
+            #tws__mini_cart_footer{
                 width: $mini_cart_container;
                 background-color: $color__bg_secondary;
 

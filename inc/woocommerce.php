@@ -100,21 +100,6 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 
 
 
-// Cart Content and Widget
-if ( ! function_exists( 'tws_master_pro_woocommerce_header_cart' ) ) {
-	function tws_master_pro_woocommerce_header_cart() {
-		// Only cart amount
-		// tws_master_pro_woocommerce_cart_link();
-		
-		// Mini cart widget
-		the_widget('WC_Widget_Cart', array('title' => '',));
-	}
-}
-
-
-
-
-
 // mini cart widget - custom actions
 if (!class_exists('Tws__mini_custom_action')) {
     class Tws__mini_custom_action {

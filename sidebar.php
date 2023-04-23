@@ -13,7 +13,7 @@
 
 ?>
 
-<aside id="aside" class="fixed left-0 bottom-0 overflow-x-hidden overflow-y-scroll flex flex-col">
+<aside id="aside" class="fixed left-0 bottom-0 overflow-x-hidden overflow-y-scroll flex flex-col transition-all ease-in-out delay-150 duration-300">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	
 	<div class="block text-center p-1 border m-1 font-medium"><?php echo (get_bloginfo('description', 'display') || is_customize_preview())? get_bloginfo('description', 'display'): null;?></div>

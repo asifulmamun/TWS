@@ -333,11 +333,24 @@ if (tws__products_ul) {
 
 // mini cart close by close button whhich are located in mini cart header
 var tws__mini_cart_top_close_btn = document.getElementById('tws__mini_cart_top_close_btn'); // mini cart section
+var tws__mini_cart_left_close_btn = document.getElementById('tws__mini_cart_left_close_btn'); // mini cart section
 var tws__mini_cart = document.getElementById('tws__mini_cart'); // mini cart section
 
+// top close button under mini cart
 if (tws__mini_cart) {
   if (tws__mini_cart_top_close_btn) {
     tws__mini_cart_top_close_btn.addEventListener('click', function (event) {
+      tws__mini_cart.style.right = '-420px';
+    }); // action
+  }
+  ; // if the close button is exist
+}
+; // if mini cart section is exist
+
+// left close button under mini cart
+if (tws__mini_cart) {
+  if (tws__mini_cart_left_close_btn) {
+    tws__mini_cart_left_close_btn.addEventListener('click', function (event) {
       tws__mini_cart.style.right = '-420px';
     }); // action
   }
