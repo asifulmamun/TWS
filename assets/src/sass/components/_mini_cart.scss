@@ -24,32 +24,35 @@
 
 
 
+        
+
+    // Header
+    #tws__mini_cart_header{
+
+
+        #tws__mini_cart_top_close_btn{
+            
+        }
+
+
+        #tws__mini_cart_only_countsUpload{
+            
+        }
+
+        #tws__mini_cart_header_shipping_charge{
+            background-color: $color__primary;
+            color: $color__txt_optional;
+        }
+
+    }
+
+
+
     // mini cart parent wrapper
     div.widget_shopping_cart{
         
         // mini cart wrapper
         div.widget_shopping_cart_content{
-            
-
-            // Header
-            #tws__mini_cart_header{
-
-
-                #tws__mini_cart_top_close_btn{
-                    
-                }
-
-
-                #tws__mini_cart_only_countsUpload{
-                    
-                }
-
-                #tws__mini_cart_header_shipping_charge{
-                    background-color: $color__primary;
-                    color: $color__txt_optional;
-                }
-
-            }
 
             // mini cart product content
             ul.product_list_widget{

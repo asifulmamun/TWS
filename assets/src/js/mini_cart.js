@@ -14,7 +14,8 @@ setTimeout(function () {
 		// float menu - mini cart - odometer
 		odometer.innerText = subTotal.innerText; // subtotal
 		odometer_currency_symbol.innerText = currencySymbol.innerText; // currency symbol of odomoter
-		document.getElementById('tws__mini_cart_float_qty').innerText = productsQty.innerText; // qty
+		document.getElementById('tws__mini_cart_float_qty').innerText = productsQty.innerText; // qty Items in float
+		document.getElementById('tws__mini_cart_only_countsDownload').innerText = productsQty.innerText; // qty Itmes Header of mini cart
 		
 
 		// Header of mini cart

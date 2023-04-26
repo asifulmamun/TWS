@@ -42,6 +42,16 @@
 <section id="tws__mini_cart" class="fixed bottom-0 z-20 transition-all ease-in-out delay-150 duration-300">
     <div class="relative h-full border-l">
         <span id="tws__mini_cart_left_close_btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 py-4 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg></span>
-        <?php the_widget('WC_Widget_Cart', array('title' => '',)); // Mini cart widget ?>
+        
+        <div id="tws__mini_cart_header" class="hidden grid-cols-10">
+            <span class="col-span-7 px-2 py-2" id="tws__mini_cart_only_countsDownload">0 Items</span>
+            <button class="col-span-3 border border-solid m-1" id="tws__mini_cart_top_close_btn" type="button">Close</button>
+            <div class="col-span-10 px-2 py-0.5"  id="tws__mini_cart_header_shipping_charge">Shipping Charge</div>
+        </div>
+
+        <div class="h-screen overflow-x-hidden overflow-y-scroll">
+            <?php the_widget('WC_Widget_Cart', array('title' => '',)); // Mini cart widget ?>
+        </div>
+            
     </div>
 </section>

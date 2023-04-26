@@ -41,6 +41,10 @@ if(tws__mini_cart){
         // after click the float
         tws__mini_cart_float.addEventListener('click', (event) => {
             tws__mini_cart.style.right = '0px';
+
+            let tws__mini_cart_header = document.getElementById('tws__mini_cart_header');
+            tws__mini_cart_header.classList.add('grid');
+            tws__mini_cart_header.classList.remove('hidden');
         }); // end of event of float mini cart action
     }; // if exist tws__mini_cart_float
 }; // if tws__mini_cart is exist

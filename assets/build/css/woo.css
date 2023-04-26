@@ -118,7 +118,7 @@ nav.woocommerce-pagination ul li a {
   background-color: #333;
 }
 
-#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_header #tws__mini_cart_header_shipping_charge {
+#tws__mini_cart #tws__mini_cart_header #tws__mini_cart_header_shipping_charge {
   background-color: #1f86ba;
   color: #fff;
 }
