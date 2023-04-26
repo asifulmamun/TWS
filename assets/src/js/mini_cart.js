@@ -226,35 +226,83 @@ if (tws__products_ul) {
 			let currentChild = tws__mini_cart_ul.childNodes[i];
 			if (currentChild.id && currentChild.nodeName === 'LI') {
 
+
 				// If change value in mini cart item, then it will same value in product loop
-				document.getElementById(`tws__cart_loop_add_to_cart_${currentChild.dataset.product_id}`).style.display = 'none';
-				document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText = document.getElementById(`tws__mini_cart_quantity_${currentChild.dataset.product_id}`).innerText;
-				document.getElementById(`tws__product_loop_hover_amount_${currentChild.dataset.product_id}`).innerText =  currencySymbol.innerText + document.getElementById(`tws__mini_cart_price_${currentChild.dataset.product_id}`).innerText;
-				document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).style.display = 'inline-block';
-				document.getElementById(`tws__cart_loop_increment_${currentChild.dataset.product_id}`).style.display = 'inline-block';
-				document.getElementById(`tws__cart_loop_btn_before_qty_${currentChild.dataset.product_id}`).style.display = 'inline-block';
-				// if looping time mini cart found product qty is less then 2 then the decrement button will be hide otherwise it will be show
-				if(document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText == 1){
-					document.getElementById(`tws__cart_loop_decrement_${currentChild.dataset.product_id}`).style.display = 'none';
-				} else{
-					document.getElementById(`tws__cart_loop_decrement_${currentChild.dataset.product_id}`).style.display = 'inline-block';
+				let tws__cart_loop_add_to_cart_ = document.getElementById(`tws__cart_loop_add_to_cart_${currentChild.dataset.product_id}`);
+				if(tws__cart_loop_add_to_cart_){
+					tws__cart_loop_add_to_cart_.style.display = 'none';
 				};
+
+				let tws__cart_loop_counter_ = document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`);
+				let tws__mini_cart_quantity_ = document.getElementById(`tws__mini_cart_quantity_${currentChild.dataset.product_id}`);
+				if(tws__cart_loop_counter_){
+					tws__cart_loop_counter_.innerText = tws__mini_cart_quantity_.innerText;
+					tws__cart_loop_counter_.style.display = 'inline-block';
+
+					// if looping time mini cart found product qty is less then 2 then the decrement button will be hide otherwise it will be show
+					if(tws__cart_loop_counter_.innerText == 1){
+						document.getElementById(`tws__cart_loop_decrement_${currentChild.dataset.product_id}`).style.display = 'none';
+					} else{
+						document.getElementById(`tws__cart_loop_decrement_${currentChild.dataset.product_id}`).style.display = 'inline-block';
+					};
+
+					// Decrement button in Loop Proudct
+					document.getElementById(`tws__cart_loop_decrement_${currentChild.dataset.product_id}`).addEventListener('click', function (e) {
+
+						let tws__quantity = parseInt(document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText);
+						let tws__product_key = document.getElementById(`tws__mini_decrement_${currentChild.dataset.product_id}`).dataset.cart_item_key;
+					
+						// calculate new quantity, it will be decremented 2 and if success to save it to db then again increment it 1, again increment it 1 because for fragment refresh automatically increment it 1
+						if (tws__quantity > 1) {
+							var newQuantity = parseInt(tws__quantity) - 1;
+							save_to_db_product_loop(tws__product_key, newQuantity, currentChild.dataset.product_id);
+						}// end of if - calculate new quantity, it will be decremented 2 and if success to save it to db then again
+						
+						
+					}); // Decrement button in Loop Proudct
+
+
+
+
+					// If any product qty - hover add to cart text will be hide also another function will be show
+					if(tws__cart_loop_counter_.innerText > 0){
+						
+						// hide the add to cart button from - hover of product loop
+						document.getElementById(`tws__add_to_cart_hover_txt_${currentChild.dataset.product_id}`).style.display = 'none';
+
+						// Hover add to cart show
+						document.getElementById(`tws__add_to_cart_hover_wrapper_${currentChild.dataset.product_id}`).classList.remove('hidden');
+						document.getElementById(`tws__add_to_cart_hover_wrapper_${currentChild.dataset.product_id}`).classList.add('tws__add_to_cart_hover_wrapper');
+					} // If any product qty - hover add to cart text will be hide also another function will be show
+
+
+
+				}; // if tws__cart_loop_counter_
+				
+				
+				let tws__product_loop_hover_amount_ = document.getElementById(`tws__product_loop_hover_amount_${currentChild.dataset.product_id}`);
+				let tws__mini_cart_price_ = document.getElementById(`tws__mini_cart_price_${currentChild.dataset.product_id}`);
+				if(tws__product_loop_hover_amount_){
+					tws__product_loop_hover_amount_.innerText =  currencySymbol.innerText + tws__mini_cart_price_.innerText;
+				}
 				
 
-				// Decrement button in Loop Proudct
-				document.getElementById(`tws__cart_loop_decrement_${currentChild.dataset.product_id}`).addEventListener('click', function (e) {
-
-					let tws__quantity = parseInt(document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText);
-					let tws__product_key = document.getElementById(`tws__mini_decrement_${currentChild.dataset.product_id}`).dataset.cart_item_key;
+				// let tws__cart_loop_counter_ = document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`);
+				// if(tws__cart_loop_counter_){
+				// 	tws__cart_loop_counter_.style.display = 'inline-block';
+				// }
 				
-					// calculate new quantity, it will be decremented 2 and if success to save it to db then again increment it 1, again increment it 1 because for fragment refresh automatically increment it 1
-					if (tws__quantity > 1) {
-						var newQuantity = parseInt(tws__quantity) - 1;
-						save_to_db_product_loop(tws__product_key, newQuantity, currentChild.dataset.product_id);
-					}// end of if - calculate new quantity, it will be decremented 2 and if success to save it to db then again
-					
-					
-				}); // Decrement button in Loop Proudct
+				let tws__cart_loop_increment_ = document.getElementById(`tws__cart_loop_increment_${currentChild.dataset.product_id}`);
+				if(tws__cart_loop_increment_){
+					tws__cart_loop_increment_.style.display = 'inline-block';
+				}
+				
+				let tws__cart_loop_btn_before_qty_ = document.getElementById(`tws__cart_loop_btn_before_qty_${currentChild.dataset.product_id}`);
+				if(tws__cart_loop_btn_before_qty_){
+					tws__cart_loop_btn_before_qty_.style.display = 'inline-block';
+				}
+
+				
 
 
 				// Remove button is clicked from mini cart then loop will counter 1 with product id
@@ -275,42 +323,44 @@ if (tws__products_ul) {
 				});
 
 				// Hover add to cart quantity change
-				document.getElementById(`tws__cart_hover_loop_counter_${currentChild.dataset.product_id}`).innerText = document.getElementById(`tws__mini_cart_quantity_${currentChild.dataset.product_id}`).innerText;
-				
+				let tws__cart_hover_loop_counter_ = document.getElementById(`tws__cart_hover_loop_counter_${currentChild.dataset.product_id}`);
+				if(tws__cart_hover_loop_counter_){
+					tws__cart_hover_loop_counter_.innerText = document.getElementById(`tws__mini_cart_quantity_${currentChild.dataset.product_id}`).innerText;
+				};
+
+
 				// Hover add to cart show
-				document.getElementById(`tws__add_to_cart_hover_add_${currentChild.dataset.product_id}`).addEventListener('mouseenter', function(e) {
-					if(document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText > 0){
-						document.getElementById(`tws__add_to_cart_hover_wrapper_${currentChild.dataset.product_id}`).classList.remove('hidden');
-						document.getElementById(`tws__add_to_cart_hover_wrapper_${currentChild.dataset.product_id}`).classList.add('tws__add_to_cart_hover_wrapper');
-					}
-				});
+				let tws__add_to_cart_hover_add_ = document.getElementById(`tws__add_to_cart_hover_add_${currentChild.dataset.product_id}`);
+				if(tws__add_to_cart_hover_add_){
+						tws__add_to_cart_hover_add_.addEventListener('mouseenter', function(e) {
+						if(tws__cart_loop_counter_){
+							if(tws__cart_loop_counter_.innerText > 0){
+								document.getElementById(`tws__add_to_cart_hover_wrapper_${currentChild.dataset.product_id}`).classList.remove('hidden');
+								document.getElementById(`tws__add_to_cart_hover_wrapper_${currentChild.dataset.product_id}`).classList.add('tws__add_to_cart_hover_wrapper');
+							};
+						}; // if tws__cart_loop_counter_
 
-				// If any product qty - hover add to cart text will be hide also another function will be show
-				if(document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText > 0){
-					
-					// hide the add to cart button from - hover of product loop
-					document.getElementById(`tws__add_to_cart_hover_txt_${currentChild.dataset.product_id}`).style.display = 'none';
-
-					// Hover add to cart show
-					document.getElementById(`tws__add_to_cart_hover_wrapper_${currentChild.dataset.product_id}`).classList.remove('hidden');
-					document.getElementById(`tws__add_to_cart_hover_wrapper_${currentChild.dataset.product_id}`).classList.add('tws__add_to_cart_hover_wrapper');
-				} // If any product qty - hover add to cart text will be hide also another function will be show
+					});
+				}
 
 
 				// Hover in prouduct - Decrement button in Loop Proudct
-				document.getElementById(`tws__cart_hover_loop_decrement_${currentChild.dataset.product_id}`).addEventListener('click', function (e) {
+				let tws__cart_hover_loop_decrement_ = document.getElementById(`tws__cart_hover_loop_decrement_${currentChild.dataset.product_id}`);
+				if(tws__cart_hover_loop_decrement_){
+					tws__cart_hover_loop_decrement_.addEventListener('click', function (e) {
 
-					let tws__quantity = parseInt(document.getElementById(`tws__cart_hover_loop_counter_${currentChild.dataset.product_id}`).innerText);
-					let tws__product_key = document.getElementById(`tws__mini_decrement_${currentChild.dataset.product_id}`).dataset.cart_item_key;
-				
-					// calculate new quantity, it will be decremented 2 and if success to save it to db then again increment it 1, again increment it 1 because for fragment refresh automatically increment it 1
-					if (tws__quantity > 1) {
-						var newQuantity = parseInt(tws__quantity) - 1;
-						save_to_db_product_loop(tws__product_key, newQuantity, currentChild.dataset.product_id);
-					}// end of if - calculate new quantity, it will be decremented 2 and if success to save it to db then again
+						let tws__quantity = parseInt(document.getElementById(`tws__cart_hover_loop_counter_${currentChild.dataset.product_id}`).innerText);
+						let tws__product_key = document.getElementById(`tws__mini_decrement_${currentChild.dataset.product_id}`).dataset.cart_item_key;
 					
-					e.stopPropagation(); // stop the triger to parent
-				}); // Hover in prouduct - Decrement button in Loop Proudct
+						// calculate new quantity, it will be decremented 2 and if success to save it to db then again increment it 1, again increment it 1 because for fragment refresh automatically increment it 1
+						if (tws__quantity > 1) {
+							var newQuantity = parseInt(tws__quantity) - 1;
+							save_to_db_product_loop(tws__product_key, newQuantity, currentChild.dataset.product_id);
+						}// end of if - calculate new quantity, it will be decremented 2 and if success to save it to db then again
+						
+						e.stopPropagation(); // stop the triger to parent
+					}); // Hover in prouduct - Decrement button in Loop Proudct
+				};
 				
 			}; // end of if
 		}; // end loop

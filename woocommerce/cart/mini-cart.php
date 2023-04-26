@@ -29,7 +29,7 @@ $cart = WC()->cart;
 <div id="tws__mini_cart_header" class="grid grid-cols-10">
 	<span class="col-span-7 px-2 py-2" id="tws__mini_cart_only_countsUpload"><?php $item_count_text = sprintf(_n( '%d item', '%d items', count($cart->get_cart()), 'tws-master-pro' ), count($cart->get_cart())); echo esc_html( $item_count_text ); ?></span>
 	<button class="col-span-3 border border-solid m-1" id="tws__mini_cart_top_close_btn" type="button">Close</button>
-	<div class="col-span-10 px-2 py-0.5"  id="tws__mini_cart_header_shipping_charge"></div>
+	<div class="col-span-10 px-2 py-0.5"  id="tws__mini_cart_header_shipping_charge">Shipping Charge</div>
 </div>
 
 <ul id="tws__mini_cart_ul" class="overflow-x-hidden overflow-y-scroll h-screen woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
