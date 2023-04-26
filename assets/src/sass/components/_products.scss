@@ -28,15 +28,59 @@
 
                 .tws__add_to_cart_hover_wrapper, .tws__product_loop_details_btn, .tws__product_loop_hover_amount{
                     display: none;
-
                 }
 
-                &:hover .tws__add_to_cart_hover_wrapper,
-                &:hover .tws__product_loop_details_btn,
-                &:hover .tws__product_loop_hover_amount{
-                    display: inherit;
-                }
+                .tws__add_to_cart_hover_wrapper{
 
+                    // Decrement btn under img wrap of product thumbails
+                    button{
+                        padding: $pxrem*8 $pxrem*16;
+                        border-radius: 50%;
+                        width: $pxrem*36;
+                        height: $pxrem*38;
+
+                        &:hover{
+                            color: $color__secondary;
+                            border-color: $color__secondary;
+                        }
+                    }
+
+                    // Qty txt
+                    span{
+                        // font-size: $pxrem*18;
+                        color: $color__secondary;
+                    }
+
+                    // Increment or Add to Cart btn under img wrap of product thumbails
+                    a{
+                        padding: $pxrem*10 $pxrem*13;
+                        border-radius: 50%;
+                        width: $pxrem*36;
+                        height: $pxrem*38;
+
+                        &:hover{
+                            color: $color__secondary;
+                            border-color: $color__secondary;
+                        }
+                    }
+                }
+                
+
+                // Under product thumbnail wrapper - hover over product
+                &:hover{
+
+                    .tws__add_to_cart_hover_wrapper{
+                        display: inherit;
+                        display: flex;
+                    }
+
+                    .tws__product_loop_details_btn,
+                    .tws__product_loop_hover_amount{
+                        display: inherit;
+                    }
+
+                } // &:hover
+                
                 a.tws__product_hover_add_to_cart{
                     // color: transparent;
                     display: none;

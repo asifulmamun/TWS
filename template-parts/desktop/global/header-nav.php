@@ -36,7 +36,7 @@
 <div id="tws__mini_cart_float" class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer">
     <?php //tws_master_pro_woocommerce_cart_link(); // cart-contents ?>
     <span id="tws__mini_cart_float_qty"></span><br>
-    TK <span id="odometer" class="odometer"></span>
+    <span id="odometer_currency_symbol"></span><span id="odometer" class="odometer"></span>
 </div>
 
 <section id="tws__mini_cart" class="fixed bottom-0 z-20 transition-all ease-in-out delay-150 duration-300">

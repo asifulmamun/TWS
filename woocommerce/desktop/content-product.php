@@ -26,9 +26,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 ?>
 <li <?php wc_product_class( '', $product ); ?>>
 
-	<div class="tws__product_wrapper grid justify-items-center">
+	<div class="tws__product_wrapper group grid justify-items-center">
 		<?php //do_action('woocommerce_before_shop_loop_item'); /* init - dependencies working link of products */ ?>
-		<div class="tws__product_img_wrap relative grid items-center justify-items-center">
+		<div class="tws__product_img_wrap relative grid items-center justify-items-center text-white">
 			<?php woocommerce_show_product_loop_sale_flash(); /* Onsale */ ?>
 			
 			<?php if ( !$product->is_type( 'variable' ) ) : // Variable Product - check is product has variable or not ?>
@@ -41,15 +41,13 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', TRUE); /* thumbnail */ ?>">
 			<?php endif; // end of if - check is product has variable or not ?>
 			
-			<span id="tws__add_to_cart_hover_wrapper_<?php echo get_the_ID();?>" class="hidden absolute z-20" style="">
-				<div class="">
-					<button id="tws__cart_hover_loop_decrement_<?php echo get_the_ID();?>" class="py-1 px-2 border">-</button>
-					<span id="tws__cart_hover_loop_counter_<?php echo get_the_ID();?>">0</span>
-					<a id="tws__cart_hover_loop_increment_<?php echo get_the_ID();?>" class="add_to_cart_button ajax_add_to_cart py-1 px-2 border" href="?add-to-cart=<?php echo get_the_ID();?>" data-quantity="1" data-product_id="<?php echo get_the_ID();?>" rel="nofollow">+</a>
-				</div>
-			</span>
+			<div id="tws__add_to_cart_hover_wrapper_<?php echo get_the_ID();?>" class="hidden absolute z-20 transition-all ease-in-out delay-150 duration-300">
+				<button id="tws__cart_hover_loop_decrement_<?php echo get_the_ID();?>" class="py-1 px-2 border">-</button>
+				<span id="tws__cart_hover_loop_counter_<?php echo get_the_ID();?>" class="text-5xl px-1">0</span>
+				<a id="tws__cart_hover_loop_increment_<?php echo get_the_ID();?>" class="add_to_cart_button ajax_add_to_cart border" href="?add-to-cart=<?php echo get_the_ID();?>" data-quantity="1" data-product_id="<?php echo get_the_ID();?>" rel="nofollow">+</a>
+			</div>
 			
-			<span id="tws__product_loop_hover_amount_<?php echo get_the_ID();?>" class="tws__product_loop_hover_amount absolute z-10 top-0 left-0"></span>
+			<span id="tws__product_loop_hover_amount_<?php echo get_the_ID();?>" class="tws__product_loop_hover_amount absolute z-10 top-5 left-1/2 transform -translate-x-1/2 text-lg"></span>
 
 			<a class="tws__product_loop_details_btn absolute z-20 bottom-0 left-0 right-0" title="Click here to for view details of <?php echo get_the_title(get_the_ID()); ?>" href="<?php echo get_the_permalink(get_the_ID()); ?>">Details</a>
 		</div>
@@ -66,7 +64,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 	<?php if ( !$product->is_type( 'variable' ) ) : // Variable Product - check is product has variable or not ?>
 		
-		<div id="tws__add_to_cart_wrapper_<?php echo get_the_ID();?>" class="">
+		<div id="tws__add_to_cart_wrapper_<?php echo get_the_ID();?>" class="text-center">
 
 			<span id="tws__cart_loop_add_to_cart_<?php echo get_the_ID();?>"><?php do_action( 'woocommerce_after_shop_loop_item' ); //woocommerce_template_loop_add_to_cart(); /* Add To Cart */ ?></span>
 
@@ -82,49 +80,4 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	
 	<?php endif; // end of if - check is product has variable or not ?>
 
-
-
-
-	
-
-
-	<?php
-	// /**
-	//  * Hook: woocommerce_before_shop_loop_item.
-	//  *
-	//  * @hooked woocommerce_template_loop_product_link_open - 10
-	//  */
-	// do_action( 'woocommerce_before_shop_loop_item' );
-
-	// /**
-	//  * Hook: woocommerce_before_shop_loop_item_title.
-	//  *
-	//  * @hooked woocommerce_show_product_loop_sale_flash - 10
-	//  * @hooked woocommerce_template_loop_product_thumbnail - 10
-	//  */
-	// do_action( 'woocommerce_before_shop_loop_item_title' );
-
-	// /**
-	//  * Hook: woocommerce_shop_loop_item_title.
-	//  *
-	//  * @hooked woocommerce_template_loop_product_title - 10
-	//  */
-	// do_action( 'woocommerce_shop_loop_item_title' );
-
-	// /**
-	//  * Hook: woocommerce_after_shop_loop_item_title.
-	//  *
-	//  * @hooked woocommerce_template_loop_rating - 5
-	//  * @hooked woocommerce_template_loop_price - 10
-	//  */
-	// do_action( 'woocommerce_after_shop_loop_item_title' );
-
-	// /**
-	//  * Hook: woocommerce_after_shop_loop_item.
-	//  *
-	//  * @hooked woocommerce_template_loop_product_link_close - 5
-	//  * @hooked woocommerce_template_loop_add_to_cart - 10
-	//  */
-	// do_action( 'woocommerce_after_shop_loop_item' );
-	?>
 </li>

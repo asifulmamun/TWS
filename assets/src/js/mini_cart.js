@@ -1,9 +1,11 @@
+// Global Concepts
+const currencySymbol = document.getElementById('tws__mini_li_subtotal_currency_icon'); // currency symbol
+
 // Library files trigger
 setTimeout(function () {
 	
 	// Odometer the amount
 	const subTotal = document.getElementById('odometerUpload'); // subtotal
-	const currencySymbol = document.getElementById('tws__mini_li_subtotal_currency_icon'); // currency symbol
 	const productsQty = document.getElementById('tws__mini_cart_only_countsUpload'); // counts of products
 	const shippingCharge = document.getElementById('shippingUpload'); // shipping charge
 	const discountUpload = document.getElementById('discountUpload'); // Discount mini cart
@@ -11,6 +13,7 @@ setTimeout(function () {
 	if(subTotal){
 		// float menu - mini cart - odometer
 		odometer.innerText = subTotal.innerText; // subtotal
+		odometer_currency_symbol.innerText = currencySymbol.innerText; // currency symbol of odomoter
 		document.getElementById('tws__mini_cart_float_qty').innerText = productsQty.innerText; // qty
 		
 
@@ -226,7 +229,7 @@ if (tws__products_ul) {
 				// If change value in mini cart item, then it will same value in product loop
 				document.getElementById(`tws__cart_loop_add_to_cart_${currentChild.dataset.product_id}`).style.display = 'none';
 				document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).innerText = document.getElementById(`tws__mini_cart_quantity_${currentChild.dataset.product_id}`).innerText;
-				document.getElementById(`tws__product_loop_hover_amount_${currentChild.dataset.product_id}`).innerText = document.getElementById(`tws__mini_cart_price_${currentChild.dataset.product_id}`).innerText;
+				document.getElementById(`tws__product_loop_hover_amount_${currentChild.dataset.product_id}`).innerText =  currencySymbol.innerText + document.getElementById(`tws__mini_cart_price_${currentChild.dataset.product_id}`).innerText;
 				document.getElementById(`tws__cart_loop_counter_${currentChild.dataset.product_id}`).style.display = 'inline-block';
 				document.getElementById(`tws__cart_loop_increment_${currentChild.dataset.product_id}`).style.display = 'inline-block';
 				document.getElementById(`tws__cart_loop_btn_before_qty_${currentChild.dataset.product_id}`).style.display = 'inline-block';
