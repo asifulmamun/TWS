@@ -5,27 +5,6 @@ aside#aside{
     height: calc(100% - #{$pxrem * 55});
     background-color: $color__bg_secondary;
     
-
-    /* width */
-    &::-webkit-scrollbar {
-        width: $pxrem * 4;
-    }
-
-    /* Track */
-    &::-webkit-scrollbar-track {
-        background: #000; 
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-        background: green; 
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-        background: blue; 
-    }
-
     // aside primary nav
     nav#primary_menu{
 

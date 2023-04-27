@@ -45,7 +45,7 @@
         
         <div id="tws__mini_cart_header" class="hidden grid-cols-10">
             <span class="col-span-7 px-2 py-2" id="tws__mini_cart_only_countsDownload">0 Items</span>
-            <button class="col-span-3 border border-solid m-1" id="tws__mini_cart_top_close_btn" type="button">Close</button>
+            <button class="col-span-3 m-1 text-white bg-red-600 hover:bg-red-400" id="tws__mini_cart_top_close_btn" type="button">Close</button>
             <div class="col-span-10 px-2 py-0.5"  id="tws__mini_cart_header_shipping_charge">Shipping Charge</div>
         </div>
 

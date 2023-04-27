@@ -45,6 +45,24 @@ nav.woocommerce-pagination ul li a {
   display: grid;
 }
 
+.tws__products_ul li .tws__product_wrapper:hover .details h2.woocommerce-loop-product__title {
+  display: none;
+}
+
+.tws__products_ul li .tws__product_wrapper:hover .details .price {
+  position: absolute;
+  bottom: 3.125rem;
+  z-index: 10;
+  font-size: 1.125rem;
+  color: #fff;
+  left: 50%;
+  transform: translatex(-50%);
+  -webkit-transform: translatex(-50%);
+  -moz-transform: translatex(-50%);
+  -ms-transform: translatex(-50%);
+  -o-transform: translatex(-50%);
+}
+
 .tws__products_ul li .tws__product_wrapper span.onsale {
   position: absolute;
   top: 0;

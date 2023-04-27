@@ -30,7 +30,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		<?php //do_action('woocommerce_before_shop_loop_item'); /* init - dependencies working link of products */ ?>
 		<?php woocommerce_show_product_loop_sale_flash(); /* Onsale */ ?>
 		<span id="tws__product_loop_hover_amount_<?php echo get_the_ID();?>" class="tws__product_loop_hover_amount absolute z-20 top-5 left-1/2 transform -translate-x-1/2 text-lg text-white"></span>
-		<a class="tws__product_loop_details_btn absolute z-20 bottom-0 left-0 right-0 text-center py-1 text-lg text-white" title="Click here to for view details of <?php echo get_the_title(get_the_ID()); ?>" href="<?php echo get_the_permalink(get_the_ID()); ?>">Details</a>
+		<a class="tws__product_loop_details_btn absolute z-20 bottom-0 left-0 right-0 h-9 text-center py-1 text-lg text-white" title="Click here to for view details of <?php echo get_the_title(get_the_ID()); ?>" href="<?php echo get_the_permalink(get_the_ID()); ?>">Details</a>
 		
 		<div id="tws__add_to_cart_hover_wrapper_<?php echo get_the_ID();?>" class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-20 text-white transition-all ease-in-out delay-150 duration-300">
 			<button id="tws__cart_hover_loop_decrement_<?php echo get_the_ID();?>" class="py-1 px-2 border">-</button>
@@ -39,9 +39,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		</div>
 	
 		<?php if ( !$product->is_type( 'variable' ) ) : // Variable Product - check is product has variable or not ?>
-			<a id="tws__add_to_cart_hover_add_<?php echo get_the_ID();?>" class="tws__product_hover_add_to_cart absolute z-10 top-0 left-0 h-full w-full grid items-center justify-items-center add_to_cart_button ajax_add_to_cart" href="?add-to-cart=<?php echo get_the_ID();?>" data-quantity="1" data-product_id="<?php echo get_the_ID();?>" rel="nofollow"><span class="text-lg" id="tws__add_to_cart_hover_txt_<?php echo get_the_ID();?>">Add to cart</span></a>
+			<a id="tws__add_to_cart_hover_add_<?php echo get_the_ID();?>" class="tws__product_hover_add_to_cart absolute z-10 top-0 left-0 h-full w-full grid items-center justify-items-center add_to_cart_button ajax_add_to_cart text-white" href="?add-to-cart=<?php echo get_the_ID();?>" data-quantity="1" data-product_id="<?php echo get_the_ID();?>" rel="nofollow"><span class="text-lg" id="tws__add_to_cart_hover_txt_<?php echo get_the_ID();?>">Add to cart</span></a>
 		<?php else: // not Ajax add to cart - if it it has no variable ?>
-			<a title="Click here to for view details of <?php echo get_the_title(get_the_ID()); ?>" href="<?php echo get_the_permalink(get_the_ID()); ?>" data-quantity="1" class="tws__product_hover_add_to_cart absolute z-10 top-0 left-0 h-full w-full grid items-center justify-items-center" data-product_id="<?php echo get_the_ID();?>" rel="nofollow">Select options</a>
+			<a title="Click here to for view details of <?php echo get_the_title(get_the_ID()); ?>" href="<?php echo get_the_permalink(get_the_ID()); ?>" data-quantity="1" class="tws__product_hover_add_to_cart absolute z-10 top-0 left-0 h-full w-full grid items-center justify-items-center text-white" data-product_id="<?php echo get_the_ID();?>" rel="nofollow">Select options</a>
 		<?php endif; // end of if - check is product has variable or not ?>
 
 		<div class="tws__product_img_wrap grid items-center justify-items-center text-white">

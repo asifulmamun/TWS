@@ -34,6 +34,29 @@
                     display: grid;
                 }
             
+                .details{
+
+                    // hover - product titile
+                    h2.woocommerce-loop-product__title{
+                        display: none;
+                    }
+
+                    // hover - product price
+                    .price{
+                        position: absolute;
+                        bottom: $pxrem*50;
+                        z-index: 10;
+                        font-size: $pxrem*18;
+                        color: $color__txt_optional;
+
+                        left: 50%;
+                        transform: translatex(-50%);
+                        -webkit-transform: translatex(-50%);
+                        -moz-transform: translatex(-50%);
+                        -ms-transform: translatex(-50%);
+                        -o-transform: translatex(-50%);
+                    }
+                }
 
             } // &:hover
             

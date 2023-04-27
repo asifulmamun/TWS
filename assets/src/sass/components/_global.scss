@@ -25,3 +25,24 @@ body{
 .tws__text_xxs{
     font-size: $text__xxs;;
 }
+
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+    width: $pxrem * 4;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $color__bg_gray_border; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $color__secondary; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $color__bg_btn_secondary; 
+}
