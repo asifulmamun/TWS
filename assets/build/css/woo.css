@@ -27,10 +27,72 @@ nav.woocommerce-pagination ul li a {
   margin-bottom: 1.5625rem;
 }
 
+.tws__products_ul li .tws__product_wrapper {
+  min-height: 17.5rem;
+}
+
+.tws__products_ul li .tws__product_wrapper:hover .tws__add_to_cart_hover_wrapper {
+  display: inherit;
+  display: flex;
+}
+
+.tws__products_ul li .tws__product_wrapper:hover .tws__product_loop_details_btn,
+    .tws__products_ul li .tws__product_wrapper:hover .tws__product_loop_hover_amount {
+  display: inherit;
+}
+
+.tws__products_ul li .tws__product_wrapper:hover a.tws__product_hover_add_to_cart {
+  display: grid;
+}
+
 .tws__products_ul li .tws__product_wrapper span.onsale {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.tws__products_ul li .tws__product_wrapper a.tws__product_hover_add_to_cart {
+  display: none;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__add_to_cart_hover_wrapper, .tws__products_ul li .tws__product_wrapper .tws__product_loop_details_btn, .tws__products_ul li .tws__product_wrapper .tws__product_loop_hover_amount {
+  display: none;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__product_loop_details_btn {
+  background-color: #1f86ba;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__add_to_cart_hover_wrapper button {
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.375rem;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__add_to_cart_hover_wrapper button:hover {
+  color: #ffbd88;
+  border-color: #ffbd88;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__add_to_cart_hover_wrapper span {
+  color: #ffbd88;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__add_to_cart_hover_wrapper a {
+  padding: 0.625rem 0.8125rem;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.375rem;
+}
+
+.tws__products_ul li .tws__product_wrapper .tws__add_to_cart_hover_wrapper a:hover {
+  color: #ffbd88;
+  border-color: #ffbd88;
+}
+
+.tws__products_ul li .tws__product_wrapper a.tws__product_hover_add_to_cart {
+  background-color: rgba(0,0,0,0.54902);
 }
 
 .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap {
@@ -41,64 +103,14 @@ nav.woocommerce-pagination ul li a {
   cursor: pointer;
 }
 
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__add_to_cart_hover_wrapper, .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__product_loop_details_btn, .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__product_loop_hover_amount {
-  display: none;
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__add_to_cart_hover_wrapper button {
-  padding: 0.5rem 1rem;
-  border-radius: 50%;
-  width: 2.25rem;
-  height: 2.375rem;
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__add_to_cart_hover_wrapper button:hover {
-  color: #ffbd88;
-  border-color: #ffbd88;
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__add_to_cart_hover_wrapper span {
-  color: #ffbd88;
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__add_to_cart_hover_wrapper a {
-  padding: 0.625rem 0.8125rem;
-  border-radius: 50%;
-  width: 2.25rem;
-  height: 2.375rem;
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__add_to_cart_hover_wrapper a:hover {
-  color: #ffbd88;
-  border-color: #ffbd88;
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__add_to_cart_hover_wrapper {
-  display: inherit;
-  display: flex;
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__product_loop_details_btn,
-    .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover .tws__product_loop_hover_amount {
-  display: inherit;
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap a.tws__product_hover_add_to_cart {
-  display: none;
-  background-color: rgba(0,0,0,0.54902);
-}
-
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap:hover a.tws__product_hover_add_to_cart {
-  display: grid;
-}
-
 .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap img {
   max-width: 11.875rem;
   max-height: 11.875rem;
 }
 
-.tws__products_ul li .tws__product_wrapper .tws__product_img_wrap .tws__add_cart {
-  transition: .3s;
+.tws__products_ul li .tws__add_to_cart_wrapper span a.button {
+  display: block;
+  padding: 0.5rem 1rem;
 }
 
 #tws__mini_cart {

@@ -231,8 +231,8 @@ if (tws__products_ul) {
           tws__cart_loop_counter_.style.display = 'inline-block';
 
           // if looping time mini cart found product qty is less then 2 then the decrement button will be hide otherwise it will be show
-          if (tws__cart_loop_counter_.innerText == 1) {
-            document.getElementById("tws__cart_loop_decrement_".concat(currentChild.dataset.product_id)).style.display = 'none';
+          if (!tws__cart_loop_counter_.innerText == 1) {
+            // document.getElementById(`tws__cart_loop_decrement_${currentChild.dataset.product_id}`).style.display = 'none';
           } else {
             document.getElementById("tws__cart_loop_decrement_".concat(currentChild.dataset.product_id)).style.display = 'inline-block';
           }
