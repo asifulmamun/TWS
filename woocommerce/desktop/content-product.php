@@ -24,13 +24,13 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php wc_product_class( '', $product ); ?>>
+<li <?php wc_product_class( 'border border-solid border-white hover:border-gray-300 p-1 hover:shadow-lg', $product ); ?>>
 
 	<div class="tws__product_wrapper relative group grid justify-items-center overflow-hidden">
 		<?php //do_action('woocommerce_before_shop_loop_item'); /* init - dependencies working link of products */ ?>
 		<?php woocommerce_show_product_loop_sale_flash(); /* Onsale */ ?>
 		<span id="tws__product_loop_hover_amount_<?php echo get_the_ID();?>" class="tws__product_loop_hover_amount absolute z-20 top-5 left-1/2 transform -translate-x-1/2 text-lg text-white"></span>
-		<a class="tws__product_loop_details_btn absolute z-20 bottom-0 left-0 right-0 h-9 text-center py-1 text-lg text-white" title="Click here to for view details of <?php echo get_the_title(get_the_ID()); ?>" href="<?php echo get_the_permalink(get_the_ID()); ?>">Details</a>
+		<a class="tws__product_loop_details_btn absolute z-20 bottom-0 left-0 right-0 text-center py-1 text-sm hover:text-white bg-white hover:bg-red-400 border-b border-r border-l border-solid" title="Click here to for view details of <?php echo get_the_title(get_the_ID()); ?>" href="<?php echo get_the_permalink(get_the_ID()); ?>">Details&nbsp;›</a>
 		
 		<div id="tws__add_to_cart_hover_wrapper_<?php echo get_the_ID();?>" class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-20 text-white transition-all ease-in-out delay-150 duration-300">
 			<button id="tws__cart_hover_loop_decrement_<?php echo get_the_ID();?>" class="py-1 px-2 border">-</button>
@@ -58,7 +58,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 	<?php if ( !$product->is_type( 'variable' ) ) : // Variable Product - check is product has variable or not ?>
 		<div class="tws__add_to_cart_wrapper h-14 overflow-hidden grid items-center content-center text-center" id="tws__add_to_cart_wrapper_<?php echo get_the_ID();?>">
-			<span class="rounded bg-red-600 hover:bg-red-400 text-white text-base" id="tws__cart_loop_add_to_cart_<?php echo get_the_ID();?>"><?php do_action( 'woocommerce_after_shop_loop_item' ); //woocommerce_template_loop_add_to_cart(); /* Add To Cart */ ?></span>
+			<span class="rounded hover:bg-red-400 text-red-400 hover:text-white text-base border border-solid" id="tws__cart_loop_add_to_cart_<?php echo get_the_ID();?>"><?php do_action( 'woocommerce_after_shop_loop_item' ); //woocommerce_template_loop_add_to_cart(); /* Add To Cart */ ?></span>
 			
 			<div class="tws__cart_added overflow-hidden flex justify-around bg-red-500 text-white text-base">
 				<button class="w-1/4 border-r py-2 hover:bg-red-400" id="tws__cart_loop_decrement_<?php echo get_the_ID();?>" style="display:none;">-</button>

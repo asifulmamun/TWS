@@ -4,6 +4,7 @@ aside#aside{
     padding-bottom: 2.25rem;
     height: calc(100% - #{$pxrem * 55});
     background-color: $color__bg_secondary;
+    flex-direction: column;
     
     // aside primary nav
     nav#primary_menu{
@@ -13,7 +14,8 @@ aside#aside{
 
         ul{
             li{
-
+                padding-left: $pxrem*8;
+                
                 a{
                     color: $color__txt_secondary;
                 }

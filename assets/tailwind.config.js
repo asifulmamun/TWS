@@ -44,7 +44,11 @@ module.exports = {
       fontSize: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       display: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       opacity: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
-
+      boxShadow: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      // borderWidth: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      // borderStyle: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      borderColor: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      
     },
   },
   plugins: [],
