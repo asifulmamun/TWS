@@ -19,7 +19,7 @@ if(tws__page_with_aside){
             
         }else{
             aside.style.left = '-300px';
-            tws__page_with_aside.style.marginLeft = '0px';
+            tws__page_with_aside.style.marginLeft = '0';
         }
 
     });

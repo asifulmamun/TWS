@@ -1,4 +1,4 @@
-<main id="main" class="w-full overflow-x-hidden">
+<main id="main" class="w-full">
 <?php 
 
 // Page Content
