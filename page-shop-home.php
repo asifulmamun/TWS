@@ -8,7 +8,7 @@
 // Header file
 get_header();
 ?>
-<?php // class="pl-4"; ?>
+<?php // class="pl-4"; // required for tailwind render ?>
 <main id="main" class="w-full pl-56 pr-14 transition-all ease-in-out delay-150 duration-300">
 <?php
 

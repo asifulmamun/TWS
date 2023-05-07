@@ -12,7 +12,7 @@
 // }
 
 ?>
-<?php // class="-left-80"; ?>
+<?php // class="-left-80"; // required for tailwind render ?>
 <aside id="aside" class="fixed w-52 flex flex-col left-0 bottom-0 overflow-x-hidden overflow-y-scroll transition-all ease-in-out delay-150 duration-300">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	

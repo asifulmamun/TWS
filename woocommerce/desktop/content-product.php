@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php wc_product_class( 'border border-solid border-white hover:border-gray-300 p-1 hover:shadow-lg', $product ); ?>>
+<li <?php wc_product_class( 'p-1 hover:shadow-lg', $product ); ?>>
 
 	<div class="tws__product_wrapper relative group grid justify-items-center overflow-hidden">
 		<?php //do_action('woocommerce_before_shop_loop_item'); /* init - dependencies working link of products */ ?>
