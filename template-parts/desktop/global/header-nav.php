@@ -31,7 +31,6 @@
 </div>
 </header>
 
-<?php get_sidebar(); // sidebar ?>
 
 <div id="tws__mini_cart_float" class="fixed right-0 top-1/2 transform -translate-y-1/2 z-30 cursor-pointer w-16 text-center shadow-2xl">
     <div class="py-1 bg-gray-500 hover:bg-gray-700 text-yellow-400 font-semibold">    
@@ -59,3 +58,5 @@
             
     </div>
 </section>
+
+<?php get_sidebar(); // sidebar with menu ?>

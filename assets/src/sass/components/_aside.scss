@@ -1,6 +1,6 @@
 aside#aside{
 
-    width: $aside_width;
+    // width: $aside_width;
     padding-bottom: 2.25rem;
     height: calc(100% - #{$pxrem * 55});
     background-color: $color__bg_secondary;
@@ -39,15 +39,15 @@ aside#aside{
 
     // Quick access nav
     .tws__quick_access_menu{
-        width: 100%;
-        max-width: calc(#{$aside_width} - #{$pxrem * 4});
-        max-height: $pxrem * 32;
+        // width: 100%;
+        // max-width: calc(#{$aside_width} - #{$pxrem * 4});
+        // max-height: $pxrem * 32;
         background: $color__secondary;
-        overflow: hidden;
+
 
         // Quick Menu
         ul#quick-access-menu{
-            display: flex;
+            // display: flex;
 
             li{
                 border-right: $pxrem*3 solid $color__txt_primary;

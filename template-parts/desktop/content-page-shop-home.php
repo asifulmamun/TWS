@@ -1,4 +1,3 @@
-<main id="main" class="w-full">
 <?php 
 
 // Page Content
@@ -61,4 +60,3 @@ while ( have_posts() ) : the_post(); the_content(); endwhile; // Page Content
 
 // endwhile; // End of the loop.
 ?>
-</main>

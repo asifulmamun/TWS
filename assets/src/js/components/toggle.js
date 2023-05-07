@@ -1,29 +1,50 @@
+// Pixel to 
+const pxrem = function (px){
+    return px*0.0625+'rem';
+};
+
+
 // Toggle
 const toggle_primary_menu = document.getElementById('toggle_primary_menu');
 const aside = document.getElementById('aside');
-const tws__page_with_aside = document.getElementById('tws__page_with_aside');
+const main = document.getElementById('main');
 
-// check the tws__page_with_aside id is exist, then
-if(tws__page_with_aside){
+// check the main id is exist, then
+if(main){
     // default
-    aside.style.left = '0';
-    tws__page_with_aside.style.marginLeft = '220px';
+    // aside.style.left = '0';
+    // main.style.paddingLeft = pxrem(225);
+    main.classList.add('pl-56'); // 224px
 
     // aftr click
     toggle_primary_menu.addEventListener('click', (event) => {
         
         // aside/page action by toggle
-        if(aside.style.left == '-300px'){
-            aside.style.left = '0';
-            tws__page_with_aside.style.marginLeft = '220px';
+        if(aside.classList.contains('-left-80')){
+            
+            aside.classList.remove('-left-80'); // 320px - show sidebar
+            aside.classList.add('left-0');
+
+            main.classList.add('pl-56'); // 224px
+            main.classList.remove('pl-4'); // 224px
+
+            // main.style.paddingLeft = '220px';
+
             
         }else{
-            aside.style.left = '-300px';
-            tws__page_with_aside.style.marginLeft = '0';
+            // aside.style.left = '-'+pxrem(300);
+            // main.style.paddingLeft = '0';
+            
+            aside.classList.remove('left-0');
+            aside.classList.add('-left-80'); // 320px - hide sidebar
+
+            main.classList.remove('pl-56'); // 224px
+            main.classList.add('pl-4'); // 224px
+            
         }
 
     });
-} // end if, tws__page_with_aside id is exist
+} // end if, main id is exist
 
 
 

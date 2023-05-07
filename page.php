@@ -14,8 +14,7 @@
 
 get_header();
 ?>
-<div id="tws__page_with_aside">
-	<main id="primary" class="site-main">
+	<main id="main" class="site-main">
 
 		<?php
 		while ( have_posts() ) :
@@ -32,7 +31,7 @@ get_header();
 		?>
 
 	</main><!-- #main -->
-</div>
+
 <?php
 // get_sidebar();
 get_footer();

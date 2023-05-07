@@ -12,17 +12,17 @@ if(1 == page){
 
 }else if( 2 == page ){
     phpFiles.push(
-      './../header.php',
-        './../template-parts/desktop/global/header-nav.php',
-      './../template-parts/desktop/global/aside.php',
+      '../header.php',
+        '../template-parts/desktop/global/header-nav.php',
+        '../sidebar.php',
       
-      './../page-shop-home.php',
-        './../woocommerce/loop/loop-start.php',
-        './../woocommerce/desktop/content-product.php',
+      '../page-shop-home.php',
+        '../woocommerce/loop/loop-start.php',
+        '../woocommerce/desktop/content-product.php',
 
-        './../woocommerce/cart/mini-cart.php',
+        '../woocommerce/cart/mini-cart.php',
 
-      './../footer.php',
+      '../footer.php',
     );
 
 }
