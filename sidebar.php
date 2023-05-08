@@ -12,8 +12,8 @@
 // }
 
 ?>
-<?php // class="-left-80"; // required for tailwind render ?>
-<aside id="aside" class="fixed w-52 flex flex-col left-0 bottom-0 overflow-x-hidden overflow-y-scroll transition-all ease-in-out delay-150 duration-300">
+<?php // left-0 md:-left-80 // for render tailwindcss  ?>
+<aside id="aside" class="fixed -left-80 md:left-0 z-30 w-52 flex flex-col bottom-0 overflow-x-hidden overflow-y-scroll transition-all ease-in-out delay-150 duration-300">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	
 	<div class="block text-center p-1 border m-1 font-medium"><?php echo (get_bloginfo('description', 'display') || is_customize_preview())? get_bloginfo('description', 'display'): null;?></div>
