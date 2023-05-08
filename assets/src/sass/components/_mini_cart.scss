@@ -4,8 +4,8 @@
 
 #tws__mini_cart{
 
-    $mini_cart_container: $pxrem * 320;
-    width: $mini_cart_container;
+    // $mini_cart_container: $pxrem * 320;
+    // width: $mini_cart_container;
     height: calc(100% - #{$pxrem * 55});
 
     padding-bottom: $pxrem*35;
@@ -77,7 +77,7 @@
 
             // footer
             #tws__mini_cart_footer{
-                width: $mini_cart_container;
+                // width: $mini_cart_container;
                 background-color: $color__bg_secondary;
 
 

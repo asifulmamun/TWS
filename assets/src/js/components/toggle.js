@@ -1,7 +1,7 @@
-// Pixel to 
-const pxrem = function (px){
-    return px*0.0625+'rem';
-};
+// // Pixel to 
+// const pxrem = function (px){
+//     return px*0.0625+'rem';
+// };
 
 
 // Toggle
@@ -58,13 +58,19 @@ if(tws__mini_cart){
     if(tws__mini_cart_float){
             
         // default
-        tws__mini_cart.style.right = '-420px';
+        // tws__mini_cart.style.right = '-420px';
 
         // after click the float
         tws__mini_cart_float.addEventListener('click', (event) => {
-            tws__mini_cart.style.right = '0px';
+            
+            // show mini cart
+            if(tws__mini_cart.classList.contains('-right-96')){
+                tws__mini_cart.classList.remove('-right-96');
+                tws__mini_cart.classList.add('right-0');
+            };
 
             let tws__mini_cart_header = document.getElementById('tws__mini_cart_header');
+            
             tws__mini_cart_header.classList.add('grid');
             tws__mini_cart_header.classList.remove('hidden');
         }); // end of event of float mini cart action

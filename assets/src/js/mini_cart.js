@@ -405,7 +405,13 @@ var tws__mini_cart = document.getElementById('tws__mini_cart'); // mini cart sec
 if(tws__mini_cart){
     if(tws__mini_cart_top_close_btn){
         tws__mini_cart_top_close_btn.addEventListener('click', (event) => {
-            tws__mini_cart.style.right = '-420px';
+			
+			if(tws__mini_cart.classList.contains('right-0')){
+				// hide the mini cart
+				tws__mini_cart.classList.remove('right-0');
+				tws__mini_cart.classList.add('-right-96');
+			  }; // if class
+
         }); // action
     }; // if the close button is exist
 }; // if mini cart section is exist
@@ -414,7 +420,13 @@ if(tws__mini_cart){
 if(tws__mini_cart){
     if(tws__mini_cart_left_close_btn){
         tws__mini_cart_left_close_btn.addEventListener('click', (event) => {
-            tws__mini_cart.style.right = '-420px';
+			
+			if(tws__mini_cart.classList.contains('right-0')){
+				// hide the mini cart
+				tws__mini_cart.classList.remove('right-0');
+				tws__mini_cart.classList.add('-right-96');
+			  }; // if class
+
         }); // action
     }; // if the close button is exist
 }; // if mini cart section is exist

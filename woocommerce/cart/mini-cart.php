@@ -139,7 +139,7 @@ $cart = WC()->cart;
 	</li>
 </ul>
 
-<div id="tws__mini_cart_footer" class="group fixed bottom-0 w-full pb-10">
+<div id="tws__mini_cart_footer" class="group fixed bottom-0 w-80 pb-10">
 
 	<div id="tws__coupon_code_response" style="display:block;"></div>
 	<button id="tws__has_coupon_code" class="py-1 w-full mx-auto outline-none transition-all ease-in-out delay-150 duration-300"><i id="tws__has_coupon_code_icon"></i>&nbsp;Have a coupon?</button>
