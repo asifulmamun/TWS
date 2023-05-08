@@ -16,8 +16,13 @@
  * @version 3.6.0
  */
 
- 
 
-wc_get_template_part( 'desktop/content', 'product' );
+ if(wp_is_mobile()): // mobile
+
+    wc_get_template_part( 'mobile/content', 'product' );
+ else: // desktop
+
+    wc_get_template_part( 'desktop/content', 'product' );
+ endif;
 
 ?>
