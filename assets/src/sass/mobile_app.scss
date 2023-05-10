@@ -1,0 +1,36 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+// library
+@import "./lib/odometer";
+
+// Abrstract
+@import "./abstract/variables";
+@import "./abstract/colors";
+@import "./abstract/fonts";
+@import "./abstract/mixins";
+
+
+// Global of conent
+@import "./mobile_components/global";
+@import "./mobile_components/header";
+@import "./mobile_components/aside";
+@import "./mobile_components/footer";
+
+
+
+
+#main{
+    padding-top: $pxrem * 55;
+    padding-bottom: $pxrem * 55;
+
+    main{
+        // padding: $pxrem*20 $pxrem*20;
+
+        .columns-4{
+            all: unset !important;
+        }
+    }
+}

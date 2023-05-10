@@ -29,8 +29,8 @@ add_action( 'after_setup_theme', 'tws_master_pro_woocommerce_setup' );
 // WooCommerce specific scripts & stylesheets.
 function tws_master_pro_woocommerce_scripts() {
     if(wp_is_mobile()): // mobile
-        wp_enqueue_style( 'woo', get_template_directory_uri() . '/assets/build/css/woo.css', array(), null );
-        wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
+        wp_enqueue_style( 'mobile_woo', get_template_directory_uri() . '/assets/build/css/mobile_woo.css', array(), null );
+        wp_enqueue_script( 'mobile_woo', get_template_directory_uri() . '/assets/build/js/mobile_woo.js', array(), null, true);   
         
     else: // desktop
         wp_enqueue_style( 'woo', get_template_directory_uri() . '/assets/build/css/woo.css', array(), null );

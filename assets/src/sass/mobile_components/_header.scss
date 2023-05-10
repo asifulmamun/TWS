@@ -1,0 +1,76 @@
+// Header part start
+header{
+    height: $pxrem * 55;
+    overflow: hidden;
+    background: $color__secondary;
+    align-items: center;
+
+
+    // Site branding or site
+    .tws__site_branding{
+
+        
+        // Toggle Area
+        button{
+            border-color: $color__txt_secondary;
+        }
+
+        // Title of site
+        h1.tws__site_title{
+            
+            a{
+                padding-left: $pxrem * 6;
+                color: $color__txt_primary;
+                font-size: $pxrem * 20;
+                font-weight: $font_wight_bold;
+                text-transform: uppercase;
+            }
+        } 
+    }
+
+    // Search Box
+    .tws__search_box{
+        
+        overflow: hidden;
+
+        // Logo
+        .tws__search_box_logo{
+        
+            transition: .5s;
+            
+            // Logo image style
+            img{
+                max-width: $pxrem * 62.4;
+            }
+        }
+
+        // Search form
+        input[type=search]{
+            outline: none;
+            padding-left: $pxrem * 88;
+            transition: 0.5s;
+        }
+
+        // Placeholder of input search
+        ::placeholder{
+            color: $color__txt_secondary;
+        }
+
+        &:hover, &:focus, &:focus-within{
+            
+            .tws__search_box_logo{
+                left: -($pxrem * 300);
+            }
+            
+            input[type=search]{
+                padding-left: $pxrem * 16;
+            }
+
+        }
+    }
+
+
+
+} // Header part end
+
+

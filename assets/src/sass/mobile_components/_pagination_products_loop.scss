@@ -1,0 +1,19 @@
+nav.woocommerce-pagination{
+
+    margin-top: $pxrem * 60;
+
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        li{
+
+            a{
+                border: $pxrem*1 solid;
+                padding: $pxrem*3 $pxrem*5;
+                margin: 0 $pxrem*3;
+            }
+        }
+    }
+}

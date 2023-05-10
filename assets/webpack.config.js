@@ -17,7 +17,9 @@ const BUILD_DIR = path.resolve(__dirname, 'build')
 
 const entry = {
     app: JS_DIR + '/app.js',
+    mobile_app: JS_DIR + '/mobile_app.js',
     woo: JS_DIR + '/woo.js',
+    mobile_woo: JS_DIR + '/mobile_woo.js',
     mini_cart: JS_DIR + '/mini_cart.js'
 }
 

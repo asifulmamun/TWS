@@ -5,10 +5,6 @@ header{
     background: $color__secondary;
     align-items: center;
 
-    // All of svg in header same color
-    svg{
-        fill: $color__txt_secondary;
-    }
 
     // Site branding or site
     .tws__site_branding{
@@ -73,6 +69,7 @@ header{
         }
     }
 
+
     // Right side bar
     .tws__right_bar{
         justify-items: end;
@@ -129,6 +126,7 @@ header{
             }
         }
     }
+
 } // Header part end
 
 
