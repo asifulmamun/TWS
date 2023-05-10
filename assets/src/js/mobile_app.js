@@ -9,7 +9,7 @@ import './lib/_odometer';
 import './abstract/global'
 
 // components
-import './components/toggle';
-import './components/aside';
+import './mobile_components/toggle';
+import './mobile_components/aside';
 
 console.log('this is app.js');

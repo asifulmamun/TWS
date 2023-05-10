@@ -1,5 +1,4 @@
 <header class="grid grid-cols-10 py-0.5">
-
     <div class="col-span-2 flex tws__site_branding">
         <button id="toggle_primary_menu" class="border p-1 ml-2">
             <svg class="h-5 w-5" viewBox="0 0 20 20">

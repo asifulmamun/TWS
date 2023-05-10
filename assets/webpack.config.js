@@ -20,7 +20,11 @@ const entry = {
     mobile_app: JS_DIR + '/mobile_app.js',
     woo: JS_DIR + '/woo.js',
     mobile_woo: JS_DIR + '/mobile_woo.js',
-    mini_cart: JS_DIR + '/mini_cart.js'
+    mini_cart: JS_DIR + '/mini_cart.js',
+    mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js'
+
+    
+
 }
 
 const output = {
