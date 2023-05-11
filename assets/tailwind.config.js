@@ -17,7 +17,7 @@ if(1 == page){
   
   '../page-shop-home.php',
     '../woocommerce/loop/loop-start.php',
-    '../woocommerce/mobile/content-product.php',
+    '../woocommerce/template-parts/mobile/content-product.php',
 
     '../woocommerce/cart/mini-cart.php',
 
@@ -33,7 +33,7 @@ if(1 == page){
       
       '../page-shop-home.php',
         '../woocommerce/loop/loop-start.php',
-        '../woocommerce/desktop/content-product.php',
+        '../woocommerce/template-parts/desktop/content-product.php',
 
         '../woocommerce/cart/mini-cart.php',
 
