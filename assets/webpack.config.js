@@ -5,9 +5,9 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const cssnano = require('cssnano')
-const {
-    CleanWebpackPlugin
-} = require('clean-webpack-plugin')
+// const {
+//     CleanWebpackPlugin
+// } = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 // JS Directory path.
@@ -21,10 +21,7 @@ const entry = {
     woo: JS_DIR + '/woo.js',
     mobile_woo: JS_DIR + '/mobile_woo.js',
     mini_cart: JS_DIR + '/mini_cart.js',
-    mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js'
-
-    
-
+    mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js',
 }
 
 const output = {
@@ -33,9 +30,9 @@ const output = {
 }
 
 const plugins = (argv) => [
-    new CleanWebpackPlugin({
-        cleanStaleWebpackAssets: ('production' === argv.mode)
-    }),
+    // new CleanWebpackPlugin({
+    //     cleanStaleWebpackAssets: ('production' === argv.mode)
+    // }),
 
     new MiniCssExtractPlugin({
         filename: 'css/[name].css'

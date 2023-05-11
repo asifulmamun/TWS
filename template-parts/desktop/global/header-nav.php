@@ -10,7 +10,7 @@
     </div>
     <div class="col-span-4">
         <div class="relative rounded-md tws__search_box">
-            <div class="absolute inset-y-0 left-2 flex items-center tws__search_box_logo"><?php 
+            <div class="absolute inset-y-0 left-2 flex items-center overflow-hidden tws__search_box_logo"><?php 
                     // The Custom Logo
                     if ( has_custom_logo() ) {
                         echo '<img src="' 	. wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , '200, 200' )[0]  . '" alt="' . get_bloginfo( 'description' ) . '">';

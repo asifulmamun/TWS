@@ -1,3 +1,9 @@
+/**
+* Tailwindcss
+    1  Mobile
+    2  Desktop
+
+**/
 
 let page = 2; 
 
@@ -6,7 +12,16 @@ var phpFiles = [];
 if(1 == page){
   phpFiles.push(
     '../header.php',
-    '../footer.php',
+    '../template-parts/mobile/global/header-nav.php',
+    '../sidebar.php',
+  
+  '../page-shop-home.php',
+    '../woocommerce/loop/loop-start.php',
+    '../woocommerce/mobile/content-product.php',
+
+    '../woocommerce/cart/mini-cart.php',
+
+  '../footer.php',
 
   );
 
