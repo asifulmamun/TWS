@@ -1,15 +1,11 @@
-/**
-* Tailwindcss
-    1  Mobile
-    2  Desktop
+const { devView } = require('./init');
 
-**/
+// console.log(devView);
 
-let page = 2; 
 
 var phpFiles = [];
 
-if(1 == page){
+if(devView == 1){
   phpFiles.push(
     '../header.php',
     '../template-parts/mobile/global/header-nav.php',
@@ -25,7 +21,7 @@ if(1 == page){
 
   );
 
-}else if( 2 == page ){
+}else if(devView == 2){
     phpFiles.push(
       '../header.php',
         '../template-parts/desktop/global/header-nav.php',

@@ -1,6 +1,7 @@
 /**
  * Webpack configuration.
  */
+const { devView } = require('./init');
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -15,19 +16,25 @@ const JS_DIR = path.resolve(__dirname, 'src/js')
 const IMG_DIR = path.resolve(__dirname, 'src/img')
 const BUILD_DIR = path.resolve(__dirname, 'build')
 
-const entry = {
+const mobile = {
+        mobile_app: JS_DIR + '/mobile_app.js',
+        mobile_woo: JS_DIR + '/mobile_woo.js',
+        mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js',
+    }  
 
-    // mobile_app: JS_DIR + '/mobile_app.js',
-    // mobile_woo: JS_DIR + '/mobile_woo.js',
-    // mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js',
-
-
-    app: JS_DIR + '/app.js',
-    woo: JS_DIR + '/woo.js',
-    mini_cart: JS_DIR + '/mini_cart.js',
-
-
+const desktop = {
+        app: JS_DIR + '/app.js',
+        woo: JS_DIR + '/woo.js',
+        mini_cart: JS_DIR + '/mini_cart.js',
 }
+
+
+if(devView == 1){
+    var entry = mobile;
+} else if(devView == 2){
+    var entry = desktop;
+}
+
 
 const output = {
     path: BUILD_DIR,
