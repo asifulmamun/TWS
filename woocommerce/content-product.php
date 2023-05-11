@@ -19,10 +19,10 @@
 
  if(wp_is_mobile()): // mobile
 
-    wc_get_template_part( 'mobile/content', 'product' );
+    wc_get_template_part( 'template_part/mobile/content', 'product' );
  else: // desktop
 
-    wc_get_template_part( 'desktop/content', 'product' );
+    wc_get_template_part( 'template_part/desktop/content', 'product' );
  endif;
 
 ?>
