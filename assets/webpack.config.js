@@ -16,13 +16,17 @@ const IMG_DIR = path.resolve(__dirname, 'src/img')
 const BUILD_DIR = path.resolve(__dirname, 'build')
 
 const entry = {
-    // app: JS_DIR + '/app.js',
-    // woo: JS_DIR + '/woo.js',
-    // mini_cart: JS_DIR + '/mini_cart.js',
 
     mobile_app: JS_DIR + '/mobile_app.js',
     mobile_woo: JS_DIR + '/mobile_woo.js',
     mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js',
+
+    
+    // app: JS_DIR + '/app.js',
+    // woo: JS_DIR + '/woo.js',
+    // mini_cart: JS_DIR + '/mini_cart.js',
+
+
 }
 
 const output = {
