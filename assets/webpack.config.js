@@ -1,7 +1,7 @@
 /**
  * Webpack configuration.
  */
-const { devView } = require('./init');
+const { devView } = require('./init'); // triger from init.js for build different mobile/desktop
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
