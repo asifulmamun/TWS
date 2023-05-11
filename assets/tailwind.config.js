@@ -5,7 +5,7 @@
 
 **/
 
-let page = 2; 
+let page = 1; 
 
 var phpFiles = [];
 
