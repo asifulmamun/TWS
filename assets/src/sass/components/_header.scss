@@ -59,11 +59,11 @@ header{
         &:hover, &:focus, &:focus-within{
             
             .tws__search_box_logo{
-                left: -($pxrem * 300);
+                // left: -($pxrem * 300);
             }
             
             input[type=search]{
-                padding-left: $pxrem * 16;
+                // padding-left: $pxrem * 16;
             }
 
         }

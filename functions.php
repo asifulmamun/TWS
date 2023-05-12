@@ -153,9 +153,6 @@ add_action( 'after_setup_theme', 'tws_master_pro_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function tws_master_pro_scripts() {
-	
-	wp_enqueue_style( 'tailwindcss', get_stylesheet_directory_uri(). '/assets/build/css/tailwindcss.css',  array(), null, 'all' );
-
 
 	if(wp_is_mobile()): // mobile
 		
