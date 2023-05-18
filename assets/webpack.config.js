@@ -19,7 +19,7 @@ const BUILD_DIR = path.resolve(__dirname, 'build')
 const mobile = {
         mobile_app: JS_DIR + '/mobile_app.js',
         mobile_woo: JS_DIR + '/mobile_woo.js',
-        mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js',
+        // mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js',
     }  
 
 const desktop = {

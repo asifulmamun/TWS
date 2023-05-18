@@ -7,3 +7,5 @@
 		<span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
 	</span>
 </span>
+
+<div id="push_notify" class="fixed left-1/2 transform -translate-x-1/2 bottom-0 z-20 px-3 py-2 hidden">Notification</div>

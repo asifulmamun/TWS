@@ -20,3 +20,24 @@ $color__txt_btn_primary: #fff;
 $color__bg_hover_overlay: rgba(40,40,40,.75);
 
 
+:root{
+    --color__bg_primary: #fff;
+    --color__bg_secondary: #fafafa;
+    --color__bg_optional: #f22127;
+    --color__bg_gray: #f7f7f7;
+    --color__bg_gray_border: #ededed;
+    --color__bg_btn_primary: #f22127;
+    --color__bg_btn_secondary: #ec454a;
+    --color__bg_btn_third: #333;
+    
+    --color__primary: #1f86ba;
+    --color__secondary: #ffbd88;
+    --color__optional: #f22127;
+    
+    --color__txt_primary: #333;
+    --color__txt_secondary: #343131;
+    --color__txt_optional: #fff;
+    --color__txt_btn_primary: #fff;
+    
+    --color__bg_hover_overlay: rgba(40,40,40,.75);
+}

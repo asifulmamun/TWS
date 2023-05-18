@@ -102,6 +102,28 @@ add_filter( 'woocommerce_output_related_products_args', 'tws_master_pro_woocomme
 
 
 
+// only cart count show in mobile version
+if (wp_is_mobile()) : 
+    
+    if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link_fragment' ) ) {
+        function tws_master_pro_woocommerce_cart_link_fragment( $fragments ) {
+                ob_start();
+                tws_master_pro_woocommerce_cart_link();
+                $fragments['span#tws__cart_count'] = ob_get_clean();
+                return $fragments;
+        }
+    }
+    add_filter( 'woocommerce_add_to_cart_fragments', 'tws_master_pro_woocommerce_cart_link_fragment' );
+    
+    if ( ! function_exists( 'tws_master_pro_woocommerce_cart_link' ) ) {
+        function tws_master_pro_woocommerce_cart_link() {
+            ?>
+            <span id="tws__cart_count"><?php echo count( WC()->cart->get_cart() ); ?></span>
+            <?php
+        }
+    }
+    
+endif;
 
 
 // mini cart widget - custom actions

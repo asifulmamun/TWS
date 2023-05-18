@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 if(wp_is_mobile()): // mobile
 	
-	echo '<ul id="tws__products_ul" class="products grid grid-cols-2 gap-3 tws__products_ul">';
+	echo '<ul id="tws__products_ul" class="products grid gap-2 grid-cols-2 md:grid-cols-3 md:gap-3 lg:grid-cols-4 tws__products_ul">';
 
 else: // desktop
 	echo '<ul id="tws__products_ul" class="products grid grid-cols-2 md:grid-cols-4 2xl:grid-cols-5 gap-3 tws__products_ul">';

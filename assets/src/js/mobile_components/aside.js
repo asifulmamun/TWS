@@ -1,3 +1,5 @@
+console.log('this is mobile aside.js for desktop browser');
+
 // set cookies
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();

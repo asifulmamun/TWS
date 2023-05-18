@@ -28,31 +28,5 @@
 </header>
 
 
-<div id="tws__mini_cart_float" class="fixed right-0 top-1/2 transform -translate-y-1/2 z-30 cursor-pointer w-16 text-center shadow-lg">
-    <div class="py-1 bg-gray-500 hover:bg-gray-700 text-yellow-400 font-semibold">    
-        <svg class="w-7 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
-        <span id="tws__mini_cart_float_qty"></span>
-    </div>
-    <div class="bg-white">
-        <span id="odometer_currency_symbol"></span><span id="odometer" class="odometer"></span>
-    </div>
-</div>
-
-<section id="tws__mini_cart" class="fixed -right-96 bottom-0 z-40 w-80 transition-all ease-in-out delay-150 duration-300">
-    <div class="relative h-full border-l">
-        <span id="tws__mini_cart_left_close_btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 py-4 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg></span>
-        
-        <div id="tws__mini_cart_header" class="hidden grid-cols-10">
-            <span class="col-span-7 px-2 py-2" id="tws__mini_cart_only_countsDownload">0 Items</span>
-            <button class="col-span-3 m-1 text-white bg-red-600 hover:bg-red-400" id="tws__mini_cart_top_close_btn" type="button">Close</button>
-            <div class="col-span-10 px-2 py-0.5"  id="tws__mini_cart_header_shipping_charge">Shipping Charge</div>
-        </div>
-
-        <div class="h-screen overflow-x-hidden overflow-y-scroll">
-            <?php the_widget('WC_Widget_Cart', array('title' => '',)); // Mini cart widget ?>
-        </div>
-            
-    </div>
-</section>
 
 <?php get_sidebar(); // sidebar with menu ?>

@@ -1,3 +1,5 @@
+console.log('this is toggle.js for desktop browser');
+
 // // Pixel to 
 // const pxrem = function (px){
 //     return px*0.0625+'rem';

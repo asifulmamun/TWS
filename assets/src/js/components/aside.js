@@ -1,3 +1,4 @@
+console.log('this is aside.js for desktop browser');
 // set cookies
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
