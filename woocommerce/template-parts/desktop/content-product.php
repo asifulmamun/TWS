@@ -10,7 +10,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <li <?php wc_product_class( 'p-1 hover:shadow-lg', $product ); ?>>
-
 	<div class="tws__product_wrapper relative group grid justify-items-center overflow-hidden">
 		<?php //do_action('woocommerce_before_shop_loop_item'); /* init - dependencies working link of products */ ?>
 		<?php woocommerce_show_product_loop_sale_flash(); /* Onsale */ ?>
@@ -33,7 +32,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', TRUE); /* thumbnail */ ?>">
 		</div>
 		
-
 		<div class="details">
 			<?php woocommerce_template_loop_product_title(); /* Product Title Title */ ?>
 			<?php do_action('woocommerce_after_shop_loop_item_title'); /* Price */ ?>
@@ -41,10 +39,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	</div>
 
 
-	<?php if ( !$product->is_type( 'variable' ) ) : // Variable Product - check is product has variable or not ?>
-		<div class="tws__add_to_cart_wrapper h-14 overflow-hidden grid items-center content-center text-center" id="tws__add_to_cart_wrapper_<?php echo get_the_ID();?>">
-			<span class="rounded hover:bg-red-400 text-red-400 hover:text-white text-base border border-solid" id="tws__cart_loop_add_to_cart_<?php echo get_the_ID();?>"><?php do_action( 'woocommerce_after_shop_loop_item' ); //woocommerce_template_loop_add_to_cart(); /* Add To Cart */ ?></span>
-			
+	<div class="tws__add_to_cart_wrapper h-14 overflow-hidden grid items-center content-center text-center" id="tws__add_to_cart_wrapper_<?php echo get_the_ID();?>">
+		<span class="rounded hover:bg-red-400 text-red-400 hover:text-white text-base border border-solid" id="tws__cart_loop_add_to_cart_<?php echo get_the_ID();?>"><?php do_action( 'woocommerce_after_shop_loop_item' ); //woocommerce_template_loop_add_to_cart(); /* Add To Cart */ ?></span>
+		<?php if ( !$product->is_type( 'variable' ) ) : // Variable Product - check is product has variable or not ?>
 			<div class="tws__cart_added overflow-hidden flex justify-around bg-red-500 text-white text-base">
 				<button class="w-1/4 border-r py-2 hover:bg-red-400" id="tws__cart_loop_decrement_<?php echo get_the_ID();?>" style="display:none;">-</button>
 				<span class="w-full flex items-center justify-center">
@@ -53,8 +50,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 				</span>
 				<a class="add_to_cart_button ajax_add_to_cart w-1/4 border-l py-2 hover:bg-red-400" id="tws__cart_loop_increment_<?php echo get_the_ID();?>" style="display:none;" href="?add-to-cart=<?php echo get_the_ID();?>" data-quantity="1" data-product_id="<?php echo get_the_ID();?>" rel="nofollow">+</a>
 			</div>
-		</div>
-	<?php else: // Ajax add to cart - if it it has no variable ?>
-		<?php do_action( 'woocommerce_after_shop_loop_item' ); //woocommerce_template_loop_add_to_cart(); /* Add To Cart */ ?>
-	<?php endif; // end of if - check is product has variable or not ?>
+		<?php endif; // Ajax add to cart - if it it has no variable ?>
+	</div>
 </li>
