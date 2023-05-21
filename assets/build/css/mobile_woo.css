@@ -36,6 +36,18 @@ nav.woocommerce-pagination ul li a {
   margin: 0 0.1875rem;
 }
 
+.tws__add_cat_wrap a.button,
+.tws__add_cat_wrap a.added_to_cart {
+  border: 0.0625rem solid #f22127;
+  border: 0.0625rem solid var(--color__optional);
+  padding: 0.25rem 0.5rem;
+}
+
+.tws__add_cat_wrap a.added_to_cart {
+  position: absolute;
+  bottom: -2.5rem;
+}
+
 html {
   overflow-x: hidden;
 }
