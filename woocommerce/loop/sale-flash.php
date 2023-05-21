@@ -24,7 +24,14 @@ global $post, $product;
 ?>
 <?php if ( $product->is_on_sale() ) : ?>
 
-	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
+	<?php echo apply_filters( 'woocommerce_sale_flash', 
+	'
+	<span class="absolute top-0 right-0 flex h-5 w-5">
+		<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+		<span class="relative inline-flex justify-end rounded-full h-5 w-5 bg-purple-500 text-red-500">'
+			. esc_html__( 'Discounted!', 'woocommerce' ) .
+		'</span>
+	</span>', $post, $product ); ?>
 
 	<?php
 endif;

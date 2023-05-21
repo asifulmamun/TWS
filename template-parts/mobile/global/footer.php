@@ -16,7 +16,6 @@
             </svg>
         </a>
         <a class="w-full py-2 relative" href="<?php echo wc_get_cart_url(); ?>">
-            <span class="absolute top-1 right-1"></span>
             <span class="absolute top-2 right-2 flex h-5 w-5 -mt-1 -mr-1">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                 <span class="relative inline-flex justify-center rounded-full h-5 w-5 bg-purple-500"><?php tws_master_pro_woocommerce_cart_link(); ?></span>

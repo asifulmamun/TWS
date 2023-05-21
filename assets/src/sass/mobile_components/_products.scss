@@ -2,14 +2,18 @@
 
     a.button,
     a.added_to_cart{
-        // display: block;
-        border: $pxrem*1 solid var(--color__optional);
         padding: $pxrem*4 $pxrem*8;
+        border: none;
+        // display: block;
+        // border: $pxrem*1 solid var(--color__optional);
+        background-color: var(--color__bg_gray);
+        color: var(--color__txt_gray);
 
     }
 
     a.added_to_cart{
        position: absolute;
+       background-color: var(--color__bg_optional);
        bottom: -$pxrem*40;
     }
 }
