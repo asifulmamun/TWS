@@ -13,12 +13,8 @@ const main = document.getElementById('main');
 
 // check the main id is exist, then
 if(main){
-    // default
-    // aside.style.left = '0';
-    // main.style.paddingLeft = pxrem(225);
-    // main.classList.add('pl-56'); // 224px
 
-    // aftr click
+    // after click
     toggle_primary_menu.addEventListener('click', (event) => {
         
         // aside/page action by toggle
@@ -47,37 +43,20 @@ if(main){
         }
 
     });
+
+
+    // if clicking on main section | page and if the aside is open it will be closed
+    main.addEventListener('click', (event) => {
+
+        if(aside.classList.contains('left-0')){
+            // sidebar hide - mobile or else
+           aside.classList.add('-left-80');
+           aside.classList.remove('left-0');
+        } // if left-0 class is exists
+           
+    }); // click on main section
+
+
 } // end if, main id is exist
-
-
-
-
-// // Mini cart action by float
-// const tws__mini_cart_float = document.getElementById('tws__mini_cart_float'); // float - odometer button
-// var tws__mini_cart = document.getElementById('tws__mini_cart'); // mini cart section
-
-// if(tws__mini_cart){
-//     if(tws__mini_cart_float){
-            
-//         // default
-//         // tws__mini_cart.style.right = '-420px';
-
-//         // after click the float
-//         tws__mini_cart_float.addEventListener('click', (event) => {
-            
-//             // show mini cart
-//             if(tws__mini_cart.classList.contains('-right-96')){
-//                 tws__mini_cart.classList.remove('-right-96');
-//                 tws__mini_cart.classList.add('right-0');
-//             };
-
-//             let tws__mini_cart_header = document.getElementById('tws__mini_cart_header');
-            
-//             tws__mini_cart_header.classList.add('grid');
-//             tws__mini_cart_header.classList.remove('hidden');
-//         }); // end of event of float mini cart action
-//     }; // if exist tws__mini_cart_float
-// }; // if tws__mini_cart is exist
-
 
 
