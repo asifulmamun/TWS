@@ -13,11 +13,15 @@ if(devView == 1){
     '../template-parts/mobile/global/footer.php',
   
   '../page-shop-home.php',
-    '../woocommerce/global/wrapper-start.php',
-    '../woocommerce/global/wrapper-end.php',
-    '../woocommerce/loop/loop-start.php',
-    '../woocommerce/loop/sale-flash.php',
-    '../woocommerce/template-parts/mobile/content-product.php',
+
+  '../woocommerce/global/breadcrumb.php',
+  '../woocommerce/global/wrapper-start.php',
+  '../woocommerce/global/wrapper-end.php',
+
+  '../woocommerce/loop/loop-start.php',
+  '../woocommerce/loop/sale-flash.php',
+  
+  '../woocommerce/template-parts/mobile/content-product.php',
 
     '../woocommerce/cart/mini-cart.php',
 
@@ -33,10 +37,14 @@ if(devView == 1){
         '../template-parts/desktop/global/footer.php',
         
       '../page-shop-home.php',
+  
+      '../woocommerce/global/breadcrumb.php',
       '../woocommerce/global/wrapper-start.php',
       '../woocommerce/global/wrapper-end.php',
+
       '../woocommerce/loop/loop-start.php',
       '../woocommerce/loop/sale-flash.php',
+
       '../woocommerce/template-parts/desktop/content-product.php',
 
         '../woocommerce/cart/mini-cart.php',
@@ -53,8 +61,15 @@ module.exports = {
   theme: {
     maxWidth: {
       '1280': '1280px'
+    },
+    extend: {
+      skew: {
+       '25': '25deg',
+       '60': '60deg',
+      }
     }
   },
+  
   variants: {
     extend: {
       height: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
@@ -69,7 +84,10 @@ module.exports = {
       borderColor: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       inset: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       left: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      skew: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       
+
+
     },
   },
   plugins: [],

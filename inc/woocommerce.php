@@ -274,3 +274,12 @@ if (!class_exists('Tws__mini_custom_action')) {
 } // check exist - class Tws_mini_cart
 
 
+
+/**
+* Change the breadcrumb separator - Delimiter
+*/
+add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter' );
+function wcc_change_breadcrumb_delimiter( $defaults ) {
+    $defaults['delimiter'] = '›';
+    return $defaults;
+}
