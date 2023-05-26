@@ -1,0 +1,10 @@
+// Abrstract
+@import "./abstract/variables";
+@import "./abstract/colors";
+@import "./abstract/fonts";
+@import "./abstract/mixins";
+
+// Start
+body{
+    background-color: green;
+}

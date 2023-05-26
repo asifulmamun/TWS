@@ -1,0 +1,1 @@
+!function(){"use strict";console.log("this is woo_single_product.js")}();

@@ -34,7 +34,17 @@ get_header( 'shop' ); ?>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+			<?php 
+				if(wp_is_mobile()): // mobile
+
+					wc_get_template_part( 'template-parts/mobile/content', 'single-product' );
+				else: // desktop
+				
+					wc_get_template_part( 'template-parts/desktop/content', 'single-product' );
+				endif;
+			?>
+
+			
 
 		<?php endwhile; // end of the loop. ?>
 

@@ -1,0 +1,30 @@
+// Abrstract
+@import "./abstract/variables";
+@import "./abstract/colors";
+@import "./abstract/fonts";
+@import "./abstract/mixins";
+
+// Start
+.tws__single_product{
+    .woocommerce-product-gallery{
+        
+        figure.woocommerce-product-gallery__wrapper{
+
+            .woocommerce-product-gallery__image{
+                
+                a{
+                    img{
+                        height: 80px !important;
+                    }
+                }
+            }
+        }
+    
+    }
+
+
+}
+
+body{
+    background-color: red;
+}

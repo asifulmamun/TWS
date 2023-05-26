@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'grid grid-cols-10', $product ); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'tws__single_product grid grid-cols-10', $product ); ?>>
 
 	<div class="col-span-4"><?php
 
@@ -79,3 +79,10 @@ if ( post_password_required() ) {
 
 </div>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+
+
+<?php
+	// content single product - css only for this desktop version
+	wp_enqueue_style( 'woo_single_products', get_stylesheet_directory_uri(). '/assets/build/css/woo_single_product.css',  array(), null, 'all' );
+
+?>
