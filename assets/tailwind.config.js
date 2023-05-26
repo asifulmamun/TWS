@@ -13,7 +13,9 @@ if(devView == 1){
     '../template-parts/mobile/global/footer.php',
   
   '../page-shop-home.php',
+  
 
+  '../woocommerce/content-single-product.php',
   '../woocommerce/global/breadcrumb.php',
   '../woocommerce/global/wrapper-start.php',
   '../woocommerce/global/wrapper-end.php',
@@ -37,7 +39,8 @@ if(devView == 1){
         '../template-parts/desktop/global/footer.php',
         
       '../page-shop-home.php',
-  
+
+      '../woocommerce/content-single-product.php',
       '../woocommerce/global/breadcrumb.php',
       '../woocommerce/global/wrapper-start.php',
       '../woocommerce/global/wrapper-end.php',
@@ -63,10 +66,7 @@ module.exports = {
       '1280': '1280px'
     },
     extend: {
-      skew: {
-       '25': '25deg',
-       '60': '60deg',
-      }
+
     }
   },
   
@@ -84,7 +84,6 @@ module.exports = {
       borderColor: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       inset: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       left: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
-      skew: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       
 
 

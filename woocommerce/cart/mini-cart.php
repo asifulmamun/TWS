@@ -180,28 +180,6 @@ $cart = WC()->cart;
 <?php endif; ?>
 
 
-
-<?php
-// $items = $cart->get_cart();
-// foreach ($items as $itemKey => $itemVal) {
-// 	$product = wc_get_product($itemVal['data']->get_id());
-// 	$product_id = apply_filters('woocommerce_cart_item_product_id', $itemVal['product_id'], $itemVal, $itemKey);
-// 	$getProductDetail = wc_get_product($itemVal['product_id']);
-
-// 	echo '<pre>';
-// 		var_dump($itemVal['data']);
-
-// 	echo '</pre>';
-
-// }
-
-// echo '<pre>';
-// var_dump($cart->get_totals());
-// echo '</pre>';
-
-?>
-
-<br><br><br><br><br><br><br><br><br><br><br><br>
 <?php
 	// including js
 	echo '<script>';
