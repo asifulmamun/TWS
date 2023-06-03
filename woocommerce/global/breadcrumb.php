@@ -23,14 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! empty( $breadcrumb ) ) {
 
 	echo $wrap_before;
-	echo '<div class="bg-red-300 inline-block">';
+	echo '<div class="bg-red-300 inline-block px-2 mt-4 mb-6">';
 
 	foreach ( $breadcrumb as $key => $crumb ) {
 
 		echo $before;
 
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-			echo '<a class="" href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+			echo '<a class="inline-block py-2 pr-2 font-bold hover:text-red-700 transition-all ease-in-out delay-150 duration-300" href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
 		} else {
 			echo esc_html( $crumb[0] );
 		}
@@ -38,7 +38,7 @@ if ( ! empty( $breadcrumb ) ) {
 		echo $after;
 
 		if ( sizeof( $breadcrumb ) !== $key + 1 ) {
-			echo $delimiter;
+			echo $delimiter . ' ';
 		}
 	}
 	echo '</div>';
