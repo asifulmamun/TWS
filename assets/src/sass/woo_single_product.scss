@@ -79,18 +79,33 @@
 
                 
                 // input qty
-                
-                input[type="number"]::-webkit-inner-spin-button,
-                input[type="number"]::-webkit-outer-spin-button {
-                    -webkit-appearance: none;
-                    margin: 0;
-                }
-                
-                input[type="number"] {
-                    -moz-appearance: textfield;  // Firefox
-                }
-                input[type=number] {
+                // hide the input default inc/dec under this input field
+                // input[type="number"]::-webkit-inner-spin-button,
+                // input[type="number"]::-webkit-outer-spin-button {
+                //     -webkit-appearance: none;
+                //     margin: 0;
+                // }
+                // input[type="number"] {
+                //     -moz-appearance: textfield;  // Firefox
+                // }
 
+                input[name=quantity] {
+                    width: $pxrem*60;
+                    height: $pxrem*38;
+                }
+
+                button#qty_inc,
+                button#qty_dec{
+                    width: $pxrem*45;
+                    height: $pxrem*38;
+                    padding-bottom: $pxrem*3;
+                    font-size: $pxrem*24;
+                    // font-weight: bolder;
+                    background: var(--color__primary);
+                    color: var(--color__txt_btn_primary);
+                }
+                button#qty_dec{
+                    // padding-bottom: $;
                 }
             
     

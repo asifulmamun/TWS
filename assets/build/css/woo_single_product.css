@@ -49,14 +49,21 @@
   color: var(--color_bg_gray);
 }
 
-.tws__single_product .summary form.cart .quantity input[type="number"]::-webkit-inner-spin-button,
-.tws__single_product .summary form.cart .quantity input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.tws__single_product .summary form.cart .quantity input[name=quantity] {
+  width: 3.75rem;
+  height: 2.375rem;
 }
 
-.tws__single_product .summary form.cart .quantity input[type="number"] {
-  -moz-appearance: textfield;
+.tws__single_product .summary form.cart .quantity button#qty_inc,
+.tws__single_product .summary form.cart .quantity button#qty_dec {
+  width: 2.8125rem;
+  height: 2.375rem;
+  padding-bottom: 0.1875rem;
+  font-size: 1.5rem;
+  background: #1f86ba;
+  background: var(--color__primary);
+  color: #fff;
+  color: var(--color__txt_btn_primary);
 }
 
 
