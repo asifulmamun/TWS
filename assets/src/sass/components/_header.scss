@@ -2,7 +2,7 @@
 header{
     height: $pxrem * 55;
     overflow: hidden;
-    background: $color__secondary;
+    background: var(--color__secondary);
     align-items: center;
 
 
@@ -12,7 +12,7 @@ header{
         
         // Toggle Area
         button{
-            border-color: $color__txt_secondary;
+            border-color: var(--color__txt_secondary);
         }
 
         // Title of site
@@ -20,7 +20,7 @@ header{
             
             a{
                 padding-left: $pxrem * 6;
-                color: $color__txt_primary;
+                color: var(--color__txt_primary);
                 font-size: $pxrem * 20;
                 font-weight: $font_wight_bold;
                 text-transform: uppercase;
@@ -53,7 +53,7 @@ header{
 
         // Placeholder of input search
         ::placeholder{
-            color: $color__txt_secondary;
+            color: var(--color__txt_secondary);
         }
 
         &:hover, &:focus, &:focus-within{
@@ -81,7 +81,7 @@ header{
             display: flex;
 
             li{
-                border-right: $pxrem*3 solid $color__txt_primary;
+                border-right: $pxrem*3 solid var(--color__txt_primary);
                 padding-right: $pxrem * 10;
                 padding-left: $pxrem * 10;
 
@@ -98,11 +98,11 @@ header{
                     display: flex;
                     align-items: center;
                     font-size: $pxrem * 14;
-                    color: $color__txt_primary;
+                    color: var(--color__txt_primary);
                     
 
                     svg{
-                        fill: $color__txt_primary;
+                        fill: var(--color__txt_primary);
                     }
                 
                 }
@@ -111,17 +111,17 @@ header{
 
         // Right side Single Menu
         .tws__single_menu{
-            background: $color__bg_optional;
+            background: var(--color__bg_optional);
             
             a{
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: row-reverse;
-                color: $color__txt_optional;
+                color: var(--color__txt_optional);
 
                 svg{
-                    fill: $color__txt_optional;
+                    fill: var(--color__txt_optional);
                 }
             }
         }

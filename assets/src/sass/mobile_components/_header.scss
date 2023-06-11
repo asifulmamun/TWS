@@ -2,7 +2,7 @@
 header{
     height: $pxrem * 55;
     overflow: hidden;
-    background: $color__secondary;
+    background: var(--color__secondary);
     align-items: center;
 
 
@@ -12,7 +12,7 @@ header{
         
         // Toggle Area
         button{
-            border-color: $color__txt_secondary;
+            border-color: var(color__txt_secondary);
         }
 
         // Title of site
@@ -20,7 +20,7 @@ header{
             
             a{
                 padding-left: $pxrem * 6;
-                color: $color__txt_primary;
+                color: var(--color__txt_primary);
                 font-size: $pxrem * 20;
                 font-weight: $font_wight_bold;
                 text-transform: uppercase;
@@ -53,7 +53,7 @@ header{
 
         // Placeholder of input search
         ::placeholder{
-            color: $color__txt_secondary;
+            color: var(--color__txt_secondary);
         }
 
         &:hover, &:focus, &:focus-within{

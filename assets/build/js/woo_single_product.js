@@ -95,7 +95,7 @@ qty_inc.addEventListener('click', function () {
 // Add event listener for quantity decrement
 qty_dec.addEventListener('click', function () {
   var currentValue = parseInt(inpt_qty.value);
-  if (currentValue > 0) {
+  if (currentValue > 1) {
     inpt_qty.value = currentValue - 1;
   }
 });

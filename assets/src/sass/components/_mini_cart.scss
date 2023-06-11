@@ -9,16 +9,16 @@
     height: calc(100% - #{$pxrem * 55});
 
     padding-bottom: $pxrem*35;
-    background-color: $color__bg_primary;
+    background-color: var(--color__bg_primary);
 
 
     #tws__mini_cart_left_close_btn{
         left: -($pxrem * 25);
-        background-color: $color__bg_hover_overlay;
-        color: $color__txt_btn_primary;
+        background-color: var(--color__bg_hover_overlay);
+        color: var(--color__txt_btn_primary);
 
         &:hover{
-            background-color: $color__bg_btn_third;
+            background-color: var(--color__bg_btn_third);
         }
     }
 
@@ -40,8 +40,8 @@
         }
 
         #tws__mini_cart_header_shipping_charge{
-            background-color: $color__primary;
-            color: $color__txt_optional;
+            background-color: var(--color__primary);
+            color: var(--color__txt_optional);
         }
 
     }
@@ -78,14 +78,14 @@
             // footer
             #tws__mini_cart_footer{
                 // width: $mini_cart_container;
-                background-color: $color__bg_secondary;
+                background-color: var(--color__bg_secondary);
 
 
                 // Coupon
                 #tws__has_coupon_code{
-                    background-color: $color__bg_gray;
+                    background-color: var(--color__bg_gray);
                     &:hover{
-                        background: $color__secondary;
+                        background: var(--color__secondary);
                     }
 
                     svg{
@@ -95,28 +95,28 @@
                 }
 
                 input#tws__coupon_input{
-                    background: $color__bg_gray;
-                    color: $color__optional;
+                    background: var(--color__bg_gray);
+                    color: var(--color__optional);
                 }
 
                 button#tws__coupon_submit{
-                    background: $color__secondary;
+                    background: var(--color__secondary);
                 }
 
                 button#tws__coupon_wrap_close{
-                    background: $color__bg_btn_secondary;
-                    color: $color__txt_btn_primary;
+                    background: var(--color__bg_btn_secondary);
+                    color: var(--color__txt_btn_primary);
 
                     &:hover{
-                        background: $color__bg_btn_primary;
+                        background: var(--color__bg_btn_primary);
                     }
                 }
 
                 #tws__coupon_list_ul{
                     li{
                         button{
-                            background-color: $color__bg_optional;
-                            color: $color__txt_optional;
+                            background-color: var(--color__bg_optional);
+                            color: var(--color__txt_optional);
                         }
                     }
                 }
@@ -126,18 +126,18 @@
                     .tws__mini_cart_checkout_wrap{
                         
                         a{
-                            background-color: $color__bg_btn_secondary;
-                            color: $color__txt_btn_primary;
+                            background-color: var(--color__bg_btn_secondary);
+                            color: var(--color__txt_btn_primary);
 
                             &:hover{
-                                background-color: $color__secondary;
-                                color: $color__txt_primary;
+                                background-color: var(--color__secondary);
+                                color: var(--color__txt_primary);
                             }
                         }
 
                         .tws__mini_cart_total_amount{
-                            background-color: $color__bg_btn_primary;
-                            color: $color__txt_btn_primary;
+                            background-color: var(--color__bg_btn_primary);
+                            color: var(--color__txt_btn_primary);
                         }
                     }
 

@@ -1,11 +1,11 @@
 // footer live chat
 .tws__chat{
-    background: $color__secondary;
+    background: var(--color__secondary);
 }
 
 
 // Push notification
 #push_notify{
-    background-color: $color__bg_optional;
-    color: $color__txt_optional;
+    background-color: var(--color__bg_optional);
+    color: var(--color__txt_optional);
 }

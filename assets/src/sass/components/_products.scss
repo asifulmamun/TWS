@@ -47,7 +47,7 @@
                         bottom: $pxrem*50;
                         z-index: 10;
                         font-size: $pxrem*18;
-                        color: $color__txt_optional;
+                        color: var(--color__txt_optional);
 
                         left: 50%;
                         transform: translatex(-50%);
@@ -90,15 +90,15 @@
                     height: $pxrem*38;
 
                     &:hover{
-                        color: $color__secondary;
-                        border-color: $color__secondary;
+                        color: var(--color__secondary);
+                        border-color: var(--color__secondary);
                     }
                 }
 
                 // Qty txt
                 span{
                     // font-size: $pxrem*18;
-                    color: $color__secondary;
+                    color: var(--color__secondary);
                 }
 
                 // Increment or Add to Cart btn under img wrap of product thumbails
@@ -109,14 +109,14 @@
                     height: $pxrem*38;
 
                     &:hover{
-                        color: $color__secondary;
-                        border-color: $color__secondary;
+                        color: var(--color__secondary);
+                        border-color: var(--color__secondary);
                     }
                 }
             }
             
             a.tws__product_hover_add_to_cart{
-                background-color: $color__bg_hover_overlay;
+                background-color: var(--color__bg_hover_overlay);
             }
             
 

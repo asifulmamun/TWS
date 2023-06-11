@@ -3,7 +3,7 @@ aside#aside{
     // width: $aside_width;
     padding-bottom: 2.25rem;
     height: calc(100% - #{$pxrem * 55});
-    background-color: $color__bg_secondary;
+    background-color: var(--color__bg_secondary);
     flex-direction: column;
     
     // aside primary nav
@@ -17,7 +17,7 @@ aside#aside{
                 padding-left: $pxrem*8;
                 
                 a{
-                    color: $color__txt_secondary;
+                    color: var(--color__txt_secondary);
                 }
 
                 // sub menu-1
@@ -42,7 +42,7 @@ aside#aside{
         // width: 100%;
         // max-width: calc(#{$aside_width} - #{$pxrem * 4});
         // max-height: $pxrem * 32;
-        background: $color__secondary;
+        background: var(--color__secondary);
 
 
         // Quick Menu
@@ -50,7 +50,7 @@ aside#aside{
             // display: flex;
 
             li{
-                border-right: $pxrem*3 solid $color__txt_primary;
+                border-right: $pxrem*3 solid var(--color__txt_primary);
                 padding-right: $pxrem*10;
                 padding-left: $pxrem*10;
 
@@ -66,11 +66,11 @@ aside#aside{
                 a{
                     display: flex;
                     align-items: center;
-                    color: $color__txt_primary;
+                    color: var(--color__txt_primary);
                     
 
                     svg{
-                        fill: $color__txt_primary;
+                        fill: var(--color__txt_primary);
                     }
                 
                 }

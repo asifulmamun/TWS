@@ -92,6 +92,10 @@
                 input[name=quantity] {
                     width: $pxrem*60;
                     height: $pxrem*38;
+                    outline: none;
+                    text-align: center;
+                    font-size: $pxrem*24;
+                    font-weight: bolder;
                 }
 
                 button#qty_inc,
@@ -100,7 +104,7 @@
                     height: $pxrem*38;
                     padding-bottom: $pxrem*3;
                     font-size: $pxrem*24;
-                    // font-weight: bolder;
+                    font-weight: bolder;
                     background: var(--color__primary);
                     color: var(--color__txt_btn_primary);
                 }
@@ -110,6 +114,13 @@
             
     
             }
+
+            // submit - add product to cart
+            // button[type="submit"]{
+                // background: var();
+                // color: var(--color__txt_optional);
+
+            // }
         }
     } // summary
 }
