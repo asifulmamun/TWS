@@ -31,7 +31,9 @@ body{
 }
 
 
-// Custom Scrollbar
+/* 
+    Custom Scrollbar
+*/
 ::-webkit-scrollbar {
     width: $pxrem * 4;
 }
