@@ -1,4 +1,4 @@
-<header class="grid grid-cols-10 py-0.5">
+<header id="tws__header" class="grid grid-cols-10 py-0.5">
     <div class="col-span-8 px-3">
         <div class="tws__search_box group relative rounded-md overflow-hidden">
             <div class="tws__search_box_logo absolute inset-y-0 left-2 group-hover:-left-80 flex items-center overflow-hidden transition-all ease-in-out delay-150 duration-300"><?php 
