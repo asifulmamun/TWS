@@ -14,23 +14,16 @@
 
 get_header();
 ?>
-	<main id="main" class="w-full pl-4 md:pl-56 pr-4 md:pr-14 transition-all ease-in-out delay-150 duration-300">
+<main id="main" class="w-full pl-4 md:pl-56 pr-4 md:pr-14 transition-all ease-in-out delay-150 duration-300">
+	<?php
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
+		if(wp_is_mobile()):
+			get_template_part( 'template-parts/mobile/content', 'page' ); // page content
+		else:
+			get_template_part( 'template-parts/desktop/content', 'page' ); // page content
+		endif;
+	?>	
+</main>
 
 <?php
 // get_sidebar();

@@ -17,7 +17,8 @@
   --color__txt_primary: #333;
   --color__txt_secondary: #343131;
   --color__txt_optional: #fff;
-  --color__txt_gray: #fff;
+  --color__txt_gray: #313131;
+  --color__txt_gray_light: rgba(49,49,49,0.54902);
   --color__txt_red: #ec454a;
   --color__txt_btn_primary: #fff;
   --color__bg_hover_overlay: rgba(40,40,40,.75);
@@ -46,7 +47,7 @@ nav.woocommerce-pagination ul li a {
   background-color: #363f4d;
   background-color: var(--color__bg_gray);
   color: #fff;
-  color: var(--color__txt_gray);
+  color: var(--color__txt_optional);
 }
 
 .tws__add_cat_wrap a.added_to_cart {
@@ -100,7 +101,7 @@ body {
   background: var(--color__bg_btn_secondary);
 }
 
-header {
+header#tws__header {
   height: 3.4375rem;
   overflow: hidden;
   background: #ffbd88;
@@ -108,11 +109,11 @@ header {
   align-items: center;
 }
 
-header .tws__site_branding button {
+header#tws__header .tws__site_branding button {
   border-color: var(color__txt_secondary);
 }
 
-header .tws__site_branding h1.tws__site_title a {
+header#tws__header .tws__site_branding h1.tws__site_title a {
   padding-left: 0.375rem;
   color: #333;
   color: var(--color__txt_primary);
@@ -121,16 +122,16 @@ header .tws__site_branding h1.tws__site_title a {
   text-transform: uppercase;
 }
 
-header .tws__search_box .tws__search_box_logo img {
+header#tws__header .tws__search_box .tws__search_box_logo img {
   max-width: 3.9rem;
 }
 
-header .tws__search_box ::-moz-placeholder {
+header#tws__header .tws__search_box ::-moz-placeholder {
   color: #343131;
   color: var(--color__txt_secondary);
 }
 
-header .tws__search_box ::placeholder {
+header#tws__header .tws__search_box ::placeholder {
   color: #343131;
   color: var(--color__txt_secondary);
 }
