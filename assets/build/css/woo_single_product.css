@@ -178,15 +178,11 @@
 
 .tws__single_product .wc-tabs-wrapper ul.wc-tabs {
   overflow: hidden;
-  padding: 0.625rem 0.625rem;
+  padding: 0.625rem 0rem;
   display: flex;
   flex-direction: row;
   background: #1f86ba;
   background: var(--color__bg_btn_primary);
-}
-
-.tws__single_product .wc-tabs-wrapper ul.wc-tabs li {
-  margin-right: 0.5rem;
 }
 
 .tws__single_product .wc-tabs-wrapper ul.wc-tabs li a {
@@ -196,6 +192,7 @@
   color: #fff;
   color: var(--color__txt_optional);
   font-size: 1rem;
+  font-weight: bold;
   transition: 0.3s ease;
   -webkit-transition: 0.3s ease;
   -moz-transition: 0.3s ease;
@@ -206,6 +203,21 @@
 .tws__single_product .wc-tabs-wrapper ul.wc-tabs li a:hover {
   background-color: #f22127;
   background-color: var(--color__bg_optional);
+}
+
+.tws__single_product .wc-tabs-wrapper ul.wc-tabs li.active a {
+  background-color: #f22127;
+  background-color: var(--color__bg_optional);
+}
+
+.tws__single_product .wc-tabs-wrapper .woocommerce-Tabs-panel {
+  padding: 1.25rem 1.25rem;
+}
+
+.tws__single_product .wc-tabs-wrapper .woocommerce-Tabs-panel > h2 {
+  font-size: 0.9375rem;
+  font-weight: bold;
+  padding-bottom: 0.625rem;
 }
 
 .tws__single_product section.related > h2 {
