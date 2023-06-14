@@ -85,7 +85,7 @@ if ( post_password_required() ) {
 
 
 <?php
-	// content single product - css only for this desktop version
+	// content single product - css/js only for this desktop version
 	wp_enqueue_style( 'woo_single_product', get_stylesheet_directory_uri(). '/assets/build/css/woo_single_product.css',  array(), null, 'all' );
 	wp_enqueue_script( 'woo_single_product', get_template_directory_uri() . '/assets/build/js/woo_single_product.js', array(), null, true);   
 

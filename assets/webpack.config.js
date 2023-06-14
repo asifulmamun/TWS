@@ -20,7 +20,8 @@ const mobile = {
         mobile_app: JS_DIR + '/mobile_app.js',
         mobile_woo: JS_DIR + '/mobile_woo.js',
         mobile_woo_single_product: JS_DIR + '/mobile_woo_single_product.js',
-        // mobile_mini_cart: JS_DIR + '/mobile_mini_cart.js',
+        mobile_cart_checkout: JS_DIR + '/mobile_cart_checkout.js',
+        
     }  
 
 const desktop = {
@@ -28,6 +29,8 @@ const desktop = {
         woo: JS_DIR + '/woo.js',
         woo_single_product: JS_DIR + '/woo_single_product.js',
         mini_cart: JS_DIR + '/mini_cart.js',
+        cart_checkout: JS_DIR + '/cart_checkout.js',
+
 }
 
 
