@@ -344,12 +344,6 @@ header#tws__header .tws__search_box .tws__search_box_logo img {
   max-width: 3.9rem;
 }
 
-header#tws__header .tws__search_box input[type=search] {
-  outline: none;
-  padding-left: 5.5rem;
-  transition: 0.5s;
-}
-
 header#tws__header .tws__search_box ::-moz-placeholder {
   color: #343131;
   color: var(--color__txt_secondary);
