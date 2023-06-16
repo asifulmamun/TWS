@@ -12,7 +12,7 @@
 				<th class="py-3 product-remove"><?php esc_html_e( 'Remove item', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>
-		<tbody class="">
+		<tbody id="cart_t_body" class="">
 			<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
 			<?php
@@ -23,7 +23,7 @@
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 					$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 					?>
-					<tr class="text-center woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
+					<tr id="<?php echo $cart_item_key; ?>" class="text-center woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>" data-pr_key="<?php echo $cart_item_key; ?>">
 
 						<td class="grid justify-center product-thumbnail">
 						<?php
@@ -64,7 +64,7 @@
 						</td>
 
 						<td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
-						<button onclick="incr_cart_qty(<?php echo $cart_item_key; ?>)" type="button">-</button>
+						<button id="decr_<?php echo $cart_item_key; ?>" type="button">-</button>
 						<?php
 							if ( $_product->is_sold_individually() ) {
 								$min_quantity = 1;
@@ -88,7 +88,7 @@
 
 							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
 						?>
-						<button onclick="decr_cart_qty(<?php echo $cart_item_key; ?>)" type="button">+</button>
+						<button id="incr_<?php echo $cart_item_key; ?>" type="button">+</button>
 						</td>
 
 						<td class="font-bold product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
@@ -164,3 +164,14 @@
 	wp_enqueue_script( 'woo_single_product', get_template_directory_uri() . '/assets/build/js/cart_checkout.js', array(), null, true);   
 
 ?>
+
+<!-- <script>
+function incr_cart_qty(cart_key){
+	alert(cart_key);
+}
+
+function decr_cart_qty(cart_key){
+	alert(cart_key);
+}
+
+</script> -->

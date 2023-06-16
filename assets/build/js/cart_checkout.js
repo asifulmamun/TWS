@@ -63,20 +63,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_cart_checkout_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/cart_checkout.scss */ "./src/sass/cart_checkout.scss");
 
 console.log('this is cart_checkout.js');
+var tbody = document.getElementById('cart_t_body');
+// var tbody_li = []; // initialize an array
+if (tbody) {
+  var _loop = function _loop() {
+    var currentChild = tbody.childNodes[i];
+    if (currentChild.id && currentChild.nodeName === 'TR') {
+      // event click
+      document.getElementById('decr_' + currentChild.getAttribute('id')).addEventListener('click', function (e) {
+        decr(currentChild.getAttribute('id'));
+      }); // event click decr
 
-// // Add event listener for quantity increment
-// qty_inc.addEventListener('click', () => {
-//     const currentValue = parseInt(inpt_qty.value);
-//     inpt_qty.value = currentValue + 1;
-// });
+      document.getElementById('incr_' + currentChild.getAttribute('id')).addEventListener('click', function (e) {
+        incr(currentChild.getAttribute('id'));
+      }); // event click incr
+    }
 
-// // Add event listener for quantity decrement
-// qty_dec.addEventListener('click', () => {
-//     const currentValue = parseInt(inpt_qty.value);
-//     if (currentValue > 1) {
-//         inpt_qty.value = currentValue - 1;
-//     }
-// });
+    ; // if
+  };
+  for (var i = 0; i < tbody.childNodes.length; i++) {
+    _loop();
+  }
+  ; // loop
+
+  function decr(id) {
+    var quantityInputs = document.getElementsByName('cart[' + id + '][qty]');
+    var quantityInput = quantityInputs[0]; // Assuming there is only one input with the specified name
+
+    var currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+      quantityInput.value = currentValue - 1;
+    }
+  }
+  function incr(id) {
+    var quantityInputs = document.getElementsByName('cart[' + id + '][qty]');
+    var quantityInput = quantityInputs[0]; // Assuming there is only one input with the specified name
+    var currentValue = parseInt(quantityInput.value);
+    quantityInput.value = currentValue + 1;
+  }
+} // if has tbody
 }();
 /******/ })()
 ;
