@@ -87,21 +87,58 @@ if (tbody) {
   ; // loop
 
   function decr(id) {
-    var quantityInputs = document.getElementsByName('cart[' + id + '][qty]');
-    var quantityInput = quantityInputs[0]; // Assuming there is only one input with the specified name
+    var quantityInput = document.getElementsByName('cart[' + id + '][qty]')[0];
+    // let quantityInput = quantityInputs[0]; // Assuming there is only one input with the specified name
 
     var currentValue = parseInt(quantityInput.value);
     if (currentValue > 1) {
       quantityInput.value = currentValue - 1;
+      tws__btn_update_cart();
     }
+    ;
   }
+  ;
   function incr(id) {
-    var quantityInputs = document.getElementsByName('cart[' + id + '][qty]');
-    var quantityInput = quantityInputs[0]; // Assuming there is only one input with the specified name
+    var quantityInput = document.getElementsByName('cart[' + id + '][qty]')[0];
+    // let quantityInput = quantityInputs[0]; // Assuming there is only one input with the specified name
     var currentValue = parseInt(quantityInput.value);
     quantityInput.value = currentValue + 1;
+    tws__btn_update_cart();
   }
-} // if has tbody
+  ;
+  function tws__btn_update_cart() {
+    var updateCartButton = document.getElementById('tws__btn_update_cart');
+    updateCartButton.removeAttribute('disabled');
+    updateCartButton.setAttribute('aria-disabled', 'false');
+  }
+  ;
+
+  // var updateCartButton = document.getElementById('tws__btn_update_cart');
+  // updateCartButton.addEventListener('click', function() {
+  //     setTimeout(function() {
+  //     // Add the button ID as a query parameter in the URL
+  //     let currentURL = window.location.href;
+  //     currentURL = currentURL.replace(/\/#.*$/, '');
+  //     let updatedURL = currentURL + '/#' + encodeURIComponent(updateCartButton.id);
+  //     window.location.href = updatedURL;
+  //     }, 2000);
+  // });
+
+  var updateCartButton = document.getElementById('tws__btn_update_cart');
+  updateCartButton.addEventListener('click', function () {
+    setTimeout(function () {
+      // Add the button ID as a query parameter in the URL
+      var currentURL = window.location.href;
+      currentURL = currentURL.replace(/\/#.*$/, '');
+      var updatedURL = currentURL + '/#' + encodeURIComponent(updateCartButton.id);
+      window.location.href = updatedURL;
+    }, 0);
+    setTimeout(function () {
+      location.reload();
+    }, 2000);
+  });
+}
+; // if has tbody
 }();
 /******/ })()
 ;
