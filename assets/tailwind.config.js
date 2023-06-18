@@ -89,9 +89,8 @@ module.exports = {
       borderColor: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       inset: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
       left: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
-      
-
-
+      backgroundColor: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
+      gradientColorStops: ['hover', 'focus', 'active', 'group-hover', 'group-focus'],
     },
   },
   plugins: [],
