@@ -38,6 +38,8 @@
   -o-transition: 0.3s ease;
 }
 
+/* cart page */
+
 table#tws__cart_table {
   width: 100%;
 }
@@ -212,6 +214,8 @@ table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,
   table#tws__cart_table tbody#cart_t_body tr.tws__cart_final {
   border: none;
 }
+
+/* checkout page */
 
 
 /*# sourceMappingURL=cart_checkout.css.map*/

@@ -9,6 +9,8 @@
     @include transition(0.3s);
 }
 
+
+/* cart page */
 table#tws__cart_table{
     width: 100%;
 
@@ -200,6 +202,29 @@ table#tws__cart_table{
         tr.tws__update_cart,
         tr.tws__cart_final{
             border: none;
+        }
+    }
+}
+
+
+/* checkout page */
+form#checkout{
+    .woocommerce-billing-fields{
+
+        // billing address
+        .billing{
+            .woocommerce-billing-fields__field-wrapper{
+
+                // first name
+                p#billing_first_name_field{
+                    
+                }
+            }
+        }
+
+        // shipping address | another shipping address
+        .shipping{
+            
         }
     }
 }
