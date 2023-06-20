@@ -31,10 +31,17 @@ function tws_master_pro_woocommerce_scripts() {
     if(wp_is_mobile()): // mobile
         wp_enqueue_style( 'mobile_woo', get_template_directory_uri() . '/assets/build/css/mobile_woo.css', array(), null );
         wp_enqueue_script( 'mobile_woo', get_template_directory_uri() . '/assets/build/js/mobile_woo.js', array(), null, true);   
-        
+
+
     else: // desktop
         wp_enqueue_style( 'woo', get_template_directory_uri() . '/assets/build/css/woo.css', array(), null );
         wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
+        
+        // cart and checkout pages - only
+        if( is_page( 'cart' ) || is_cart() || is_page( 'checkout' ) || is_checkout() ):
+            wp_enqueue_style( 'woo_single_product', get_stylesheet_directory_uri(). '/assets/build/css/cart_checkout.css',  array(), null, 'all' );
+            wp_enqueue_script( 'woo_single_product', get_template_directory_uri() . '/assets/build/js/cart_checkout.js', array(), null, true);
+        endif;
     endif;
     // wp_localize_script( 'cart-qty-ajax-js', 'cart_qty_ajax', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
         // wp_enqueue_script( 'cart-qty-ajax-js' );
