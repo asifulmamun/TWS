@@ -286,6 +286,12 @@ body {
   font-size: 0.875rem;
 }
 
+/* button defaults */
+
+.tws__btn_padding {
+  padding: 0.5rem 0.75rem;
+}
+
 .tws__btn_dark {
   background-color: #1a1f2b;
   background-color: var(--color__bg_btn_dark);
@@ -294,6 +300,20 @@ body {
 }
 
 .tws__btn_dark_hover:hover {
+  background-color: #d72828;
+  background-color: var(--color__bg_btn_secondary);
+  color: #fff;
+  color: var(--color__txt_btn_secondary);
+}
+
+.tws__btn_gray {
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+}
+
+.tws__btn_gray_hover:hover {
   background-color: #d72828;
   background-color: var(--color__bg_btn_secondary);
   color: #fff;

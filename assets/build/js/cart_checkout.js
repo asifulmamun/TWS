@@ -63,6 +63,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_cart_checkout_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/cart_checkout.scss */ "./src/sass/cart_checkout.scss");
 
 console.log('this is cart_checkout.js');
+
+// aside hide from this cart and checkout page
+var aside = document.getElementById('aside');
+var main = document.getElementById('main');
+if (main) {
+  main.classList.remove('md:pl-56');
+}
+if (aside) {
+  aside.classList.remove('md:-left-0');
+  aside.classList.add('md:-left-80');
+}
 var tbody = document.getElementById('cart_t_body');
 // var tbody_li = []; // initialize an array
 if (tbody) {
@@ -125,7 +136,10 @@ if (tbody) {
   // });
 
   var updateCartButton = document.getElementById('tws__btn_update_cart');
-  updateCartButton.addEventListener('click', function () {
+  var tws__btn_apply_coupon = document.getElementById('tws__btn_apply_coupon');
+  updateCartButton.addEventListener('click', tws__reload_cart);
+  tws__btn_apply_coupon.addEventListener('click', tws__reload_cart);
+  function tws__reload_cart() {
     setTimeout(function () {
       // Add the button ID as a query parameter in the URL
       var currentURL = window.location.href;
@@ -136,7 +150,7 @@ if (tbody) {
     setTimeout(function () {
       location.reload();
     }, 2000);
-  });
+  }
 }
 ; // if has tbody
 }();

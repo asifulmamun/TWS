@@ -64,7 +64,7 @@
 						</td>
 
 						<td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
-						<button id="decr_<?php echo $cart_item_key; ?>" type="button">-</button>
+						<button id="decr_<?php echo $cart_item_key; ?>" class="tws__btn_dark tws__btn_dark_hover transition" type="button">-</button>
 						<?php
 							if ( $_product->is_sold_individually() ) {
 								$min_quantity = 1;
@@ -88,7 +88,7 @@
 
 							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
 						?>
-						<button id="incr_<?php echo $cart_item_key; ?>" type="button">+</button>
+						<button id="incr_<?php echo $cart_item_key; ?>" class="tws__btn_dark tws__btn_dark_hover transition" type="button">+</button>
 						</td>
 
 						<td class="font-bold product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
@@ -102,7 +102,7 @@
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									'woocommerce_cart_item_remove_link',
 									sprintf(
-										'<a onclick="browser_refresh()" class="py-2 px-3 text-white font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-indigo-500 transition-all ease-in-out delay-150 duration-300" href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">Remove</a>',
+										'<a onclick="browser_refresh()" class="tws__btn_padding tws__btn_dark tws__btn_dark_hover transition" href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">Remove</a>',
 										esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
 										esc_html__( 'Remove this item', 'woocommerce' ),
 										esc_attr( $product_id ),
@@ -120,21 +120,40 @@
 
 			<?php do_action( 'woocommerce_cart_contents' ); ?>
 
-			<tr>
+			<tr class="tws__update_cart">
 				<td colspan="6" class="actions">
-
+					<button id="tws__btn_update_cart" type="submit" class="tws__btn_padding tws__btn_secondary tws__btn_secondary_hover transition button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+				</td>
+			</tr>
+			<tr class="tws__cart_final">
+				<td colspan="2" class="tws__coupon_wrap">
 					<?php if ( wc_coupons_enabled() ) { ?>
+						<h2 class="coupon_heading">Coupon</h2>
 						<div class="coupon">
-							<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text outline-none py-2 px-3" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> py-2 px-3 rounded hover:bg-red-400 text-red-400 hover:text-white text-base border border-solid" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+							<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
+							<input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" />
+							<button id="tws__btn_apply_coupon" type="submit" class="tws__btn_padding tws__btn_dark tws__btn_dark_hover transition button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 						</div>
 					<?php } ?>
 
-					<button id="tws__btn_update_cart" type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> py-2 px-4 text-base text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 transition-all ease-in-out delay-150 duration-300" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
 
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 					<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
+				</td>
+				<td colspan="4" class="calculate">
+					<div class="cart-collaterals">
+						<?php
+							/**
+							 * Cart collaterals hook.
+							 *
+							 * @hooked woocommerce_cross_sell_display
+							 * @hooked woocommerce_cart_totals - 10
+							 */
+							do_action( 'woocommerce_cart_collaterals' );
+						?>
+					</div>
 				</td>
 			</tr>
 
@@ -146,17 +165,7 @@
 
 <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 
-<div class="cart-collaterals">
-	<?php
-		/**
-		 * Cart collaterals hook.
-		 *
-		 * @hooked woocommerce_cross_sell_display
-		 * @hooked woocommerce_cart_totals - 10
-		 */
-		do_action( 'woocommerce_cart_collaterals' );
-	?>
-</div>
+
 
 <?php
 	// content single product - css/js only for this desktop version

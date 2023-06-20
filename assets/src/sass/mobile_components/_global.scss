@@ -15,12 +15,28 @@ body{
 // }
 
 /* Global Buttons */
+.tws__btn_padding{
+    padding: $pxrem*8 $pxrem*12;
+}
+
 .tws__btn_dark{
     background-color: var(--color__bg_btn_dark);
     color: var(--color__txt_btn_dark);
 }
 
 .tws__btn_dark_hover{
+    &:hover{
+        background-color: var(--color__bg_btn_secondary);
+        color: var(--color__txt_btn_secondary);
+    }
+}
+
+.tws__btn_gray{
+    background-color: var(--color__bg_btn_gray);
+    color: var(--color__txt_btn_gray);
+}
+
+.tws__btn_gray_hover{
     &:hover{
         background-color: var(--color__bg_btn_secondary);
         color: var(--color__txt_btn_secondary);

@@ -3,8 +3,16 @@ import '../sass/cart_checkout.scss';
 console.log('this is cart_checkout.js');
 
 
-
-
+// aside hide from this cart and checkout page
+const aside = document.getElementById('aside');
+const main = document.getElementById('main');
+if(main){
+    main.classList.remove('md:pl-56');
+}
+if(aside){
+    aside.classList.remove('md:-left-0');
+    aside.classList.add('md:-left-80');
+}
 
 
 const tbody = document.getElementById('cart_t_body');
@@ -75,7 +83,12 @@ if (tbody) {
     // });
 
     var updateCartButton = document.getElementById('tws__btn_update_cart');
-    updateCartButton.addEventListener('click', function () {
+    var tws__btn_apply_coupon = document.getElementById('tws__btn_apply_coupon');
+
+    updateCartButton.addEventListener('click', tws__reload_cart);
+    tws__btn_apply_coupon.addEventListener('click', tws__reload_cart);
+
+    function tws__reload_cart(){
         setTimeout(function () {
             // Add the button ID as a query parameter in the URL
             let currentURL = window.location.href;
@@ -87,10 +100,7 @@ if (tbody) {
         setTimeout(function () {
             location.reload();
         }, 2000);
-
-    });
-
-
+    }
 
 }; // if has tbody
 
