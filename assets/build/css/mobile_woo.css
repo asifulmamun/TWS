@@ -65,12 +65,6 @@ body {
   font-size: 0.875rem;
 }
 
-.tws__trans_hover_btn:hover {
-  background-color: #ffbd88 !important;
-  background-color: var(--color__secondary) !important;
-  color: #333 !important;
-  color: var(--color__txt_primary) !important;
-}
 
 .tws__text_xxs {
   font-size: 0.5625rem;

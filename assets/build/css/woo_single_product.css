@@ -8,8 +8,14 @@
   --color__bg_gray: #363f4d;
   --color__bg_gray_border: #363f4d;
   --color__bg_btn_primary: #1f86ba;
-  --color__bg_btn_secondary: #f22127;
   --color__bg_btn_secondary_light: #ec454a;
+  --color__bg_btn_gray: #f7f7f7;
+  --color__border_btn_gray: #ebebeb;
+  --color__txt_btn_gray: #4c4c4c;
+  --color__bg_btn_dark: #1a1f2b;
+  --color__txt_btn_dark: #fff;
+  --color__bg_btn_secondary: #d72828;
+  --color__txt_btn_secondary: #fff;
   --color__bg_btn_third: #363f4d;
   --color__primary: #1f86ba;
   --color__secondary: #ffbd88;

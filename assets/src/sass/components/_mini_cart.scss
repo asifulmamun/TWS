@@ -83,7 +83,9 @@
 
                 // Coupon
                 #tws__has_coupon_code{
-                    background-color: var(--color__bg_gray);
+                    background-color: var(--color__bg_btn_gray);
+                    color: var(--color__txt_btn_gray);
+
                     &:hover{
                         background: var(--color__secondary);
                     }

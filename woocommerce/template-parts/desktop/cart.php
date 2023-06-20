@@ -1,15 +1,15 @@
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-	<table class="w-full shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-		<thead class="bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200">
-			<tr class="text-center">
-				<th class="py-3 product-thumbnail"><?php esc_html_e( 'Thumbnail image', 'woocommerce' ); ?></th>
-				<th class="py-3 product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="py-3 product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
-				<th class="py-3 product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
-				<th class="py-3 product-subtotal"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
-				<th class="py-3 product-remove"><?php esc_html_e( 'Remove item', 'woocommerce' ); ?></th>
+	<table id="tws__cart_table" class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+		<thead class="">
+			<tr class="">
+				<th class="product-thumbnail"><?php esc_html_e( 'Image', 'woocommerce' ); ?></th>
+				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
+				<th class="product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
+				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
+				<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
+				<th class="product-remove"><?php esc_html_e( 'Remove', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>
 		<tbody id="cart_t_body" class="">
@@ -23,9 +23,9 @@
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 					$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 					?>
-					<tr id="<?php echo $cart_item_key; ?>" class="text-center woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>" data-pr_key="<?php echo $cart_item_key; ?>">
+					<tr id="<?php echo $cart_item_key; ?>" class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>" data-pr_key="<?php echo $cart_item_key; ?>">
 
-						<td class="grid justify-center py-8 product-thumbnail">
+						<td class="product-thumbnail">
 						<?php
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 

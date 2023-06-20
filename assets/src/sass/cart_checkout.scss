@@ -6,3 +6,48 @@
 
 
 
+table#tws__cart_table{
+    width: 100%;
+
+    // table head
+    thead{
+        background-color: var(--color__bg_btn_gray);
+        border: $pxrem*1 solid var(--color__border_btn_gray);
+        color: var(--color__txt_btn_gray);
+
+        tr{
+            text-align: center;
+            th{
+                padding: $pxrem*12 $pxrem*0;
+            }
+        }
+    }
+
+    tbody#cart_t_body{
+
+        tr{
+            text-align: center;
+            border: $pxrem*1 solid var(--color__border_btn_gray);
+
+            td.product-thumbnail{
+                padding: $pxrem*24 $pxrem*0;
+                display: flex;
+                justify-content: center;
+            }
+
+            td.product-quantity{
+                .quantity{
+                    display: inline;
+                    
+                    input{
+                        outline: none;
+                        width: $pxrem*80;
+                        text-align: center;
+                        font-weight: bold;
+                        text-size: $pxrem*18;
+                    }
+                }
+            }
+        }
+    }
+}

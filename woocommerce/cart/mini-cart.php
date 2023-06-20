@@ -167,7 +167,7 @@ $cart = WC()->cart;
 		<span id="tws__mini_cart_calculate_subtotal"></span>
 		<span id="tws__mini_cart_calculate_shipping"></span>
 		<span id="tws__mini_cart_calculate_discount"></span>
-		<a class="tws__trans_hover_btn text-center hidden group-hover:block w-min my-2 mx-auto py-2 px-6 bg-red-500 text-white transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_cart_url(); ?>">Cart</a>
+		<a class="tws__btn_dark tws__btn_dark_hover text-center hidden group-hover:block w-min my-2 mx-auto py-2 px-6 bg-red-500 text-white transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_cart_url(); ?>">Cart</a>
 	</div>
 	
 	<div class="tws__mini_cart_checkout_wrap relative grid grid-cols-10 px-3 pb-2">
