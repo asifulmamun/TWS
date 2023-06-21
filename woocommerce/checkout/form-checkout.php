@@ -31,11 +31,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 <form id="checkout" class="grid grid-cols-12 checkout woocommerce-checkout" name="checkout" method="post" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
-	<div class="col-span-7">
-		<?php if ( $checkout->get_checkout_fields() ) : ?>
-
-			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
-
+<?php if ( $checkout->get_checkout_fields() ) : ?>
+	<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+		<div class="col-span-7">
 			<div class="billing_shipping" id="customer_details">
 				<div class="billing">
 					<?php do_action( 'woocommerce_checkout_billing' ); ?>
@@ -45,11 +43,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 					<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 				</div>
 			</div>
-
-			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
-
-		<?php endif; ?>
-	</div>
+		</div>
+	<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+<?php endif; ?>
 
 	<div class="col-span-5">
 		<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>

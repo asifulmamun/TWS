@@ -209,22 +209,180 @@ table#tws__cart_table{
 
 /* checkout page */
 form#checkout{
-    .woocommerce-billing-fields{
+    
+
+    // left side
+    .billing_shipping{
+
+        padding-right: $pxrem*30;
 
         // billing address
         .billing{
-            .woocommerce-billing-fields__field-wrapper{
+            .woocommerce-billing-fields{
 
-                // first name
-                p#billing_first_name_field{
-                    
+                h3{
+                    padding: $pxrem*10 $pxrem*10;
+                    font-size: $pxrem*20;
+                    font-weight: bold;
+                    background-color: var(--color__bg_btn_gray);
+                    border: $pxrem*1 solid var(--color__border_btn_gray);
+                    color: var(--color__txt_btn_gray);
+                }
+
+                .woocommerce-billing-fields__field-wrapper{
+
+                    // first name
+                    p#billing_first_name_field{
+                        
+                    }
                 }
             }
         }
+
+
 
         // shipping address | another shipping address
         .shipping{
             
         }
     }
+
+
+
+
+    // right side
+    h3#order_review_heading{
+        padding: $pxrem*10 $pxrem*10;
+        font-size: $pxrem*20;
+        font-weight: bold;
+        background-color: var(--color__bg_btn_gray);
+        border: $pxrem*1 solid var(--color__border_btn_gray);
+        color: var(--color__txt_btn_gray);
+    }
+
+    #order_review{
+        padding: $pxrem*20 $pxrem*10;
+
+        table.woocommerce-checkout-review-order-table{
+            width: 100%;
+            text-align: left;
+            
+            td,th{
+                vertical-align: top;
+            }
+            
+            thead{
+                background-color: var(--color__bg_btn_gray);
+                
+                tr{
+                    th{
+                        padding: $pxrem*10 $pxrem*10;
+                        color: var(--color__txt_btn_gray);
+                    }
+                    
+                }
+            }
+            
+            tbody{
+                tr{
+                    border-bottom: $pxrem*.5 solid var(--color__border_btn_gray);
+
+                    td,th{
+                        padding: $pxrem*10 $pxrem*10;
+                        color: var(--color__txt_btn_gray);
+                    }
+                }
+                tr:last-child{
+                    td{
+                        padding-bottom: $pxrem*30;
+                    }
+                }
+            }
+
+            tfoot{
+                border: $pxrem*0.5 solid var(--color__border_btn_gray);
+                
+                tr{
+                    th,td{
+                        padding: $pxrem*5 $pxrem*10;
+                    }
+                }
+
+                tr.cart-subtotal{
+                    td{
+                        color: var(--color__primary);
+                    }
+                }
+
+                tr.shipping{
+                    td{
+                        color: var(--color__optional);
+
+                    }
+                }
+
+                // total
+                tr.order-total{
+                    border-top: $pxrem*.5 solid var(--color__border_btn_gray);
+                    background-color: var(--color__bg_btn_gray);
+                    color: var(--color__txt_btn_gray);
+
+                    th,td{
+                        font-size: $pxrem*18;
+                    }
+                    td{
+                        span.woocommerce-Price-amount{
+                            color: var(--color__primary);
+
+                        }
+                    }
+                }
+            }
+        }
+
+
+        // after calculing in checkout
+        #payment{
+            padding: $pxrem*20 $pxrem*10;
+
+            .methods{
+
+            }
+
+            .place-order{
+                padding-top: $pxrem*20;
+                color: var(--color__txt_gray);
+
+                .woocommerce-terms-and-conditions-wrapper{
+                    .woocommerce-privay--policy-text{
+                        p{
+                            color: var(--color__txt_gray);
+                        }
+                    }
+
+                    // required fields for accepting conditions
+                    p.validate-required{
+                        padding-top: $pxrem*10;
+                        label{
+                            input[type="checkbox"]{
+                                margin-right: $pxrem*5;
+                            }
+
+                            span{
+                                color: var(--color__txt_gray);
+
+                                a{
+                                    color: var(--color__optional);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    
 }

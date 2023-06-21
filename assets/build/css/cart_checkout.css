@@ -23,7 +23,7 @@
   --color__txt_primary: #333;
   --color__txt_secondary: #343131;
   --color__txt_optional: #fff;
-  --color__txt_gray: #313131;
+  --color__txt_gray: #4c4c4c;
   --color__txt_gray_light: rgba(49,49,49,0.54902);
   --color__txt_red: #ec454a;
   --color__txt_btn_primary: #fff;
@@ -216,6 +216,143 @@ table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,
 }
 
 /* checkout page */
+
+form#checkout .billing_shipping {
+  padding-right: 1.875rem;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields h3 {
+  padding: 0.625rem 0.625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_btn_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+}
+
+form#checkout h3#order_review_heading {
+  padding: 0.625rem 0.625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_btn_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+}
+
+form#checkout #order_review {
+  padding: 1.25rem 0.625rem;
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table {
+  width: 100%;
+  text-align: left;
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table td, form#checkout #order_review table.woocommerce-checkout-review-order-table th {
+  vertical-align: top;
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table thead {
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table thead tr th {
+  padding: 0.625rem 0.625rem;
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tbody tr {
+  border-bottom: 0.03125rem solid #ebebeb;
+  border-bottom: 0.03125rem solid var(--color__border_btn_gray);
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tbody tr td, form#checkout #order_review table.woocommerce-checkout-review-order-table tbody tr th {
+  padding: 0.625rem 0.625rem;
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tbody tr:last-child td {
+  padding-bottom: 1.875rem;
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot {
+  border: 0.03125rem solid #ebebeb;
+  border: 0.03125rem solid var(--color__border_btn_gray);
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr th, form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr td {
+  padding: 0.3125rem 0.625rem;
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.cart-subtotal td {
+  color: #1f86ba;
+  color: var(--color__primary);
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.shipping td {
+  color: #f22127;
+  color: var(--color__optional);
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.order-total {
+  border-top: 0.03125rem solid #ebebeb;
+  border-top: 0.03125rem solid var(--color__border_btn_gray);
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.order-total th, form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.order-total td {
+  font-size: 1.125rem;
+}
+
+form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.order-total td span.woocommerce-Price-amount {
+  color: #1f86ba;
+  color: var(--color__primary);
+}
+
+form#checkout #order_review #payment {
+  padding: 1.25rem 0.625rem;
+}
+
+form#checkout #order_review #payment .place-order {
+  padding-top: 1.25rem;
+  color: #4c4c4c;
+  color: var(--color__txt_gray);
+}
+
+form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditions-wrapper .woocommerce-privay--policy-text p {
+  color: #4c4c4c;
+  color: var(--color__txt_gray);
+}
+
+form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditions-wrapper p.validate-required {
+  padding-top: 0.625rem;
+}
+
+form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditions-wrapper p.validate-required label input[type="checkbox"] {
+  margin-right: 0.3125rem;
+}
+
+form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditions-wrapper p.validate-required label span {
+  color: #4c4c4c;
+  color: var(--color__txt_gray);
+}
+
+form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditions-wrapper p.validate-required label span a {
+  color: #f22127;
+  color: var(--color__optional);
+}
 
 
 /*# sourceMappingURL=cart_checkout.css.map*/
