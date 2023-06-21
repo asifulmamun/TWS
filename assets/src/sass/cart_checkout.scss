@@ -211,6 +211,23 @@ table#tws__cart_table{
 form#checkout{
     
 
+    // Required Notices - checkout page
+    .woocommerce-NoticeGroup-checkout{
+
+        background-color: var(--color__bg_btn_gray);
+        margin: $pxrem*40 $pxrem*0;
+        padding: $pxrem*20 $pxrem*10 $pxrem*20 $pxrem*30;
+        border-top: $pxrem*6 solid var(--color__border_btn_secondary);
+
+
+        ul.woocommerce-error{
+            li{
+                color: var(--color__txt_gray);
+                margin-bottom: $pxrem*15;
+            }
+        }
+    }
+
     // left side
     .billing_shipping{
 
@@ -218,6 +235,8 @@ form#checkout{
 
         // billing address
         .billing{
+
+            // billing fields
             .woocommerce-billing-fields{
 
                 h3{
@@ -230,11 +249,106 @@ form#checkout{
                 }
 
                 .woocommerce-billing-fields__field-wrapper{
+                    border: $pxrem*0.5 solid var(--color__border_btn_gray);
+                    padding-top: $pxrem*30;
+                    padding-bottom: $pxrem*30;
+                    
 
-                    // first name
-                    p#billing_first_name_field{
-                        
+                    // all fields
+                    p.form-row{
+                        padding: $pxrem*10 $pxrem*16;
+
+                        label{
+                            font-weight: 500;
+                        }
+
+                        input{
+                            outline: none;
+                            border: $pxrem*1 solid var(--color__border_btn_gray);
+                            height: $pxrem*40;
+                            margin-top: $pxrem*10;
+                            padding: $pxrem*5 $pxrem*8;
+                        }
                     }
+
+                    // required fields star (*) sign
+                    p{
+                        abbr.required{
+                            color: var(--color__txt_red);
+                        }
+                    }
+
+                    // when missing any required fields then show error message / warning / notice
+                    p.woocommerce-invalid-required-field{
+                        label{
+                            color: var(--color__txt_red);
+                        }
+
+                        input{
+                            border: $pxrem*1 solid var(--color__border_btn_secondary);
+                        }
+                    }
+
+                    // first | last - name
+                    p#billing_first_name_field,
+                    p#billing_last_name_field{
+
+                        float: left;
+                        width: 50%;
+                        
+                        label{
+
+                        }
+
+                        input{
+                            outline: none;
+                            width: 100%;
+                        }
+                    }
+
+                    // Compay Field| Street address | Billing city
+                    p#billing_company_field,
+                    p#billing_address_1_field,
+                    p#billing_address_2_field,
+                    p#billing_city_field,
+                    p#billing_postcode_field,
+                    p#billing_phone_field,
+                    p#billing_email_field{
+                        
+                        label{
+                            display: block;
+                        }
+                    
+                        input{
+                            width: 100%;
+                        }
+                    }
+
+                    // country | state - field
+                    p#billing_country_field,
+                    p#billing_state_field{
+                        padding-right: $pxrem*20;
+
+                        label{
+                            display: block;
+                            padding-bottom: $pxrem*6;
+                        }
+                    }
+                }
+            }
+
+            // Create an account - account fields
+            .woocommerce-account-fields{
+
+                margin: $pxrem*40 $pxrem*0;
+
+                p{
+                    padding: $pxrem*10 $pxrem*10;
+                    font-size: $pxrem*20;
+                    font-weight: bold;
+                    background-color: var(--color__bg_btn_gray);
+                    border: $pxrem*1 solid var(--color__border_btn_gray);
+                    color: var(--color__txt_btn_gray);
                 }
             }
         }
@@ -243,11 +357,129 @@ form#checkout{
 
         // shipping address | another shipping address
         .shipping{
-            
+
+            // another shipping address
+            .woocommerce-shipping-fields{
+
+                // ship to a different address
+                h3{
+                    padding: $pxrem*10 $pxrem*10;
+                    font-size: $pxrem*20;
+                    font-weight: bold;
+                    background-color: var(--color__bg_btn_gray);
+                    border: $pxrem*1 solid var(--color__border_btn_gray);
+                    color: var(--color__txt_btn_gray);
+                }
+
+                .shipping_address{
+
+                    border: $pxrem*0.5 solid var(--color__border_btn_gray);
+                    
+                    .woocommerce-shipping-fields__field-wrapper{
+                        padding-top: $pxrem*30;
+                        padding-bottom: $pxrem*30;
+
+
+                    // all fields
+                    p.form-row{
+                        padding: $pxrem*10 $pxrem*16;
+
+                        label{
+                            font-weight: 500;
+                        }
+
+                        input{
+                            outline: none;
+                            border: $pxrem*1 solid var(--color__border_btn_gray);
+                            height: $pxrem*40;
+                            margin-top: $pxrem*10;
+                            padding: $pxrem*5 $pxrem*8;
+                        }
+                    }
+
+                    // required fields star (*) sign
+                    p{
+                        abbr.required{
+                            color: var(--color__txt_red);
+                        }
+                    }
+
+                    // when missing any required fields then show error message / warning / notice
+                    p.woocommerce-invalid-required-field{
+                        label{
+                            color: var(--color__txt_red);
+                        }
+
+                        input{
+                            border: $pxrem*1 solid var(--color__border_btn_secondary);
+                        }
+                    }
+
+                    // first | last - name
+                    p#shipping_first_name_field,
+                    p#shipping_last_name_field{
+
+                        float: left;
+                        width: 50%;
+                        
+                        label{
+
+                        }
+
+                        input{
+                            outline: none;
+                            width: 100%;
+                        }
+                    }
+
+                    // Compay Field| Street address | Billing city
+                    p#shipping_company_field,
+                    p#shipping_address_1_field,
+                    p#shipping_address_2_field,
+                    p#shipping_city_field,
+                    p#shipping_postcode_field{
+                        
+                        label{
+                            display: block;
+                        }
+                    
+                        input{
+                            width: 100%;
+                        }
+                    }
+
+                    // country | state - field
+                    p#shipping_country_field,
+                    p#shipping_state_field{
+                        padding-right: $pxrem*20;
+
+                        label{
+                            display: block;
+                            padding-bottom: $pxrem*6;
+                        }
+                    }
+                    }
+                }
+            }
+
+            // notes | woocommerce additional fields
+            .woocommerce-additional-fields{
+
+                padding-top: $pxrem*50;
+
+                .woocommerce-additional-fields__field-wrapper{
+                    p#order_comments_field{
+                        label{
+                            display: block;
+                        }
+                        textarea{
+                            width: 50%;
+                        }
+                    }
+                }
+            }
         }
     }
-
-
 
 
     // right side
@@ -354,6 +586,7 @@ form#checkout{
                 color: var(--color__txt_gray);
 
                 .woocommerce-terms-and-conditions-wrapper{
+                    // privacy policy text
                     .woocommerce-privay--policy-text{
                         p{
                             color: var(--color__txt_gray);
@@ -362,7 +595,13 @@ form#checkout{
 
                     // required fields for accepting conditions
                     p.validate-required{
-                        padding-top: $pxrem*10;
+                        padding: $pxrem*10 $pxrem*10;
+                        font-weight: bold;
+                        background-color: var(--color__bg_btn_gray);
+                        border: $pxrem*1 solid var(--color__border_btn_gray);
+                        color: var(--color__txt_btn_gray);
+                        margin-top: $pxrem*20;
+
                         label{
                             input[type="checkbox"]{
                                 margin-right: $pxrem*5;
@@ -378,6 +617,28 @@ form#checkout{
                         }
                     }
                 }
+
+
+                // btn place order
+                button{
+                    // padding: $pxrem*40 $pxrem*0;
+
+                    display: block;
+                    margin: $pxrem*20 auto;
+                    background: var(--color__bg_btn_secondary);
+                    color: var(--color__txt_btn_secondary);
+                    font-weight: 600;
+                    font-size: $pxrem*20;
+                    width: 80%;
+                    padding: $pxrem*10 $pxrem*0;
+                    @include transition(0.3s);
+
+                    &:hover{
+                        background: var(--color__bg_btn_dark);
+                        color: var(--color__txt_btn_dark);
+                    }
+
+                } // btn place order
             }
         }
     }

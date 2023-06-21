@@ -28,6 +28,7 @@ if(devView == 1){
   '../woocommerce/template-parts/mobile/cart.php',
 
     '../woocommerce/cart/cart.php',
+    '../woocommerce/checkout/form-checkout.php',
 
   '../footer.php',
 
@@ -56,6 +57,7 @@ if(devView == 1){
 
         '../woocommerce/cart/cart.php',
         '../woocommerce/cart/mini-cart.php',
+        '../woocommerce/checkout/form-checkout.php',
 
       '../footer.php',
     );

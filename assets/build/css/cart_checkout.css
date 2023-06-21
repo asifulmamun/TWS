@@ -15,6 +15,7 @@
   --color__bg_btn_dark: #1a1f2b;
   --color__txt_btn_dark: #fff;
   --color__bg_btn_secondary: #d72828;
+  --color__border_btn_secondary: #d72828;
   --color__txt_btn_secondary: #fff;
   --color__bg_btn_third: #363f4d;
   --color__primary: #1f86ba;
@@ -217,6 +218,21 @@ table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,
 
 /* checkout page */
 
+form#checkout .woocommerce-NoticeGroup-checkout {
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+  margin: 2.5rem 0rem;
+  padding: 1.25rem 0.625rem 1.25rem 1.875rem;
+  border-top: 0.375rem solid #d72828;
+  border-top: 0.375rem solid var(--color__border_btn_secondary);
+}
+
+form#checkout .woocommerce-NoticeGroup-checkout ul.woocommerce-error li {
+  color: #4c4c4c;
+  color: var(--color__txt_gray);
+  margin-bottom: 0.9375rem;
+}
+
 form#checkout .billing_shipping {
   padding-right: 1.875rem;
 }
@@ -231,6 +247,209 @@ form#checkout .billing_shipping .billing .woocommerce-billing-fields h3 {
   border: 0.0625rem solid var(--color__border_btn_gray);
   color: #4c4c4c;
   color: var(--color__txt_btn_gray);
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper {
+  border: 0.03125rem solid #ebebeb;
+  border: 0.03125rem solid var(--color__border_btn_gray);
+  padding-top: 1.875rem;
+  padding-bottom: 1.875rem;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p.form-row {
+  padding: 0.625rem 1rem;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p.form-row label {
+  font-weight: 500;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p.form-row input {
+  outline: none;
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_btn_gray);
+  height: 2.5rem;
+  margin-top: 0.625rem;
+  padding: 0.3125rem 0.5rem;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p abbr.required {
+  color: #ec454a;
+  color: var(--color__txt_red);
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p.woocommerce-invalid-required-field label {
+  color: #ec454a;
+  color: var(--color__txt_red);
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p.woocommerce-invalid-required-field input {
+  border: 0.0625rem solid #d72828;
+  border: 0.0625rem solid var(--color__border_btn_secondary);
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_first_name_field,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_last_name_field {
+  float: left;
+  width: 50%;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_first_name_field input,
+      form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_last_name_field input {
+  outline: none;
+  width: 100%;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_company_field label,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_address_1_field label,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_address_2_field label,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_city_field label,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_postcode_field label,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_phone_field label,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_email_field label {
+  display: block;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_company_field input,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_address_1_field input,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_address_2_field input,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_city_field input,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_postcode_field input,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_phone_field input,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_email_field input {
+  width: 100%;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_country_field,
+    form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_state_field {
+  padding-right: 1.25rem;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_country_field label,
+      form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_state_field label {
+  display: block;
+  padding-bottom: 0.375rem;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-account-fields {
+  margin: 2.5rem 0rem;
+}
+
+form#checkout .billing_shipping .billing .woocommerce-account-fields p {
+  padding: 0.625rem 0.625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_btn_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields h3 {
+  padding: 0.625rem 0.625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_btn_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address {
+  border: 0.03125rem solid #ebebeb;
+  border: 0.03125rem solid var(--color__border_btn_gray);
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper {
+  padding-top: 1.875rem;
+  padding-bottom: 1.875rem;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p.form-row {
+  padding: 0.625rem 1rem;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p.form-row label {
+  font-weight: 500;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p.form-row input {
+  outline: none;
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_btn_gray);
+  height: 2.5rem;
+  margin-top: 0.625rem;
+  padding: 0.3125rem 0.5rem;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p abbr.required {
+  color: #ec454a;
+  color: var(--color__txt_red);
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p.woocommerce-invalid-required-field label {
+  color: #ec454a;
+  color: var(--color__txt_red);
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p.woocommerce-invalid-required-field input {
+  border: 0.0625rem solid #d72828;
+  border: 0.0625rem solid var(--color__border_btn_secondary);
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_first_name_field,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_last_name_field {
+  float: left;
+  width: 50%;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_first_name_field input,
+        form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_last_name_field input {
+  outline: none;
+  width: 100%;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_company_field label,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_address_1_field label,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_address_2_field label,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_city_field label,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_postcode_field label {
+  display: block;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_company_field input,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_address_1_field input,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_address_2_field input,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_city_field input,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_postcode_field input {
+  width: 100%;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_country_field,
+      form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_state_field {
+  padding-right: 1.25rem;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_country_field label,
+        form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_state_field label {
+  display: block;
+  padding-bottom: 0.375rem;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-additional-fields {
+  padding-top: 3.125rem;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-additional-fields .woocommerce-additional-fields__field-wrapper p#order_comments_field label {
+  display: block;
+}
+
+form#checkout .billing_shipping .shipping .woocommerce-additional-fields .woocommerce-additional-fields__field-wrapper p#order_comments_field textarea {
+  width: 50%;
 }
 
 form#checkout h3#order_review_heading {
@@ -337,7 +556,15 @@ form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditi
 }
 
 form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditions-wrapper p.validate-required {
-  padding-top: 0.625rem;
+  padding: 0.625rem 0.625rem;
+  font-weight: bold;
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_btn_gray);
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_btn_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_btn_gray);
+  margin-top: 1.25rem;
 }
 
 form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditions-wrapper p.validate-required label input[type="checkbox"] {
@@ -352,6 +579,31 @@ form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditi
 form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditions-wrapper p.validate-required label span a {
   color: #f22127;
   color: var(--color__optional);
+}
+
+form#checkout #order_review #payment .place-order button {
+  display: block;
+  margin: 1.25rem auto;
+  background: #d72828;
+  background: var(--color__bg_btn_secondary);
+  color: #fff;
+  color: var(--color__txt_btn_secondary);
+  font-weight: 600;
+  font-size: 1.25rem;
+  width: 80%;
+  padding: 0.625rem 0rem;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+form#checkout #order_review #payment .place-order button:hover {
+  background: #1a1f2b;
+  background: var(--color__bg_btn_dark);
+  color: #fff;
+  color: var(--color__txt_btn_dark);
 }
 
 
