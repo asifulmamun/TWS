@@ -9,16 +9,16 @@
     height: calc(100% - #{$pxrem * 55});
 
     padding-bottom: $pxrem*35;
-    background-color: var(--color__bg_primary);
+    background-color: var(--color__light);
 
 
     #tws__mini_cart_left_close_btn{
         left: -($pxrem * 25);
         background-color: var(--color__bg_hover_overlay);
-        color: var(--color__txt_primary);
+        color: var(--color__dark);
 
         &:hover{
-            background-color: var(--color__bg_gray);
+            background-color: var(--color__lightgray);
         }
     }
 
@@ -83,7 +83,7 @@
 
                 // Coupon
                 #tws__has_coupon_code{
-                    background-color: var(--color__bg_gray);
+                    background-color: var(--color__lightgray);
                     color: var(--color__txt_gray);
 
                     &:hover{
@@ -97,7 +97,7 @@
                 }
 
                 input#tws__coupon_input{
-                    background: var(--color__bg_gray);
+                    background: var(--color__lightgray);
                     color: var(--color__optional);
                 }
 
@@ -107,7 +107,7 @@
 
                 button#tws__coupon_wrap_close{
                     background: var(--color__secondary);
-                    color: var(--color__txt_primary);
+                    color: var(--color__dark);
 
                     &:hover{
                         background: var(--color__primary);
@@ -129,17 +129,17 @@
                         
                         a{
                             background-color: var(--color__secondary);
-                            color: var(--color__txt_primary);
+                            color: var(--color__dark);
 
                             &:hover{
                                 background-color: var(--color__secondary);
-                                color: var(--color__txt_primary);
+                                color: var(--color__dark);
                             }
                         }
 
                         .tws__mini_cart_total_amount{
                             background-color: var(--color__primary);
-                            color: var(--color__txt_primary);
+                            color: var(--color__dark);
                         }
                     }
 

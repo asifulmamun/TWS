@@ -4,31 +4,33 @@
 :root {
   --color__dark: #333;
   --color__light: #fff;
+  --color__lightgray: #f7f7f7;
+  --color__darkgray: #4c4c4c;
   --color__bg_hover_overlay: rgba(40,40,40,.75);
   --color__primary: #1f86ba;
-  --color__bg_primary: var(--color__light);
+  --color__bg_primary: var(--color__primary);
   --color__border_primary: var(--color__primary);
-  --color__txt_primary: var(--color__dark);
+  --color__txt_primary: var(--color__light);
   --color__secondary: #ffbd88;
-  --color__bg_secondary: var(--color__bg_primary);
+  --color__bg_secondary: var(--color__secondary);
   --color__border_secondary: var(--color__secondary);
-  --color__txt_secondary: #343131;
+  --color__txt_secondary: var(--color__dark);
   --color__optional: #f22127;
-  --color__bg_optional: var(--color__bg_primary);
+  --color__bg_optional: var(--color__optional);
   --color__border_optional: var(--color__optional);
   --color__txt_optional: var(--color__light);
   --color__optional_light: #ec454a;
-  --color__bg_optional_light: var(--color__bg_primary);
+  --color__bg_optional_light: var(--color__optional_light);
   --color__border_optional_light: var(--color__optional_light);
   --color__txt_optional_light: var(--color__light);
-  --color__gray: #4c4c4c;
-  --color__bg_gray: #f7f7f7;
+  --color__darklight: #1a1f2b;
+  --color__bg_darklight: var(--color__darklight);
+  --color__border_darklight: var(--color__darklight);
+  --color__txt_darklight: var(--color__light);
+  --color__gray: var(--color__darkgray);
+  --color__bg_gray: var(--color__lightgray);
   --color__border_gray: #ebebeb;
   --color__txt_gray: var(--color__gray);
-  --color__dark: #1a1f2b;
-  --color__bg_dark: var(--color__dark);
-  --color__border_dark: var(--color__dark);
-  --color__txt_dark: var(--color__light);
 }
 
 .transition {
@@ -47,7 +49,7 @@ table#tws__cart_table {
 
 table#tws__cart_table thead {
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   border: 0.0625rem solid #ebebeb;
   border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
@@ -114,7 +116,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap {
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap h2.coupon_heading {
   text-align: left;
   background: #f7f7f7;
-  background: var(--color__bg_gray);
+  background: var(--color__lightgray);
   padding: 0.75rem 1.25rem;
   font-weight: bold;
   font-size: 1.25rem;
@@ -143,7 +145,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate {
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals h2 {
   text-align: left;
   background: #f7f7f7;
-  background: var(--color__bg_gray);
+  background: var(--color__lightgray);
   padding: 0.75rem 1.25rem;
   font-weight: bold;
   font-size: 1.25rem;
@@ -170,7 +172,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
 
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total {
   background: #f7f7f7;
-  background: var(--color__bg_gray);
+  background: var(--color__lightgray);
 }
 
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total th {
@@ -192,7 +194,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button {
   background: #ffbd88;
   background: var(--color__secondary);
-  color: #343131;
+  color: #333;
   color: var(--color__txt_secondary);
   font-weight: 600;
   font-size: 1.25rem;
@@ -205,9 +207,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
 }
 
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
-  background: #1a1f2b;
   background: var(--color__bg_dark);
-  color: #fff;
   color: var(--color__txt_dark);
 }
 
@@ -220,7 +220,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,
 
 form#checkout .woocommerce-NoticeGroup-checkout {
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   margin: 2.5rem 0rem;
   padding: 1.25rem 0.625rem 1.25rem 1.875rem;
   border-top: 0.375rem solid #ffbd88;
@@ -242,7 +242,7 @@ form#checkout .billing_shipping .billing .woocommerce-billing-fields h3 {
   font-size: 1.25rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   border: 0.0625rem solid #ebebeb;
   border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
@@ -340,7 +340,7 @@ form#checkout .billing_shipping .billing .woocommerce-account-fields p {
   font-size: 1.25rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   border: 0.0625rem solid #ebebeb;
   border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
@@ -352,7 +352,7 @@ form#checkout .billing_shipping .shipping .woocommerce-shipping-fields h3 {
   font-size: 1.25rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   border: 0.0625rem solid #ebebeb;
   border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
@@ -457,7 +457,7 @@ form#checkout h3#order_review_heading {
   font-size: 1.25rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   border: 0.0625rem solid #ebebeb;
   border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
@@ -479,7 +479,7 @@ form#checkout #order_review table.woocommerce-checkout-review-order-table td, fo
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table thead {
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
 }
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table thead tr th {
@@ -526,7 +526,7 @@ form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot 
   border-top: 0.03125rem solid #ebebeb;
   border-top: 0.03125rem solid var(--color__border_gray);
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   color: #4c4c4c;
   color: var(--color__txt_gray);
 }
@@ -559,7 +559,7 @@ form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditi
   padding: 0.625rem 0.625rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   border: 0.0625rem solid #ebebeb;
   border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
@@ -586,7 +586,7 @@ form#checkout #order_review #payment .place-order button {
   margin: 1.25rem auto;
   background: #ffbd88;
   background: var(--color__secondary);
-  color: #343131;
+  color: #333;
   color: var(--color__txt_secondary);
   font-weight: 600;
   font-size: 1.25rem;
@@ -600,9 +600,7 @@ form#checkout #order_review #payment .place-order button {
 }
 
 form#checkout #order_review #payment .place-order button:hover {
-  background: #1a1f2b;
   background: var(--color__bg_dark);
-  color: #fff;
   color: var(--color__txt_dark);
 }
 

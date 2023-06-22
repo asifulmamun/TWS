@@ -1,7 +1,39 @@
+// default transition @inlcude transition(0.3s);
 @mixin transition($transition){
     transition: $transition ease;
     -webkit-transition: $transition ease;
     -moz-transition: $transition ease;
     -ms-transition: $transition ease;
     -o-transition: $transition ease;
+}
+
+// primary
+@mixin color_set_primary{
+    background-color: var(--color__bg_primary);
+    color: var(--color__txt_primary);
+}
+
+@mixin color_set_secondary{
+    background-color: var(--color__bg_secondary);
+    color: var(--color__txt_secondary);
+}
+
+@mixin color_set_optional{
+    background-color: var(--color__bg_optional);
+    color: var(--color__txt_optional);
+}
+
+@mixin color_set_optional_light{
+    background-color: var(--color__bg_optional_light);
+    color: var(--color__txt_optional_light);
+}
+
+@mixin color_set_darklight{
+    background-color: var(--color__bg_darklight);
+    color: var(--color__txt_darklight);
+}
+
+@mixin color_set_gray{
+    background-color: var(--color__bg_gray); // light gray 
+    color: var(--color__txt_gray); // dark gray
 }

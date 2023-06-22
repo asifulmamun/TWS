@@ -20,7 +20,7 @@ header#tws__header{
             
             a{
                 padding-left: $pxrem * 6;
-                color: var(--color__txt_primary);
+                color: var(--color__dark);
                 font-size: $pxrem * 20;
                 font-weight: $font_wight_bold;
                 text-transform: uppercase;
@@ -81,7 +81,7 @@ header#tws__header{
             display: flex;
 
             li{
-                border-right: $pxrem*3 solid var(--color__txt_primary);
+                border-right: $pxrem*3 solid var(--color__dark);
                 padding-right: $pxrem * 10;
                 padding-left: $pxrem * 10;
 
@@ -98,11 +98,11 @@ header#tws__header{
                     display: flex;
                     align-items: center;
                     font-size: $pxrem * 14;
-                    color: var(--color__txt_primary);
+                    color: var(--color__dark);
                     
 
                     svg{
-                        fill: var(--color__txt_primary);
+                        fill: var(--color__dark);
                     }
                 
                 }

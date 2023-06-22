@@ -2,25 +2,25 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/mobile_woo.scss ***!
   \*************************************************************************************************************************************************************/
 :root {
-  --color__bg_primary: #fff;
+  --color__light: #fff;
   --color__bg_secondary: #fafafa;
   --color__bg_optional: #f22127;
-  --color__bg_gray: #363f4d;
+  --color__lightgray: #363f4d;
   --color__border_gray: #363f4d;
   --color__primary: #1f86ba;
   --color__secondary: #f22127;
   --color__secondary_light: #ec454a;
-  --color__bg_gray: #363f4d;
+  --color__lightgray: #363f4d;
   --color__primary: #1f86ba;
   --color__secondary: #ffbd88;
   --color__optional: #f22127;
-  --color__txt_primary: #333;
+  --color__dark: #333;
   --color__txt_secondary: #343131;
   --color__txt_optional: #fff;
   --color__txt_gray: #313131;
   --color__txt_gray_light: rgba(49,49,49,0.54902);
   --color__optional_light: #ec454a;
-  --color__txt_primary: #fff;
+  --color__dark: #fff;
   --color__bg_hover_overlay: rgba(40,40,40,.75);
 }
 
@@ -45,7 +45,7 @@ nav.woocommerce-pagination ul li a {
   padding: 0.25rem 0.5rem;
   border: none;
   background-color: #363f4d;
-  background-color: var(--color__bg_gray);
+  background-color: var(--color__lightgray);
   color: #fff;
   color: var(--color__txt_optional);
 }
@@ -110,7 +110,7 @@ header#tws__header .tws__site_branding button {
 header#tws__header .tws__site_branding h1.tws__site_title a {
   padding-left: 0.375rem;
   color: #333;
-  color: var(--color__txt_primary);
+  color: var(--color__dark);
   font-size: 1.25rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -163,7 +163,7 @@ aside#aside .tws__quick_access_menu {
 
 aside#aside .tws__quick_access_menu ul#quick-access-menu li {
   border-right: 0.1875rem solid #333;
-  border-right: 0.1875rem solid var(--color__txt_primary);
+  border-right: 0.1875rem solid var(--color__dark);
   padding-right: 0.625rem;
   padding-left: 0.625rem;
 }
@@ -181,12 +181,12 @@ aside#aside .tws__quick_access_menu ul#quick-access-menu li a {
   display: flex;
   align-items: center;
   color: #333;
-  color: var(--color__txt_primary);
+  color: var(--color__dark);
 }
 
 aside#aside .tws__quick_access_menu ul#quick-access-menu li a svg {
   fill: #333;
-  fill: var(--color__txt_primary);
+  fill: var(--color__dark);
 }
 
 footer {

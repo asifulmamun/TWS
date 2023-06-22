@@ -16,7 +16,7 @@ table#tws__cart_table{
 
     // table head
     thead{
-        background-color: var(--color__bg_gray);
+        background-color: var(--color__lightgray);
         border: $pxrem*1 solid var(--color__border_gray);
         color: var(--color__txt_gray);
 
@@ -98,7 +98,7 @@ table#tws__cart_table{
                 
                 h2.coupon_heading{
                     text-align: left;
-                    background: var(--color__bg_gray);
+                    background: var(--color__lightgray);
                     padding: $pxrem*12 $pxrem*20;
                     font-weight: bold;
                     font-size: $pxrem*20;
@@ -127,7 +127,7 @@ table#tws__cart_table{
                     .cart_totals {
                         h2{
                             text-align: left;
-                            background: var(--color__bg_gray);
+                            background: var(--color__lightgray);
                             padding: $pxrem*12 $pxrem*20;
                             font-weight: bold;
                             font-size: $pxrem*20;
@@ -157,7 +157,7 @@ table#tws__cart_table{
                                 }
 
                                 tr.order-total{
-                                    background: var(--color__bg_gray);
+                                    background: var(--color__lightgray);
 
                                     th{
                                         font-size: $pxrem*18;
@@ -214,7 +214,7 @@ form#checkout{
     // Required Notices - checkout page
     .woocommerce-NoticeGroup-checkout{
 
-        background-color: var(--color__bg_gray);
+        background-color: var(--color__lightgray);
         margin: $pxrem*40 $pxrem*0;
         padding: $pxrem*20 $pxrem*10 $pxrem*20 $pxrem*30;
         border-top: $pxrem*6 solid var(--color__border_secondary);
@@ -243,7 +243,7 @@ form#checkout{
                     padding: $pxrem*10 $pxrem*10;
                     font-size: $pxrem*20;
                     font-weight: bold;
-                    background-color: var(--color__bg_gray);
+                    background-color: var(--color__lightgray);
                     border: $pxrem*1 solid var(--color__border_gray);
                     color: var(--color__txt_gray);
                 }
@@ -346,7 +346,7 @@ form#checkout{
                     padding: $pxrem*10 $pxrem*10;
                     font-size: $pxrem*20;
                     font-weight: bold;
-                    background-color: var(--color__bg_gray);
+                    background-color: var(--color__lightgray);
                     border: $pxrem*1 solid var(--color__border_gray);
                     color: var(--color__txt_gray);
                 }
@@ -366,7 +366,7 @@ form#checkout{
                     padding: $pxrem*10 $pxrem*10;
                     font-size: $pxrem*20;
                     font-weight: bold;
-                    background-color: var(--color__bg_gray);
+                    background-color: var(--color__lightgray);
                     border: $pxrem*1 solid var(--color__border_gray);
                     color: var(--color__txt_gray);
                 }
@@ -487,7 +487,7 @@ form#checkout{
         padding: $pxrem*10 $pxrem*10;
         font-size: $pxrem*20;
         font-weight: bold;
-        background-color: var(--color__bg_gray);
+        background-color: var(--color__lightgray);
         border: $pxrem*1 solid var(--color__border_gray);
         color: var(--color__txt_gray);
     }
@@ -504,7 +504,7 @@ form#checkout{
             }
             
             thead{
-                background-color: var(--color__bg_gray);
+                background-color: var(--color__lightgray);
                 
                 tr{
                     th{
@@ -556,7 +556,7 @@ form#checkout{
                 // total
                 tr.order-total{
                     border-top: $pxrem*.5 solid var(--color__border_gray);
-                    background-color: var(--color__bg_gray);
+                    background-color: var(--color__lightgray);
                     color: var(--color__txt_gray);
 
                     th,td{
@@ -597,7 +597,7 @@ form#checkout{
                     p.validate-required{
                         padding: $pxrem*10 $pxrem*10;
                         font-weight: bold;
-                        background-color: var(--color__bg_gray);
+                        background-color: var(--color__lightgray);
                         border: $pxrem*1 solid var(--color__border_gray);
                         color: var(--color__txt_gray);
                         margin-top: $pxrem*20;

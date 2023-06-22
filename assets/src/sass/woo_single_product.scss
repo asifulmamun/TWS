@@ -122,8 +122,8 @@
                     padding-bottom: $pxrem*3;
                     font-size: $pxrem*20;
                     font-weight: bolder;
-                    background: var(--color__bg_gray);
-                    color: var(--color__txt_primary);
+                    background: var(--color__lightgray);
+                    color: var(--color__dark);
                     @include transition(0.3s); // from abstract/mixins file
 
                     &:hover{
@@ -140,7 +140,7 @@
                 padding: $pxrem*8 $pxrem*30;
                 margin-top: $pxrem*12;
 
-                background: var(--color__bg_gray);
+                background: var(--color__lightgray);
                 font-size: $pxrem*18;
                 color: var(--color__txt_optional);
                 @include transition(0.3s); // from abstract/mixins file

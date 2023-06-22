@@ -50,7 +50,7 @@ aside#aside{
             // display: flex;
 
             li{
-                border-right: $pxrem*3 solid var(--color__txt_primary);
+                border-right: $pxrem*3 solid var(--color__dark);
                 padding-right: $pxrem*10;
                 padding-left: $pxrem*10;
 
@@ -66,11 +66,11 @@ aside#aside{
                 a{
                     display: flex;
                     align-items: center;
-                    color: var(--color__txt_primary);
+                    color: var(--color__dark);
                     
 
                     svg{
-                        fill: var(--color__txt_primary);
+                        fill: var(--color__dark);
                     }
                 
                 }
