@@ -2,33 +2,33 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/cart_checkout.scss ***!
   \****************************************************************************************************************************************************************/
 :root {
-  --color__bg_primary: #fff;
-  --color__bg_secondary: #fafafa;
-  --color__bg_optional: #f22127;
-  --color__bg_gray: #363f4d;
-  --color__bg_gray_border: #363f4d;
-  --color__bg_btn_primary: #1f86ba;
-  --color__bg_btn_secondary_light: #ec454a;
-  --color__bg_btn_gray: #f7f7f7;
-  --color__border_btn_gray: #ebebeb;
-  --color__txt_btn_gray: #4c4c4c;
-  --color__bg_btn_dark: #1a1f2b;
-  --color__txt_btn_dark: #fff;
-  --color__bg_btn_secondary: #d72828;
-  --color__border_btn_secondary: #d72828;
-  --color__txt_btn_secondary: #fff;
-  --color__bg_btn_third: #363f4d;
-  --color__primary: #1f86ba;
-  --color__secondary: #ffbd88;
-  --color__optional: #f22127;
-  --color__txt_primary: #333;
-  --color__txt_secondary: #343131;
-  --color__txt_optional: #fff;
-  --color__txt_gray: #4c4c4c;
-  --color__txt_gray_light: rgba(49,49,49,0.54902);
-  --color__txt_red: #ec454a;
-  --color__txt_btn_primary: #fff;
+  --color__dark: #333;
+  --color__light: #fff;
   --color__bg_hover_overlay: rgba(40,40,40,.75);
+  --color__primary: #1f86ba;
+  --color__bg_primary: var(--color__light);
+  --color__border_primary: var(--color__primary);
+  --color__txt_primary: var(--color__dark);
+  --color__secondary: #ffbd88;
+  --color__bg_secondary: var(--color__bg_primary);
+  --color__border_secondary: var(--color__secondary);
+  --color__txt_secondary: #343131;
+  --color__optional: #f22127;
+  --color__bg_optional: var(--color__bg_primary);
+  --color__border_optional: var(--color__optional);
+  --color__txt_optional: var(--color__light);
+  --color__optional_light: #ec454a;
+  --color__bg_optional_light: var(--color__bg_primary);
+  --color__border_optional_light: var(--color__optional_light);
+  --color__txt_optional_light: var(--color__light);
+  --color__gray: #4c4c4c;
+  --color__bg_gray: #f7f7f7;
+  --color__border_gray: #ebebeb;
+  --color__txt_gray: var(--color__gray);
+  --color__dark: #1a1f2b;
+  --color__bg_dark: var(--color__dark);
+  --color__border_dark: var(--color__dark);
+  --color__txt_dark: var(--color__light);
 }
 
 .transition {
@@ -47,11 +47,11 @@ table#tws__cart_table {
 
 table#tws__cart_table thead {
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
 }
 
 table#tws__cart_table thead tr {
@@ -65,7 +65,7 @@ table#tws__cart_table thead tr th {
 table#tws__cart_table tbody#cart_t_body tr {
   text-align: center;
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
 }
 
 table#tws__cart_table tbody#cart_t_body tr td.product-thumbnail {
@@ -83,7 +83,7 @@ table#tws__cart_table tbody#cart_t_body tr td.product-quantity .quantity input {
   width: 5rem;
   height: 2.5rem;
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   text-align: center;
   font-weight: bold;
   font-size: 1.125rem;
@@ -114,7 +114,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap {
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap h2.coupon_heading {
   text-align: left;
   background: #f7f7f7;
-  background: var(--color__bg_btn_gray);
+  background: var(--color__bg_gray);
   padding: 0.75rem 1.25rem;
   font-weight: bold;
   font-size: 1.25rem;
@@ -128,7 +128,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap .
   width: 100%;
   outline: none;
   border: 0.03125rem solid #ebebeb;
-  border: 0.03125rem solid var(--color__border_btn_gray);
+  border: 0.03125rem solid var(--color__border_gray);
   padding: 0.5rem 0.625rem;
 }
 
@@ -143,7 +143,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate {
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals h2 {
   text-align: left;
   background: #f7f7f7;
-  background: var(--color__bg_btn_gray);
+  background: var(--color__bg_gray);
   padding: 0.75rem 1.25rem;
   font-weight: bold;
   font-size: 1.25rem;
@@ -170,7 +170,7 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
 
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total {
   background: #f7f7f7;
-  background: var(--color__bg_btn_gray);
+  background: var(--color__bg_gray);
 }
 
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total th {
@@ -190,10 +190,10 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
 }
 
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button {
-  background: #d72828;
-  background: var(--color__bg_btn_secondary);
-  color: #fff;
-  color: var(--color__txt_btn_secondary);
+  background: #ffbd88;
+  background: var(--color__secondary);
+  color: #343131;
+  color: var(--color__txt_secondary);
   font-weight: 600;
   font-size: 1.25rem;
   padding: 0.625rem 1rem;
@@ -206,9 +206,9 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
 
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
   background: #1a1f2b;
-  background: var(--color__bg_btn_dark);
+  background: var(--color__bg_dark);
   color: #fff;
-  color: var(--color__txt_btn_dark);
+  color: var(--color__txt_dark);
 }
 
 table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,
@@ -220,11 +220,11 @@ table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,
 
 form#checkout .woocommerce-NoticeGroup-checkout {
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
   margin: 2.5rem 0rem;
   padding: 1.25rem 0.625rem 1.25rem 1.875rem;
-  border-top: 0.375rem solid #d72828;
-  border-top: 0.375rem solid var(--color__border_btn_secondary);
+  border-top: 0.375rem solid #ffbd88;
+  border-top: 0.375rem solid var(--color__border_secondary);
 }
 
 form#checkout .woocommerce-NoticeGroup-checkout ul.woocommerce-error li {
@@ -242,16 +242,16 @@ form#checkout .billing_shipping .billing .woocommerce-billing-fields h3 {
   font-size: 1.25rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
 }
 
 form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper {
   border: 0.03125rem solid #ebebeb;
-  border: 0.03125rem solid var(--color__border_btn_gray);
+  border: 0.03125rem solid var(--color__border_gray);
   padding-top: 1.875rem;
   padding-bottom: 1.875rem;
 }
@@ -267,7 +267,7 @@ form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerc
 form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p.form-row input {
   outline: none;
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   height: 2.5rem;
   margin-top: 0.625rem;
   padding: 0.3125rem 0.5rem;
@@ -275,17 +275,17 @@ form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerc
 
 form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p abbr.required {
   color: #ec454a;
-  color: var(--color__txt_red);
+  color: var(--color__optional_light);
 }
 
 form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p.woocommerce-invalid-required-field label {
   color: #ec454a;
-  color: var(--color__txt_red);
+  color: var(--color__optional_light);
 }
 
 form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p.woocommerce-invalid-required-field input {
-  border: 0.0625rem solid #d72828;
-  border: 0.0625rem solid var(--color__border_btn_secondary);
+  border: 0.0625rem solid #ffbd88;
+  border: 0.0625rem solid var(--color__border_secondary);
 }
 
 form#checkout .billing_shipping .billing .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p#billing_first_name_field,
@@ -340,11 +340,11 @@ form#checkout .billing_shipping .billing .woocommerce-account-fields p {
   font-size: 1.25rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
 }
 
 form#checkout .billing_shipping .shipping .woocommerce-shipping-fields h3 {
@@ -352,16 +352,16 @@ form#checkout .billing_shipping .shipping .woocommerce-shipping-fields h3 {
   font-size: 1.25rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
 }
 
 form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address {
   border: 0.03125rem solid #ebebeb;
-  border: 0.03125rem solid var(--color__border_btn_gray);
+  border: 0.03125rem solid var(--color__border_gray);
 }
 
 form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper {
@@ -380,7 +380,7 @@ form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping
 form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p.form-row input {
   outline: none;
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   height: 2.5rem;
   margin-top: 0.625rem;
   padding: 0.3125rem 0.5rem;
@@ -388,17 +388,17 @@ form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping
 
 form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p abbr.required {
   color: #ec454a;
-  color: var(--color__txt_red);
+  color: var(--color__optional_light);
 }
 
 form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p.woocommerce-invalid-required-field label {
   color: #ec454a;
-  color: var(--color__txt_red);
+  color: var(--color__optional_light);
 }
 
 form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p.woocommerce-invalid-required-field input {
-  border: 0.0625rem solid #d72828;
-  border: 0.0625rem solid var(--color__border_btn_secondary);
+  border: 0.0625rem solid #ffbd88;
+  border: 0.0625rem solid var(--color__border_secondary);
 }
 
 form#checkout .billing_shipping .shipping .woocommerce-shipping-fields .shipping_address .woocommerce-shipping-fields__field-wrapper p#shipping_first_name_field,
@@ -457,11 +457,11 @@ form#checkout h3#order_review_heading {
   font-size: 1.25rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
 }
 
 form#checkout #order_review {
@@ -479,24 +479,24 @@ form#checkout #order_review table.woocommerce-checkout-review-order-table td, fo
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table thead {
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
 }
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table thead tr th {
   padding: 0.625rem 0.625rem;
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
 }
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table tbody tr {
   border-bottom: 0.03125rem solid #ebebeb;
-  border-bottom: 0.03125rem solid var(--color__border_btn_gray);
+  border-bottom: 0.03125rem solid var(--color__border_gray);
 }
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table tbody tr td, form#checkout #order_review table.woocommerce-checkout-review-order-table tbody tr th {
   padding: 0.625rem 0.625rem;
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
 }
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table tbody tr:last-child td {
@@ -505,7 +505,7 @@ form#checkout #order_review table.woocommerce-checkout-review-order-table tbody 
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot {
   border: 0.03125rem solid #ebebeb;
-  border: 0.03125rem solid var(--color__border_btn_gray);
+  border: 0.03125rem solid var(--color__border_gray);
 }
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr th, form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr td {
@@ -524,11 +524,11 @@ form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot 
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.order-total {
   border-top: 0.03125rem solid #ebebeb;
-  border-top: 0.03125rem solid var(--color__border_btn_gray);
+  border-top: 0.03125rem solid var(--color__border_gray);
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
 }
 
 form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.order-total th, form#checkout #order_review table.woocommerce-checkout-review-order-table tfoot tr.order-total td {
@@ -559,11 +559,11 @@ form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditi
   padding: 0.625rem 0.625rem;
   font-weight: bold;
   background-color: #f7f7f7;
-  background-color: var(--color__bg_btn_gray);
+  background-color: var(--color__bg_gray);
   border: 0.0625rem solid #ebebeb;
-  border: 0.0625rem solid var(--color__border_btn_gray);
+  border: 0.0625rem solid var(--color__border_gray);
   color: #4c4c4c;
-  color: var(--color__txt_btn_gray);
+  color: var(--color__txt_gray);
   margin-top: 1.25rem;
 }
 
@@ -584,10 +584,10 @@ form#checkout #order_review #payment .place-order .woocommerce-terms-and-conditi
 form#checkout #order_review #payment .place-order button {
   display: block;
   margin: 1.25rem auto;
-  background: #d72828;
-  background: var(--color__bg_btn_secondary);
-  color: #fff;
-  color: var(--color__txt_btn_secondary);
+  background: #ffbd88;
+  background: var(--color__secondary);
+  color: #343131;
+  color: var(--color__txt_secondary);
   font-weight: 600;
   font-size: 1.25rem;
   width: 80%;
@@ -601,9 +601,9 @@ form#checkout #order_review #payment .place-order button {
 
 form#checkout #order_review #payment .place-order button:hover {
   background: #1a1f2b;
-  background: var(--color__bg_btn_dark);
+  background: var(--color__bg_dark);
   color: #fff;
-  color: var(--color__txt_btn_dark);
+  color: var(--color__txt_dark);
 }
 
 

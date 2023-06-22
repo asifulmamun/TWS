@@ -6,11 +6,11 @@
   --color__bg_secondary: #fafafa;
   --color__bg_optional: #f22127;
   --color__bg_gray: #363f4d;
-  --color__bg_gray_border: #363f4d;
-  --color__bg_btn_primary: #1f86ba;
-  --color__bg_btn_secondary: #f22127;
-  --color__bg_btn_secondary_light: #ec454a;
-  --color__bg_btn_third: #363f4d;
+  --color__border_gray: #363f4d;
+  --color__primary: #1f86ba;
+  --color__secondary: #f22127;
+  --color__secondary_light: #ec454a;
+  --color__bg_gray: #363f4d;
   --color__primary: #1f86ba;
   --color__secondary: #ffbd88;
   --color__optional: #f22127;
@@ -19,8 +19,8 @@
   --color__txt_optional: #fff;
   --color__txt_gray: #313131;
   --color__txt_gray_light: rgba(49,49,49,0.54902);
-  --color__txt_red: #ec454a;
-  --color__txt_btn_primary: #fff;
+  --color__optional_light: #ec454a;
+  --color__txt_primary: #fff;
   --color__bg_hover_overlay: rgba(40,40,40,.75);
 }
 
@@ -78,7 +78,7 @@ body {
 
 ::-webkit-scrollbar-track {
   background: #363f4d;
-  background: var(--color__bg_gray_border);
+  background: var(--color__border_gray);
 }
 
 /* Handle */
@@ -92,7 +92,7 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #f22127;
-  background: var(--color__bg_btn_secondary);
+  background: var(--color__secondary);
 }
 
 header#tws__header {

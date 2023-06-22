@@ -20,39 +20,39 @@ body{
 }
 
 .tws__btn_dark{
-    background-color: var(--color__bg_btn_dark);
-    color: var(--color__txt_btn_dark);
+    background-color: var(--color__bg_dark);
+    color: var(--color__txt_dark);
 }
 
 .tws__btn_dark_hover{
     &:hover{
-        background-color: var(--color__bg_btn_secondary);
-        color: var(--color__txt_btn_secondary);
+        background-color: var(--color__secondary);
+        color: var(--color__txt_secondary);
     }
 }
 
 .tws__btn_gray{
-    background-color: var(--color__bg_btn_gray);
-    color: var(--color__txt_btn_gray);
+    background-color: var(--color__bg_gray);
+    color: var(--color__txt_gray);
 }
 
 .tws__btn_gray_hover{
     &:hover{
-        background-color: var(--color__bg_btn_secondary);
-        color: var(--color__txt_btn_secondary);
+        background-color: var(--color__secondary);
+        color: var(--color__txt_secondary);
     }
 }
 
 
 .tws__btn_secondary{
-    background-color: var(--color__bg_btn_secondary);
-    color: var(--color__txt_btn_secondary);
+    background-color: var(--color__secondary);
+    color: var(--color__txt_secondary);
 }
 
 .tws__btn_secondary_hover{
     &:hover{
-        background-color: var(--color__bg_btn_dark);
-        color: var(--color__txt_btn_dark);
+        background-color: var(--color__bg_dark);
+        color: var(--color__txt_dark);
     }
 }
 
@@ -70,7 +70,7 @@ body{
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: var(--color__bg_gray_border); 
+    background: var(--color__border_gray); 
 }
 
 /* Handle */
@@ -80,5 +80,5 @@ body{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color__bg_btn_secondary); 
+    background: var(--color__secondary); 
 }

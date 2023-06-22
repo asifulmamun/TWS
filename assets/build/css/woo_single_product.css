@@ -2,33 +2,33 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/woo_single_product.scss ***!
   \*********************************************************************************************************************************************************************/
 :root {
-  --color__bg_primary: #fff;
-  --color__bg_secondary: #fafafa;
-  --color__bg_optional: #f22127;
-  --color__bg_gray: #363f4d;
-  --color__bg_gray_border: #363f4d;
-  --color__bg_btn_primary: #1f86ba;
-  --color__bg_btn_secondary_light: #ec454a;
-  --color__bg_btn_gray: #f7f7f7;
-  --color__border_btn_gray: #ebebeb;
-  --color__txt_btn_gray: #4c4c4c;
-  --color__bg_btn_dark: #1a1f2b;
-  --color__txt_btn_dark: #fff;
-  --color__bg_btn_secondary: #d72828;
-  --color__border_btn_secondary: #d72828;
-  --color__txt_btn_secondary: #fff;
-  --color__bg_btn_third: #363f4d;
-  --color__primary: #1f86ba;
-  --color__secondary: #ffbd88;
-  --color__optional: #f22127;
-  --color__txt_primary: #333;
-  --color__txt_secondary: #343131;
-  --color__txt_optional: #fff;
-  --color__txt_gray: #4c4c4c;
-  --color__txt_gray_light: rgba(49,49,49,0.54902);
-  --color__txt_red: #ec454a;
-  --color__txt_btn_primary: #fff;
+  --color__dark: #333;
+  --color__light: #fff;
   --color__bg_hover_overlay: rgba(40,40,40,.75);
+  --color__primary: #1f86ba;
+  --color__bg_primary: var(--color__light);
+  --color__border_primary: var(--color__primary);
+  --color__txt_primary: var(--color__dark);
+  --color__secondary: #ffbd88;
+  --color__bg_secondary: var(--color__bg_primary);
+  --color__border_secondary: var(--color__secondary);
+  --color__txt_secondary: #343131;
+  --color__optional: #f22127;
+  --color__bg_optional: var(--color__bg_primary);
+  --color__border_optional: var(--color__optional);
+  --color__txt_optional: var(--color__light);
+  --color__optional_light: #ec454a;
+  --color__bg_optional_light: var(--color__bg_primary);
+  --color__border_optional_light: var(--color__optional_light);
+  --color__txt_optional_light: var(--color__light);
+  --color__gray: #4c4c4c;
+  --color__bg_gray: #f7f7f7;
+  --color__border_gray: #ebebeb;
+  --color__txt_gray: var(--color__gray);
+  --color__dark: #1a1f2b;
+  --color__bg_dark: var(--color__dark);
+  --color__border_dark: var(--color__dark);
+  --color__txt_dark: var(--color__light);
 }
 
 .tws__single_product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
@@ -49,7 +49,6 @@
 
 .tws__single_product .woocommerce-product-gallery ol.flex-control-nav li {
   margin: 0.5rem 0.75rem;
-  border: 0.0625rem solid rgba(49,49,49,0.54902);
   border: 0.0625rem solid var(--color__txt_gray_light);
   cursor: pointer;
 }
@@ -63,7 +62,7 @@
   font-size: 1.125rem;
   font-weight: bolder;
   color: #ec454a;
-  color: var(--color__txt_red);
+  color: var(--color__optional_light);
   padding-top: 1.25rem;
 }
 
@@ -104,10 +103,10 @@
   padding-bottom: 0.1875rem;
   font-size: 1.25rem;
   font-weight: bolder;
-  background: #363f4d;
+  background: #f7f7f7;
   background: var(--color__bg_gray);
-  color: #fff;
-  color: var(--color__txt_btn_primary);
+  color: #1a1f2b;
+  color: var(--color__txt_primary);
   transition: 0.3s ease;
   -webkit-transition: 0.3s ease;
   -moz-transition: 0.3s ease;
@@ -117,14 +116,14 @@
 
 .tws__single_product .summary form.cart .quantity button#qty_inc:hover,
     .tws__single_product .summary form.cart .quantity button#qty_dec:hover {
-  background: #f22127;
+  background: #fff;
   background: var(--color__bg_optional);
 }
 
 .tws__single_product .summary form.cart button[type="submit"] {
   padding: 0.5rem 1.875rem;
   margin-top: 0.75rem;
-  background: #363f4d;
+  background: #f7f7f7;
   background: var(--color__bg_gray);
   font-size: 1.125rem;
   color: #fff;
@@ -137,7 +136,7 @@
 }
 
 .tws__single_product .summary form.cart button[type="submit"]:hover {
-  background: #f22127;
+  background: #fff;
   background: var(--color__bg_optional);
 }
 
@@ -156,7 +155,6 @@
 }
 
 .tws__single_product .summary .product_meta .posted_in {
-  color: rgba(49,49,49,0.54902);
   color: var(--color__txt_gray_light);
 }
 
@@ -176,7 +174,7 @@
 .tws__single_product .summary .product_meta .posted_in a:hover {
   font-weight: bold;
   color: #ec454a;
-  color: var(--color__txt_red);
+  color: var(--color__optional_light);
 }
 
 .tws__single_product .wc-tabs-wrapper {
@@ -189,13 +187,13 @@
   display: flex;
   flex-direction: row;
   background: #1f86ba;
-  background: var(--color__bg_btn_primary);
+  background: var(--color__primary);
 }
 
 .tws__single_product .wc-tabs-wrapper ul.wc-tabs li a {
   padding: 1.25rem 0.625rem;
   background: #1f86ba;
-  background: var(--color__bg_btn_primary);
+  background: var(--color__primary);
   color: #fff;
   color: var(--color__txt_optional);
   font-size: 1rem;
@@ -208,12 +206,12 @@
 }
 
 .tws__single_product .wc-tabs-wrapper ul.wc-tabs li a:hover {
-  background-color: #f22127;
+  background-color: #fff;
   background-color: var(--color__bg_optional);
 }
 
 .tws__single_product .wc-tabs-wrapper ul.wc-tabs li.active a {
-  background-color: #f22127;
+  background-color: #fff;
   background-color: var(--color__bg_optional);
 }
 
@@ -230,7 +228,7 @@
 .tws__single_product section.related > h2 {
   padding: 0.625rem 0.625rem;
   background: #1f86ba;
-  background: var(--color__bg_btn_primary);
+  background: var(--color__primary);
   color: #fff;
   color: var(--color__txt_optional);
   font-size: 1rem;

@@ -1,3 +1,8 @@
+/* 
+ * 
+ * Main
+ * --------------------------------
+*/
 html{
     overflow-x: hidden;
 }
@@ -6,72 +11,17 @@ body{
     font-size: $size__txt_body;
 }
 
-// main#main{
-//     header.entry-header{
-//         background: var(--color__bg_optional);
-//         color: var(--color__txt_optional);
-//     }
-// }
-
-// aside{
-//     transition: .3s;
-// }
-
-// main{
-//     transition: .5s;
-// }
-
-/* button defaults */
-
-.tws__btn_padding{
-    padding: $pxrem*8 $pxrem*12;
-}
-
-.tws__btn_dark{
-    background-color: var(--color__bg_btn_dark);
-    color: var(--color__txt_btn_dark);
-}
-
-.tws__btn_dark_hover{
-    &:hover{
-        background-color: var(--color__bg_btn_secondary);
-        color: var(--color__txt_btn_secondary);
-    }
-}
-
-.tws__btn_gray{
-    background-color: var(--color__bg_btn_gray);
-    color: var(--color__txt_btn_gray);
-}
-
-.tws__btn_gray_hover{
-    &:hover{
-        background-color: var(--color__bg_btn_secondary);
-        color: var(--color__txt_btn_secondary);
-    }
-}
-
-
-.tws__btn_secondary{
-    background-color: var(--color__bg_btn_secondary);
-    color: var(--color__txt_btn_secondary);
-}
-
-.tws__btn_secondary_hover{
-    &:hover{
-        background-color: var(--color__bg_btn_dark);
-        color: var(--color__txt_btn_dark);
-    }
-}
-
 
 .tws__text_xxs{
     font-size: $text__xxs;;
 }
 
 
+
 /* 
-    Custom Scrollbar
+ * 
+ * Custom Scrollbar
+ * --------------------------------
 */
 ::-webkit-scrollbar {
     width: $pxrem * 4;
@@ -89,5 +39,83 @@ body{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color__bg_btn_secondary); 
+    background: var(--color__secondary); 
+}
+
+
+
+/* 
+ * 
+ * Default button styles
+ * --------------------------------
+*/
+
+// default padding at button
+.tws__btn_padding{
+    padding: $pxrem*8 $pxrem*12;
+}
+
+// primary button
+.tws__btn_primary{
+    background-color: var(--color__primary);
+    color: var(--color_light);
+}
+
+.tws__btn_primary_hover{
+    &:hover{
+        background-color: var(--color__secondary);
+        color: var(--color__txt_secondary);
+    }
+}
+
+// secondary button
+.tws__btn_secondary{
+    background-color: var(--color__secondary);
+    color: var(--color__txt_secondary);
+}
+
+.tws__btn_secondary_hover{
+    &:hover{
+        background-color: var(--color__bg_dark);
+        color: var(--color__txt_dark);
+    }
+}
+
+// optional button
+.tws__btn_optional{
+    background-color: var(--color__secondary);
+    color: var(--color__txt_secondary);
+}
+
+.tws__btn_optional_hover{
+    &:hover{
+        background-color: var(--color__bg_dark);
+        color: var(--color__txt_dark);
+    }
+}
+
+// dark button
+.tws__btn_dark{
+    background-color: var(--color__bg_dark);
+    color: var(--color__txt_dark);
+}
+
+.tws__btn_dark_hover{
+    &:hover{
+        background-color: var(--color__secondary);
+        color: var(--color__txt_secondary);
+    }
+}
+
+// gray button
+.tws__btn_gray{
+    background-color: var(--color__bg_gray);
+    color: var(--color__txt_gray);
+}
+
+.tws__btn_gray_hover{
+    &:hover{
+        background-color: var(--color__secondary);
+        color: var(--color__txt_secondary);
+    }
 }
