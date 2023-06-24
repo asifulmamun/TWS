@@ -3,7 +3,7 @@ aside#aside{
     // width: $aside_width;
     padding-bottom: 2.25rem;
     height: calc(100% - #{$pxrem * 55});
-    background-color: var(--color__bg_secondary);
+    background-color: var(--color__light);
     flex-direction: column;
     
     // aside primary nav

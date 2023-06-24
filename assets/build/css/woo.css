@@ -6,7 +6,7 @@
   --color__light: #fff;
   --color__lightgray: #f7f7f7;
   --color__darkgray: #4c4c4c;
-  --color__bg_hover_overlay: rgba(40,40,40,.75);
+  --color__darklight_overlay: rgba(40,40,40,.75);
   --color__primary: #1f86ba;
   --color__bg_primary: var(--color__primary);
   --color__border_primary: var(--color__primary);
@@ -145,7 +145,7 @@ nav.woocommerce-pagination ul li a {
 
 .tws__products_ul li .tws__product_wrapper a.tws__product_hover_add_to_cart {
   background-color: rgba(40,40,40,.75);
-  background-color: var(--color__bg_hover_overlay);
+  background-color: var(--color__darklight_overlay);
 }
 
 .tws__products_ul li .tws__product_wrapper .tws__product_img_wrap {
@@ -176,14 +176,14 @@ nav.woocommerce-pagination ul li a {
 #tws__mini_cart #tws__mini_cart_left_close_btn {
   left: -1.5625rem;
   background-color: rgba(40,40,40,.75);
-  background-color: var(--color__bg_hover_overlay);
-  color: #333;
-  color: var(--color__dark);
+  background-color: var(--color__darklight_overlay);
+  color: #fff;
+  color: var(--color__light);
 }
 
 #tws__mini_cart #tws__mini_cart_left_close_btn:hover {
-  background-color: #f7f7f7;
-  background-color: var(--color__lightgray);
+  background-color: #333;
+  background-color: var(--color__dark);
 }
 
 #tws__mini_cart #tws__mini_cart_header #tws__mini_cart_header_shipping_charge {
@@ -208,8 +208,8 @@ nav.woocommerce-pagination ul li a {
 }
 
 #tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer {
-  background-color: #ffbd88;
-  background-color: var(--color__bg_secondary);
+  background-color: #fff;
+  background-color: var(--color__light);
 }
 
 #tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer #tws__has_coupon_code {
@@ -241,37 +241,11 @@ nav.woocommerce-pagination ul li a {
   background: var(--color__secondary);
 }
 
-#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer button#tws__coupon_wrap_close {
-  background: #ffbd88;
-  background: var(--color__secondary);
-  color: #333;
-  color: var(--color__dark);
-}
-
-#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer button#tws__coupon_wrap_close:hover {
-  background: #1f86ba;
-  background: var(--color__primary);
-}
-
 #tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer #tws__coupon_list_ul li button {
   background-color: #f22127;
   background-color: var(--color__bg_optional);
   color: #fff;
   color: var(--color__txt_optional);
-}
-
-#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer .tws__mini_cart_checkout_wrap a {
-  background-color: #ffbd88;
-  background-color: var(--color__secondary);
-  color: #333;
-  color: var(--color__dark);
-}
-
-#tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer .tws__mini_cart_checkout_wrap a:hover {
-  background-color: #ffbd88;
-  background-color: var(--color__secondary);
-  color: #333;
-  color: var(--color__dark);
 }
 
 #tws__mini_cart div.widget_shopping_cart div.widget_shopping_cart_content #tws__mini_cart_footer .tws__mini_cart_checkout_wrap .tws__mini_cart_total_amount {
@@ -340,39 +314,72 @@ body {
   padding: 0.5rem 0.75rem;
 }
 
-.tws__btn_primary {
+.tws__color_set_primary {
   background-color: #1f86ba;
   background-color: var(--color__bg_primary);
   color: #fff;
   color: var(--color__txt_primary);
 }
 
-.tws__btn_secondary {
+.tws__color_set_primary_hover:hover {
   background-color: #ffbd88;
   background-color: var(--color__bg_secondary);
   color: #333;
   color: var(--color__txt_secondary);
 }
 
-.tws__btn_optional {
+.tws__color_set_secondary {
+  background-color: #ffbd88;
+  background-color: var(--color__bg_secondary);
+  color: #333;
+  color: var(--color__txt_secondary);
+}
+
+.tws__color_set_secondary_hover:hover {
+  background-color: #1f86ba;
+  background-color: var(--color__bg_primary);
+  color: #fff;
+  color: var(--color__txt_primary);
+}
+
+.tws__color_set_optional {
   background-color: #f22127;
   background-color: var(--color__bg_optional);
   color: #fff;
   color: var(--color__txt_optional);
 }
 
-.tws__btn_darklight {
+.tws__color_set_optional_hover:hover {
+  background-color: #ec454a;
+  background-color: var(--color__bg_optional_light);
+  color: #fff;
+  color: var(--color__txt_optional_light);
+}
+
+.tws__color_set_darklight {
   background-color: #1a1f2b;
   background-color: var(--color__bg_darklight);
   color: #fff;
   color: var(--color__txt_darklight);
 }
 
-.tws__btn_gray {
+.tws__color_set_darklight_hover:hover {
+  background-color: rgba(40,40,40,.75);
+  background-color: var(--color__darklight_overlay);
+}
+
+.tws__color_set_gray {
   background-color: #f7f7f7;
   background-color: var(--color__bg_gray);
   color: #4c4c4c;
   color: var(--color__txt_gray);
+}
+
+.tws__color_set_gray_hover:hover {
+  background-color: rgba(40,40,40,.75);
+  background-color: var(--color__darklight_overlay);
+  color: #fff;
+  color: var(--color__light);
 }
 
 header#tws__header {
@@ -470,8 +477,8 @@ header#tws__header .tws__right_bar .tws__single_menu a svg {
 aside#aside {
   padding-bottom: 2.25rem;
   height: calc(100% - 3.4375rem);
-  background-color: #ffbd88;
-  background-color: var(--color__bg_secondary);
+  background-color: #fff;
+  background-color: var(--color__light);
   flex-direction: column;
 }
 

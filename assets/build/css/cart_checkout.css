@@ -6,7 +6,7 @@
   --color__light: #fff;
   --color__lightgray: #f7f7f7;
   --color__darkgray: #4c4c4c;
-  --color__bg_hover_overlay: rgba(40,40,40,.75);
+  --color__darklight_overlay: rgba(40,40,40,.75);
   --color__primary: #1f86ba;
   --color__bg_primary: var(--color__primary);
   --color__border_primary: var(--color__primary);

@@ -21,7 +21,7 @@
   --color__txt_gray_light: rgba(49,49,49,0.54902);
   --color__optional_light: #ec454a;
   --color__dark: #fff;
-  --color__bg_hover_overlay: rgba(40,40,40,.75);
+  --color__darklight_overlay: rgba(40,40,40,.75);
 }
 
 nav.woocommerce-pagination {

@@ -146,7 +146,7 @@ $cart = WC()->cart;
 	<div id="tws__coupon_code_wrap" class="relative py-3 text-center transition-all ease-in-out delay-150 duration-300" style="display:none;">
 		<input type="text" id="tws__coupon_input" class="px-2 py-1 rounded focus:outline-none" placeholder="Coupon Code" />
 		<button type="button" id="tws__coupon_submit" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">Apply<?php //echo esc_html($apply_coupon_btn_text); ?></button>
-		<button id="tws__coupon_wrap_close" class="px-2 py-1 transition-all ease-in-out delay-150 duration-300">x</button>
+		<button id="tws__coupon_wrap_close" class="tws__color_set_optional tws__color_set_optional_hover px-2 py-1 transition-all ease-in-out delay-150 duration-300">x</button>
 		<?php
 			$applied_coupons = $cart->get_applied_coupons();
 			if (!empty($applied_coupons)):
@@ -167,11 +167,11 @@ $cart = WC()->cart;
 		<span id="tws__mini_cart_calculate_subtotal"></span>
 		<span id="tws__mini_cart_calculate_shipping"></span>
 		<span id="tws__mini_cart_calculate_discount"></span>
-		<a class="tws__btn_dark tws__btn_dark_hover text-center hidden group-hover:block w-min my-2 mx-auto py-2 px-6 bg-red-500 text-white transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_cart_url(); ?>">Cart</a>
+		<a class="tws__color_set_optional tws__color_set_optional_hover text-center hidden group-hover:block w-min my-2 mx-auto py-2 px-6 bg-red-500 text-white transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_cart_url(); ?>">Cart</a>
 	</div>
 	
 	<div class="tws__mini_cart_checkout_wrap relative grid grid-cols-10 px-3 pb-2">
-		<a class="col-span-5 py-2 text-center font-bold transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_checkout_url(); ?>">Checkout</a>
+		<a class="tws__color_set_secondary tws__color_set_optional_hover col-span-5 py-2 text-center font-bold transition-all ease-in-out delay-150 duration-300" href="<?php echo wc_get_checkout_url(); ?>">Checkout</a>
 		<span class="tws__mini_cart_total_amount col-span-5 py-2 text-center"><?php echo 'Total ' . get_woocommerce_currency_symbol() . number_format($cart->total, 2); ?></span>
 	</div>
 </div>

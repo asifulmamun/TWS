@@ -14,11 +14,11 @@
 
     #tws__mini_cart_left_close_btn{
         left: -($pxrem * 25);
-        background-color: var(--color__bg_hover_overlay);
-        color: var(--color__dark);
+        background-color: var(--color__darklight_overlay);
+        color: var(--color__light);
 
         &:hover{
-            background-color: var(--color__lightgray);
+            background-color: var(--color__dark);
         }
     }
 
@@ -78,7 +78,7 @@
             // footer
             #tws__mini_cart_footer{
                 // width: $mini_cart_container;
-                background-color: var(--color__bg_secondary);
+                background-color: var(--color__light);
 
 
                 // Coupon
@@ -105,14 +105,14 @@
                     background: var(--color__secondary);
                 }
 
-                button#tws__coupon_wrap_close{
-                    background: var(--color__secondary);
-                    color: var(--color__dark);
+                // button#tws__coupon_wrap_close{
+                //     background: var(--color__secondary);
+                //     color: var(--color__dark);
 
-                    &:hover{
-                        background: var(--color__primary);
-                    }
-                }
+                //     &:hover{
+                //         background: var(--color__primary);
+                //     }
+                // }
 
                 #tws__coupon_list_ul{
                     li{
@@ -128,13 +128,13 @@
                     .tws__mini_cart_checkout_wrap{
                         
                         a{
-                            background-color: var(--color__secondary);
-                            color: var(--color__dark);
+                            // background-color: var(--color__secondary);
+                            // color: var(--color__dark);
 
-                            &:hover{
-                                background-color: var(--color__secondary);
-                                color: var(--color__dark);
-                            }
+                            // &:hover{
+                            //     background-color: var(--color__secondary);
+                            //     color: var(--color__dark);
+                            // }
                         }
 
                         .tws__mini_cart_total_amount{

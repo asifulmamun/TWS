@@ -56,59 +56,57 @@ body{
 }
 
 // primary button
-.tws__btn_primary{
+.tws__color_set_primary{
     @include color_set_primary;
 }
 
-// .tws__btn_primary_hover{
-//     &:hover{
-//         @include color_set_secondary;
-//     }
-// }
+.tws__color_set_primary_hover{
+    &:hover{
+        @include color_set_secondary;
+    }
+}
 
 // secondary button
-.tws__btn_secondary{
+.tws__color_set_secondary{
     @include color_set_secondary;
 }
 
-// .tws__btn_secondary_hover{
-//     &:hover{
-//         @include color_set_dark;
-//     }
-// }
+.tws__color_set_secondary_hover{
+    &:hover{
+        @include color_set_primary;
+    }
+}
 
 // optional button
-.tws__btn_optional{
+.tws__color_set_optional{
     @include color_set_optional;
 }
 
-// .tws__btn_optional_hover{
-//     &:hover{
-//         background-color: var(--color__bg_dark);
-//         color: var(--color__txt_dark);
-//     }
-// }
+.tws__color_set_optional_hover{
+    &:hover{
+        @include color_set_optional_light;
+    }
+}
 
 // dark button
-.tws__btn_darklight{
+.tws__color_set_darklight{
     @include color_set_darklight;
 }
 
-// .tws__btn_dark_hover{
-//     &:hover{
-//         background-color: var(--color__secondary);
-//         color: var(--color__txt_secondary);
-//     }
-// }
+.tws__color_set_darklight_hover{
+    &:hover{
+        background-color: var(--color__darklight_overlay);
+    }
+}
 
 // // gray button
-.tws__btn_gray{
+.tws__color_set_gray{
     @include color_set_gray;
 }
 
-// .tws__btn_gray_hover{
-//     &:hover{
-//         background-color: var(--color__secondary);
-//         color: var(--color__txt_secondary);
-//     }
-// }
+.tws__color_set_gray_hover{
+    &:hover{
+        background-color: var(--color__darklight_overlay);
+        color: var(--color__light);
+    }
+}

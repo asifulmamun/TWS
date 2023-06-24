@@ -122,7 +122,7 @@
 
 			<tr class="tws__update_cart">
 				<td colspan="6" class="actions">
-					<button id="tws__btn_update_cart" type="submit" class="tws__btn_padding tws__btn_secondary tws__btn_secondary_hover transition button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+					<button id="tws__btn_update_cart" type="submit" class="tws__btn_padding tws__color_set_secondary tws__color_set_secondary_hover transition button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
 				</td>
 			</tr>
 			<tr class="tws__cart_final">
