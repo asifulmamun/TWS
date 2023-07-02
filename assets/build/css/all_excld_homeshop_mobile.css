@@ -1,0 +1,37 @@
+/*!****************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/all_excld_homeshop_mobile.scss ***!
+  \****************************************************************************************************************************************************************************/
+:root {
+  --color__dark: #333;
+  --color__light: #fff;
+  --color__lightgray: #f7f7f7;
+  --color__darkgray: #4c4c4c;
+  --color__darklight_overlay: rgba(40,40,40,.75);
+  --color__primary: #1f86ba;
+  --color__bg_primary: var(--color__primary);
+  --color__border_primary: var(--color__primary);
+  --color__txt_primary: var(--color__light);
+  --color__secondary: #ffbd88;
+  --color__bg_secondary: var(--color__secondary);
+  --color__border_secondary: var(--color__secondary);
+  --color__txt_secondary: var(--color__dark);
+  --color__optional: #f22127;
+  --color__bg_optional: var(--color__optional);
+  --color__border_optional: var(--color__optional);
+  --color__txt_optional: var(--color__light);
+  --color__optional_light: #ec454a;
+  --color__bg_optional_light: var(--color__optional_light);
+  --color__border_optional_light: var(--color__optional_light);
+  --color__txt_optional_light: var(--color__light);
+  --color__darklight: #1a1f2b;
+  --color__bg_darklight: var(--color__darklight);
+  --color__border_darklight: var(--color__darklight);
+  --color__txt_darklight: var(--color__light);
+  --color__gray: var(--color__darkgray);
+  --color__bg_gray: var(--color__lightgray);
+  --color__border_gray: #ebebeb;
+  --color__txt_gray: var(--color__gray);
+}
+
+
+/*# sourceMappingURL=all_excld_homeshop_mobile.css.map*/

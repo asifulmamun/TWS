@@ -17,20 +17,17 @@ const IMG_DIR = path.resolve(__dirname, 'src/img')
 const BUILD_DIR = path.resolve(__dirname, 'build')
 
 const mobile = {
-        mobile_app: JS_DIR + '/mobile_app.js',
-        mobile_woo: JS_DIR + '/mobile_woo.js',
-        mobile_woo_single_product: JS_DIR + '/mobile_woo_single_product.js',
-        mobile_cart_checkout: JS_DIR + '/mobile_cart_checkout.js',
-        
+        app_mobile: JS_DIR + '/app_mobile.js',
+        shop_mobile: JS_DIR + '/shop_mobile.js',
+        all_excld_homeshop_mobile: JS_DIR + '/all_excld_homeshop_mobile.js',
     }  
 
 const desktop = {
-        app: JS_DIR + '/app.js',
-        woo: JS_DIR + '/woo.js',
-        woo_single_product: JS_DIR + '/woo_single_product.js',
-        mini_cart: JS_DIR + '/mini_cart.js',
-        cart_checkout: JS_DIR + '/cart_checkout.js',
+        app_desktop: JS_DIR + '/app_desktop.js',
+        shop_desktop: JS_DIR + '/shop_desktop.js',
+        all_excld_homeshop_desktop: JS_DIR + '/all_excld_homeshop_desktop.js',
 
+        mini_cart_desktop: JS_DIR + '/mini_cart_desktop.js', // mini cart only for desktop
 }
 
 

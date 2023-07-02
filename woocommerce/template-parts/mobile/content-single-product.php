@@ -82,6 +82,6 @@ if ( post_password_required() ) {
 
 <?php
 	// content single product - css only for this desktop version
-	wp_enqueue_style( 'mobile_woo_single_products', get_stylesheet_directory_uri(). '/assets/build/css/mobile_woo_single_product.css',  array(), null, 'all' );
+	// wp_enqueue_style( 'mobile_woo_single_products', get_stylesheet_directory_uri(). '/assets/build/css/mobile_woo_single_product.css',  array(), null, 'all' );
 
 ?>

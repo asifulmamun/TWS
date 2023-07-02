@@ -162,6 +162,6 @@
 <?php
 	// content single product - css/js only for this desktop version
 	// wp_enqueue_style( 'woo_single_product', get_stylesheet_directory_uri(). '/assets/build/css/woo_single_product.css',  array(), null, 'all' );
-	wp_enqueue_script( 'woo_single_product', get_template_directory_uri() . '/assets/build/js/mobile_cart_checkout.js', array(), null, true);   
+	// wp_enqueue_script( 'woo_single_product', get_template_directory_uri() . '/assets/build/js/mobile_cart_checkout.js', array(), null, true);   
 
 ?>

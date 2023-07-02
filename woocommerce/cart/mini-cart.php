@@ -189,5 +189,5 @@ $cart = WC()->cart;
 		echo '};';
 		echo '</script>';
 
-	echo '<script src="' . get_template_directory_uri() . '/assets/build/js/mini_cart.js" id="mini_cart-js"></script>' ;
+	echo '<script src="' . get_template_directory_uri() . '/assets/build/js/mini_cart_desktop.js" id="mini_cart_desktop-js"></script>' ;
 ?>

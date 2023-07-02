@@ -28,21 +28,18 @@ add_action( 'after_setup_theme', 'tws_master_pro_woocommerce_setup' );
 
 // WooCommerce specific scripts & stylesheets.
 function tws_master_pro_woocommerce_scripts() {
+
     if(wp_is_mobile()): // mobile
-        wp_enqueue_style( 'mobile_woo', get_template_directory_uri() . '/assets/build/css/mobile_woo.css', array(), null );
-        wp_enqueue_script( 'mobile_woo', get_template_directory_uri() . '/assets/build/js/mobile_woo.js', array(), null, true);   
+        wp_enqueue_style( 'shop_mobile', get_template_directory_uri() . '/assets/build/css/shop_mobile.css', array(), null );
+        wp_enqueue_script( 'shop_mobile', get_template_directory_uri() . '/assets/build/js/shop_mobile.js', array(), null, true);   
 
 
     else: // desktop
-        wp_enqueue_style( 'woo', get_template_directory_uri() . '/assets/build/css/woo.css', array(), null );
-        wp_enqueue_script( 'woo', get_template_directory_uri() . '/assets/build/js/woo.js', array(), null, true);   
-        
-        // cart and checkout pages - only
-        if( is_page( 'cart' ) || is_cart() || is_page( 'checkout' ) || is_checkout() ):
-            wp_enqueue_style( 'woo_single_product', get_stylesheet_directory_uri(). '/assets/build/css/cart_checkout.css',  array(), null, 'all' );
-            wp_enqueue_script( 'woo_single_product', get_template_directory_uri() . '/assets/build/js/cart_checkout.js', array(), null, true);
-        endif;
+        wp_enqueue_style( 'shop_desktop', get_template_directory_uri() . '/assets/build/css/shop_desktop.css', array(), null );
+        wp_enqueue_script( 'shop_desktop', get_template_directory_uri() . '/assets/build/js/shop_desktop.js', array(), null, true);   
     endif;
+
+    
     // wp_localize_script( 'cart-qty-ajax-js', 'cart_qty_ajax', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
         // wp_enqueue_script( 'cart-qty-ajax-js' );
         // $font_path   = WC()->plugin_url() . '/assets/fonts/';
