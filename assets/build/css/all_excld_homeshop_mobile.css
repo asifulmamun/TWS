@@ -33,5 +33,183 @@
   --color__txt_gray: var(--color__gray);
 }
 
+.transition {
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+/* 
+    cart page 
+*/
+
+table#tws__cart_table {
+  width: 100%;
+}
+
+table#tws__cart_table thead {
+  background-color: #f7f7f7;
+  background-color: var(--color__lightgray);
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_gray);
+}
+
+table#tws__cart_table thead tr {
+  text-align: center;
+}
+
+table#tws__cart_table thead tr th {
+  padding: 0.75rem 0rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr {
+  text-align: center;
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_gray);
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-thumbnail {
+  padding: 1.5rem 0rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-quantity .quantity input {
+  outline: none;
+  width: 1.125rem;
+  border: 0.0625rem solid #ebebeb;
+  border: 0.0625rem solid var(--color__border_gray);
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-quantity button {
+  font-size: 1.125rem;
+  padding: 0.5rem 0.5rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.actions {
+  text-align: right;
+  padding-right: 1.25rem;
+  padding-top: 1.875rem;
+  padding-bottom: 1.875rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.actions button {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap {
+  vertical-align: top;
+  padding-right: 1.25rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap h2.coupon_heading {
+  text-align: left;
+  background: #f7f7f7;
+  background: var(--color__lightgray);
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap .coupon {
+  padding: 1.875rem 1.25rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap .coupon input[name="coupon_code"] {
+  width: 100%;
+  outline: none;
+  border: 0.03125rem solid #ebebeb;
+  border: 0.03125rem solid var(--color__border_gray);
+  padding: 0.5rem 0.625rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap .coupon button[name="apply_coupon"] {
+  margin-top: 1.25rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate {
+  vertical-align: top;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals h2 {
+  text-align: left;
+  background: #f7f7f7;
+  background: var(--color__lightgray);
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table {
+  width: 100%;
+  margin: 1.25rem 0rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr th, table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr td {
+  text-align: left;
+  padding: 0.5rem 0.375rem 0.5rem 0.5rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr th {
+  width: 20%;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr td a.shipping-calculator-button {
+  color: #f22127;
+  color: var(--color__optional);
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total {
+  background: #f7f7f7;
+  background: var(--color__lightgray);
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total th {
+  font-size: 1.125rem;
+  color: #1f86ba;
+  color: var(--color__primary);
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total td span.amount {
+  font-size: 1.125rem;
+  color: #1f86ba;
+  color: var(--color__primary);
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout {
+  padding: 2.5rem 0rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button {
+  background: #ffbd88;
+  background: var(--color__secondary);
+  color: #333;
+  color: var(--color__txt_secondary);
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: 0.625rem 1rem;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
+  background: var(--color__bg_dark);
+  color: var(--color__txt_dark);
+}
+
+table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,
+  table#tws__cart_table tbody#cart_t_body tr.tws__cart_final {
+  border: none;
+}
+
 
 /*# sourceMappingURL=all_excld_homeshop_mobile.css.map*/

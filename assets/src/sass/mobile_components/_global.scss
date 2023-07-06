@@ -1,3 +1,8 @@
+/* 
+ * 
+ * Main
+ * --------------------------------
+*/
 html{
     overflow-x: hidden;
 }
@@ -6,71 +11,25 @@ body{
     font-size: $size__txt_body;
 }
 
-// aside{
-//     transition: .3s;
-// }
-
-// main{
-//     transition: .5s;
-// }
-
-/* Global Buttons */
-.tws__btn_padding{
-    padding: $pxrem*8 $pxrem*12;
-}
-
-.tws__btn_dark{
-    background-color: var(--color__bg_dark);
-    color: var(--color__txt_dark);
-}
-
-.tws__btn_dark_hover{
-    &:hover{
-        background-color: var(--color__secondary);
-        color: var(--color__txt_secondary);
-    }
-}
-
-.tws__color_set_gray{
-    background-color: var(--color__lightgray);
-    color: var(--color__txt_gray);
-}
-
-.tws__color_set_gray_hover{
-    &:hover{
-        background-color: var(--color__secondary);
-        color: var(--color__txt_secondary);
-    }
-}
-
-
-.tws__color_set_secondary{
-    background-color: var(--color__secondary);
-    color: var(--color__txt_secondary);
-}
-
-.tws__color_set_secondary_hover{
-    &:hover{
-        background-color: var(--color__bg_dark);
-        color: var(--color__txt_dark);
-    }
-}
-
-
 
 .tws__text_xxs{
-    font-size: $text__xxs;
+    font-size: $text__xxs;;
 }
 
 
-// Custom Scrollbar
+
+/* 
+ * 
+ * Custom Scrollbar
+ * --------------------------------
+*/
 ::-webkit-scrollbar {
     width: $pxrem * 4;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: var(--color__border_gray); 
+    background: var(--color__lightgray); 
 }
 
 /* Handle */
@@ -81,4 +40,73 @@ body{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color__secondary); 
+}
+
+
+
+/* 
+ * 
+ * Default color set
+ * --------------------------------
+*/
+
+// default padding at button
+.tws__btn_padding{
+    padding: $pxrem*8 $pxrem*12;
+}
+
+// primary button
+.tws__color_set_primary{
+    @include color_set_primary;
+}
+
+.tws__color_set_primary_hover{
+    &:hover{
+        @include color_set_secondary;
+    }
+}
+
+// secondary button
+.tws__color_set_secondary{
+    @include color_set_secondary;
+}
+
+.tws__color_set_secondary_hover{
+    &:hover{
+        @include color_set_primary;
+    }
+}
+
+// optional button
+.tws__color_set_optional{
+    @include color_set_optional;
+}
+
+.tws__color_set_optional_hover{
+    &:hover{
+        @include color_set_optional_light;
+    }
+}
+
+// dark button
+.tws__color_set_darklight{
+    @include color_set_darklight;
+}
+
+.tws__color_set_darklight_hover{
+    &:hover{
+        background-color: var(--color__darklight_overlay);
+    }
+}
+
+// // gray button
+.tws__color_set_gray{
+    @include color_set_gray;
+}
+
+.tws__color_set_gray_hover{
+    &:hover{
+        background-color: var(--color__darklight_overlay);
+        color: var(--color__light);
+    }
 }

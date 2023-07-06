@@ -5,4 +5,205 @@
 @import "./abstract/mixins";
 
 
+// this cart checkout global
+.transition{
+    @include transition(0.3s);
+}
 
+/* 
+    cart page 
+*/
+table#tws__cart_table{
+    width: 100%;
+
+    // table head
+    thead{
+        background-color: var(--color__lightgray);
+        border: $pxrem*1 solid var(--color__border_gray);
+        color: var(--color__txt_gray);
+
+        tr{
+            text-align: center;
+            th{
+                padding: $pxrem*12 $pxrem*0;
+            }
+        }
+    }
+
+    tbody#cart_t_body{
+
+        tr{
+            text-align: center;
+            border: $pxrem*1 solid var(--color__border_gray);
+
+            // product thumnail images
+            td.product-thumbnail{
+                padding: $pxrem*24 $pxrem*0;
+                // display: flex;
+                // justify-content: center;
+            }
+
+            // product quantity
+            td.product-quantity{
+    
+                // qty wrapper
+                .quantity{
+                    // display: inline;
+                    
+                    input{
+                        outline: none;
+                        width: $pxrem*18;
+                        // height: $pxrem*40;
+                        border: $pxrem*1 solid var(--color__border_gray);
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: $pxrem*14;
+                    }
+                }
+
+                // inc and dec btn
+                button{
+                    font-size: $pxrem*18;
+                    padding: $pxrem*8 $pxrem*8;
+                }
+            }
+
+            // remove product
+            td.product-remove{
+                a{
+                    // padding: $pxrem*8 $pxrem*12;
+                    
+                }
+            }
+            
+            // cart update button
+            td.actions{
+                text-align: right;
+                padding-right: $pxrem*20;
+                padding-top: $pxrem*30;
+                padding-bottom: $pxrem*30;
+
+                button{
+                    font-weight: 500;
+                    font-size: $pxrem*16;
+                }
+            }
+        }
+
+
+        tr.tws__cart_final{
+
+            // coupon
+            td.tws__coupon_wrap{
+                vertical-align: top;
+                padding-right: $pxrem*20;
+                
+                h2.coupon_heading{
+                    text-align: left;
+                    background: var(--color__lightgray);
+                    padding: $pxrem*12 $pxrem*20;
+                    font-weight: bold;
+                    font-size: $pxrem*20;
+                }
+                
+                .coupon{
+                    padding: $pxrem*30 $pxrem*20;
+
+                    input[name="coupon_code"]{
+                        width: 100%;
+                        outline: none;
+                        border: $pxrem*0.5 solid var(--color__border_gray);
+                        padding: $pxrem*8 $pxrem*10;
+                    }
+
+                    button[name="apply_coupon"]{
+                        margin-top: $pxrem*20;
+                    }
+                }
+            }
+            // Final Calculations of Cart
+            td.calculate{
+                vertical-align: top;
+
+                .cart-collaterals{
+                    .cart_totals {
+                        h2{
+                            text-align: left;
+                            background: var(--color__lightgray);
+                            padding: $pxrem*12 $pxrem*20;
+                            font-weight: bold;
+                            font-size: $pxrem*20;
+                        }
+
+                        // calculation table
+                        table.shop_table {
+                            width: 100%;
+                            margin: $pxrem*20 $pxrem*0;
+
+                            tbody{
+                                tr{
+                                    th,td{
+                                        text-align: left;
+                                        padding: $pxrem*8 $pxrem*6 $pxrem*8 $pxrem*8;
+                                    }
+
+                                    th{
+                                        width: 20%;
+                                    }
+
+                                    td{
+                                        a.shipping-calculator-button{
+                                            color: var(--color__optional);
+                                        }
+                                    }
+                                }
+
+                                tr.order-total{
+                                    background: var(--color__lightgray);
+
+                                    th{
+                                        font-size: $pxrem*18;
+                                        color: var(--color__primary);
+                                    }
+
+                                    td{
+                                        span.amount{
+                                            font-size: $pxrem*18;
+                                            color: var(--color__primary);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // Checkout btn
+                        .wc-proceed-to-checkout{
+
+                            padding: $pxrem*40 $pxrem*0;
+
+                            a.checkout-button{
+                                background: var(--color__secondary);
+                                color: var(--color__txt_secondary);
+                                font-weight: 600;
+                                font-size: $pxrem*20;
+                                padding: $pxrem*10 $pxrem*16;
+                                @include transition(0.3s);
+
+                                &:hover{
+                                    background: var(--color__bg_dark);
+                                    color: var(--color__txt_dark);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        tr.tws__update_cart,
+        tr.tws__cart_final{
+            border: none;
+        }
+    }
+}

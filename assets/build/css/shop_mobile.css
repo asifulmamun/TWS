@@ -53,10 +53,18 @@ nav.woocommerce-pagination ul li a {
 .tws__add_cat_wrap a.added_to_cart {
   padding: 0.25rem 0.5rem;
   border: none;
-  background-color: #f7f7f7;
-  background-color: var(--color__lightgray);
+  background-color: #f22127;
+  background-color: var(--color__bg_optional);
   color: #fff;
   color: var(--color__txt_optional);
+}
+
+.tws__add_cat_wrap a.button:hover,
+  .tws__add_cat_wrap a.added_to_cart:hover {
+  background-color: #ec454a;
+  background-color: var(--color__bg_optional_light);
+  color: #fff;
+  color: var(--color__txt_optional_light);
 }
 
 .tws__add_cat_wrap a.added_to_cart {
@@ -66,6 +74,12 @@ nav.woocommerce-pagination ul li a {
   bottom: -2.5rem;
 }
 
+/* 
+ * 
+ * Main
+ * --------------------------------
+*/
+
 html {
   overflow-x: hidden;
 }
@@ -74,53 +88,15 @@ body {
   font-size: 0.875rem;
 }
 
-/* Global Buttons */
-
-.tws__btn_padding {
-  padding: 0.5rem 0.75rem;
-}
-
-.tws__btn_dark {
-  background-color: var(--color__bg_dark);
-  color: var(--color__txt_dark);
-}
-
-.tws__btn_dark_hover:hover {
-  background-color: #ffbd88;
-  background-color: var(--color__secondary);
-  color: #333;
-  color: var(--color__txt_secondary);
-}
-
-.tws__color_set_gray {
-  background-color: #f7f7f7;
-  background-color: var(--color__lightgray);
-  color: #4c4c4c;
-  color: var(--color__txt_gray);
-}
-
-.tws__color_set_gray_hover:hover {
-  background-color: #ffbd88;
-  background-color: var(--color__secondary);
-  color: #333;
-  color: var(--color__txt_secondary);
-}
-
-.tws__color_set_secondary {
-  background-color: #ffbd88;
-  background-color: var(--color__secondary);
-  color: #333;
-  color: var(--color__txt_secondary);
-}
-
-.tws__color_set_secondary_hover:hover {
-  background-color: var(--color__bg_dark);
-  color: var(--color__txt_dark);
-}
-
 .tws__text_xxs {
   font-size: 0.5625rem;
 }
+
+/* 
+ * 
+ * Custom Scrollbar
+ * --------------------------------
+*/
 
 ::-webkit-scrollbar {
   width: 0.25rem;
@@ -129,8 +105,8 @@ body {
 /* Track */
 
 ::-webkit-scrollbar-track {
-  background: #ebebeb;
-  background: var(--color__border_gray);
+  background: #f7f7f7;
+  background: var(--color__lightgray);
 }
 
 /* Handle */
@@ -145,6 +121,84 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #ffbd88;
   background: var(--color__secondary);
+}
+
+/* 
+ * 
+ * Default color set
+ * --------------------------------
+*/
+
+.tws__btn_padding {
+  padding: 0.5rem 0.75rem;
+}
+
+.tws__color_set_primary {
+  background-color: #1f86ba;
+  background-color: var(--color__bg_primary);
+  color: #fff;
+  color: var(--color__txt_primary);
+}
+
+.tws__color_set_primary_hover:hover {
+  background-color: #ffbd88;
+  background-color: var(--color__bg_secondary);
+  color: #333;
+  color: var(--color__txt_secondary);
+}
+
+.tws__color_set_secondary {
+  background-color: #ffbd88;
+  background-color: var(--color__bg_secondary);
+  color: #333;
+  color: var(--color__txt_secondary);
+}
+
+.tws__color_set_secondary_hover:hover {
+  background-color: #1f86ba;
+  background-color: var(--color__bg_primary);
+  color: #fff;
+  color: var(--color__txt_primary);
+}
+
+.tws__color_set_optional {
+  background-color: #f22127;
+  background-color: var(--color__bg_optional);
+  color: #fff;
+  color: var(--color__txt_optional);
+}
+
+.tws__color_set_optional_hover:hover {
+  background-color: #ec454a;
+  background-color: var(--color__bg_optional_light);
+  color: #fff;
+  color: var(--color__txt_optional_light);
+}
+
+.tws__color_set_darklight {
+  background-color: #1a1f2b;
+  background-color: var(--color__bg_darklight);
+  color: #fff;
+  color: var(--color__txt_darklight);
+}
+
+.tws__color_set_darklight_hover:hover {
+  background-color: rgba(40,40,40,.75);
+  background-color: var(--color__darklight_overlay);
+}
+
+.tws__color_set_gray {
+  background-color: #f7f7f7;
+  background-color: var(--color__bg_gray);
+  color: #4c4c4c;
+  color: var(--color__txt_gray);
+}
+
+.tws__color_set_gray_hover:hover {
+  background-color: rgba(40,40,40,.75);
+  background-color: var(--color__darklight_overlay);
+  color: #fff;
+  color: var(--color__light);
 }
 
 header#tws__header {
