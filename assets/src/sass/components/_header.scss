@@ -111,7 +111,12 @@ header#tws__header{
 
         // Right side Single Menu
         .tws__single_menu{
-            background: var(--color__bg_optional);
+            @include color_set_darklight;
+            @include transition(0.3s);
+
+            &:hover{
+                @include color_set_optional_light;
+            }
             
             a{
                 display: flex;

@@ -16,6 +16,23 @@
 table#tws__cart_table{
     width: 100%;
 
+
+    // under table size for th,td
+    .product-thumbnail{
+        width: 20%;
+    }
+    .product-name{
+        min-width: 50%;
+    }
+    .product-quantity{
+        width: 15%;
+    }
+    .product-remove{
+        width: 10%;
+    }
+
+
+
     // table head
     thead{
         background-color: var(--color__lightgray);
@@ -43,6 +60,15 @@ table#tws__cart_table{
                 // justify-content: center;
             }
 
+            // product name
+            td.product-name{
+                padding-left: $pxrem*8;
+
+                a{
+                    font-weight: bold;
+                }
+            }
+
             // product quantity
             td.product-quantity{
     
@@ -58,34 +84,55 @@ table#tws__cart_table{
                         text-align: center;
                         font-weight: bold;
                         font-size: $pxrem*14;
+                        margin: $pxrem*2 $pxrem*0;
                     }
                 }
 
                 // inc and dec btn
                 button{
                     font-size: $pxrem*18;
-                    padding: $pxrem*8 $pxrem*8;
+                    padding: $pxrem*3 $pxrem*0;
+
+                    svg{
+                        padding: $pxrem*2 $pxrem*2;
+                    }
                 }
+
             }
 
             // remove product
             td.product-remove{
+                // padding-right: $pxrem*2;
+
                 a{
-                    // padding: $pxrem*8 $pxrem*12;
+                    svg{
+                        padding: $pxrem*4 $pxrem*5;
+                        color: var(--color__optional);
+
+                        &:hover{
+                            color: var(--color__optional_light);
+                        }
+                    }
                     
                 }
             }
             
             // cart update button
             td.actions{
-                text-align: right;
+                text-align: center;
                 padding-right: $pxrem*20;
                 padding-top: $pxrem*30;
                 padding-bottom: $pxrem*30;
 
                 button{
+                    // @include color_set_primary;
+
                     font-weight: 500;
                     font-size: $pxrem*16;
+
+                    &:hover{
+                        // @include color_set_secondary;
+                    }
                 }
             }
         }
@@ -121,6 +168,12 @@ table#tws__cart_table{
                     }
                 }
             }
+
+            
+        }
+
+        tr.tws__cart_final_process{
+
             // Final Calculations of Cart
             td.calculate{
                 vertical-align: top;
@@ -182,23 +235,20 @@ table#tws__cart_table{
                             padding: $pxrem*40 $pxrem*0;
 
                             a.checkout-button{
-                                background: var(--color__secondary);
-                                color: var(--color__txt_secondary);
                                 font-weight: 600;
                                 font-size: $pxrem*20;
                                 padding: $pxrem*10 $pxrem*16;
                                 @include transition(0.3s);
+                                @include color_set_primary;
 
                                 &:hover{
-                                    background: var(--color__bg_dark);
-                                    color: var(--color__txt_dark);
+                                    @include color_set_secondary;
                                 }
                             }
                         }
                     }
                 }
             }
-            
         }
 
         tr.tws__update_cart,

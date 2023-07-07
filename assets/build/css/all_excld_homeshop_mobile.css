@@ -49,6 +49,22 @@ table#tws__cart_table {
   width: 100%;
 }
 
+table#tws__cart_table .product-thumbnail {
+  width: 20%;
+}
+
+table#tws__cart_table .product-name {
+  min-width: 50%;
+}
+
+table#tws__cart_table .product-quantity {
+  width: 15%;
+}
+
+table#tws__cart_table .product-remove {
+  width: 10%;
+}
+
 table#tws__cart_table thead {
   background-color: #f7f7f7;
   background-color: var(--color__lightgray);
@@ -76,6 +92,14 @@ table#tws__cart_table tbody#cart_t_body tr td.product-thumbnail {
   padding: 1.5rem 0rem;
 }
 
+table#tws__cart_table tbody#cart_t_body tr td.product-name {
+  padding-left: 0.5rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-name a {
+  font-weight: bold;
+}
+
 table#tws__cart_table tbody#cart_t_body tr td.product-quantity .quantity input {
   outline: none;
   width: 1.125rem;
@@ -84,15 +108,31 @@ table#tws__cart_table tbody#cart_t_body tr td.product-quantity .quantity input {
   text-align: center;
   font-weight: bold;
   font-size: 0.875rem;
+  margin: 0.125rem 0rem;
 }
 
 table#tws__cart_table tbody#cart_t_body tr td.product-quantity button {
   font-size: 1.125rem;
-  padding: 0.5rem 0.5rem;
+  padding: 0.1875rem 0rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-quantity button svg {
+  padding: 0.125rem 0.125rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-remove a svg {
+  padding: 0.25rem 0.3125rem;
+  color: #f22127;
+  color: var(--color__optional);
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-remove a svg:hover {
+  color: #ec454a;
+  color: var(--color__optional_light);
 }
 
 table#tws__cart_table tbody#cart_t_body tr td.actions {
-  text-align: right;
+  text-align: center;
   padding-right: 1.25rem;
   padding-top: 1.875rem;
   padding-bottom: 1.875rem;
@@ -133,11 +173,11 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.tws__coupon_wrap .
   margin-top: 1.25rem;
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate {
   vertical-align: top;
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals h2 {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals h2 {
   text-align: left;
   background: #f7f7f7;
   background: var(--color__lightgray);
@@ -146,51 +186,47 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
   font-size: 1.25rem;
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals table.shop_table {
   width: 100%;
   margin: 1.25rem 0rem;
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr th, table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr td {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr th, table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr td {
   text-align: left;
   padding: 0.5rem 0.375rem 0.5rem 0.5rem;
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr th {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr th {
   width: 20%;
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr td a.shipping-calculator-button {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr td a.shipping-calculator-button {
   color: #f22127;
   color: var(--color__optional);
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total {
   background: #f7f7f7;
   background: var(--color__lightgray);
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total th {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total th {
   font-size: 1.125rem;
   color: #1f86ba;
   color: var(--color__primary);
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total td span.amount {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals table.shop_table tbody tr.order-total td span.amount {
   font-size: 1.125rem;
   color: #1f86ba;
   color: var(--color__primary);
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout {
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout {
   padding: 2.5rem 0rem;
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button {
-  background: #ffbd88;
-  background: var(--color__secondary);
-  color: #333;
-  color: var(--color__txt_secondary);
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button {
   font-weight: 600;
   font-size: 1.25rem;
   padding: 0.625rem 1rem;
@@ -199,11 +235,17 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
   -moz-transition: 0.3s ease;
   -ms-transition: 0.3s ease;
   -o-transition: 0.3s ease;
+  background-color: #1f86ba;
+  background-color: var(--color__bg_primary);
+  color: #fff;
+  color: var(--color__txt_primary);
 }
 
-table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
-  background: var(--color__bg_dark);
-  color: var(--color__txt_dark);
+table#tws__cart_table tbody#cart_t_body tr.tws__cart_final_process td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
+  background-color: #ffbd88;
+  background-color: var(--color__bg_secondary);
+  color: #333;
+  color: var(--color__txt_secondary);
 }
 
 table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,

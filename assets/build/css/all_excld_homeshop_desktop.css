@@ -78,6 +78,14 @@ table#tws__cart_table tbody#cart_t_body tr td.product-thumbnail {
   justify-content: center;
 }
 
+table#tws__cart_table tbody#cart_t_body tr td.product-name {
+  padding-left: 0.5rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-name a {
+  font-weight: bold;
+}
+
 table#tws__cart_table tbody#cart_t_body tr td.product-quantity .quantity {
   display: inline;
 }
@@ -95,7 +103,13 @@ table#tws__cart_table tbody#cart_t_body tr td.product-quantity .quantity input {
 
 table#tws__cart_table tbody#cart_t_body tr td.product-quantity button {
   font-size: 1.125rem;
-  padding: 0.375rem 1.5rem;
+  padding: 0.625rem 0.75rem;
+}
+
+table#tws__cart_table tbody#cart_t_body tr td.product-remove a svg {
+  color: #f22127;
+  color: var(--color__optional);
+  padding: 0rem 2.5rem;
 }
 
 table#tws__cart_table tbody#cart_t_body tr td.actions {
@@ -206,11 +220,17 @@ table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-co
   -moz-transition: 0.3s ease;
   -ms-transition: 0.3s ease;
   -o-transition: 0.3s ease;
+  background-color: #1f86ba;
+  background-color: var(--color__bg_primary);
+  color: #fff;
+  color: var(--color__txt_primary);
 }
 
 table#tws__cart_table tbody#cart_t_body tr.tws__cart_final td.calculate .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
-  background: var(--color__bg_dark);
-  color: var(--color__txt_dark);
+  background-color: #ffbd88;
+  background-color: var(--color__bg_secondary);
+  color: #333;
+  color: var(--color__txt_secondary);
 }
 
 table#tws__cart_table tbody#cart_t_body tr.tws__update_cart,
@@ -601,11 +621,17 @@ form#checkout #order_review #payment .place-order button {
   -moz-transition: 0.3s ease;
   -ms-transition: 0.3s ease;
   -o-transition: 0.3s ease;
+  background-color: #1f86ba;
+  background-color: var(--color__bg_primary);
+  color: #fff;
+  color: var(--color__txt_primary);
 }
 
 form#checkout #order_review #payment .place-order button:hover {
-  background: var(--color__bg_dark);
-  color: var(--color__txt_dark);
+  background-color: #ffbd88;
+  background-color: var(--color__bg_secondary);
+  color: #333;
+  color: var(--color__txt_secondary);
 }
 
 /* 

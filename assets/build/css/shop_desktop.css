@@ -306,7 +306,7 @@ body {
 
 /* 
  * 
- * Default button styles
+ * Default color set
  * --------------------------------
 */
 
@@ -456,8 +456,22 @@ header#tws__header .tws__right_bar ul#quick-menu li a svg {
 }
 
 header#tws__header .tws__right_bar .tws__single_menu {
-  background: #f22127;
-  background: var(--color__bg_optional);
+  background-color: #1a1f2b;
+  background-color: var(--color__bg_darklight);
+  color: #fff;
+  color: var(--color__txt_darklight);
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+header#tws__header .tws__right_bar .tws__single_menu:hover {
+  background-color: #ec454a;
+  background-color: var(--color__bg_optional_light);
+  color: #fff;
+  color: var(--color__txt_optional_light);
 }
 
 header#tws__header .tws__right_bar .tws__single_menu a {

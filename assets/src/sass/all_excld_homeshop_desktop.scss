@@ -42,6 +42,15 @@ table#tws__cart_table{
                 justify-content: center;
             }
 
+            // product name
+            td.product-name{
+                padding-left: $pxrem*8;
+                
+                a{
+                    font-weight: bold;
+                }
+            }
+
             // product quantity
             td.product-quantity{
                 
@@ -63,14 +72,17 @@ table#tws__cart_table{
                 // inc and dec btn
                 button{
                     font-size: $pxrem*18;
-                    padding: $pxrem*6 $pxrem*24;
+                    padding: $pxrem*10 $pxrem*12;
                 }
             }
 
             // remove product
             td.product-remove{
                 a{
-                    // padding: $pxrem*8 $pxrem*12;
+                    svg{
+                        color: var(--color__optional);
+                        padding: $pxrem*0 $pxrem*40;
+                    }
                     
                 }
             }
@@ -187,10 +199,10 @@ table#tws__cart_table{
                                 font-size: $pxrem*20;
                                 padding: $pxrem*10 $pxrem*16;
                                 @include transition(0.3s);
+                                @include color_set_primary;
 
                                 &:hover{
-                                    background: var(--color__bg_dark);
-                                    color: var(--color__txt_dark);
+                                    @include color_set_secondary;
                                 }
                             }
                         }
@@ -635,10 +647,10 @@ form#checkout{
                     width: 80%;
                     padding: $pxrem*10 $pxrem*0;
                     @include transition(0.3s);
+                    @include color_set_primary;
 
                     &:hover{
-                        background: var(--color__bg_dark);
-                        color: var(--color__txt_dark);
+                        @include color_set_secondary;
                     }
 
                 } // btn place order
