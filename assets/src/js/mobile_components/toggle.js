@@ -30,7 +30,19 @@ if(main){
             aside.classList.add('left-0');            
         } 
     
-        
+        // if mobile aside hide by click on body then again the toggle menu will show by check if the aside is hide
+        else if(aside.classList.contains('-left-80')){
+
+            // sidebar hide bigger screen
+            aside.classList.remove('md:left-0');
+            aside.classList.add('md:-left-80');
+            main.classList.remove('md:pl-56');
+            
+            // sidebar show - mobile or else
+            aside.classList.remove('-left-80');
+            aside.classList.add('left-0');            
+        } 
+
         else{
             // sidebar show smaller screen
             aside.classList.add('md:left-0');

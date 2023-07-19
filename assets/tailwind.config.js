@@ -23,12 +23,13 @@ if(devView == 1){
   '../woocommerce/loop/loop-start.php',
   '../woocommerce/loop/sale-flash.php',
   
-  '../woocommerce/single-product/product-image.php',
-  '../woocommerce/template-parts/mobile/content-product.php',
-  '../woocommerce/template-parts/mobile/cart.php',
 
-    '../woocommerce/cart/cart.php',
-    '../woocommerce/checkout/form-checkout.php',
+  '../woocommerce/template-parts/mobile/cart.php',
+  '../woocommerce/template-parts/mobile/content-product.php',
+  '../woocommerce/template-parts/mobile/content-single-product.php',
+
+  '../woocommerce/cart/cart.php',
+  '../woocommerce/checkout/form-checkout.php',
 
   '../footer.php',
 
@@ -50,14 +51,14 @@ if(devView == 1){
 
       '../woocommerce/loop/loop-start.php',
       '../woocommerce/loop/sale-flash.php',
-
-      '../woocommerce/single-product/product-image.php',
-      '../woocommerce/template-parts/desktop/content-product.php',
+      
       '../woocommerce/template-parts/desktop/cart.php',
+      '../woocommerce/template-parts/desktop/content-product.php',
+      '../woocommerce/template-parts/desktop/content-single-product.php',
 
-        '../woocommerce/cart/cart.php',
-        '../woocommerce/cart/mini-cart.php',
-        '../woocommerce/checkout/form-checkout.php',
+      '../woocommerce/cart/cart.php',
+      '../woocommerce/cart/mini-cart.php',
+      '../woocommerce/checkout/form-checkout.php',
 
       '../footer.php',
     );
