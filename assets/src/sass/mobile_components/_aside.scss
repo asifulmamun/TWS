@@ -2,6 +2,9 @@ aside#aside{
 
     // width: $aside_width;
     padding-bottom: 2.25rem;
+    padding-left: $pxrem*12;
+    padding-right: $pxrem*8;
+
     height: calc(100% - #{$pxrem * 55});
     background-color: var(--color__light);
     flex-direction: column;

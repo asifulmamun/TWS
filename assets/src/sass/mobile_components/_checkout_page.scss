@@ -141,10 +141,8 @@
 }
 
 
-
 form#checkout{
     padding-top: $pxrem*50;
-
 
     // Required Notices - checkout page
     .woocommerce-NoticeGroup-checkout{
@@ -166,7 +164,7 @@ form#checkout{
     // left side
     .billing_shipping{
 
-        padding-right: $pxrem*30;
+        // padding-right: $pxrem*30;
 
         // billing address
         .billing{

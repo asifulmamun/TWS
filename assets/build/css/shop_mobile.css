@@ -238,6 +238,8 @@ header#tws__header .tws__search_box ::placeholder {
 
 aside#aside {
   padding-bottom: 2.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
   height: calc(100% - 3.4375rem);
   background-color: #fff;
   background-color: var(--color__light);
