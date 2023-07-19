@@ -12,7 +12,14 @@
 
     // form login btn
     .woocommerce-form-login-toggle,
-    .woocommerce-info{
+    .woocommerce-form-coupon-toggle{
+        
+        border-top: $pxrem*5 solid var(--color__optional);
+        margin-top: $pxrem*10;
+        background: var(--color__lightgray);
+        padding: $pxrem*5 $pxrem*10 $pxrem*10 $pxrem*20;
+
+
         a{
             padding: $pxrem*8 $pxrem*14;
             display: inline-block;
@@ -45,7 +52,7 @@
 
             // remember me checkbox
             label.woocommerce-form-login__rememberme{
-                eight: inherit;
+                height: inherit;
                 display: inherit;
 
                 input{
@@ -59,7 +66,7 @@
             button.woocommerce-form-login__submit{
 
                 display: block;
-                margin: $pxrem*30 auto $pxrem*15 auto;
+                margin: $pxrem*30 $pxrem*0 $pxrem*15 $pxrem*10;
                 padding: $pxrem*8 $pxrem*26;
                 font-size: large;
                 font-weight: bold;
@@ -109,7 +116,7 @@
             button.wp-element-button{
 
                 display: block;
-                margin: $pxrem*30 auto $pxrem*15 auto;
+                margin: $pxrem*30 $pxrem*0 $pxrem*15 $pxrem*10;
                 padding: $pxrem*8 $pxrem*26;
                 font-size: large;
                 font-weight: bold;
