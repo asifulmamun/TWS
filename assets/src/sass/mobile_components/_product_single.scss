@@ -1,0 +1,251 @@
+/* 
+    Single Product
+ */
+ .tws__single_product{
+
+
+
+    // .woocommerce-product-gallery,
+    // .flex-viewport,
+    // figure.woocommerce-product-gallery__wrapper,
+    // .woocommerce-product-gallery__image{
+    //     height: 100%;
+    // }
+
+
+    // Left Column - 4
+    .woocommerce-product-gallery{
+
+        // Zoom btn trigger
+        .woocommerce-product-gallery__trigger{
+            position: absolute;
+            top: 3;
+            left: 3;
+            z-index: 10;
+        }
+
+        figure.woocommerce-product-gallery__wrapper{
+
+            .woocommerce-product-gallery__image{
+
+
+                a{
+
+                    // height: 100%;
+                    // display: grid;
+                    // justify-content: center;
+                    // align-items: center;
+
+                    img{
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+
+        // thumnails of product gallery
+        ol.flex-control-nav{
+            display: flex;
+            flex-direction: row;
+            
+            li{
+                margin: $pxrem*8 $pxrem*12;
+                border: $pxrem*1 solid var(--color__txt_gray_light);
+                cursor: pointer;
+            }
+        }
+    
+    }
+
+    // Right Column - 6
+    .summary{   
+
+        // product title
+        h1.product_title{
+            font-size: $pxrem*24;
+            font-weight: bolder;
+        }
+
+        // price
+        p.price{
+            font-size: $pxrem*18;
+            font-weight: bolder;
+            color: var(--color__optional_light);
+            padding-top: $pxrem*20;
+        }
+
+        // stock
+        p.stock{
+            color: var(--color__txt_secondary);
+        }
+
+        // Qty and Add Cart
+        form.cart{
+
+            padding-top: $pxrem*20;
+
+            // quantity
+            .quantity{
+
+
+                
+                // input qty
+                // hide the input default inc/dec under this input field
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input[type="number"] {
+                    -moz-appearance: textfield;  // Firefox
+                }
+
+                input[name=quantity] {
+                    width: $pxrem*60;
+                    height: $pxrem*33;
+                    outline: none;
+                    text-align: center;
+                    font-size: $pxrem*24;
+                    font-weight: bolder;
+
+                    color: var(--color__txt_secondary);
+                }
+
+                button#qty_inc,
+                button#qty_dec{
+                    width: $pxrem*35;
+                    height: $pxrem*33;
+                    padding-bottom: $pxrem*3;
+                    font-size: $pxrem*20;
+                    font-weight: bolder;
+                    background: var(--color__lightgray);
+                    color: var(--color__dark);
+                    @include transition(0.3s); // from abstract/mixins file
+
+                    &:hover{
+                        background: var(--color__bg_optional);
+                    }
+                }
+
+
+    
+            }
+
+            // submit - add product to cart
+            button[type="submit"]{
+                padding: $pxrem*8 $pxrem*30;
+                margin-top: $pxrem*12;
+                font-size: $pxrem*18;
+                
+                @include color_set_darklight;
+                @include transition(0.3s);
+    
+                &:hover{
+                    @include color_set_optional_light;
+                }
+            }
+        }
+
+        // Product Meta
+        .product_meta{
+            padding-top: $pxrem*20;
+
+            // SKU wrapp
+            .sku_wrapper{
+                display: block;
+
+                .sku{
+                    font-weight: bold;
+                    color: var(--color__txt_secondary);
+                }
+            }
+
+            // Categories Wrapp
+            .posted_in{
+                color: var(--color__txt_gray_light);
+                
+                &:hover{
+                    color: var(--color__txt_gray);
+
+                }
+                
+                // Categorirs List
+                a{
+                        @include transition(0.3s); // from abstract/mixins file
+
+                    &:hover{
+                        font-weight: bold;
+                        color: var(--color__optional_light);
+                    }
+                }
+            }
+        }
+    } // summary
+
+    // column - 10 - product details
+    .wc-tabs-wrapper{
+
+        padding: $pxrem*50 0;
+
+        // tabs
+        ul.wc-tabs{
+            overflow: hidden;
+            padding: $pxrem*10 $pxrem*0;
+            
+            display: flex;
+            flex-direction: row;
+            background: var(--color__primary);
+
+            li{
+                // margin-right: $pxrem*8;
+
+                a{
+                    padding: $pxrem*20 $pxrem*10;
+                    background: var(--color__primary);
+
+                    color: var(--color__txt_optional);
+                    font-size: $pxrem*16;
+                    font-weight: bold;
+
+                    @include transition(0.3s); // from abstract/mix
+
+                    &:hover{
+                        background-color: var(--color__bg_optional);
+                    }
+                    
+                }
+            }
+            li.active{
+                a{
+                    background-color: var(--color__bg_optional);
+                }
+            }
+
+
+        }
+
+        // tabs panel
+        .woocommerce-Tabs-panel{
+            padding: $pxrem*20 $pxrem*20;
+
+            >h2{
+                font-size: $pxrem*15;
+                font-weight: bold;
+                padding-bottom: $pxrem*10;
+            }
+        }
+    }
+
+    // Related Product
+    section.related{
+
+        // Heading - only related heading so use arrow
+        >h2{
+            padding: $pxrem*10 $pxrem*10;
+            background: var(--color__primary);
+            color: var(--color__txt_optional);
+            font-size: $pxrem*16;
+            font-weight: bold;
+        }
+    }
+}

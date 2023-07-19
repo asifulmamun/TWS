@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'tws__single_product grid grid-cols-10', $product ); ?>>
 
-	<div class="col-span-4"><?php
+	<div class="col-span-10"><?php
 
 		/**
 		 * Hook: woocommerce_before_single_product_summary.
@@ -48,7 +48,7 @@ if ( post_password_required() ) {
 	
 	?></div>
 
-	<div class="summary entry-summary col-span-6">
+	<div id="tws__single_product_small_details" class="summary entry-summary col-span-10">
 		<?php
 		/**
 		 * Hook: woocommerce_single_product_summary.
@@ -62,8 +62,11 @@ if ( post_password_required() ) {
 		 * @hooked woocommerce_template_single_sharing - 50
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
+		
 		do_action( 'woocommerce_single_product_summary' );
+
 		?>
+		
 	</div>
 
 	<div class="col-span-10"><?php
@@ -79,9 +82,3 @@ if ( post_password_required() ) {
 
 </div>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
-
-<?php
-	// content single product - css only for this desktop version
-	// wp_enqueue_style( 'mobile_woo_single_products', get_stylesheet_directory_uri(). '/assets/build/css/mobile_woo_single_product.css',  array(), null, 'all' );
-
-?>
