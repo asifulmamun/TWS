@@ -7,7 +7,14 @@
     -o-transition: $transition ease;
 }
 
-// primary
+@mixin heading{
+    padding: $pxrem*10 $pxrem*10;
+    font-size: $pxrem*20;
+    font-weight: bold;
+}
+
+/* 
+    Color sets */
 @mixin color_set_primary{
     background-color: var(--color__bg_primary);
     color: var(--color__txt_primary);
@@ -36,4 +43,5 @@
 @mixin color_set_gray{
     background-color: var(--color__bg_gray); // light gray 
     color: var(--color__txt_gray); // dark gray
+    border: $pxrem*1 solid var(--color__border_gray);
 }

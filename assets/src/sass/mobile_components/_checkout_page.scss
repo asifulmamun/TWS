@@ -15,7 +15,7 @@
     .woocommerce-form-coupon-toggle{
         
         border-top: $pxrem*5 solid var(--color__optional);
-        margin-top: $pxrem*10;
+        margin-top: $pxrem*50;
         background: var(--color__lightgray);
         padding: $pxrem*5 $pxrem*10 $pxrem*10 $pxrem*20;
 
@@ -37,12 +37,12 @@
         margin-top: $pxrem*5;
 
         // all
-        p{
-            padding-top: $pxrem*3;
-            padding-bottom: $pxrem*3;
-        }
+        // p{
+        //     padding-top: $pxrem*3;
+        //     padding-bottom: $pxrem*3;
+        // }
 
-        p.form-row{
+        p{
             padding: $pxrem*10 $pxrem*16;
 
             label{
@@ -52,10 +52,11 @@
 
             // remember me checkbox
             label.woocommerce-form-login__rememberme{
-                eight: inherit;
+                height: inherit;
                 display: inherit;
 
                 input{
+                    display: inline;
                     height: inherit;
                     margin: inherit;
                 }
@@ -97,13 +98,13 @@
     .woocommerce-form-coupon{
         margin-top: $pxrem*5;
 
-        // all
-        p{
-            padding-top: $pxrem*3;
-            padding-bottom: $pxrem*3;
-        }
+        // // all
+        // p{
+        //     padding-top: $pxrem*3;
+        //     padding-bottom: $pxrem*3;
+        // }
 
-        p.form-row{
+        p{
             padding: $pxrem*10 $pxrem*16;
 
             label{

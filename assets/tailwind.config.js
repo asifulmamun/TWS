@@ -31,6 +31,10 @@ if(devView == 1){
   '../woocommerce/cart/cart.php',
   '../woocommerce/checkout/form-checkout.php',
 
+  '../woocommerce/myaccount/form-login.php',
+  '../woocommerce/myaccount/my-account.php',
+  '../woocommerce/myaccount/navigation.php',
+
   '../footer.php',
 
   );
@@ -59,6 +63,10 @@ if(devView == 1){
       '../woocommerce/cart/cart.php',
       '../woocommerce/cart/mini-cart.php',
       '../woocommerce/checkout/form-checkout.php',
+
+      '../woocommerce/myaccount/form-login.php',
+      '../woocommerce/myaccount/my-account.php',
+      '../woocommerce/myaccount/navigation.php',
 
       '../footer.php',
     );

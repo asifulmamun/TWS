@@ -1,0 +1,76 @@
+// woocommerce notice
+.woocommerce-notices-wrapper{
+    ul.woocommerce-error{
+        @include color_set_optional;
+        padding: $pxrem*30 $pxrem*10;
+        margin: $pxrem*30 $pxrem*0;
+        font-size: large;
+    }
+}
+
+
+
+// customer login
+div#customer_login{
+
+    // login - left side
+    .tws__my_ac_login{
+        
+        padding-right: $pxrem*30;
+
+        >h2{
+            padding: $pxrem*8 $pxrem*10;
+            @include color_set_gray;
+            margin-bottom: $pxrem*10;
+
+            font-size: $pxrem*20;
+            font-weight: bold;
+            border: $pxrem*1 var(--color__border_gray);
+        }
+
+        // login form
+        p{
+            padding: $pxrem*10 $pxrem*16;
+        }
+    }
+
+
+    // registration - right side
+    .tws__my_ac_registration{
+
+        >h2{
+            padding: $pxrem*8 $pxrem*10;
+            @include color_set_gray;
+
+            font-size: $pxrem*20;
+            font-weight: bold;
+            border: $pxrem*1 var(--color__border_gray);
+
+        }
+
+        // form registration
+        p{
+            padding: $pxrem*10 $pxrem*16;
+
+        }
+
+        
+    }
+}
+
+
+
+
+/* 
+    - My Account 
+    */
+
+// Navigatoin
+.woocommerce-MyAccount-navigation{
+    
+}
+
+// content
+.woocommerce-MyAccount-content{
+
+}

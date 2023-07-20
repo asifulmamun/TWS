@@ -5,10 +5,42 @@
 @import "./abstract/mixins";
 
 
-// this cart checkout global
-.transition{
-    @include transition(0.3s);
+
+/* 
+    - Some Global */
+
+p.form-row{
+
+    padding-top: $pxrem*20;
+
+    label{
+        font-weight: 500;
+    }
+
+    input{
+        outline: none;
+        border: $pxrem*1 solid var(--color__border_gray);
+        height: $pxrem*40;
+        margin-top: $pxrem*10;
+        padding: $pxrem*5 $pxrem*8;
+        display: block;
+    }
+
+    button[type=submit]{
+        display: block;
+        margin: $pxrem*20 $pxrem*5;
+        font-size: $pxrem*20;
+        font-weight: 600;
+        padding: $pxrem*10 $pxrem*14;
+        @include transition(0.3s);
+        @include color_set_darklight;
+
+        &:hover{
+            @include color_set_optional;
+        }
+    }
 }
+    
 
 
 

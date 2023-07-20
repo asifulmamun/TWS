@@ -14,10 +14,10 @@
     .woocommerce-form-login-toggle,
     .woocommerce-form-coupon-toggle{
         
-        border-top: $pxrem*5 solid var(--color__optional);
-        margin-top: $pxrem*10;
-        background: var(--color__lightgray);
+        border-top: $pxrem*5 solid var(--color__darkgray);
+        margin-top: $pxrem*50;
         padding: $pxrem*5 $pxrem*10 $pxrem*10 $pxrem*20;
+        background: var(--color__lightgray);
 
 
         a{
@@ -36,60 +36,9 @@
     .woocommerce-form-login{
         margin-top: $pxrem*5;
 
-        // all
         p{
-            padding-top: $pxrem*3;
-            padding-bottom: $pxrem*3;
-        }
-
-        p.form-row{
             padding: $pxrem*10 $pxrem*16;
-
-            label{
-                font-weight: 500;
-                display: block;
-            }
-
-            // remember me checkbox
-            label.woocommerce-form-login__rememberme{
-                height: inherit;
-                display: inherit;
-
-                input{
-                    height: inherit;
-                    margin: inherit;
-                }
-            }
-
-
-            // lgoin button
-            button.woocommerce-form-login__submit{
-
-                display: block;
-                margin: $pxrem*30 $pxrem*0 $pxrem*15 $pxrem*10;
-                padding: $pxrem*8 $pxrem*26;
-                font-size: large;
-                font-weight: bold;
-
-                @include color_set_darklight;
-                @include transition(0.3s);
-
-                &:hover{
-                    @include color_set_optional;
-                }
-            }
-
-
-            input{
-                outline: none;
-                border: $pxrem*1 solid var(--color__border_gray);
-                height: $pxrem*40;
-                margin-top: $pxrem*10;
-                padding: $pxrem*5 $pxrem*8;
-            }
         }
-
-
     }
 
     
@@ -97,46 +46,9 @@
     .woocommerce-form-coupon{
         margin-top: $pxrem*5;
 
-        // all
         p{
-            padding-top: $pxrem*3;
-            padding-bottom: $pxrem*3;
-        }
-
-        p.form-row{
             padding: $pxrem*10 $pxrem*16;
 
-            label{
-                font-weight: 500;
-                display: block;
-            }
-
-
-            // lgoin button
-            button.wp-element-button{
-
-                display: block;
-                margin: $pxrem*30 $pxrem*0 $pxrem*15 $pxrem*10;
-                padding: $pxrem*8 $pxrem*26;
-                font-size: large;
-                font-weight: bold;
-
-                @include color_set_darklight;
-                @include transition(0.3s);
-
-                &:hover{
-                    @include color_set_optional;
-                }
-            }
-
-
-            input{
-                outline: none;
-                border: $pxrem*1 solid var(--color__border_gray);
-                height: $pxrem*40;
-                margin-top: $pxrem*10;
-                padding: $pxrem*5 $pxrem*8;
-            }
         }
 
 
@@ -185,9 +97,12 @@ form#checkout{
                     padding: $pxrem*10 $pxrem*10;
                     font-size: $pxrem*20;
                     font-weight: bold;
-                    background-color: var(--color__lightgray);
-                    border: $pxrem*1 solid var(--color__border_gray);
-                    color: var(--color__txt_gray);
+
+                    // background-color: var(--color__lightgray);
+                    // border: $pxrem*1 solid var(--color__border_gray);
+                    // color: var(--color__txt_gray);
+
+                    @include color_set_gray;
                 }
 
                 .woocommerce-billing-fields__field-wrapper{
@@ -200,17 +115,17 @@ form#checkout{
                     p.form-row{
                         padding: $pxrem*10 $pxrem*16;
 
-                        label{
-                            font-weight: 500;
-                        }
+                        // label{
+                        //     font-weight: 500;
+                        // }
 
-                        input{
-                            outline: none;
-                            border: $pxrem*1 solid var(--color__border_gray);
-                            height: $pxrem*40;
-                            margin-top: $pxrem*10;
-                            padding: $pxrem*5 $pxrem*8;
-                        }
+                        // input{
+                        //     outline: none;
+                        //     border: $pxrem*1 solid var(--color__border_gray);
+                        //     height: $pxrem*40;
+                        //     margin-top: $pxrem*10;
+                        //     padding: $pxrem*5 $pxrem*8;
+                        // }
                     }
 
                     // required fields star (*) sign
@@ -285,13 +200,22 @@ form#checkout{
                 margin: $pxrem*40 $pxrem*0;
 
                 p{
-                    padding: $pxrem*10 $pxrem*10;
-                    font-size: $pxrem*20;
-                    font-weight: bold;
-                    background-color: var(--color__lightgray);
-                    border: $pxrem*1 solid var(--color__border_gray);
-                    color: var(--color__txt_gray);
+
+                    @include heading; // heading style
+                    @include color_set_gray; // light gray bg
+
+
+
+                    // remember me checkbox
+                    label.woocommerce-form__label-for-checkbox{
+                        input{
+                            display: inline;
+                            height: inherit;
+                        }
+                    }
+
                 }
+                
             }
         }
 
@@ -305,12 +229,8 @@ form#checkout{
 
                 // ship to a different address
                 h3{
-                    padding: $pxrem*10 $pxrem*10;
-                    font-size: $pxrem*20;
-                    font-weight: bold;
-                    background-color: var(--color__lightgray);
-                    border: $pxrem*1 solid var(--color__border_gray);
-                    color: var(--color__txt_gray);
+                    @include heading;
+                    @include color_set_gray;
                 }
 
                 .shipping_address{
@@ -325,18 +245,6 @@ form#checkout{
                     // all fields
                     p.form-row{
                         padding: $pxrem*10 $pxrem*16;
-
-                        label{
-                            font-weight: 500;
-                        }
-
-                        input{
-                            outline: none;
-                            border: $pxrem*1 solid var(--color__border_gray);
-                            height: $pxrem*40;
-                            margin-top: $pxrem*10;
-                            padding: $pxrem*5 $pxrem*8;
-                        }
                     }
 
                     // required fields star (*) sign
@@ -426,12 +334,10 @@ form#checkout{
 
     // right side
     h3#order_review_heading{
-        padding: $pxrem*10 $pxrem*10;
-        font-size: $pxrem*20;
-        font-weight: bold;
-        background-color: var(--color__lightgray);
-        border: $pxrem*1 solid var(--color__border_gray);
-        color: var(--color__txt_gray);
+
+        @include heading; // heading style
+        @include color_set_gray; // light gray bg
+
     }
 
     #order_review{
@@ -539,23 +445,17 @@ form#checkout{
                     p.validate-required{
                         padding: $pxrem*10 $pxrem*10;
                         font-weight: bold;
-                        background-color: var(--color__lightgray);
-                        border: $pxrem*1 solid var(--color__border_gray);
-                        color: var(--color__txt_gray);
                         margin-top: $pxrem*20;
+                        margin-bottom: $pxrem*20;
+                        @include color_set_gray;
 
                         label{
-                            input[type="checkbox"]{
-                                margin-right: $pxrem*5;
-                            }
 
-                            span{
-                                color: var(--color__txt_gray);
 
-                                a{
-                                    color: var(--color__optional);
-                                }
+                            a{
+                                color: var(--color__optional);
                             }
+                    
                         }
                     }
                 }
@@ -566,12 +466,10 @@ form#checkout{
                     // padding: $pxrem*40 $pxrem*0;
 
                     display: block;
-                    margin: $pxrem*20 auto;
-                    background: var(--color__secondary);
-                    color: var(--color__txt_secondary);
-                    font-weight: 600;
-                    font-size: $pxrem*20;
                     width: 80%;
+                    margin: $pxrem*20 auto;
+                    font-size: $pxrem*20;
+                    font-weight: 600;
                     padding: $pxrem*10 $pxrem*0;
                     @include transition(0.3s);
                     @include color_set_primary;
