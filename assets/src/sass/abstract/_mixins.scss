@@ -1,17 +1,32 @@
-// default transition @inlcude transition(0.3s);
-@mixin transition($transition){
-    transition: $transition ease;
-    -webkit-transition: $transition ease;
-    -moz-transition: $transition ease;
-    -ms-transition: $transition ease;
-    -o-transition: $transition ease;
+// CROSS BROWSER COMPITIBLE
+@mixin cross($mycross_var, $mycross_value){
+    #{$mycross_var}: $mycross_value;
+    -webkit-#{$mycross_var}: $mycross_value;
+    -moz-#{$mycross_var}: $mycross_value;
+    -ms-#{$mycross_var}: $mycross_value;
+    -o-#{$mycross_var}: $mycross_value;
 }
 
+// default transition @inlcude transition(0.3s);
+@mixin transition($transition){
+    @include cross(transition, all $transition ease);
+}
+
+// verticale text rotate example: @include tws__vertical_txt(180deg);
+@mixin tws__vertical_txt($v_deg){
+    writing-mode: vertical-lr; /* This sets the writing mode to vertical, from left to right */
+    transform: rotate($v_deg); /* Rotate the text 90 degrees clockwise */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+// Heading
 @mixin heading{
     padding: $pxrem*10 $pxrem*10;
     font-size: $pxrem*20;
     font-weight: bold;
 }
+
+
 
 /* 
     Color sets */

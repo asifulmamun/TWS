@@ -1,15 +1,3 @@
-// woocommerce notice
-.woocommerce-notices-wrapper{
-    ul.woocommerce-error{
-        @include color_set_optional;
-        padding: $pxrem*30 $pxrem*10;
-        margin: $pxrem*30 $pxrem*0;
-        font-size: large;
-    }
-}
-
-
-
 // customer login
 div#customer_login{
 

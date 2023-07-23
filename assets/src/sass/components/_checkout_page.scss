@@ -1,16 +1,30 @@
-
-/* 
-    checkout page
+/*
+    - before form of checkout
  */
 
-// before form of checkout
+.tws__place_order_fixed{
+    position: fixed;
+    right: $pxrem*0;
+    top: 50%;
+    @include cross(transform, translateY(-50%));
+    @include transition(0.3s);
+    z-index: 100;
+
+    @include tws__vertical_txt(180deg);
+    font-size: large;
+    font-weight: bold;
+    padding: $pxrem*40 $pxrem*10;
+
+    svg{
+        display: inline;
+        margin-right: $pxrem*11;
+        margin-top: $pxrem*12;
+    }
+}
+
 .woocommerce{
 
-    .woocommerce-notices-wrapper{
-        padding-top: $pxrem*50;
-    }
-
-    // form login btn
+    // form login/coupon btn
     .woocommerce-form-login-toggle,
     .woocommerce-form-coupon-toggle{
         
@@ -18,7 +32,6 @@
         margin-top: $pxrem*50;
         padding: $pxrem*5 $pxrem*10 $pxrem*10 $pxrem*20;
         background: var(--color__lightgray);
-
 
         a{
             padding: $pxrem*8 $pxrem*14;
@@ -33,39 +46,26 @@
     }
 
     // toggle login form
-    .woocommerce-form-login{
-        margin-top: $pxrem*5;
-
-        p{
-            padding: $pxrem*10 $pxrem*16;
-        }
-    }
-
-    
-    // toggle coupon form
+    .woocommerce-form-login,
     .woocommerce-form-coupon{
         margin-top: $pxrem*5;
+        border-left: $pxrem*3 dotted var(--color__optional_light);
 
         p{
             padding: $pxrem*10 $pxrem*16;
-
         }
-
-
     }
 
-    .woocommerce-info{
-        padding-top: $pxrem*10;
-    }
 }
 
 
-
+/* 
+    Checkout Form */
 form#checkout{
     padding-top: $pxrem*50;
 
 
-    // Required Notices - checkout page
+    // Required Notices at top when get checkout form error
     .woocommerce-NoticeGroup-checkout{
 
         background-color: var(--color__lightgray);
@@ -82,7 +82,25 @@ form#checkout{
         }
     }
 
-    // left side
+
+    /* 
+        #   All heading
+    */
+    .woocommerce-billing-fields h3,
+    .woocommerce-shipping-fields h3,
+    .woocommerce-account-fields p,
+    #order_review_heading{
+        @include heading;
+        @include color_set_gray;
+    }
+
+
+
+
+
+
+    /* 
+        # left side */
     .billing_shipping{
 
         padding-right: $pxrem*30;
@@ -93,18 +111,6 @@ form#checkout{
             // billing fields
             .woocommerce-billing-fields{
 
-                h3{
-                    padding: $pxrem*10 $pxrem*10;
-                    font-size: $pxrem*20;
-                    font-weight: bold;
-
-                    // background-color: var(--color__lightgray);
-                    // border: $pxrem*1 solid var(--color__border_gray);
-                    // color: var(--color__txt_gray);
-
-                    @include color_set_gray;
-                }
-
                 .woocommerce-billing-fields__field-wrapper{
                     border: $pxrem*0.5 solid var(--color__border_gray);
                     padding-top: $pxrem*30;
@@ -112,20 +118,10 @@ form#checkout{
                     
 
                     // all fields
-                    p.form-row{
-                        padding: $pxrem*10 $pxrem*16;
-
-                        // label{
-                        //     font-weight: 500;
-                        // }
-
-                        // input{
-                        //     outline: none;
-                        //     border: $pxrem*1 solid var(--color__border_gray);
-                        //     height: $pxrem*40;
-                        //     margin-top: $pxrem*10;
-                        //     padding: $pxrem*5 $pxrem*8;
-                        // }
+                    p.form-row{                    
+                        input{
+                            width: 100%;
+                        }
                     }
 
                     // required fields star (*) sign
@@ -135,7 +131,7 @@ form#checkout{
                         }
                     }
 
-                    // when missing any required fields then show error message / warning / notice
+                    // aleart for required field
                     p.woocommerce-invalid-required-field{
                         label{
                             color: var(--color__optional_light);
@@ -149,89 +145,24 @@ form#checkout{
                     // first | last - name
                     p#billing_first_name_field,
                     p#billing_last_name_field{
-
                         float: left;
                         width: 50%;
-                        
-                        label{
-
-                        }
-
-                        input{
-                            outline: none;
-                            width: 100%;
-                        }
-                    }
-
-                    // Compay Field| Street address | Billing city
-                    p#billing_company_field,
-                    p#billing_address_1_field,
-                    p#billing_address_2_field,
-                    p#billing_city_field,
-                    p#billing_postcode_field,
-                    p#billing_phone_field,
-                    p#billing_email_field{
-                        
-                        label{
-                            display: block;
-                        }
-                    
-                        input{
-                            width: 100%;
-                        }
-                    }
-
-                    // country | state - field
-                    p#billing_country_field,
-                    p#billing_state_field{
-                        padding-right: $pxrem*20;
-
-                        label{
-                            display: block;
-                            padding-bottom: $pxrem*6;
-                        }
                     }
                 }
             }
 
             // Create an account - account fields
             .woocommerce-account-fields{
-
                 margin: $pxrem*40 $pxrem*0;
+            } // .woocommerce-account-fields
 
-                p{
-
-                    @include heading; // heading style
-                    @include color_set_gray; // light gray bg
-
-
-
-                    // remember me checkbox
-                    label.woocommerce-form__label-for-checkbox{
-                        input{
-                            display: inline;
-                            height: inherit;
-                        }
-                    }
-
-                }
-                
-            }
-        }
-
-
+        } // .billing
 
         // shipping address | another shipping address
         .shipping{
 
             // another shipping address
             .woocommerce-shipping-fields{
-
-                // ship to a different address
-                h3{
-                    @include heading;
-                    @include color_set_gray;
-                }
 
                 .shipping_address{
 
@@ -328,18 +259,11 @@ form#checkout{
                     }
                 }
             }
-        }
+        } // .shipping
     }
 
-
-    // right side
-    h3#order_review_heading{
-
-        @include heading; // heading style
-        @include color_set_gray; // light gray bg
-
-    }
-
+    /* 
+        # Right side */
     #order_review{
         padding: $pxrem*20 $pxrem*10;
 
@@ -424,11 +348,6 @@ form#checkout{
         // after calculing in checkout
         #payment{
             padding: $pxrem*20 $pxrem*10;
-
-            .methods{
-
-            }
-
             .place-order{
                 padding-top: $pxrem*20;
                 color: var(--color__txt_gray);
@@ -450,12 +369,9 @@ form#checkout{
                         @include color_set_gray;
 
                         label{
-
-
                             a{
                                 color: var(--color__optional);
                             }
-                    
                         }
                     }
                 }
@@ -463,14 +379,13 @@ form#checkout{
 
                 // btn place order
                 button{
-                    // padding: $pxrem*40 $pxrem*0;
-
                     display: block;
                     width: 80%;
                     margin: $pxrem*20 auto;
                     font-size: $pxrem*20;
                     font-weight: 600;
                     padding: $pxrem*10 $pxrem*0;
+
                     @include transition(0.3s);
                     @include color_set_primary;
 
@@ -481,9 +396,5 @@ form#checkout{
                 } // btn place order
             }
         }
-    }
-
-
-
-    
-}
+    } // #order_review
+} // form#checkout

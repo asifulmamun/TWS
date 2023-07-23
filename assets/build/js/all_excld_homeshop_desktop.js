@@ -109,7 +109,7 @@ if (tws__single_product_small_details) {
 ;
 
 /* 
-  Cart/Checkout
+  Cart
    */
 
 var tws__cart_table = document.getElementById('tws__cart_table');
@@ -195,6 +195,33 @@ if (tws__cart_table || checkout) {
   }
   ; // if has tbody
 } // if tws__cart_table || checkout
+
+/* 
+  Checkout
+   */
+
+// Place Order btn - Simulated/Triggerable/Custom
+var place_order = document.getElementById("place_order");
+var tws__place_order_trigger = document.getElementById("tws__place_order_trigger");
+if (place_order && tws__place_order_trigger) {
+  var tws__ic_paper_airplan = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>';
+
+  // change the simulated btn text with order place button txt
+  tws__place_order_trigger.innerHTML = place_order.innerText + tws__ic_paper_airplan;
+
+  // clicked function for simulated order btn
+  tws__place_order_trigger.addEventListener("click", function () {
+    // check mark - terms & condition
+    var checkbox = document.getElementById("terms");
+    if (!checkbox.checked) {
+      // Check if the checkbox is not already checked
+      checkbox.checked = true; // Check the checkbox
+    }
+
+    // click/trigger - place order btn
+    document.getElementById("place_order").click(); // Simulate a click on the main button
+  }); // tws__place_order_trigger
+}
 }();
 /******/ })()
 ;

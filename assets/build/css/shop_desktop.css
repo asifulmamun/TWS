@@ -465,11 +465,11 @@ header#tws__header .tws__right_bar .tws__single_menu {
   background-color: var(--color__bg_darklight);
   color: #fff;
   color: var(--color__txt_darklight);
-  transition: 0.3s ease;
-  -webkit-transition: 0.3s ease;
-  -moz-transition: 0.3s ease;
-  -ms-transition: 0.3s ease;
-  -o-transition: 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 header#tws__header .tws__right_bar .tws__single_menu:hover {

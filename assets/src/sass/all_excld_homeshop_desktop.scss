@@ -9,9 +9,10 @@
 
 p.form-row{
 
-    padding-top: $pxrem*20;
+    padding: $pxrem*10 $pxrem*16;
 
     label{
+        display: block;
         font-weight: 500;
     }
 
@@ -44,6 +45,17 @@ p.form-row{
     }
 }
 
+// woocommerce notice
+.woocommerce-notices-wrapper{
+
+    // error notice
+    ul.woocommerce-error{
+        @include color_set_optional;
+        padding: $pxrem*30 $pxrem*10;
+        margin: $pxrem*30 $pxrem*0;
+        font-size: large;
+    }
+}
 
 // product - single page
 @import "./components/product_single";
