@@ -105,161 +105,70 @@ form#checkout{
 
         padding-right: $pxrem*30;
 
-        // billing address
-        .billing{
+        .woocommerce-billing-fields__field-wrapper,
+        .woocommerce-shipping-fields__field-wrapper{
+            border: $pxrem*0.5 solid var(--color__border_gray);
+            padding-top: $pxrem*30;
+            padding-bottom: $pxrem*30;
+            
 
-            // billing fields
-            .woocommerce-billing-fields{
+            // all fields
+            p.form-row{                    
+                input{
+                    width: 100%;
+                }
+            }
 
-                .woocommerce-billing-fields__field-wrapper{
-                    border: $pxrem*0.5 solid var(--color__border_gray);
-                    padding-top: $pxrem*30;
-                    padding-bottom: $pxrem*30;
-                    
+            // required fields star (*) sign
+            p{
+                abbr.required{
+                    color: var(--color__optional_light);
+                }
+            }
 
-                    // all fields
-                    p.form-row{                    
-                        input{
-                            width: 100%;
-                        }
+            // aleart for required field
+            p.woocommerce-invalid-required-field{
+                label{
+                    color: var(--color__optional_light);
+                }
+
+                input{
+                    border: $pxrem*1 solid var(--color__border_secondary);
+                }
+            }
+
+            // first | last - name
+            p#billing_first_name_field,
+            p#billing_last_name_field,
+            p#shipping_first_name_field,
+            p#shipping_last_name_field{
+                float: left;
+                width: 50%;
+            }
+        }
+
+        // Create an account - account fields
+        .woocommerce-account-fields{
+            margin: $pxrem*40 $pxrem*0;
+        } // .woocommerce-account-fields
+
+
+        // notes | woocommerce additional fields
+        .woocommerce-additional-fields{
+
+            padding-top: $pxrem*50;
+
+            .woocommerce-additional-fields__field-wrapper{
+                p#order_comments_field{
+                    label{
+                        display: block;
                     }
-
-                    // required fields star (*) sign
-                    p{
-                        abbr.required{
-                            color: var(--color__optional_light);
-                        }
-                    }
-
-                    // aleart for required field
-                    p.woocommerce-invalid-required-field{
-                        label{
-                            color: var(--color__optional_light);
-                        }
-
-                        input{
-                            border: $pxrem*1 solid var(--color__border_secondary);
-                        }
-                    }
-
-                    // first | last - name
-                    p#billing_first_name_field,
-                    p#billing_last_name_field{
-                        float: left;
+                    textarea{
                         width: 50%;
                     }
                 }
             }
-
-            // Create an account - account fields
-            .woocommerce-account-fields{
-                margin: $pxrem*40 $pxrem*0;
-            } // .woocommerce-account-fields
-
-        } // .billing
-
-        // shipping address | another shipping address
-        .shipping{
-
-            // another shipping address
-            .woocommerce-shipping-fields{
-
-                .shipping_address{
-
-                    border: $pxrem*0.5 solid var(--color__border_gray);
-                    
-                    .woocommerce-shipping-fields__field-wrapper{
-                        padding-top: $pxrem*30;
-                        padding-bottom: $pxrem*30;
-
-
-                    // all fields
-                    p.form-row{
-                        padding: $pxrem*10 $pxrem*16;
-                    }
-
-                    // required fields star (*) sign
-                    p{
-                        abbr.required{
-                            color: var(--color__optional_light);
-                        }
-                    }
-
-                    // when missing any required fields then show error message / warning / notice
-                    p.woocommerce-invalid-required-field{
-                        label{
-                            color: var(--color__optional_light);
-                        }
-
-                        input{
-                            border: $pxrem*1 solid var(--color__border_secondary);
-                        }
-                    }
-
-                    // first | last - name
-                    p#shipping_first_name_field,
-                    p#shipping_last_name_field{
-
-                        float: left;
-                        width: 50%;
-                        
-                        label{
-
-                        }
-
-                        input{
-                            outline: none;
-                            width: 100%;
-                        }
-                    }
-
-                    // Compay Field| Street address | Billing city
-                    p#shipping_company_field,
-                    p#shipping_address_1_field,
-                    p#shipping_address_2_field,
-                    p#shipping_city_field,
-                    p#shipping_postcode_field{
-                        
-                        label{
-                            display: block;
-                        }
-                    
-                        input{
-                            width: 100%;
-                        }
-                    }
-
-                    // country | state - field
-                    p#shipping_country_field,
-                    p#shipping_state_field{
-                        padding-right: $pxrem*20;
-
-                        label{
-                            display: block;
-                            padding-bottom: $pxrem*6;
-                        }
-                    }
-                    }
-                }
-            }
-
-            // notes | woocommerce additional fields
-            .woocommerce-additional-fields{
-
-                padding-top: $pxrem*50;
-
-                .woocommerce-additional-fields__field-wrapper{
-                    p#order_comments_field{
-                        label{
-                            display: block;
-                        }
-                        textarea{
-                            width: 50%;
-                        }
-                    }
-                }
-            }
-        } // .shipping
+        }
     }
 
     /* 
