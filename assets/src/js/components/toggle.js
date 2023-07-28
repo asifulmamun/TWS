@@ -10,13 +10,10 @@ console.log('this is toggle.js for desktop browser');
 const toggle_primary_menu = document.getElementById('toggle_primary_menu');
 const aside = document.getElementById('aside');
 const main = document.getElementById('main');
+const qmenu = document.getElementById('tws__quick_access_menu'); // quick access menu
 
 // check the main id is exist, then
 if(main){
-    // default
-    // aside.style.left = '0';
-    // main.style.paddingLeft = pxrem(225);
-    // main.classList.add('pl-56'); // 224px
 
     // aftr click
     toggle_primary_menu.addEventListener('click', (event) => {
@@ -28,10 +25,17 @@ if(main){
             aside.classList.remove('md:left-0');
             aside.classList.add('md:-left-80');
             main.classList.remove('md:pl-56');
+
+            qmenu.classList.remove('md:left-0');
+            qmenu.classList.add('md:-left-80');
             
+
             // sidebar show - mobile or else
             aside.classList.remove('-left-80');
-            aside.classList.add('left-0');            
+            aside.classList.add('left-0');
+
+            qmenu.classList.remove('-left-80');
+            qmenu.classList.add('left-0');          
         } 
     
         
@@ -40,10 +44,18 @@ if(main){
             aside.classList.add('md:left-0');
             aside.classList.remove('md:-left-80');
             main.classList.add('md:pl-56');
+
+            qmenu.classList.add('md:left-0');
+            qmenu.classList.remove('md:-left-80');
+
             
             // sidebar hide - mobile or else
             aside.classList.add('-left-80');
             aside.classList.remove('left-0');
+
+            qmenu.classList.add('-left-80');
+            qmenu.classList.remove('left-0');
+
         }
 
     });

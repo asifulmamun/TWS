@@ -182,6 +182,8 @@ form#checkout{
             
             td,th{
                 vertical-align: top;
+                color: var(--color__txt_gray);
+
             }
             
             thead{
@@ -190,7 +192,6 @@ form#checkout{
                 tr{
                     th{
                         padding: $pxrem*10 $pxrem*10;
-                        color: var(--color__txt_gray);
                     }
                     
                 }
@@ -202,7 +203,6 @@ form#checkout{
 
                     td,th{
                         padding: $pxrem*10 $pxrem*10;
-                        color: var(--color__txt_gray);
                     }
                 }
                 tr:last-child{

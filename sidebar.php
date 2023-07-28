@@ -31,7 +31,7 @@
 		);
 	?>
 
-    <div class="tws__quick_access_menu fixed w-52 overflow-hidden bottom-0 z-10 border-t">
+    <div id="tws__quick_access_menu" class="tws__quick_access_menu fixed -left-80 md:left-0 w-52 overflow-hidden bottom-0 z-10 border-t transition-all ease-in-out delay-150 duration-300">
         <?php
             // Quick menu print 
             wp_nav_menu(
@@ -47,80 +47,4 @@
             ); 
         ?>
     </div>
-
-    <ul>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-        <li>DJ</li>
-    </ul>
-
 </aside>

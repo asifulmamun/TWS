@@ -26,6 +26,14 @@
     font-weight: bold;
 }
 
+// btn mobile default padding
+@mixin btn_mobile_padding{
+    padding: $pxrem*6 $pxrem*10;
+}
+// btn desktop default padding
+@mixin btn_desktop_padding{
+    padding: $pxrem*8 $pxrem*12;
+}
 
 
 /* 

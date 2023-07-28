@@ -52,7 +52,7 @@ body{
 
 // default padding at button
 .tws__btn_padding{
-    padding: $pxrem*8 $pxrem*12;
+    @include btn_desktop_padding;
 }
 
 // primary button
