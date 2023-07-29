@@ -1,0 +1,243 @@
+// customer login
+div#customer_login{
+
+    // login - left side
+    .tws__my_ac_login{
+        padding-right: $pxrem*30;
+    }
+
+
+    // registration - right side
+    .tws__my_ac_login,
+    .tws__my_ac_registration{
+        // heading
+        >h2{
+            padding: $pxrem*8 $pxrem*10;
+            @include color_set_gray;
+            margin-bottom: $pxrem*20;
+
+            font-size: $pxrem*20;
+            font-weight: bold;
+            border: $pxrem*1 var(--color__border_gray);
+
+        }
+
+        // form registration
+        p{
+            padding: $pxrem*10 $pxrem*16;
+        }
+    }
+}
+
+
+
+
+/* 
+    - My Account 
+    */
+
+// Navigatoin
+.woocommerce-MyAccount-navigation{
+    
+}
+
+// content
+.woocommerce-MyAccount-content{
+
+    // dashboard ancore
+    p{
+        a{
+            color: var(--color__optional);
+            font-weight: bold;
+        }
+    }
+
+    // orders table
+    table.woocommerce-MyAccount-orders{
+        tr{
+
+            th{
+                background-color: var(--color__lightgray);
+            }
+
+            th,td{
+                padding: $pxrem*10 $pxrem*20;
+                border: $pxrem*1 solid var(--color__border_gray);
+            }
+
+            td.woocommerce-orders-table__cell-order-status{
+                color: var(--color__optional_light);
+                font-weight: bold;
+                font-size: large;
+            }
+
+            td:first-child{
+                a{
+                    color: var(--color__primary);
+                    font-weight: bold;
+                    font-size: large;
+                }
+            }
+
+            td:last-child{
+                padding: $pxrem*20 $pxrem*20;
+                a{
+                    padding: $pxrem*10 $pxrem*20;
+                    @include color_set_darklight;
+                    @include transition(0.3s);
+
+                    &:hover{
+                        @include color_set_optional;
+                    }
+                }
+            }
+        }
+
+    }
+
+    // Addresss
+    .addresses{
+
+        .u-column1,
+        .u-column2{
+            header.title{
+                h3{
+                    @include heading;
+                    @include color_set_gray;
+                }
+
+                a.edit{
+                    @include btn_mobile_padding;
+                    @include color_set_darklight;
+                    @include transition(0.3s);
+
+                    margin: $pxrem*20 $pxrem*10;
+                    display: inline-block;
+
+                    &:hover{
+                        @include color_set_optional;
+                    }
+                }
+            }
+        }
+
+        address{
+            border: $pxrem*1 solid var(--color__lightgray);
+            padding: $pxrem*10 $pxrem*20;
+            margin-bottom: $pxrem*50;
+            color: var(--color__primary);
+        }
+    }
+
+    // Edit Address
+    form{
+        h3{
+            @include heading;
+            @include color_set_gray;
+        }
+    }
+
+    // Single Order Details in My Account - After click the order or View Button
+    // Customer Details in Single Order Details
+    h2.woocommerce-column__title,
+    .woocommerce-order-details__title{
+        @include heading;
+        @include color_set_gray;
+        margin: $pxrem*20 $pxrem*0;
+    }
+
+    // Order details with shipping and calculates
+    table.woocommerce-table--order-details{
+        width: 100%;
+        text-align: left;
+        
+        td,th{
+            vertical-align: top;
+            color: var(--color__txt_gray);
+
+        }
+        
+        thead{
+            background-color: var(--color__lightgray);
+            
+            tr{
+                th{
+                    padding: $pxrem*10 $pxrem*10;
+                }
+                
+            }
+        }
+        
+        tbody{
+            tr{
+                border-bottom: $pxrem*.5 solid var(--color__border_gray);
+
+                td,th{
+                    padding: $pxrem*10 $pxrem*10;
+                }
+            }
+            tr:last-child{
+                td{
+                    padding-bottom: $pxrem*30;
+                }
+            }
+        }
+
+        tfoot{
+            border: $pxrem*0.5 solid var(--color__border_gray);
+            
+            tr{
+                th,td{
+                    padding: $pxrem*5 $pxrem*10;
+                }
+            }
+
+            tr.cart-subtotal{
+                td{
+                    color: var(--color__primary);
+                }
+            }
+
+            tr.shipping{
+                td{
+                    color: var(--color__optional);
+
+                }
+            }
+
+            // total
+            tr.order-total{
+                border-top: $pxrem*.5 solid var(--color__border_gray);
+                background-color: var(--color__lightgray);
+                color: var(--color__txt_gray);
+
+                th,td{
+                    font-size: $pxrem*18;
+                }
+                td{
+                    span.woocommerce-Price-amount{
+                        color: var(--color__primary);
+
+                    }
+                }
+            }
+        }
+    }
+
+    .order-again{
+        a{
+            @include btn_mobile_padding;
+            @include color_set_darklight;
+            @include transition(0.3s);
+            
+            margin: $pxrem*10 $pxrem*10;
+            display: inline-block;
+
+            &:hover{
+                @include color_set_optional;
+            }
+        }
+    }
+
+
+}
