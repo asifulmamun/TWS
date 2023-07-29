@@ -1,0 +1,38 @@
+.tws__search_results{
+
+
+
+    form.tws__inner_search{
+
+        margin: $pxrem*20 $pxrem*20;
+
+        input{
+            height: $pxrem*40;
+            border: $pxrem*1 solid var(--color__darkgray);
+            outline: none;
+        }
+    }
+
+
+    header.page-header{
+        @include color_set_primary;
+        padding: $pxrem*10 $pxrem*20;
+        margin: $pxrem*20 $pxrem*0;
+
+    }
+
+    a.post-thumbnail{
+        width: $pxrem*150;
+        height: $pxrem*150;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            height: 95%;
+            width: auto;
+        }
+    }
+
+} // tws__search_results

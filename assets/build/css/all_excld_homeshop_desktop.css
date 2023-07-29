@@ -1072,5 +1072,39 @@ div#customer_login .tws__my_ac_registration p {
   color: var(--color__txt_optional);
 }
 
+.tws__search_results form.tws__inner_search {
+  margin: 1.25rem 1.25rem;
+}
+
+.tws__search_results form.tws__inner_search input {
+  height: 2.5rem;
+  border: 0.0625rem solid #4c4c4c;
+  border: 0.0625rem solid var(--color__darkgray);
+  outline: none;
+}
+
+.tws__search_results header.page-header {
+  background-color: #1f86ba;
+  background-color: var(--color__bg_primary);
+  color: #fff;
+  color: var(--color__txt_primary);
+  padding: 0.625rem 1.25rem;
+  margin: 1.25rem 0rem;
+}
+
+.tws__search_results a.post-thumbnail {
+  width: 9.375rem;
+  height: 9.375rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tws__search_results a.post-thumbnail img {
+  height: 95%;
+  width: auto;
+}
+
 
 /*# sourceMappingURL=all_excld_homeshop_desktop.css.map*/

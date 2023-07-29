@@ -13,6 +13,7 @@ if(devView == 1){
     '../template-parts/mobile/global/footer.php',
   
   '../page-shop-home.php',
+  '../search.php',
   
 
   '../woocommerce/content-single-product.php',
@@ -47,6 +48,7 @@ if(devView == 1){
         '../template-parts/desktop/global/footer.php',
         
       '../page-shop-home.php',
+      '../search.php',
 
       '../woocommerce/content-single-product.php',
       '../woocommerce/global/breadcrumb.php',
