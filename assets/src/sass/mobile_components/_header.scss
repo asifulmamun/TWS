@@ -73,4 +73,46 @@ header#tws__header{
 
 } // Header part end
 
+// BELOW HEADER
+#tws__below_header{
+    height: 30vh;
+
+    #datafetch{
+        
+        // background-color: var(--color__primary);
+
+        li{
+            a{
+                &:hover{
+                    color: var(--color__optional)
+                }
+                
+                @include transition(0.3s);
+
+                img{
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+    
+        .search_key{
+            color: var(--color__optional);
+        }
+
+        // cloase btn
+        #ajax_search_close_btn{
+            @include color_set_optional;
+            @include transition(0.3s);
+            font-weight: bold;
+            cursor: pointer;
+            padding: $pxrem*4 $pxrem*6;
+
+            &:hover{
+                @include color_set_darklight;
+            }
+        }
+    }
+}
+
 

@@ -317,67 +317,130 @@ add_action('wp_ajax_data_fetch', 'data_fetch');
 add_action('wp_ajax_nopriv_data_fetch', 'data_fetch');
 function data_fetch()
 {
-
-
     $the_query = new WP_Query(array('posts_per_page' => 5, 's' => esc_attr($_POST['keyword']), 'post_type' => 'product'));
-
-    echo '<ul>';
+    echo '<div class="search_key absolute top-3">Search for: ' . $_POST['keyword'] . '</div><button class="absolute top-3 right-0" id="ajax_search_close_btn">CLOSE</button>';
+    echo '<ul class="pt-10">';
     if ($the_query->have_posts()) :
-        while ($the_query->have_posts()) : $the_query->the_post(); ?>
-
+        while ($the_query->have_posts()) : $the_query->the_post();
+        $product = wc_get_product(get_the_ID());
+        // $product_price = $product->get_regular_price(); // or $product->get_sale_price() for sale price
+        ?>
             <li>
-                <div class="row">
-                    <div class="col-2 thumbnail text-right"><a class="titile" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>
-                    <div class="col-10"><a class="titile" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
-                </div>
+                <a class="thumb w-9 h-9 overflow-hidden inline-block" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+                <a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?>=> <?php
+                    if($product->get_sale_price() > 1):
+                        echo '<del>' . $product->get_regular_price() . '</del> | <b>' . $product->get_sale_price() . '</b>';
+                    else:
+                        echo '<b>' . $product->get_regular_price() . '</b>';
+                    endif;
+                ?></a>
             </li>
-
     <?php endwhile;
         wp_reset_postdata();
     else :
-        echo '<h3>No Results Found</h3>';
+        echo '<li>No Results Found</li>';
     endif;
-
     echo '</ul>';
-
-    echo '<div class="search_key">Search ' . $_POST['keyword'] . '</div>';
-
     die();
 }
 // add the ajax fetch js
 add_action('wp_footer', 'ajax_fetch');
 function ajax_fetch()
 {
+
     ?>
 
-    <script type="text/javascript">
+<script type="text/javascript">
+    const tws__top_search = document.getElementById('tws__top_search');
+    const tws__below_header = document.getElementById('tws__below_header');
+    const datafetch = document.getElementById('datafetch');
+    // const ajax_search_close = document.getElementById('ajax_search_close');
 
-document.getElementById('tws__top_search').addEventListener('keyup', function() {
-  fetchResults();
-});
+    tws__top_search.addEventListener('keyup', function() {
+        fetchResults(); // show the searched results
+    });
 
-function fetchResults() {
-    var keyword = document.getElementById('tws__top_search').value;
-    console.log(keyword);
-
-    if (keyword === "") {
-        document.getElementById('datafetch').innerHTML = "";
-    } else {
-        var xhr = new XMLHttpRequest();
-        var ajaxurl = '<?php echo admin_url("admin-ajax.php"); ?>'; // Generate correct AJAX URL
-        xhr.open('POST', ajaxurl, true); // Use POST method for security and compatibility
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('datafetch').innerHTML = xhr.responseText;
+    // Function to handle the input blur event (when the input loses focus)
+    function handleInputBlur(event) {
+        if (tws__top_search.value.trim() === '') {
+            // Show the code block when the input value is empty
+            if (tws__below_header.classList.contains('hidden')) {
+                tws__below_header.classList.remove('hidden');
+                tws__below_header.classList.add('grid');
+            } else {
+                tws__below_header.classList.remove('grid');
+                tws__below_header.classList.add('hidden');
             }
-        };
-        var postData = 'action=data_fetch&keyword=' + encodeURIComponent(keyword);
-        xhr.send(postData);
+        }
     }
-}
 
-    </script>
+    // Function to handle the mouseout event (when the mouse moves out of the input)
+    function handleMouseOut(event) {
+        if (
+            // (event.relatedTarget !== tws__top_search && !tws__top_search.contains(event.relatedTarget)) ||
+            (event.relatedTarget !== datafetch && !datafetch.contains(event.relatedTarget))
+        ) {
+            // Show the code block when the mouse moves out of the input
+            if (tws__below_header.classList.contains('hidden')) {
+                tws__below_header.classList.remove('hidden');
+                tws__below_header.classList.add('grid');
+            } else {
+                tws__below_header.classList.remove('grid');
+                tws__below_header.classList.add('hidden');
+            }
+        }
+    }
+
+
+
+    // Add a blur event listener to the input element
+    tws__top_search.addEventListener('blur', handleInputBlur);
+
+    // Add a mouseout event listener to the input element
+    // tws__top_search.addEventListener('mouseout', handleMouseOut);
+    datafetch.addEventListener('mouseout', handleMouseOut);
+
+    // close btn on ajax search
+    document.addEventListener('click', function(event) {
+        if (event.target.id === 'ajax_search_close_btn') {
+            console.log('ajax_search_close_btn');
+            if (tws__below_header.classList.contains('grid')) {
+                tws__below_header.classList.remove('grid');
+                tws__below_header.classList.add('hidden');
+            }
+        }
+    });
+
+
+
+
+    function fetchResults() {
+
+        if (tws__below_header.classList.contains('hidden')) {
+            tws__below_header.classList.remove('hidden');
+            tws__below_header.classList.add('grid');
+        }
+
+        var keyword = tws__top_search.value;
+        // console.log(keyword);
+
+        if (keyword === "") {
+            document.getElementById('datafetch').innerHTML = "";
+        } else {
+            var xhr = new XMLHttpRequest();
+            var ajaxurl = '<?php echo admin_url("admin-ajax.php"); ?>'; // Generate correct AJAX URL
+            xhr.open('POST', ajaxurl, true); // Use POST method for security and compatibility
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('datafetch').innerHTML = xhr.responseText;
+                }
+            };
+            var postData = 'action=data_fetch&keyword=' + encodeURIComponent(keyword);
+            xhr.send(postData);
+        }
+    }
+</script>
 
 <?php
 }

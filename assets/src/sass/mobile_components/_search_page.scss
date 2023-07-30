@@ -5,10 +5,10 @@
         margin: $pxrem*20 $pxrem*20;
 
         input{
+            padding: $pxrem*5 $pxrem*5;
             height: $pxrem*40;
             border: $pxrem*1 solid var(--color__darkgray);
             outline: none;
-            padding: $pxrem*5 $pxrem*5;
         }
     }
 

@@ -15,6 +15,8 @@ if(devView == 1){
   '../page-shop-home.php',
   '../search.php',
   
+  '../inc/woocommerce.php',
+
 
   '../woocommerce/content-single-product.php',
   '../woocommerce/global/breadcrumb.php',
@@ -49,6 +51,8 @@ if(devView == 1){
         
       '../page-shop-home.php',
       '../search.php',
+
+      '../inc/woocommerce.php',
 
       '../woocommerce/content-single-product.php',
       '../woocommerce/global/breadcrumb.php',

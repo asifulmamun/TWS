@@ -1081,6 +1081,7 @@ div#customer_login .tws__my_ac_registration p {
   border: 0.0625rem solid #4c4c4c;
   border: 0.0625rem solid var(--color__darkgray);
   outline: none;
+  padding: 0.3125rem 0.3125rem;
 }
 
 .tws__search_results header.page-header {
