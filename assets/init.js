@@ -5,6 +5,6 @@
 
 **/
 
-const devView = 2;
+const devView = 1;
 
 module.exports = {devView};
