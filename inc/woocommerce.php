@@ -403,10 +403,10 @@ function ajax_fetch()
     // close btn on ajax search
     document.addEventListener('click', function(event) {
         if (event.target.id === 'ajax_search_close_btn') {
-            console.log('ajax_search_close_btn');
+            tws__below_header.classList.add('hidden');
+            // console.log('ajax_search_close_btn');
             if (tws__below_header.classList.contains('grid')) {
                 tws__below_header.classList.remove('grid');
-                tws__below_header.classList.add('hidden');
             }
         }
     });

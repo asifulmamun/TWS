@@ -10,6 +10,7 @@
 	<meta name="device" id="device-meta" content="Desktop">
 	<?php endif; ?>
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<script>const tws__site_root = "<?php echo get_template_directory_uri(); ?>";</script>
 	<?php wp_head(); ?>
 </head>
 
