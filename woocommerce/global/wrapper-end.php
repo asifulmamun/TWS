@@ -23,6 +23,6 @@ $template = wc_get_theme_slug_for_templates();
 
 switch ( $template ) {
 	default:
-		echo '</main>';
+		// echo '</main>';
 		break;
 }

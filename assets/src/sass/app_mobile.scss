@@ -19,15 +19,13 @@
 
 
 
-#main{
+main#main{
     padding-top: $pxrem * 55;
     padding-bottom: $pxrem * 55;
 
-    main{
-        // padding: $pxrem*20 $pxrem*20;
 
-        .columns-4{
-            all: unset !important;
-        }
+    .columns-4{
+        all: unset !important;
     }
+
 }

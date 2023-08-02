@@ -12,10 +12,9 @@
  * @package TWS_Master_Pro
  */
 
-// get_header();
+get_header();
 ?>
 
-	<main id="primary" class="site-main">
 
 		<?php
 		if ( have_posts() ) :
@@ -50,9 +49,8 @@
 		endif;
 		?>
 
-	</main><!-- #main -->
 
 <?php
 // get_sidebar();
-// get_footer();
+get_footer();
 

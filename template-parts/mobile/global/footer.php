@@ -1,4 +1,4 @@
-<footer class="fixed bottom-0 right-0 w-full overflow-hidden">
+<section id="tws__mobile_footer_menu" class="fixed bottom-0 right-0 w-full overflow-hidden">
     <div class="grid grid-cols-5 gap-1">
         <a class="w-full py-2" href="<?php echo esc_url(home_url('/')); ?>support">
             <svg class="w-6 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -31,4 +31,4 @@
             </svg>
         </a>
     </div>
-</footer>
+</section>

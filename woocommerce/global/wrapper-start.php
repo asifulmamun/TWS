@@ -23,6 +23,6 @@ $template = wc_get_theme_slug_for_templates();
 
 switch ( $template ) {
 	default:
-		echo '<main id="main" class="w-full pl-4 md:pl-56 pr-4 md:pr-14 transition-all ease-in-out delay-150 duration-300">';
+		// echo '<main id="main" class="w-full pl-4 md:pl-56 pr-4 md:pr-14 transition-all ease-in-out delay-150 duration-300">';
 		break;
 }

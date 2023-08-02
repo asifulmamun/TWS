@@ -16,7 +16,17 @@
 else :
 		get_template_part('template-parts/desktop/global/footer', '');
 endif; ?>
-
+<footer class="grid grid-cols-12">
+	<div class="col-span-4">
+		col-1
+	</div>
+	<div class="col-span-4">
+		col-1
+	</div>
+	<div class="col-span-4">
+		col-1
+	</div>
+</footer>
 
 
 	<!-- <footer id="colophon" class="site-footer">
@@ -34,7 +44,8 @@ endif; ?>
 				?>
 		</div>
 	</footer> -->
-
+	
+</main>
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -24,3 +24,4 @@
 		get_template_part('template-parts/desktop/global/header', 'nav');
 	endif;
 	?>
+<main id="main" class="w-full pl-4 md:pl-56 pr-4 md:pr-14 transition-all ease-in-out delay-150 duration-300">
