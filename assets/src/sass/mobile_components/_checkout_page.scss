@@ -84,13 +84,12 @@ form#checkout{
         # left side */
     .billing_shipping{
 
-        padding-right: $pxrem*30;
+        // padding-right: $pxrem*30;
 
         .woocommerce-billing-fields__field-wrapper,
         .woocommerce-shipping-fields__field-wrapper{
             border: $pxrem*0.5 solid var(--color__border_gray);
-            padding-top: $pxrem*30;
-            padding-bottom: $pxrem*30;
+            // padding: $pxrem*30 $pxrem*10;
             
 
             // all fields
@@ -118,14 +117,14 @@ form#checkout{
                 }
             }
 
-            // first | last - name
-            p#billing_first_name_field,
-            p#billing_last_name_field,
-            p#shipping_first_name_field,
-            p#shipping_last_name_field{
-                float: left;
-                width: 50%;
-            }
+            // // first | last - name
+            // p#billing_first_name_field,
+            // p#billing_last_name_field,
+            // p#shipping_first_name_field,
+            // p#shipping_last_name_field{
+            //     float: left;
+            //     width: 50%;
+            // }
         }
 
         // Create an account - account fields

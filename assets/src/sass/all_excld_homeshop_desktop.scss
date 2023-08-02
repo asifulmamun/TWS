@@ -15,11 +15,6 @@ p.form-row{
         display: block;
         font-weight: 500;
     }
-
-    input[type="checkbox"]{
-        display: inline;
-        height: inherit;
-    }
     
     input{
         outline: none;
@@ -28,6 +23,11 @@ p.form-row{
         margin-top: $pxrem*10;
         padding: $pxrem*5 $pxrem*8;
         display: block;
+    }
+
+    input[type="checkbox"]{
+        display: inline;
+        height: inherit;
     }
 
     button[type="submit"]{

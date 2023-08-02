@@ -46,6 +46,9 @@ aside#aside{
         // max-width: calc(#{$aside_width} - #{$pxrem * 4});
         // max-height: $pxrem * 32;
         background: var(--color__secondary);
+        padding: $pxrem*6 $pxrem*10;
+        font-size: $pxrem*16;
+        font-weight: bold;
 
 
         // Quick Menu

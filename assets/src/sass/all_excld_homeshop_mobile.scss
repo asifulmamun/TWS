@@ -11,7 +11,7 @@
 
 p.form-row{
 
-    padding-top: $pxrem*20;
+    padding: $pxrem*10 $pxrem*16;
 
     label{
         font-weight: 500;
@@ -26,6 +26,11 @@ p.form-row{
         display: block;
     }
 
+    input[type="checkbox"]{
+        display: inline;
+        height: inherit;
+    }
+    
     button[type=submit]{
         display: block;
         margin: $pxrem*20 $pxrem*5;
@@ -49,6 +54,9 @@ p.form-row{
 
 // cart page
 @import "./mobile_components/cart_page";
+
+// checkout page
+@import "./mobile_components/checkout_page";
 
 // my account
 @import "./mobile_components/my_account";
