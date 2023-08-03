@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'tws__single_product grid grid-cols-10', $product ); ?>>
 
-	<div class="col-span-10"><?php
+	<div class="col-span-10 pt-4 pb-4"><?php
 
 		/**
 		 * Hook: woocommerce_before_single_product_summary.
@@ -48,7 +48,7 @@ if ( post_password_required() ) {
 	
 	?></div>
 
-	<div id="tws__single_product_small_details" class="summary entry-summary col-span-10">
+	<div id="tws__single_product_small_details" class="summary entry-summary col-span-10 pt-4 pb-4">
 		<?php
 		/**
 		 * Hook: woocommerce_single_product_summary.
@@ -69,7 +69,7 @@ if ( post_password_required() ) {
 		
 	</div>
 
-	<div class="col-span-10"><?php
+	<div class="col-span-10 mt-4"><?php
 		/**
 		 * Hook: woocommerce_after_single_product_summary.
 		 *

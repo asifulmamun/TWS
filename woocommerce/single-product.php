@@ -30,6 +30,8 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
+	
+	<?php dynamic_sidebar( 'tws__header_widget_non_front_after_bredcrumb' ); ?>
 
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>

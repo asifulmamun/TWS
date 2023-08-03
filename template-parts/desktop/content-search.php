@@ -8,6 +8,7 @@
  */
 
 ?>
+<?php dynamic_sidebar( 'tws__header_widget_non_front_after_bredcrumb' ); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	

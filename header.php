@@ -25,3 +25,7 @@
 	endif;
 	?>
 <main id="main" class="w-full pl-4 md:pl-56 pr-4 md:pr-14 transition-all ease-in-out delay-150 duration-300">
+	<?php if(!is_front_page() || is_home()):
+		dynamic_sidebar( 'tws__front_pg_header' ); // if only home/front page then the widget will show
+	endif; ?>
+	<?php dynamic_sidebar( 'tws__header_widget' ); ?>

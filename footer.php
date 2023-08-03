@@ -16,15 +16,16 @@
 else :
 		get_template_part('template-parts/desktop/global/footer', '');
 endif; ?>
+<?php dynamic_sidebar( 'tws__before_footer' ); ?>
 <footer class="grid grid-cols-12">
 	<div class="col-span-4">
-		col-1
+		<?php dynamic_sidebar( 'tws__widget_footer_col_1' ); ?>
 	</div>
 	<div class="col-span-4">
-		col-1
+		<?php dynamic_sidebar( 'tws__widget_footer_col_2' ); ?>
 	</div>
 	<div class="col-span-4">
-		col-1
+		<?php dynamic_sidebar( 'tws__widget_footer_col_3' ); ?>
 	</div>
 </footer>
 

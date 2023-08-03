@@ -14,10 +14,10 @@
 ?>
 <?php // left-0 md:-left-80 // for render tailwindcss  ?>
 <aside id="aside" class="fixed -left-80 md:left-0 z-30 w-52 flex flex-col bottom-0 overflow-x-hidden overflow-y-scroll transition-all ease-in-out delay-150 duration-300">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	
 	<div class="block text-center p-1 border m-1 font-medium"><?php echo (get_bloginfo('description', 'display') || is_customize_preview())? get_bloginfo('description', 'display'): null;?></div>
-	<?php
+	<?php dynamic_sidebar( 'tws__sidebar_widget_above_menu' ); ?>
+    <?php
 		wp_nav_menu(
 			array(
 				'theme_location'        => 'primary-menu',
@@ -30,7 +30,7 @@
 			)
 		);
 	?>
-
+	<?php dynamic_sidebar( 'tws__sidebar_widget_below_menu' ); ?>
     <div id="tws__quick_access_menu" class="tws__quick_access_menu fixed -left-80 md:left-0 w-52 overflow-hidden bottom-0 z-10 border-t transition-all ease-in-out delay-150 duration-300">
         <?php
             // Quick menu print 

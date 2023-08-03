@@ -86,16 +86,16 @@ function tws_master_pro_setup() {
 	// );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'tws_master_pro_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
+	// add_theme_support(
+	// 	'custom-background',
+	// 	apply_filters(
+	// 		'tws_master_pro_custom_background_args',
+	// 		array(
+	// 			'default-color' => 'ffffff',
+	// 			'default-image' => '',
+	// 		)
+	// 	)
+	// );
 
 	// Add theme support for selective refresh for widgets.
 	// add_theme_support( 'customize-selective-refresh-widgets' );
@@ -105,16 +105,16 @@ function tws_master_pro_setup() {
 	 *
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
-	add_theme_support(
-		'custom-logo',
-		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-			'unlink-homepage-logo' => true,
-		)
-	);
+	// add_theme_support(
+	// 	'custom-logo',
+	// 	array(
+	// 		'height'      => 250,
+	// 		'width'       => 250,
+	// 		'flex-width'  => true,
+	// 		'flex-height' => true,
+	// 		'unlink-homepage-logo' => true,
+	// 	)
+	// );
 }
 add_action( 'after_setup_theme', 'tws_master_pro_setup' );
 
@@ -125,30 +125,153 @@ add_action( 'after_setup_theme', 'tws_master_pro_setup' );
  *
  * @global int $content_width
  */
-function tws_master_pro_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'tws_master_pro_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'tws_master_pro_content_width', 0 );
+// function tws_master_pro_content_width() {
+// 	$GLOBALS['content_width'] = apply_filters( 'tws_master_pro_content_width', 640 );
+// }
+// add_action( 'after_setup_theme', 'tws_master_pro_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-// function tws_master_pro_widgets_init() {
-// 	register_sidebar(
-// 		array(
-// 			'name'          => esc_html__( 'Sidebar', 'tws-master-pro' ),
-// 			'id'            => 'sidebar-1',
-// 			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
-// 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-// 			'after_widget'  => '</section>',
-// 			'before_title'  => '<h2 class="widget-title">',
-// 			'after_title'   => '</h2>',
-// 		)
-// 	);
-// }
-// add_action( 'widgets_init', 'tws_master_pro_widgets_init' );
+
+function tws__front_pg_header() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__front_pg_header',
+			'name'          => esc_html__( 'Front Page Header Widget', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__front_pg_header' );
+
+function tws__header_widget() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__header_widget',
+			'name'          => esc_html__( 'Header Widget', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__header_widget' );
+
+function tws__header_widget_non_front_after_bredcrumb() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__header_widget_non_front_after_bredcrumb',
+			'name'          => esc_html__( 'Header After BreadCrumb Non Front Page', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__header_widget_non_front_after_bredcrumb' );
+
+function tws__sidebar_widget_above_menu() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__sidebar_widget_above_menu',
+			'name'          => esc_html__( 'Sidebar above menu', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__sidebar_widget_above_menu' );
+
+function tws__sidebar_widget_below_menu() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__sidebar_widget_below_menu',
+			'name'          => esc_html__( 'Sidebar below menu', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__sidebar_widget_below_menu' );
+
+function tws__before_footer() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__before_footer',
+			'name'          => esc_html__( 'Before Footer', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__before_footer' );
+
+function tws__widget_footer_col_1() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__widget_footer_col_1',
+			'name'          => esc_html__( 'Footer Column 1', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__widget_footer_col_1' );
+
+function tws__widget_footer_col_2() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__widget_footer_col_2',
+			'name'          => esc_html__( 'Footer Column 2', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__widget_footer_col_2' );
+
+function tws__widget_footer_col_3() {
+	register_sidebar(
+		array(
+			'id'            => 'tws__widget_footer_col_3',
+			'name'          => esc_html__( 'Footer Column 3', 'tws-master-pro' ),
+			'description'   => esc_html__( 'Add widgets here.', 'tws-master-pro' ),
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'tws__widget_footer_col_3' );
+
+
 
 /**
  * Enqueue scripts and styles.

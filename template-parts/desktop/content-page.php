@@ -13,6 +13,8 @@
 	<header class="entry-header bg-red-500 text-white py-4 px-3 my-10 text-center">
 		<?php the_title( '<h1 class="entry-title text-lg bold">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+	
+	<?php dynamic_sidebar( 'tws__header_widget_non_front_after_bredcrumb' ); ?>
 
 	<?php tws_master_pro_post_thumbnail(); ?>
 
