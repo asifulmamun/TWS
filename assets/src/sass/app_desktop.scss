@@ -14,10 +14,10 @@
 
 
 // Global of conent
-// @import "./components/global";
-// @import "./components/header";
-// @import "./components/aside";
-// @import "./components/footer";
+@import "./components/global";
+@import "./components/header";
+@import "./components/aside";
+@import "./components/footer";
 
 
 
@@ -29,5 +29,4 @@ main#main{
     .columns-4{
         all: unset !important;
     }
-
 }

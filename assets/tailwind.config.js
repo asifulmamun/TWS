@@ -81,6 +81,7 @@ if(devView == 1){
 
 
 module.exports = {
+  mode: 'jit',
   purge: phpFiles,
   darkMode: false, // or 'media' or 'class'
   theme: {
