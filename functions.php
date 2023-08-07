@@ -344,3 +344,9 @@ require get_template_directory() . '/inc/template-tags.php';
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/* 
+ * TGM Plugin Activation - for required installation plugin external/internal
+ *  */
+require get_template_directory() . '/inc/tgm.php';
+
