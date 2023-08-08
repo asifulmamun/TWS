@@ -350,3 +350,14 @@ if ( class_exists( 'WooCommerce' ) ) {
  *  */
 require get_template_directory() . '/inc/tgm.php';
 
+/* 
+ * Automatic Create Page - Example: About US/ Contact etc
+ *  */
+require get_template_directory() . '/inc/tws_page_create.php';
+
+
+/* 
+ * Theme Updater
+ *  */
+require get_template_directory() . '/inc/tws__theme_update.php';
+
