@@ -1,23 +1,21 @@
 <?php
 
 // theme updater
-add_filter( 'site_transient_update_themes', 'misha_update_themes' );
+add_filter( 'site_transient_update_themes', 'tws__update_themes' );
 
-function misha_update_themes( $transient ) {
+function tws__update_themes( $transient ) {
 
 	// let's get the theme directory name
-	// it will be "misha-theme"
 	$stylesheet = get_template();
 
 	// now let's get the theme version
-	// but maybe it is better to hardcode it in a constant
 	$theme = wp_get_theme();
 	$version = $theme->get( 'Version' );
 
 
 	// connect to a remote server where the update information is stored
 	$remote = wp_remote_get(
-		'http://localhost/info.json',
+		'https://api.asifulmamun.info.bd/wp-theme-tws-master-pro/',
 		array(
 			'timeout' => 10,
 			'headers' => array(
