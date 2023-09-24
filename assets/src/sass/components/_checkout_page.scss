@@ -2,6 +2,12 @@
     - before form of checkout
  */
 
+@keyframes tws__place_order_fixedAimate {
+    0% {scale: 1;}
+    50% {scale: 1.3;}
+    100% {scale: 1;}
+}
+
 .tws__place_order_fixed{
     position: fixed;
     right: $pxrem*0;
@@ -10,16 +16,17 @@
     @include transition(0.3s);
     z-index: 100;
 
-    @include tws__vertical_txt(180deg);
+    @include tws__vertical_txt(90deg);
     font-size: large;
     font-weight: bold;
-    padding: $pxrem*40 $pxrem*10;
+    padding: $pxrem*5 $pxrem*10;
+    animation: tws__place_order_fixedAimate 3s infinite;
 
-    svg{
-        display: inline;
-        margin-right: $pxrem*11;
-        margin-top: $pxrem*12;
-    }
+    // svg{
+    //     display: inline;
+    //     margin-right: $pxrem*11;
+    //     margin-top: $pxrem*12;
+    // }
 }
 
 .woocommerce{
